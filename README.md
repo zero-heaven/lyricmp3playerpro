@@ -1,5 +1,5 @@
-# visual Lyric Mp3Player-PRO
-1. a better look interface and and include a btach lrc converter easy convert your select lrc convert to a single playlist.js file put into same html dir.
+# visual html5 Lyric Mp3Player-PRO
+1. a better look interface and and include a batch lrc converter easy convert your select lrc convert to a single playlist.js file put into same html dir.
 and if you have local mp3 please follow subdir mp3/ all of your mp3 files and lrc and jpg must same file name.
 2. more beautiful have visual effect of left top when playing.
 3. of course have blur and transparent control siderbar to adjust your art cover background.
