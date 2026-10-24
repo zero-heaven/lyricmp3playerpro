@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="h-full bg-slate-950 text-slate-100">
 <head>
   <meta charset="UTF-8">
@@ -77,7 +77,7 @@
   <!-- Mini Visualizer for Mobile/Header Display -->
 <!-- w-25 h-10 (w-0.8cm, h-0.5cm)-->
 <!-- w-20 h-5 (w-1.4cm, h-0.4cm)-->
-          <canvas id="mini-visualizer-canvas" class="w-20 h-5 rounded bg-slate-950/60 border border-slate-800/80"></canvas>
+          <canvas id="mini-visualizer-canvas" class="w-20 h-5 rounded bg-slate-950/60 border border-slate-800/80 md:hidden"></canvas>
         </div>
       </div>
     </div>
@@ -192,7 +192,7 @@
       </div>
 
       <!-- Scrolling Lyrics Container -->
-      <div id="lyric-container" class="relative z-10 flex-1 overflow-y-auto px-4 sm:px-6 py-20 sm:py-32 space-y-4 sm:space-y-6 text-center scroll-smooth min-h-0 bg-transparent" style="display: block;">
+      <div id="lyric-container" class="relative z-10 flex-1 overflow-y-auto px-4 sm:px-6 py-20 sm:py-32 space-y-4 sm:space-y-6 text-center scroll-smooth min-h-0 bg-transparent" style="display: none;">
         <p class="text-slate-400 italic text-sm drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">Select or play a track to load LRC lyrics...</p>
       </div>
     </section>
@@ -272,7 +272,8 @@
         <button id="btn-loop-mode" title="Loop Mode: Repeat All" class="p-2 rounded-xl text-emerald-400 hover:bg-slate-800 transition-all">
           <i class="fa-solid fa-repeat text-base"></i>
         </button>
-        <span id="lyric-btn" onclick="toggleLyric()" style="cursor: pointer; font-size: 20px;" title = "Lyric: On">🎶</span>
+        <span id="lyric-btn" onclick="toggleLyric()" style="cursor: pointer; font-size: 20px;" title = "">
+</span>
       </div>
     </div>
   </footer>
@@ -425,16 +426,34 @@
       renderPlaylistUI();
     }
 
-function toggleLyric() {
+// 1. 定義獲取 SVG 的函數
+function getLyricIcon(status) {
+  if (status === 'on') {
+    return `<svg xmlns="http://w3.org" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+              <path d="M8 9h8"></path>
+              <path d="M8 13h5"></path>
+            </svg>`;
+  } else {
+    return `<svg xmlns="http://w3.org" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 .45-1.27"></path>
+              <line x1="2" y1="2" x2="22" y2="22"></line>
+            </svg>`;
+  }
+}
+
+// 2. 獲取你的 DOM 元素並插入（注意：必須用 innerHTML）
   const lyricBtn = document.getElementById('lyric-btn');
-  
+lyricBtn.innerHTML = getLyricIcon('off'); // 顯示開啟圖標
+
+function toggleLyric() {
 if (lyricContainer.style.display !== 'block') {
     lyricContainer.style.display = 'block';
-    lyricBtn.innerText = '🎶'; // 顯示歌詞時的圖示
+    lyricBtn.innerHTML = getLyricIcon('on'); // 顯示歌詞時的圖示
     lyricBtn.title = "Lyric: On";
   } else {
     lyricContainer.style.display = 'none';
-    lyricBtn.innerText = '🔇'; // 隱藏歌詞時的圖示
+lyricBtn.innerHTML = getLyricIcon(); // 隱藏歌詞時的圖示
     lyricBtn.title = "Lyric: Off";
   }
 }
