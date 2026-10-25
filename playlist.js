@@ -31,7 +31,7 @@ const playlist = [
 [01:24.57]Take your passion
 [01:28.33]And make it happen
 [01:32.34]Pictures come alive
-[01:34.59]You can dance right through your life
+[01:34.09]You can dance right through your life
 [01:56.16]Now I hear the music
 [02:00.18]Close my eyes, I am rhythm
 [02:04.19]In a flash, it takes hold of my heart
