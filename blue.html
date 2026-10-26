@@ -192,7 +192,7 @@
       </div>
 
       <!-- Scrolling Lyrics Container -->
-      <div id="lyric-container" class="relative z-10 flex-1 overflow-y-auto px-4 sm:px-6 py-20 sm:py-32 space-y-4 sm:space-y-6 text-center scroll-smooth min-h-0 bg-transparent">
+      <div id="lyric-container" class="relative z-10 flex-1 overflow-y-auto px-4 sm:px-6 py-20 sm:py-32 space-y-4 sm:space-y-6 text-center scroll-smooth min-h-0 bg-transparent" style="display: none;">
         <p class="text-slate-400 italic text-sm drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">Select or play a track to load LRC lyrics...</p>
       </div>
     </section>
@@ -280,7 +280,7 @@
 
   <!-- Native Audio Element -->
   <audio id="audio-player" class="hidden" preload="auto"></audio>
-  <script src="36playlist.js"></script>
+  <script src="playlist.js"></script>
   <script>
     // 🎵 PLAYLIST CONFIGURATION
 
@@ -500,9 +500,10 @@ lyricBtn.innerHTML = getLyricIcon(); // 隱藏歌詞時的圖示
 
         item.onclick = () => {
           loadTrack(i);
-          playAudio();
-playlistDrawer.classList.add('translate-x-full'); 
-        };
+ 
+         playAudio();
+         playlistDrawer.classList.add('translate-x-full'); 
+       };
         playlistItems.appendChild(item);
       });
     }

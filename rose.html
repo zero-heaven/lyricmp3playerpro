@@ -49,7 +49,7 @@
       box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
     }
 
-    /* Karaoke Dynamic Green Gradient Lyric Overlay default: #22c55e*/
+    /* Karaoke Dynamic Rose Gradient Lyric Overlay */
     .lyric-gradient-active {
       background: linear-gradient(to right, #FF007F var(--progress, 0%), #ffffff var(--progress, 0%));
       -webkit-background-clip: text;
@@ -57,7 +57,7 @@
       transition: background-size 0.05s linear;
     }
     .lyric-plain-active {
-      color: #FF007F  !important;
+      color: #FF007F !important;
       font-weight: 700;
       text-shadow: 0 0 12px rgba(34, 197, 94, 0.8);
     }
@@ -192,7 +192,7 @@
       </div>
 
       <!-- Scrolling Lyrics Container -->
-      <div id="lyric-container" class="relative z-10 flex-1 overflow-y-auto px-4 sm:px-6 py-20 sm:py-32 space-y-4 sm:space-y-6 text-center scroll-smooth min-h-0 bg-transparent">
+      <div id="lyric-container" class="relative z-10 flex-1 overflow-y-auto px-4 sm:px-6 py-20 sm:py-32 space-y-4 sm:space-y-6 text-center scroll-smooth min-h-0 bg-transparent" style="display: none;">
         <p class="text-slate-400 italic text-sm drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">Select or play a track to load LRC lyrics...</p>
       </div>
     </section>
@@ -280,7 +280,7 @@
 
   <!-- Native Audio Element -->
   <audio id="audio-player" class="hidden" preload="auto"></audio>
-  <script src="36playlist.js"></script>
+  <script src="playlist.js"></script>
   <script>
     // 🎵 PLAYLIST CONFIGURATION
 
@@ -500,9 +500,10 @@ lyricBtn.innerHTML = getLyricIcon(); // 隱藏歌詞時的圖示
 
         item.onclick = () => {
           loadTrack(i);
-          playAudio();
-          playlistDrawer.classList.add('translate-x-full');
-        };
+ 
+         playAudio();
+         playlistDrawer.classList.add('translate-x-full'); 
+       };
         playlistItems.appendChild(item);
       });
     }
@@ -744,7 +745,7 @@ lyricBtn.innerHTML = getLyricIcon(); // 隱藏歌詞時的圖示
           if (labelColorMode) labelColorMode.textContent = 'No Rose';
         } else {
           karaokeColorMode = 'gradient';
-          if (labelColorMode) labelColorMode.textContent = 'Gradient Green';
+          if (labelColorMode) labelColorMode.textContent = 'Gradient Rose';
         }
         if (!audio.paused && isLrcSynced) {
           updateKaraokeLyrics(audio.currentTime);
