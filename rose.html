@@ -501,6 +501,7 @@ lyricBtn.innerHTML = getLyricIcon(); // 隱藏歌詞時的圖示
         item.onclick = () => {
           loadTrack(i);
           playAudio();
+          playlistDrawer.classList.add('translate-x-full');
         };
         playlistItems.appendChild(item);
       });
