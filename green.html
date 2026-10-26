@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="h-full bg-slate-950 text-slate-100">
 <head>
   <meta charset="UTF-8">
@@ -49,7 +49,7 @@
       box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
     }
 
-    /* Karaoke Dynamic Green Gradient Lyric Overlay :Rose #22c55e*/
+    /* Karaoke Dynamic Green Gradient Lyric Overlay */
     .lyric-gradient-active {
       background: linear-gradient(to right, #22c55e var(--progress, 0%), #ffffff var(--progress, 0%));
       -webkit-background-clip: text;
@@ -57,7 +57,7 @@
       transition: background-size 0.05s linear;
     }
     .lyric-plain-active {
-      color: #22c55e  !important;
+      color: #22c55e !important;
       font-weight: 700;
       text-shadow: 0 0 12px rgba(34, 197, 94, 0.8);
     }
@@ -85,10 +85,10 @@
     <!-- Header Actions -->
     <div class="flex items-center gap-2">
       <!-- Gradient Mode Switch Button -->
-      <button id="btn-color-mode" title="Switch Karaoke Effect (Gradient / Plain green / No green)" 
+      <button id="btn-color-mode" title="Switch Karaoke Effect (Gradient / Plain Green / No Green)" 
               class="flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-800 hover:bg-slate-700 text-emerald-400 border border-slate-700 transition-all">
         <i class="fa-solid fa-palette text-xs"></i>
-        <span id="label-color-mode" class="hidden sm:inline">Gradient green</span>
+        <span id="label-color-mode" class="hidden sm:inline">Gradient Green</span>
       </button>
 
       <!-- Toggle Cover Fit Mode Button -->
@@ -192,7 +192,7 @@
       </div>
 
       <!-- Scrolling Lyrics Container -->
-      <div id="lyric-container" class="relative z-10 flex-1 overflow-y-auto px-4 sm:px-6 py-20 sm:py-32 space-y-4 sm:space-y-6 text-center scroll-smooth min-h-0 bg-transparent" style="display: none;">
+      <div id="lyric-container" class="relative z-10 flex-1 overflow-y-auto px-4 sm:px-6 py-20 sm:py-32 space-y-4 sm:space-y-6 text-center scroll-smooth min-h-0 bg-transparent">
         <p class="text-slate-400 italic text-sm drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">Select or play a track to load LRC lyrics...</p>
       </div>
     </section>
@@ -501,7 +501,7 @@ lyricBtn.innerHTML = getLyricIcon(); // 隱藏歌詞時的圖示
         item.onclick = () => {
           loadTrack(i);
           playAudio();
-          playlistDrawer.classList.add('translate-x-full');
+playlistDrawer.classList.add('translate-x-full'); 
         };
         playlistItems.appendChild(item);
       });
@@ -738,10 +738,10 @@ lyricBtn.innerHTML = getLyricIcon(); // 隱藏歌詞時的圖示
       btnColorMode.onclick = () => {
         if (karaokeColorMode === 'gradient') {
           karaokeColorMode = 'plain';
-          if (labelColorMode) labelColorMode.textContent = 'Plain green';
+          if (labelColorMode) labelColorMode.textContent = 'Plain Green';
         } else if (karaokeColorMode === 'plain') {
           karaokeColorMode = 'none';
-          if (labelColorMode) labelColorMode.textContent = 'No green';
+          if (labelColorMode) labelColorMode.textContent = 'No Green';
         } else {
           karaokeColorMode = 'gradient';
           if (labelColorMode) labelColorMode.textContent = 'Gradient Green';
