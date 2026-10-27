@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="h-full bg-slate-950 text-slate-100">
 <head>
   <meta charset="UTF-8">
@@ -9,6 +9,12 @@
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" >
   <style>
+      :root {
+      --lyric-accent:#22c55e;
+    }
+
+
+  #22c55e
     /* Custom Scrollbar for Lyric & Playlist */
     ::-webkit-scrollbar {
       width: 6px;
@@ -51,13 +57,13 @@
 
     /* Karaoke Dynamic Green Gradient Lyric Overlay */
     .lyric-gradient-active {
-      background: linear-gradient(to right, #22c55e var(--progress, 0%), #ffffff var(--progress, 0%));
+      background: linear-gradient(to right, var(--lyric-accent) var(--progress, 0%), #ffffff var(--progress, 0%));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       transition: background-size 0.05s linear;
     }
     .lyric-plain-active {
-      color: #22c55e !important;
+      color: var(--lyric-accent) !important;
       font-weight: 700;
       text-shadow: 0 0 12px rgba(34, 197, 94, 0.8);
     }
@@ -105,6 +111,13 @@
         <span id="label-viz-mode" class="hidden sm:inline">Viz: On</span>
       </button>
 
+      <!-- Toggle lyric color  Mode: color switcher-->
+     <button id="btn-lyric-color"
+        title="Lyric Color"
+        class="flex items-center justify-center px-2.5 py-1.5 text-lg font-semibold rounded-lg bg-slate-800 hover:bg-slate-700 text-emerald-400 border border-slate-700 transition-all">
+       🎨
+      </button>
+
       <!-- Toggle Playlist Button -->
       <button id="btn-toggle-playlist" title="Toggle Playlist Drawer" 
               class="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white shadow-lg shadow-emerald-600/20 transition-all">
@@ -144,7 +157,7 @@
       </div>
 
       <!-- Realtime Frequency Visualizer Canvas (Desktop) -->
-      <div class="w-full max-w-md h-8 mt-3 shrink-0">
+      <div class="w-full max-w-md h-16 mt-3 shrink-0">
         <canvas id="visualizer-canvas" class="w-full h-full rounded-lg"></canvas>
       </div>
     </section>
@@ -290,6 +303,7 @@
     let isShuffle = false;
     let loopMode = 'all'; // 'none' | 'all' | 'one'
     let karaokeColorMode = 'gradient'; // 'gradient' | 'plain' | 'none'
+    let lyricAccentColor = 'green'; // color switcher
     let coverFitMode = 'contain'; // 'contain' | 'cover'
     let enableVisualizer = true;
     let isLrcSynced = true; // Sync Toggle State
@@ -321,6 +335,7 @@
     const lyricMeta = document.getElementById('lyric-meta');
     const headerSongInfo = document.getElementById('header-song-info');
 
+    const btnLyricColor = document.getElementById('btn-lyric-color'); //color switcher
     const btnToggleSync = document.getElementById('btn-toggle-sync');
     const labelSyncMode = document.getElementById('label-sync-mode');
 
@@ -468,8 +483,8 @@
         item.onclick = () => {
           loadTrack(i);
           playAudio();
-          playlistDrawer.classList.add('translate-x-full'); 
-       };
+          playlistDrawer.classList.add('translate-x-full');
+        };
         playlistItems.appendChild(item);
       });
     }
@@ -486,6 +501,50 @@
       audio.pause();
       iconPlayPause.className = "fa-solid fa-play text-xl";
     }
+
+//color switcher
+if (btnLyricColor) {
+
+  const lyricColors = [
+    { color: "#22c55e" }, // Green
+    { color: "#FF007F" }, // Rose
+    { color: "#3399FF" }  // Blue
+  ];
+
+  let currentColorIndex =
+      parseInt(localStorage.getItem('lyricColorIndex') || '0');
+
+  function applyLyricColor() {
+
+    const selected = lyricColors[currentColorIndex];
+
+    document.documentElement.style.setProperty(
+      '--lyric-accent',
+      selected.color
+    );
+
+    btnLyricColor.style.color = selected.color;
+
+    if (!audio.paused) {
+      updateKaraokeLyrics(audio.currentTime);
+    }
+  }
+
+  applyLyricColor();
+
+  btnLyricColor.onclick = () => {
+
+    currentColorIndex =
+      (currentColorIndex + 1) % lyricColors.length;
+
+    localStorage.setItem(
+      'lyricColorIndex',
+      currentColorIndex
+    );
+
+    applyLyricColor();
+  };
+}
 
     btnPlayPause.onclick = () => {
       if (audio.paused) {
