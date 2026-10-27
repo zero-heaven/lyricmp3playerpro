@@ -110,11 +110,11 @@
       </button>
 
       <!-- Toggle lyric color  Mode: color switcher-->
-      <button id="btn-lyric-color"
-        title="Lyric Color"
-        class="flex items-center justify-center px-2.5 py-1.5 text-lg font-semibold rounded-lg bg-slate-800 hover:bg-slate-700 text-emerald-400 border border-slate-700 transition-all">
-      🎨
-     </button>
+<button id="btn-lyric-color"
+        title="Change Lyric Color"
+        class="flex items-center justify-center px-2.5 py-1.5 text-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-lg transition-all">
+  <i id="lyric-color-icon" class="fa-solid fa-palette"></i>
+</button>
 
       <!-- Toggle Playlist Button -->
       <button id="btn-toggle-playlist" title="Toggle Playlist Drawer" 
@@ -332,6 +332,7 @@
     const lyricMeta = document.getElementById('lyric-meta');
     const headerSongInfo = document.getElementById('header-song-info');
 
+    const lyricColorIcon = document.getElementById('lyric-color-icon');
     const btnLyricColor = document.getElementById('btn-lyric-color'); //color switcher
     const btnToggleSync = document.getElementById('btn-toggle-sync');
     const labelSyncMode = document.getElementById('label-sync-mode');
@@ -520,7 +521,7 @@ if (btnLyricColor) {
       selected.color
     );
 
-    btnLyricColor.style.color = selected.color;
+    lyricColorIcon.style.color = selected.color;
 
     if (!audio.paused) {
       updateKaraokeLyrics(audio.currentTime);
