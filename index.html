@@ -12,9 +12,6 @@
       :root {
       --lyric-accent:#22c55e;
     }
-
-
-  #22c55e
     /* Custom Scrollbar for Lyric & Playlist */
     ::-webkit-scrollbar {
       width: 6px;
@@ -58,6 +55,7 @@
     /* Karaoke Dynamic Green Gradient Lyric Overlay */
     .lyric-gradient-active {
       background: linear-gradient(to right, var(--lyric-accent) var(--progress, 0%), #ffffff var(--progress, 0%));
+     /* default: (tailwind Css: green-500 核心標準色), 充滿活力的亮綠色 #22c55e; 明亮鮮桃紅 #FF4D88; 標準桃紅色 #FF007F; 明亮的桃紅（Bright Peach / Bright Pinkish-Peach） #FF6699; 活力珊瑚桃紅(橙) FF6F61; */
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       transition: background-size 0.05s linear;
@@ -68,7 +66,7 @@
       text-shadow: 0 0 12px rgba(34, 197, 94, 0.8);
     }
     .lyric-none-active {
-      color: #ffffff !important;
+      color: #ffffff !important; /*（Luminous Red / 螢光紅）#FF2D21 或 #FF2A24*/
       font-weight: 700;
     }
   </style>
@@ -83,7 +81,7 @@
   <!-- Mini Visualizer for Mobile/Header Display -->
 <!-- w-25 h-10 (w-0.8cm, h-0.5cm)-->
 <!-- w-20 h-5 (w-1.4cm, h-0.4cm)-->
-          <canvas id="mini-visualizer-canvas" class="w-20 h-5 rounded bg-slate-950/60 border border-slate-800/80"></canvas>
+          <canvas id="mini-visualizer-canvas" class="w-20 h-5 rounded bg-slate-950/60 border border-slate-800/80 md:hidden"></canvas>
         </div>
       </div>
     </div>
@@ -112,11 +110,11 @@
       </button>
 
       <!-- Toggle lyric color  Mode: color switcher-->
-     <button id="btn-lyric-color"
+      <button id="btn-lyric-color"
         title="Lyric Color"
         class="flex items-center justify-center px-2.5 py-1.5 text-lg font-semibold rounded-lg bg-slate-800 hover:bg-slate-700 text-emerald-400 border border-slate-700 transition-all">
-       🎨
-      </button>
+      🎨
+     </button>
 
       <!-- Toggle Playlist Button -->
       <button id="btn-toggle-playlist" title="Toggle Playlist Drawer" 
@@ -157,7 +155,7 @@
       </div>
 
       <!-- Realtime Frequency Visualizer Canvas (Desktop) -->
-      <div class="w-full max-w-md h-16 mt-3 shrink-0">
+      <div class="w-full max-w-md h-8 mt-3 shrink-0">
         <canvas id="visualizer-canvas" class="w-full h-full rounded-lg"></canvas>
       </div>
     </section>
@@ -303,7 +301,6 @@
     let isShuffle = false;
     let loopMode = 'all'; // 'none' | 'all' | 'one'
     let karaokeColorMode = 'gradient'; // 'gradient' | 'plain' | 'none'
-    let lyricAccentColor = 'green'; // color switcher
     let coverFitMode = 'contain'; // 'contain' | 'cover'
     let enableVisualizer = true;
     let isLrcSynced = true; // Sync Toggle State
@@ -483,8 +480,8 @@
         item.onclick = () => {
           loadTrack(i);
           playAudio();
-          playlistDrawer.classList.add('translate-x-full');
-        };
+          playlistDrawer.classList.add('translate-x-full'); //add this line here will work
+		};
         playlistItems.appendChild(item);
       });
     }

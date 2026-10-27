@@ -9,10 +9,9 @@
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" >
   <style>
-    :root {
+      :root {
       --lyric-accent:#22c55e;
     }
-
     /* Custom Scrollbar for Lyric & Playlist */
     ::-webkit-scrollbar {
       width: 6px;
@@ -155,7 +154,7 @@
       </div>
 
       <!-- Realtime Frequency Visualizer Canvas (Desktop) -->
-      <div class="w-full max-w-md h-16 mt-3 shrink-0">
+      <div class="w-full max-w-md h-8 mt-3 shrink-0">
         <canvas id="visualizer-canvas" class="w-full h-full rounded-lg"></canvas>
       </div>
     </section>
@@ -302,7 +301,6 @@
     let isShuffle = false;
     let loopMode = 'all'; // 'none' | 'all' | 'one'
     let karaokeColorMode = 'gradient'; // 'gradient' | 'plain' | 'none'
-    let lyricAccentColor = 'green'; // color switcher
     let coverFitMode = 'contain'; // 'contain' | 'cover'
     let enableVisualizer = true;
     let isLrcSynced = true; // Sync Toggle State
@@ -514,7 +512,7 @@ lyricBtn.innerHTML = getLyricIcon(); // 隱藏歌詞時的圖示
         item.onclick = () => {
           loadTrack(i);
           playAudio();
-          playlistDrawer.classList.add('translate-x-full');
+          playlistDrawer.classList.add('translate-x-full'); //add this line here will work
         };
         playlistItems.appendChild(item);
       });
