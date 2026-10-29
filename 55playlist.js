@@ -283,8 +283,8 @@ const playlist = [
     title: "Take My Breath Away",
     artist: "Berlin",
     album: "Unknown Album",
-    cover: "https://zero-heaven.github.io/lyricmp3player/mp3/Berlin - Take My Breath Away.jpg",
-    audioUrl: "https://zero-heaven.github.io/lyricmp3player/mp3/Berlin - Take My Breath Away.mp3",
+    cover: "https://zero-heaven.github.io/lyricmp3player/mp3/Berlin%20-%20Take%20My%20breath%20Away.jpg",
+    audioUrl: "https://zero-heaven.github.io/lyricmp3player/mp3/Berlin%20-%20Take%20My%20breath%20Away.mp3",
     lrcRaw: `[ti:Take My Breath Away]
 [ar:Berlin]
 [au:Giorgio Moroder/Tom Whitlock]
@@ -1142,8 +1142,8 @@ const playlist = [
     title: "Time In A Bottle",
     artist: "Jim Croce",
     album: "Unknown Album",
-    cover: "https://zero-heaven.github.io/lyricmp3player/mp3/Jim Croce - Time in a Bottle_1973.jpg",
-    audioUrl: "https://zero-heaven.github.io/lyricmp3player/mp3/Jim Croce - Time in a Bottle_1973.mp3",
+    cover: "https://zero-heaven.github.io/lyricmp3player/mp3/Jim%20Croce%20-%20Time%20in%20a%20bottle_1973.jpg",
+    audioUrl: "https://zero-heaven.github.io/lyricmp3player/mp3/Jim%20Croce%20-%20Time%20in%20a%20bottle_1973.mp3",
     lrcRaw: `[ti:Time In A Bottle]
 [ar:Jim Croce]
 [length:02:28.78]
@@ -2237,8 +2237,8 @@ const playlist = [
     title: "The Beatles - Let It Be",
     artist: "Unknown Artist",
     album: "Unknown Album",
-    cover: "https://zero-heaven.github.io/lyricmp3player/mp3/The Beatles - Let It Be.jpg",
-    audioUrl: "https://zero-heaven.github.io/lyricmp3player/mp3/The Beatles - Let It Be.mp3",
+    cover: "https://zero-heaven.github.io/lyricmp3player/mp3/The%20Beatles%20-%20Let%20It%20Be.jpg",
+    audioUrl: "https://zero-heaven.github.io/lyricmp3player/mp3/The%20Beatles%20-%20Let%20It%20Be.mp3",
     lrcRaw: `[length:04:03.07]
 [re:www.megalobiz.com/lrc/maker]
 [ve:v1.2.3]
@@ -2315,13 +2315,10 @@ const playlist = [
     title: "Yesterday",
     artist: "The beatles",
     album: "Unknown Album",
-    cover: "https://zero-heaven.github.io/lyricmp3player/mp3/The Beatles - Yesterday.jpg",
-    audioUrl: "https://zero-heaven.github.io/lyricmp3player/mp3/The Beatles - Yesterday.mp3",
+    cover: "https://zero-heaven.github.io/lyricmp3player/mp3/The%20Beatles%20-%20Yesterday.jpg",
+    audioUrl: "https://zero-heaven.github.io/lyricmp3player/mp3/The%20Beatles%20-%20Yesterday.mp3",
     lrcRaw: `[ti:Yesterday]
 [ar:The beatles]
-[Motherland]
-[re:正義必勝]
-[re:正義必勝]
 
 [00:00.00]Yesterday - The beatles
 
@@ -2350,8 +2347,8 @@ const playlist = [
     title: "Goodbye to Love",
     artist: "The Carpenter",
     album: "Unknown Album",
-    cover: "https://zero-heaven.github.io/lyricmp3player/mp3/The Carpenters - Goodbye to Love.jpg",
-    audioUrl: "https://zero-heaven.github.io/lyricmp3player/mp3/The Carpenters - Goodbye to Love.mp3",
+    cover: "https://zero-heaven.github.io/lyricmp3player/mp3/The%20Carpenters%20-%20Goodbye%20to%20Love.jpg",
+    audioUrl: "https://zero-heaven.github.io/lyricmp3player/mp3/The%20Carpenters%20-%20Goodbye%20to%20Love.mp3",
     lrcRaw: `[ti:Goodbye to Love]
 [length:03:59.57]
 [ar:The Carpenter]
@@ -2396,13 +2393,10 @@ const playlist = [
     title: "Sing",
     artist: "The Carpenters",
     album: "Unknown Album",
-    cover: "https://zero-heaven.github.io/lyricmp3player/mp3/The Carpenters - Sing.jpg",
-    audioUrl: "https://zero-heaven.github.io/lyricmp3player/mp3/The Carpenters - Sing.mp3",
+    cover: "https://zero-heaven.github.io/lyricmp3player/mp3/The%20Carpenters%20-%20Sing.jpg",
+    audioUrl: "https://zero-heaven.github.io/lyricmp3player/mp3/The%20Carpenters%20-%20Sing.mp3",
     lrcRaw: `[ti:Sing]
 [ar:The Carpenters]
-[Motherland]
-[re:正義必勝]
-[re:正義必勝]
 
 [00:00.00]Sing - The Carpenters
 
@@ -2436,8 +2430,8 @@ const playlist = [
     title: "This masquerade",
     artist: "The Carpenters",
     album: "Carpenters Collection",
-    cover: "https://zero-heaven.github.io/lyricmp3player/mp3/The Carpenters - This Masquerade.jpg",
-    audioUrl: "https://zero-heaven.github.io/lyricmp3player/mp3/The Carpenters - This Masquerade.mp3",
+    cover: "https://zero-heaven.github.io/lyricmp3player/mp3/The%20Carpenters%20-%20This%20Masquerade.jpg",
+    audioUrl: "https://zero-heaven.github.io/lyricmp3player/mp3/The%20Carpenters%20-%20This%20Masquerade.mp3",
     lrcRaw: `[ti:This masquerade]
 [ar:The Carpenters]
 [al:Carpenters Collection]
@@ -2479,8 +2473,8 @@ const playlist = [
     title: "Top of the world",
     artist: "The Carpenters",
     album: "Now & Then",
-    cover: "https://zero-heaven.github.io/lyricmp3player/mp3/The Carpenters - Top Of The World.jpg",
-    audioUrl: "https://zero-heaven.github.io/lyricmp3player/mp3/The Carpenters - Top Of The World.mp3",
+    cover: "https://zero-heaven.github.io/lyricmp3player/mp3/The%20Carpenters%20-%20Top%20Of%20The%20World.jpg",
+    audioUrl: "https://zero-heaven.github.io/lyricmp3player/mp3/The%20Carpenters%20-%20Top%20Of%20The%20World.mp3",
     lrcRaw: `[ti:Top of the world]
 [ar:The Carpenters]
 [al:Now & Then]
