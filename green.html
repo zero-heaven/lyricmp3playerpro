@@ -234,16 +234,6 @@
         </button>
       </div>
 
-      <!-- File Import Section -->
-      <div class="p-4 border-b border-slate-800/60 bg-slate-950/40 space-y-2 shrink-0">
-        <label class="block text-xs font-semibold text-slate-400">Import Local MP3 & LRC Files</label>
-        <label class="flex items-center justify-center gap-2 px-3 py-2 bg-slate-800 hover:bg-slate-700 text-emerald-400 border border-slate-700 rounded-xl cursor-pointer text-xs font-medium transition-all">
-          <i class="fa-solid fa-folder-open"></i>
-          <span>Add MP3 + LRC Files</span>
-          <input type="file" id="file-input" accept=".mp3,.lrc" multiple class="hidden">
-        </label>
-      </div>
-
       <!-- Track List Items Container -->
       <div id="playlist-items" class="flex-1 overflow-y-auto p-3 space-y-1">
         <!-- Dynamic playlist items inserted here -->
@@ -383,7 +373,6 @@
     const btnTogglePlaylist = document.getElementById('btn-toggle-playlist');
     const btnClosePlaylist = document.getElementById('btn-close-playlist');
     const playlistItems = document.getElementById('playlist-items');
-    const fileInput = document.getElementById('file-input');
 
     const btnSortTitle = document.getElementById('btn-sort-title');
     const btnSortArtist = document.getElementById('btn-sort-artist');
@@ -894,47 +883,6 @@
 
     btnTogglePlaylist.onclick = () => playlistDrawer.classList.remove('translate-x-full');
     btnClosePlaylist.onclick = () => playlistDrawer.classList.add('translate-x-full');
-
-    fileInput.onchange = (e) => {
-      const files = Array.from(e.target.files);
-      let newMp3s = [];
-      let lrcMap = {};
-
-      files.forEach(f => {
-        if (f.name.toLowerCase().endsWith('.mp3')) newMp3s.push(f);
-        if (f.name.toLowerCase().endsWith('.lrc')) {
-          const reader = new FileReader();
-          reader.onload = (evt) => {
-            const baseName = f.name.replace(/\.lrc$/i, '');
-            lrcMap[baseName] = evt.target.result;
-          };
-          reader.readAsText(f);
-        }
-      });
-
-      setTimeout(() => {
-        newMp3s.forEach((mp3, idx) => {
-          const baseName = mp3.name.replace(/\.mp3$/i, '');
-          const audioUrl = URL.createObjectURL(mp3);
-          const lrcRaw = lrcMap[baseName] || `[00:00.00]${mp3.name}`;
-
-          playlist.push({
-            id: `local-${Date.now()}-${idx}`,
-            title: baseName,
-            artist: "Local Track",
-            album: "My Music",
-            cover: "https://placehold.co/400x400/10b981/ffffff?text=MP3",
-            audioUrl: audioUrl,
-            lrcRaw: lrcRaw
-          });
-        });
-
-        if (newMp3s.length > 0) {
-          loadTrack(playlist.length - newMp3s.length);
-          playAudio();
-        }
-      }, 300);
-    };
 
     // Helper: Device Pixel Ratio High-DPI Canvas Resizer
     function fitCanvasToContainer(targetCanvas) {
