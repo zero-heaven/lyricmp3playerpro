@@ -1,5 +1,5 @@
 # visual html5 Lyric Mp3Player-PRO (*Extra version)
-1. Special improvement the visualizer has three mode to select, and add playlist group seperate playists inside.
+1. Special improvement the visualizer add 4 style to select, and add playlist group seperate playists inside.
 2. add playlist sort by song name/artist, and add search button will find both name or artist the keywords.
 2a. if you want to add groupplaylist you have to edit your playist.js and add sub header for each group playlist name. ref of me 55Grp-playlist.js you will know how to edit.
 2b. in the playlist, you can select all songs or by group list. if use search method better choose all songs then use to search. or group list area to search only that group of songs to be found.
