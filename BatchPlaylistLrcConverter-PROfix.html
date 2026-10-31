@@ -305,7 +305,7 @@
 
       if (processedPlaylist.length === 0) {
         parsedList.innerHTML = `<p class="text-xs text-slate-500 italic text-center py-8">No files selected. Import your MP3 and LRC files to generate playlist array.</p>`;
-        outputCode.value = `// const playlist = [];\n// Select MP3/LRC files to generate output.`;
+        outputCode.value = `// const playlists = [];\n// Select MP3/LRC files to generate output.`;
         return;
       }
 
@@ -328,7 +328,7 @@
       });
 
       // Generate JavaScript Code string
-      let codeStr = `const playlist = [\n`;
+      let codeStr = `const playlists = [\n`;
       processedPlaylist.forEach((item, idx) => {
         const formattedLrc = item.lrcRaw.split('\n').join('\n');
         codeStr += `  {\n`;
