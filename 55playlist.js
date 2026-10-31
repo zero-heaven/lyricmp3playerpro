@@ -1,4 +1,6 @@
-const playlist = [
+    // Converts your categorized object format (playlists = { rock: [...], jazz: [...] })
+
+const playlists = [
   {
     id: "song-1",
     title: "All Out Of Love",
@@ -9,8 +11,6 @@ const playlist = [
     lrcRaw: `[ti:All Out Of Love]
 [ar:Air Supply]
 [al:Lost in Love]
-[by:Freedom of Motherland]
-
 [00:00.00]All Out of Love - Air Supply - 1980
 [00:22.01]I'm lying alone with my head on the phone(我一個人躺著，電話筒就在我的耳邊)
 [00:26.68]Thinking of you till it hurts(我就這樣，一直想著你，直到想不下去為止) 
