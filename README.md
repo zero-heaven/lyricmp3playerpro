@@ -10,5 +10,5 @@ and if you have local mp3 please follow subdir mp3/ all of your mp3 files and lr
 6. have a playlist show/hide button to view.
 7. better look in desktop pc if play in mobile device you have installed simple server base of mobile browser security reason mp3 in local dir. if you online mp3.... of course not a problem.
 8. you can see my screenshot. have more fun.
-* green.html do not have search songs function. if you want must use default index.html (all in one).
-new add atmosphere effect in art cover area, inn art control button  adjust aleast value of 10, then adjust the below 2 para to mak it fast and many.
+9. * green.html do not have search songs function. if you want must use default index.html (all in one).
+10. # new add atmosphere effect in art cover area, inn art control button  adjust aleast value of 10, then adjust the below 2 para to mak it fast and many.
