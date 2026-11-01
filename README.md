@@ -15,4 +15,4 @@ and if you have local mp3 please follow subdir mp3/ all of your mp3 files and lr
 11. *add Ctx & visualizer duo detect, if Ctx support will use it by default.
 12. *fix mobile phone and desktop pc screen size arrange ratio.
 13. *add more visualizer and can save you choice which visualizer mode and lyric color.
-14. *fixed now support both playlist.js sub header(classify)/normal plain playlist.
+14. *fixed now support both playlist.js sub header(for group/classify)/normal plain playlist.
