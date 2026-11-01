@@ -42,57 +42,65 @@
       background: none !important;
       font-weight: 700;
     }
+
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
 </head>
 <body class="h-full flex flex-col justify-between overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-zinc-950 select-none font-sans">
 
-  <!-- Header -->
-  <header class="relative z-20 flex items-center justify-between px-2 sm:px-6 py-2 sm:py-3 bg-slate-900/80 backdrop-blur-md border-b border-slate-800/80 shrink-0 gap-1">
-    <!-- Mini Visualizer -->
-    <div class="flex items-center shrink-0 w-28 sm:w-36">
-      <canvas id="mini-visualizer-canvas" class="w-28 sm:w-36 h-4 sm:h-5 rounded bg-slate-950/60 border border-slate-800/80 md:hidden"></canvas>
+  <!-- Header (手機版：視覺化與按鈕在同一行，並拉寬視覺化佔用空間) -->
+  <header class="relative z-20 flex items-center justify-between px-2 sm:px-4 py-1.5 bg-slate-900/90 backdrop-blur-md border-b border-slate-800/85 shrink-0 gap-1.5 sm:gap-2 w-full box-border overflow-hidden">
+    
+    <!-- Mobile & Desktop Mini Visualizer (彈性拉寬佔滿可用空間，高度微調增加視覺張力) -->
+<!-- Mobile Mini Visualizer (手機版專用，在同一行並自動佔滿可用空間；桌機版 md:hidden 隱藏) -->
+    <div class="flex items-center flex-1 max-w-[150px] sm:max-w-[200px] md:hidden h-6 rounded bg-slate-950/60 border border-slate-800/80 overflow-hidden shrink-0">
+      <canvas id="mini-visualizer-canvas" class="w-full h-full block"></canvas>
     </div>
 
-    <!-- Center Control Buttons -->
-    <div class="flex items-center justify-center gap-1 sm:gap-2 flex-nowrap overflow-x-auto flex-1 px-2">
+    <!-- Center Control Buttons (精簡按鈕排版，確保手機與桌面皆完美顯示) -->
+    <div class="flex items-center gap-1 sm:gap-2 overflow-x-auto no-scrollbar flex-shrink-0 px-1 py-0.5 whitespace-nowrap justify-end">
+      
+      <!-- 1st Button: Color Mode -->
       <button id="btn-color-mode" title="Switch Karaoke Effect" 
-              class="flex items-center gap-1 px-2 py-1.5 text-xs font-semibold rounded-lg bg-slate-800 hover:bg-slate-700 text-emerald-400 border border-slate-700 transition-all shrink-0">
+              class="inline-flex items-center gap-1.5 px-2 py-1.5 sm:px-3 sm:py-1.5 text-xs font-semibold rounded-lg bg-slate-800 hover:bg-slate-700 text-emerald-400 border border-slate-700 transition-all shrink-0">
         <i class="fa-solid fa-palette text-xs"></i>
-        <span id="label-color-mode" class="hidden sm:inline">Gradient</span>
+        <span id="label-color-mode" class="hidden md:inline">Gradient</span>
       </button>
 
+      <!-- 2nd Button: Cover Fit -->
       <button id="btn-cover-fit" title="Toggle Cover Image Fit Mode" 
-              class="flex items-center gap-1 px-2.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-800 hover:bg-slate-700 text-emerald-400 border border-slate-700 transition-all shrink-0">
+              class="inline-flex items-center gap-1.5 px-2 py-1.5 sm:px-3 sm:py-1.5 text-xs font-semibold rounded-lg bg-slate-800 hover:bg-slate-700 text-emerald-400 border border-slate-700 transition-all shrink-0">
         <i class="fa-solid fa-compress text-xs" id="icon-cover-fit"></i>
-        <span id="label-cover-fit" class="hidden sm:inline">Fit: Contain</span>
+        <span id="label-cover-fit" class="hidden md:inline">Fit: Contain</span>
       </button>
 
-      <button id="btn-viz-toggle" title="Switch Audio Visualizer Style" 
-              class="flex items-center gap-1 px-2 py-1.5 text-xs font-semibold rounded-lg bg-slate-800 hover:bg-slate-700 text-emerald-400 border border-slate-700 transition-all shrink-0">
+      <!-- 3rd Button: Viz Toggle Mode -->
+      <button id="btn-viz-toggle" title="Toggle Audio Visualizer" 
+              class="inline-flex items-center gap-1.5 px-2 py-1.5 sm:px-3 sm:py-1.5 text-xs font-semibold rounded-lg bg-slate-800 hover:bg-slate-700 text-emerald-400 border border-slate-700 transition-all shrink-0">
         <i class="fa-solid fa-chart-simple text-xs"></i>
-        <span id="label-viz-mode" class="hidden sm:inline">Viz: Cyber Ladder</span>
+        <span id="label-viz-mode" class="hidden md:inline">Viz: Cyber Ladder</span>
       </button>
 
+      <!-- 4th Button: Lyric Color -->
       <button id="btn-lyric-color" title="Change Lyric Color"
-              class="flex items-center justify-center px-2 py-1.5 text-base sm:text-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-lg transition-all shrink-0">
-        <i id="lyric-color-icon" class="fa-solid fa-palette text-xs sm:text-base"></i>
+              class="inline-flex items-center justify-center px-2 py-1.5 sm:px-3 sm:py-1.5 text-xs bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-lg transition-all shrink-0">
+        <i id="lyric-color-icon" class="fa-solid fa-palette text-xs sm:text-sm"></i>
       </button>
 
+      <!-- 5th Button: Playlist -->
       <button id="btn-toggle-playlist" title="Toggle Playlist Drawer" 
-              class="flex items-center gap-1 px-2.5 sm:px-3 py-1.5 text-xs font-semibold rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white shadow-lg shadow-emerald-600/20 transition-all shrink-0">
+              class="inline-flex items-center gap-1.5 px-2.5 py-1.5 sm:px-3 sm:py-1.5 text-xs font-semibold rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white shadow-lg shadow-emerald-600/20 transition-all shrink-0">
         <i class="fa-solid fa-list-ul text-xs"></i>
-        <span>Playlist</span>
+        <span class="hidden md:inline">Playlist</span>
       </button>
     </div>
-
-    <div class="hidden md:flex w-28 sm:w-36 shrink-0"></div>
   </header>
 
   <!-- Main Container -->
-  <main class="relative flex-1 flex flex-col md:flex-row items-center justify-center overflow-hidden p-3 sm:p-4 md:p-6 gap-3 sm:gap-4 md:gap-6 max-w-5xl w-full mx-auto min-h-0">
+  <main class="relative flex-1 flex flex-col md:flex-row items-center justify-center overflow-hidden p-2 sm:p-4 md:p-6 gap-4 max-w-7xl w-full mx-auto min-h-0">
     
-    <!-- Size Container -->
-    <div class="relative w-full max-w-[min(82vh,420px)] aspect-square md:max-w-none md:w-full md:h-full flex flex-col md:flex-row gap-3 sm:gap-4 md:gap-6 items-center justify-center my-auto">
+    <div class="relative w-full max-w-[min(90vh,520px)] aspect-square md:max-w-none md:w-full md:h-full flex flex-col md:flex-row gap-4 items-center justify-center my-auto">
       
       <!-- 1. COVER ART SECTION -->
       <section id="cover-section" class="absolute inset-0 md:relative md:inset-auto w-full md:w-1/2 flex flex-col justify-between rounded-2xl border border-slate-800/80 bg-slate-900/40 backdrop-blur-xl shadow-2xl p-3 sm:p-4 shrink-0 min-h-0 z-0 h-full">
@@ -140,19 +148,19 @@
         </div>
 
         <!-- Visualizer Canvas (Desktop) -->
-        <div class="hidden md:block w-full h-20 sm:h-24 mt-2 shrink-0">
+        <div class="hidden md:block w-full h-24 mt-2 shrink-0">
           <canvas id="visualizer-canvas" class="w-full h-full rounded-xl bg-slate-950/80 border border-slate-800 shadow-inner"></canvas>
         </div>
       </section>
 
-      <!-- 2. LYRIC SECTION (Fully Transparent & Blur-Free Overlay) -->
+      <!-- 2. LYRIC SECTION -->
       <section id="lyric-section-box" class="absolute inset-0 md:relative md:inset-auto w-full md:w-1/2 flex flex-col rounded-2xl overflow-hidden border border-slate-800/80 bg-transparent md:bg-slate-900/90 shadow-2xl shrink-0 min-h-0 z-10 h-full">
         
         <!-- Track Metadata Bar -->
         <div class="relative z-10 px-3 sm:px-4 py-2 border-b border-slate-800/60 bg-slate-950/80 backdrop-blur-md flex items-center justify-between shrink-0">
           <div class="truncate">
-            <h2 id="lyric-title" class="font-bold text-xs sm:text-sm md:text-base text-slate-100 truncate">Song Title</h2>
-            <p id="lyric-meta" class="text-[10px] sm:text-xs text-slate-400 truncate">Artist • Album</p>
+            <h2 id="lyric-title" class="font-bold text-sm sm:text-base text-slate-100 truncate">Song Title</h2>
+            <p id="lyric-meta" class="text-xs text-slate-400 truncate">Artist • Album</p>
           </div>
           <div class="flex items-center gap-2">
             <button id="btn-toggle-sync" class="px-2.5 py-1 text-[10px] font-bold tracking-wider uppercase rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 hover:bg-emerald-500/30 transition-all shrink-0">
@@ -163,8 +171,8 @@
         </div>
 
         <!-- Lyrics Container -->
-        <div id="lyric-container" class="relative z-10 flex-1 overflow-y-auto px-4 sm:px-6 py-6 space-y-3 sm:space-y-5 text-center scroll-smooth min-h-0 bg-transparent">
-          <p class="text-slate-400 italic text-sm drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">Select or play a track to load LRC lyrics...</p>
+        <div id="lyric-container" class="relative z-10 flex-1 overflow-y-auto px-4 sm:px-8 py-8 space-y-4 sm:space-y-6 text-center scroll-smooth min-h-0 bg-transparent">
+          <p class="text-slate-400 italic text-base drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">Select or play a track to load LRC lyrics...</p>
         </div>
       </section>
     </div>
@@ -204,7 +212,7 @@
 
   <!-- Footer Playback Controls -->
   <footer class="relative z-20 px-3 sm:px-6 py-2 sm:py-3 bg-slate-900/90 backdrop-blur-md border-t border-slate-800/80 shrink-0">
-    <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2 sm:gap-4">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2 sm:gap-4">
       <div class="w-full flex items-center gap-2 sm:gap-3 order-1 md:order-2">
         <span id="time-current" class="text-[11px] sm:text-xs font-mono text-slate-400 w-9 sm:w-10 text-right">00:00</span>
         <input id="slider-progress" type="range" min="0" max="100" value="0" class="flex-1">
@@ -272,9 +280,7 @@
     let karaokeColorMode = 'gradient';
     let coverFitMode = 'contain';
     
-    let currentVizModeIndex = parseInt(localStorage.getItem('vizModeIndex') || '0', 10);
     let enableVisualizer = localStorage.getItem('enableVisualizer') !== 'false';
-    let lastActiveVizModeIndex = parseInt(localStorage.getItem('lastActiveVizModeIndex') || '0', 10);
 
     let isLrcSynced = true;
     let vizAnimFrameId = null;
@@ -295,15 +301,16 @@
       { id: 'pulse', name: 'Bass Shockwave' },
       { id: 'wave', name: 'Neon Wave' },
       { id: 'radial', name: 'Radial Ring' },
-      { id: 'starburst', name: 'Starburst' },
-      { id: 'off', name: 'Off' }
+      { id: 'starburst', name: 'Starburst' }
     ];
+    let currentVizModeIndex = parseInt(localStorage.getItem('vizModeIndex') || '0', 10);
 
     const particles = Array.from({ length: 70 }, () => ({ x: 0, y: 0, vx: 0, vy: 0, radius: 0, alpha: 0, hue: 0 }));
     const fireSparks = Array.from({ length: 60 }, () => ({ x: 0, y: 0, vx: 0, vy: 0, size: 0, life: 0, maxLife: 0, hue: 0 }));
     const matrixDrops = Array.from({ length: 36 }, () => ({ x: 0, y: Math.random() * 200, speed: Math.random() * 3 + 2, char: '01' }));
     const shockwaves = [];
     let peakHeights = [];
+    let miniPeakHeights = [];
 
     let coverImageObj = new Image();
     coverImageObj.crossOrigin = "anonymous";
@@ -540,18 +547,16 @@
       updateLyricDisplayState();
     }
 
-    window.addEventListener('resize', updateLyricDisplayState);
-
     function renderLyrics() {
       lyricContainer.innerHTML = '';
       if (parsedLyrics.length === 0) {
-        lyricContainer.innerHTML = `<p class="text-slate-400 italic text-sm drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">No lyrics found for this track.</p>`;
+        lyricContainer.innerHTML = `<p class="text-slate-400 italic text-base drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">No lyrics found for this track.</p>`;
         return;
       }
       parsedLyrics.forEach((item, i) => {
         const p = document.createElement('p');
         p.id = `lyric-line-${i}`;
-        p.className = 'text-sm sm:text-base md:text-lg font-medium text-slate-200 drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] transition-all duration-200 cursor-pointer hover:text-white';
+        p.className = 'text-base sm:text-lg md:text-xl font-medium text-slate-200 drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] transition-all duration-200 cursor-pointer hover:text-white';
         p.textContent = item.text;
         p.onclick = () => { audio.currentTime = item.time; playAudio(); };
         lyricContainer.appendChild(p);
@@ -697,7 +702,7 @@ if (btnLyricColor) {
         if (activeLyricIndex !== -1) {
           const activeEl = document.getElementById(`lyric-line-${activeLyricIndex}`);
           if (activeEl) {
-            activeEl.className = 'text-sm sm:text-base md:text-lg font-medium text-slate-200 drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] transition-all duration-200 cursor-pointer hover:text-white';
+            activeEl.className = 'text-base sm:text-lg md:text-xl font-medium text-slate-200 drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] transition-all duration-200 cursor-pointer hover:text-white';
             activeEl.style.removeProperty('--progress');
           }
           activeLyricIndex = -1;
@@ -721,7 +726,7 @@ if (btnLyricColor) {
         if (activeLyricIndex !== -1) {
           const prevEl = document.getElementById(`lyric-line-${activeLyricIndex}`);
           if (prevEl) {
-            prevEl.className = 'text-sm sm:text-base md:text-lg font-medium text-slate-200 drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] transition-all duration-200 cursor-pointer hover:text-white';
+            prevEl.className = 'text-base sm:text-lg md:text-xl font-medium text-slate-200 drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] transition-all duration-200 cursor-pointer hover:text-white';
             prevEl.style.removeProperty('--progress');
           }
         }
@@ -739,14 +744,14 @@ if (btnLyricColor) {
             const nextLineTime = (activeLyricIndex + 1 < parsedLyrics.length) ? parsedLyrics[activeLyricIndex + 1].time : audio.duration;
             const percent = Math.min(Math.max(((currentTime - currentLineTime) / (nextLineTime - currentLineTime)) * 100, 0), 100);
             activeEl.style.removeProperty('--progress');
-            activeEl.className = 'text-base sm:text-lg md:text-xl font-bold lyric-gradient-active drop-shadow-[0_2px_10px_rgba(0,0,0,1)] transition-all cursor-pointer';
+            activeEl.className = 'text-lg sm:text-xl md:text-2xl font-bold lyric-gradient-active drop-shadow-[0_2px_10px_rgba(0,0,0,1)] transition-all cursor-pointer';
             activeEl.style.setProperty('--progress', `${percent}%`);
           } else if (karaokeColorMode === 'plain') {
             activeEl.style.removeProperty('--progress');
-            activeEl.className = 'text-base sm:text-lg md:text-xl font-bold lyric-plain-active drop-shadow-[0_2px_10px_rgba(0,0,0,1)] transition-all cursor-pointer';
+            activeEl.className = 'text-lg sm:text-xl md:text-2xl font-bold lyric-plain-active drop-shadow-[0_2px_10px_rgba(0,0,0,1)] transition-all cursor-pointer';
           } else {
             activeEl.style.removeProperty('--progress');
-            activeEl.className = 'text-base sm:text-lg md:text-xl font-bold lyric-none-active drop-shadow-[0_2px_10px_rgba(0,0,0,1)] transition-all cursor-pointer';
+            activeEl.className = 'text-lg sm:text-xl md:text-2xl font-bold lyric-none-active drop-shadow-[0_2px_10px_rgba(0,0,0,1)] transition-all cursor-pointer';
           }
         }
       }
@@ -832,66 +837,48 @@ if (btnLyricColor) {
     }
 
     function isMobilePortrait() {
-      return window.matchMedia('(max-width: 767px) and (orientation: portrait)').matches;
+      return window.innerWidth < 768 && window.innerHeight > window.innerWidth;
     }
 
     function initVizUIState() {
-      if (currentVizModeIndex < 0 || currentVizModeIndex >= vizModes.length) currentVizModeIndex = 0;
-      const currentMode = vizModes[currentVizModeIndex];
-
-      if (labelVizMode) {
-        labelVizMode.textContent = isMobilePortrait() 
-          ? (enableVisualizer ? 'Viz: On' : 'Viz: Off')
-          : 'Viz: ' + currentMode.name;
+      if (isMobilePortrait()) {
+        if (labelVizMode) labelVizMode.textContent = enableVisualizer ? 'Viz: On' : 'Viz: Off';
+      } else {
+        if (currentVizModeIndex < 0 || currentVizModeIndex >= vizModes.length) currentVizModeIndex = 0;
+        if (labelVizMode) labelVizMode.textContent = 'Viz: ' + vizModes[currentVizModeIndex].name;
       }
 
       if (btnVizToggle) {
         btnVizToggle.className = enableVisualizer
-          ? 'flex items-center gap-1 px-2.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-800 hover:bg-slate-700 text-emerald-400 border border-slate-700 transition-all shrink-0'
-          : 'flex items-center gap-1 px-2.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-400 border border-slate-700 transition-all shrink-0';
+          ? 'inline-flex items-center gap-1.5 px-2 py-1.5 sm:px-3 sm:py-1.5 text-xs font-semibold rounded-lg bg-slate-800 hover:bg-slate-700 text-emerald-400 border border-slate-700 transition-all shrink-0'
+          : 'inline-flex items-center gap-1.5 px-2 py-1.5 sm:px-3 sm:py-1.5 text-xs font-semibold rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-400 border border-slate-700 transition-all shrink-0';
       }
     }
 
     if (btnVizToggle) {
       btnVizToggle.onclick = () => {
         if (isMobilePortrait()) {
-          if (enableVisualizer) {
-            enableVisualizer = false;
-            currentVizModeIndex = vizModes.findIndex(m => m.id === 'off');
-          } else {
-            enableVisualizer = true;
-            currentVizModeIndex = lastActiveVizModeIndex < (vizModes.length - 1) ? lastActiveVizModeIndex : 0;
-          }
+          enableVisualizer = !enableVisualizer;
         } else {
+          enableVisualizer = true;
           currentVizModeIndex = (currentVizModeIndex + 1) % vizModes.length;
-          enableVisualizer = (vizModes[currentVizModeIndex].id !== 'off');
-          if (enableVisualizer) {
-            lastActiveVizModeIndex = currentVizModeIndex;
-            localStorage.setItem('lastActiveVizModeIndex', lastActiveVizModeIndex);
-          }
+          localStorage.setItem('vizModeIndex', currentVizModeIndex);
         }
 
-        localStorage.setItem('vizModeIndex', currentVizModeIndex);
         localStorage.setItem('enableVisualizer', enableVisualizer);
+        initVizUIState();
 
-        const currentMode = vizModes[currentVizModeIndex];
-        
-        if (labelVizMode) {
-          labelVizMode.textContent = isMobilePortrait() 
-            ? (enableVisualizer ? 'Viz: On' : 'Viz: Off')
-            : 'Viz: ' + currentMode.name;
-        }
-
-        btnVizToggle.className = enableVisualizer
-          ? 'flex items-center gap-1 px-2.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-800 hover:bg-slate-700 text-emerald-400 border border-slate-700 transition-all shrink-0'
-          : 'flex items-center gap-1 px-2.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-400 border border-slate-700 transition-all shrink-0';
-        
         if (!enableVisualizer) {
           if (canvasCtx && canvas) canvasCtx.clearRect(0, 0, canvas.width, canvas.height);
           if (miniCanvasCtx && miniCanvas) miniCanvasCtx.clearRect(0, 0, miniCanvas.width, miniCanvas.height);
         }
       };
     }
+
+    window.addEventListener('resize', () => {
+      initVizUIState();
+      updateLyricDisplayState();
+    });
 
     sliderVolume.oninput = (e) => {
       audio.volume = e.target.value;
@@ -920,6 +907,7 @@ if (btnLyricColor) {
       const numBars = 48;
       const barFrequencies = Array.from({ length: numBars }, () => 0.1);
       if (peakHeights.length !== numBars) peakHeights = Array.from({ length: numBars }, () => 0);
+      if (miniPeakHeights.length !== 22) miniPeakHeights = Array.from({ length: 22 }, () => 0);
       let bassEnergy = 0;
 
       function draw() {
@@ -935,17 +923,17 @@ if (btnLyricColor) {
             const freqIndex = Math.floor((i / numBars) * (frequencyDataArray.length / 2));
             const rawVal = frequencyDataArray[freqIndex] / 255;
             if (i < 8) bassSum += rawVal;
-            const target = Math.max(rawVal * (audio.volume || 0.8), 0.05);
-            barFrequencies[i] += (target - barFrequencies[i]) * 0.35;
+            const target = Math.max(rawVal * (audio.volume || 0.8), 0.08);
+            barFrequencies[i] += (target - barFrequencies[i]) * 0.45;
           }
           bassEnergy = bassSum / 8;
         } else {
           for (let i = 0; i < numBars; i++) {
             if (isPlaying) {
-              const target = (Math.sin((Date.now() / 110) + (i * 0.35)) * 0.4 + 0.5) * (audio.volume || 0.8);
-              barFrequencies[i] += (target - barFrequencies[i]) * 0.25;
+              const target = (Math.sin((Date.now() / 90) + (i * 0.35)) * 0.45 + 0.55) * (audio.volume || 0.8);
+              barFrequencies[i] += (target - barFrequencies[i]) * 0.3;
             } else {
-              barFrequencies[i] *= 0.88;
+              barFrequencies[i] *= 0.82;
             }
           }
           bassEnergy = 0.1;
@@ -980,6 +968,67 @@ if (btnLyricColor) {
           }
         }
 
+        // 🔴 Mini Visualizer (Same Row, Wider Space + Orange Peak Dash)
+        if (enableVisualizer && miniCanvasCtx && miniCanvas) {
+          const mdpr = window.devicePixelRatio || 1;
+          const mrect = miniCanvas.getBoundingClientRect();
+          if (miniCanvas.width !== mrect.width * mdpr || miniCanvas.height !== mrect.height * mdpr) {
+            miniCanvas.width = mrect.width * mdpr;
+            miniCanvas.height = mrect.height * mdpr;
+          }
+          miniCanvasCtx.save();
+          miniCanvasCtx.scale(mdpr, mdpr);
+          miniCanvasCtx.clearRect(0, 0, mrect.width, mrect.height);
+
+          const miniBars = 22;
+          const miniSegments = 10;
+          const miniGap = 1.5;
+          const miniBarWidth = Math.max((mrect.width - (miniBars * miniGap)) / miniBars, 2);
+
+          for (let i = 0; i < miniBars; i++) {
+            const freqIdx = Math.floor((i / miniBars) * numBars);
+            const freqVal = barFrequencies[freqIdx];
+            const activeSegments = Math.round(freqVal * miniSegments);
+            const rawH = freqVal * miniSegments;
+
+            if (rawH > miniPeakHeights[i]) {
+              miniPeakHeights[i] = rawH;
+            } else {
+              miniPeakHeights[i] = Math.max(0, miniPeakHeights[i] - 0.12);
+            }
+
+            const bx = i * (miniBarWidth + miniGap);
+
+            for (let s = 0; s < miniSegments; s++) {
+              const segH = (mrect.height - (miniSegments * 1)) / miniSegments;
+              const by = mrect.height - (s + 1) * (segH + 1);
+
+              if (s < activeSegments) {
+                const hue = 120 + (s / miniSegments) * 140;
+                miniCanvasCtx.fillStyle = `hsl(${hue}, 95%, 55%)`;
+              } else {
+                miniCanvasCtx.fillStyle = 'rgba(30, 41, 59, 0.4)';
+              }
+              miniCanvasCtx.fillRect(bx, by, miniBarWidth, segH);
+            }
+
+            // 🟠 Orange Dash Peak Line at Top
+            const pVal = miniPeakHeights[i];
+            if (pVal > 0.15) {
+              const segH = (mrect.height - (miniSegments * 1)) / miniSegments;
+              const pY = mrect.height - pVal * (segH + 1);
+              miniCanvasCtx.fillStyle = '#f97316'; // Bright Orange
+              miniCanvasCtx.shadowColor = '#ff6600';
+              miniCanvasCtx.shadowBlur = 4;
+              miniCanvasCtx.fillRect(bx, Math.max(pY - 2, 1), miniBarWidth, 2);
+              miniCanvasCtx.shadowBlur = 0;
+            }
+          }
+          miniCanvasCtx.restore();
+        } else if (!enableVisualizer && miniCanvasCtx && miniCanvas) {
+          miniCanvasCtx.clearRect(0, 0, miniCanvas.width, miniCanvas.height);
+        }
+
         if (enableVisualizer) {
           if (canvasCtx && canvas) {
             const dpr = window.devicePixelRatio || 1;
@@ -997,33 +1046,26 @@ if (btnLyricColor) {
             const width = rect.width;
             const height = rect.height;
 
-if (currentMode === 'ladder') {
+            if (currentMode === 'ladder') {
               const barGap = 2.5;
               const barWidth = Math.max((width - (numBars * barGap)) / numBars, 2);
-              const totalSegments = 18; // 微微增加總段數，讓層次更細緻
+              const totalSegments = 16;
 
               for (let i = 0; i < numBars; i++) {
                 const x = i * (barWidth + barGap);
                 const freqVal = barFrequencies[i];
-                
-                // 放大音訊響應係數（從 1.0 提升到 1.25），讓低音起伏更強烈
-                const amplifiedFreq = Math.min(freqVal * 1.25, 1.0);
-                const activeSegments = Math.round(amplifiedFreq * totalSegments);
-                const rawHeightVal = amplifiedFreq * totalSegments;
+                const activeSegments = Math.round(freqVal * totalSegments);
+                const rawHeightVal = freqVal * totalSegments;
 
                 if (rawHeightVal > peakHeights[i]) {
                   peakHeights[i] = rawHeightVal;
                 } else {
-                  peakHeights[i] = Math.max(0, peakHeights[i] - 0.05); // 讓尖峰下降時更流暢
+                  peakHeights[i] = Math.max(0, peakHeights[i] - 0.08);
                 }
 
-                // 縮小每個區段之間的間距（從 1.5 改為 1.0），並留出頂部安全距離
-                const topPadding = 12; // 頂端預留空間，避免衝頂貼齊邊界
-                const availableHeight = height - topPadding;
-                const segHeight = Math.max((availableHeight - (totalSegments * 1.0)) / totalSegments, 2);
-
                 for (let s = 0; s < totalSegments; s++) {
-                  const y = height - (s + 1) * (segHeight + 1.0);
+                  const segHeight = (height - (totalSegments * 1.5)) / totalSegments;
+                  const y = height - (s + 1) * (segHeight + 1.5);
 
                   if (s < activeSegments) {
                     const hue = 120 + (s / totalSegments) * 140;
@@ -1040,16 +1082,15 @@ if (currentMode === 'ladder') {
                   canvasCtx.fill();
                 }
 
-                // 繪製頂端浮動尖峰 (Peak Indicator Dash)
                 const peakVal = peakHeights[i];
                 if (peakVal > 0.2) {
-                  const peakY = height - peakVal * (segHeight + 1.0);
+                  const segH = (height - (totalSegments * 1.5)) / totalSegments;
+                  const peakY = height - peakVal * (segH + 1.5);
                   
                   canvasCtx.fillStyle = '#38bdf8';
                   canvasCtx.shadowColor = '#38bdf8';
                   canvasCtx.shadowBlur = 10;
-                  // 稍微加寬並加厚頂端 dash，讓高處落下時更有視覺焦點
-                  canvasCtx.fillRect(x, Math.max(peakY - 4, 2), barWidth, 3.5);
+                  canvasCtx.fillRect(x, peakY - 3, barWidth, 3);
                 }
               }
 } else if (currentMode === 'fire') {
@@ -1301,50 +1342,6 @@ if (currentMode === 'ladder') {
             }
 
             canvasCtx.restore();
-          }
-
-          if (miniCanvasCtx && miniCanvas && window.innerWidth < 768) {
-            const miniDpr = window.devicePixelRatio || 1;
-            const miniRect = miniCanvas.getBoundingClientRect();
-
-            if (miniCanvas.width !== miniRect.width * miniDpr || miniCanvas.height !== miniRect.height * miniDpr) {
-              miniCanvas.width = miniRect.width * miniDpr;
-              miniCanvas.height = miniRect.height * miniDpr;
-            }
-
-            miniCanvasCtx.save();
-            miniCanvasCtx.scale(miniDpr, miniDpr);
-            miniCanvasCtx.clearRect(0, 0, miniRect.width, miniRect.height);
-
-            const miniBars = 16;
-            const miniWidth = miniRect.width;
-            const miniHeight = miniRect.height;
-            const miniGap = 1.5;
-            const miniBarWidth = Math.max((miniWidth - (miniBars * miniGap)) / miniBars, 1.5);
-            const miniSegments = 4;
-
-            for (let i = 0; i < miniBars; i++) {
-              const freqIdx = Math.floor((i / miniBars) * numBars);
-              const freqVal = barFrequencies[freqIdx];
-              const activeSegments = Math.round(freqVal * miniSegments);
-              const x = i * (miniBarWidth + miniGap);
-
-              for (let s = 0; s < miniSegments; s++) {
-                const segHeight = (miniHeight - (miniSegments * 1)) / miniSegments;
-                const y = miniHeight - (s + 1) * (segHeight + 1);
-
-                if (s < activeSegments) {
-                  const colors = ['#10b981', '#34d399', '#f59e0b', '#ef4444'];
-                  miniCanvasCtx.fillStyle = colors[s % colors.length];
-                } else {
-                  miniCanvasCtx.fillStyle = 'rgba(30, 41, 59, 0.4)';
-                }
-
-                miniCanvasCtx.fillRect(x, y, miniBarWidth, segHeight);
-              }
-            }
-
-            miniCanvasCtx.restore();
           }
         }
       }
