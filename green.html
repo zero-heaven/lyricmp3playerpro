@@ -18,6 +18,16 @@
     ::-webkit-scrollbar-thumb { background: rgba(51, 65, 85, 0.8); border-radius: 9999px; }
     ::-webkit-scrollbar-thumb:hover { background: rgba(71, 85, 105, 1); }
 
+    /* 強制顯示 Playlist 彈窗內部的獨立滾動條 */
+    #playlist-items::-webkit-scrollbar {
+      width: 6px !important;
+      display: block !important;
+    }
+    #playlist-items::-webkit-scrollbar-thumb {
+      background: rgba(16, 185, 129, 0.8) !important;
+      border-radius: 9999px !important;
+    }
+
     input[type=range] { -webkit-appearance: none; background: transparent; }
     input[type=range]:focus { outline: none; }
     input[type=range]::-webkit-slider-runnable-track { height: 6px; cursor: pointer; border-radius: 9999px; background: rgba(255, 255, 255, 0.2); }
@@ -52,9 +62,9 @@
   <!-- Header -->
   <header class="relative z-20 flex items-center justify-between px-2 sm:px-4 py-1.5 bg-slate-900/90 backdrop-blur-md border-b border-slate-800/85 shrink-0 gap-1.5 sm:gap-2 w-full box-border overflow-hidden">
     
-    <!-- Mobile Mini Visualizer (高度再增加 20% 至 h-[36px]) -->
-    <div class="flex items-center flex-1 max-w-[150px] sm:max-w-[200px] md:hidden h-[36px] rounded bg-slate-950/60 border border-slate-800/80 overflow-hidden shrink-0">
-      <canvas id="mini-visualizer-canvas" class="w-full h-full block"></canvas>
+    <!-- Mobile Mini Visualizer -->
+    <div class="flex items-center flex-1 max-w-[150px] sm:max-w-[200px] md:hidden h-auto min-h-[44px] py-1 rounded bg-slate-950/60 border border-slate-800/80 overflow-hidden shrink-0">
+      <canvas id="mini-visualizer-canvas" class="w-full h-full block min-h-[40px]"></canvas>
     </div>
 
     <!-- Center Control Buttons -->
@@ -88,7 +98,7 @@
       </button>
 
       <!-- 5th Button: Playlist -->
-      <button id="btn-toggle-playlist" title="Toggle Playlist Drawer" 
+      <button id="btn-toggle-playlist" title="Toggle Playlist Popup" 
               class="inline-flex items-center gap-1.5 px-2.5 py-1.5 sm:px-3 sm:py-1.5 text-xs font-semibold rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white shadow-lg shadow-emerald-600/20 transition-all shrink-0">
         <i class="fa-solid fa-list-ul text-xs"></i>
         <span class="hidden md:inline">Playlist</span>
@@ -176,37 +186,48 @@
       </section>
     </div>
 
-    <!-- Playlist Drawer -->
-    <aside id="playlist-drawer" class="absolute top-0 right-0 bottom-0 w-80 z-40 bg-slate-900/95 backdrop-blur-2xl border-l border-slate-800 shadow-2xl transition-transform duration-300 transform translate-x-full flex flex-col">
-      <div class="p-4 border-b border-slate-800 flex items-center justify-between shrink-0">
-        <div class="flex items-center gap-2 text-slate-200 font-bold">
-          <i class="fa-solid fa-list-ul text-emerald-400"></i><span>Playlist</span>
+    <!-- Playlist Popup Overlay Modal (改為中央彈出式浮動視窗，具備獨立高度與滾動條) -->
+    <div id="playlist-drawer" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6 transition-opacity duration-300 hidden">
+      <div class="w-full max-w-md bg-slate-900 border border-slate-800 rounded-2xl shadow-2xl flex flex-col max-h-[82vh] overflow-hidden">
+        
+        <!-- 彈窗標題列 -->
+        <div class="p-3 border-b border-slate-800 flex items-center justify-between shrink-0 bg-slate-950/60">
+          <div class="flex items-center gap-2 text-slate-200 font-bold text-sm">
+            <i class="fa-solid fa-list-ul text-emerald-400"></i><span>Playlist Management</span>
+          </div>
+          <button id="btn-close-playlist" class="p-1.5 rounded-lg hover:bg-slate-800 text-slate-400 hover:text-white">
+            <i class="fa-solid fa-xmark text-lg"></i>
+          </button>
         </div>
-        <button id="btn-close-playlist" class="p-1 rounded-lg hover:bg-slate-800 text-slate-400 hover:text-white">
-          <i class="fa-solid fa-xmark text-lg"></i>
-        </button>
-      </div>
-      <div class="px-4 py-2 border-b border-slate-800/80 bg-slate-950/80 flex items-center gap-2 shrink-0">
-        <span class="text-[11px] text-slate-400 font-semibold shrink-0"><i class="fa-solid fa-layer-group text-emerald-400 mr-1"></i>分類:</span>
-        <select id="playlist-group-select" class="w-full px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-800 text-slate-200 border border-slate-700">
-          <option value="all">📁 全部歌曲 (All Songs)</option>
-        </select>
-      </div>
-      <div class="px-4 py-2 border-b border-slate-800/80 bg-slate-950/60 flex items-center gap-2 shrink-0">
-        <span class="text-[11px] text-slate-400 font-semibold shrink-0"><i class="fa-solid fa-arrow-down-a-z text-emerald-400 mr-1"></i>排序:</span>
-        <button id="btn-sort-title" class="flex-1 px-2 py-1 text-xs font-medium rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700"><i class="fa-solid fa-music text-[10px] mr-1 text-emerald-400"></i>歌名順序</button>
-        <button id="btn-sort-artist" class="flex-1 px-2 py-1 text-xs font-medium rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700"><i class="fa-solid fa-user text-[10px] mr-1 text-emerald-400"></i>歌手順序</button>
-      </div>
-      <div class="px-4 py-2 border-b border-slate-800/80 bg-slate-950/40 shrink-0">
-        <div class="relative flex items-center">
-          <i class="fa-solid fa-magnifying-glass absolute left-3 text-slate-500 text-xs pointer-events-none"></i>
-          <input id="playlist-search-input" type="text" placeholder="Search title or artist..." class="w-full pl-8 pr-7 py-1.5 bg-slate-800/90 border border-slate-700/80 rounded-lg text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-emerald-500">
-          <button id="btn-clear-search" class="hidden absolute right-2.5 text-slate-400 hover:text-slate-200 text-xs"><i class="fa-solid fa-circle-xmark"></i></button>
-        </div>
-      </div>
 
-      <div id="playlist-items" class="flex-1 overflow-y-auto p-3 space-y-1"></div>
-    </aside>
+        <!-- 分類 -->
+        <div class="px-3 py-1.5 border-b border-slate-800/80 bg-slate-950/40 flex items-center gap-2 shrink-0">
+          <span class="text-[11px] text-slate-400 font-semibold shrink-0">分類:</span>
+          <select id="playlist-group-select" class="w-full px-2 py-1 text-xs font-medium rounded-lg bg-slate-800 text-slate-200 border border-slate-700">
+            <option value="all">📁 全部歌曲 (All Songs)</option>
+          </select>
+        </div>
+
+        <!-- 排序 -->
+        <div class="px-3 py-1.5 border-b border-slate-800/80 bg-slate-950/40 flex items-center gap-2 shrink-0">
+          <span class="text-[11px] text-slate-400 font-semibold shrink-0">排序:</span>
+          <button id="btn-sort-title" class="flex-1 px-2 py-1 text-xs font-medium rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700"><i class="fa-solid fa-music text-[10px] mr-1 text-emerald-400"></i>歌名</button>
+          <button id="btn-sort-artist" class="flex-1 px-2 py-1 text-xs font-medium rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700"><i class="fa-solid fa-user text-[10px] mr-1 text-emerald-400"></i>歌手</button>
+        </div>
+
+        <!-- 搜尋 -->
+        <div class="px-3 py-1.5 border-b border-slate-800/80 bg-slate-950/40 shrink-0">
+          <div class="relative flex items-center">
+            <i class="fa-solid fa-magnifying-glass absolute left-3 text-slate-500 text-xs pointer-events-none"></i>
+            <input id="playlist-search-input" type="text" placeholder="Search title or artist..." class="w-full pl-8 pr-7 py-1 bg-slate-800/90 border border-slate-700/80 rounded-lg text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-emerald-500">
+            <button id="btn-clear-search" class="hidden absolute right-2.5 text-slate-400 hover:text-slate-200 text-xs"><i class="fa-solid fa-circle-xmark"></i></button>
+          </div>
+        </div>
+
+        <!-- 歌曲清單區塊：具有獨立捲動軸與彈性高度 -->
+        <div id="playlist-items" class="flex-1 min-h-0 overflow-y-scroll p-3 space-y-1.5 overscroll-contain bg-slate-900/50"></div>
+      </div>
+    </div>
   </main>
 
   <!-- Footer Playback Controls -->
@@ -594,11 +615,11 @@
         matchedCount++;
         const item = document.createElement('div');
         const isActive = originalIndex === currentTrackIndex;
-        item.className = `flex items-center gap-3 p-2.5 rounded-xl cursor-pointer transition-all ${
+        item.className = `flex items-center gap-3 p-2 rounded-xl cursor-pointer transition-all ${
           isActive ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30' : 'hover:bg-slate-800/60 text-slate-300'
         }`;
         item.innerHTML = `
-          <div class="w-10 h-10 rounded-lg overflow-hidden shrink-0 bg-slate-800">
+          <div class="w-8 h-8 rounded-lg overflow-hidden shrink-0 bg-slate-800">
             <img src="${track.cover}" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/100x100/1e293b/10b981?text=MP3'">
           </div>
           <div class="truncate flex-1">
@@ -607,7 +628,7 @@
           </div>
           ${isActive ? '<i class="fa-solid fa-volume-high text-emerald-400 text-xs shrink-0"></i>' : ''}
         `;
-        item.onclick = () => { loadTrack(originalIndex); playAudio(); playlistDrawer.classList.add('translate-x-full'); };
+        item.onclick = () => { loadTrack(originalIndex); playAudio(); playlistDrawer.classList.add('hidden'); };
         playlistItems.appendChild(item);
       });
 
@@ -646,7 +667,6 @@
     }
     function pauseAudio() { audio.pause(); iconPlayPause.className = "fa-solid fa-play text-xl"; }
 
-    // 🎯 歌詞主題色解析
     function getAccentHSL() {
       const accent = getComputedStyle(document.documentElement).getPropertyValue('--lyric-accent').trim();
       if (accent.startsWith('#')) {
@@ -930,8 +950,12 @@
       }
     };
 
-    btnTogglePlaylist.onclick = () => playlistDrawer.classList.remove('translate-x-full');
-    btnClosePlaylist.onclick = () => playlistDrawer.classList.add('translate-x-full');
+    // 點擊 Playlist 按鈕開啟彈窗 (移除 hidden 類別)
+    btnTogglePlaylist.onclick = () => playlistDrawer.classList.remove('hidden');
+    // 點擊關閉按鈕隱藏彈窗
+    btnClosePlaylist.onclick = () => playlistDrawer.classList.add('hidden');
+    // 點擊彈窗外部背景也能關閉
+    playlistDrawer.onclick = (e) => { if (e.target === playlistDrawer) playlistDrawer.classList.add('hidden'); };
 
     function startVisualizerAnimation() {
       if (vizAnimFrameId) cancelAnimationFrame(vizAnimFrameId);
@@ -1002,7 +1026,7 @@
           }
         }
 
-        // 🔴 Mini Visualizer (手機版：畫布高度增加 20%，Dash 高度拉開、減緩重力下落速度)
+        // 🔴 Mini Visualizer
         if (enableVisualizer && miniCanvasCtx && miniCanvas) {
           const mdpr = window.devicePixelRatio || 1;
           const mrect = miniCanvas.getBoundingClientRect();
@@ -1015,7 +1039,7 @@
           miniCanvasCtx.clearRect(0, 0, mrect.width, mrect.height);
 
           const miniBars = 22;
-          const miniSegments = 12; // 增加梯階數量
+          const miniSegments = 12; 
           const miniGap = 1.5;
           const miniBarWidth = Math.max((mrect.width - (miniBars * miniGap)) / miniBars, 2);
 
@@ -1023,18 +1047,15 @@
             const freqIdx = Math.floor((i / miniBars) * numBars);
             const freqVal = barFrequencies[freqIdx];
             
-            // 梯階最高填滿到 85% 區域，為頂端 Dash 預留 15% 騰空浮動的自由空間
             const activeSegments = Math.round(freqVal * (miniSegments - 2)); 
             const rawH = freqVal * (miniSegments - 2);
 
-            // 當音量推升時，Dash 彈跳比梯階主體高出 2.5 個單位段落，創造極致距離落差！
             const targetPeak = rawH + 1;
 
-if (targetPeak > miniPeakHeights[i]) {
+            if (targetPeak > miniPeakHeights[i]) {
               miniPeakHeights[i] = targetPeak;
             } else {
-              // 加快下落速度從 0.035 調整為 0.055，讓 Dash 落下動作更明快
-              miniPeakHeights[i] = Math.max(0, miniPeakHeights[i] - 0.035);
+              miniPeakHeights[i] = Math.max(0, miniPeakHeights[i] - 0.055);
             }
 
             const bx = i * (miniBarWidth + miniGap);
@@ -1073,7 +1094,7 @@ if (targetPeak > miniPeakHeights[i]) {
             if (pVal > 0.15) {
               const segH = (mrect.height - (miniSegments * 1)) / miniSegments;
               const pY = mrect.height - pVal * (segH + 1);
-              miniCanvasCtx.fillStyle = '#38bdf8'; /* 天藍色 Dash 帽 */
+              miniCanvasCtx.fillStyle = '#38bdf8';
               miniCanvasCtx.shadowColor = '#38bdf8';
               miniCanvasCtx.shadowBlur = 8;
               miniCanvasCtx.fillRect(bx, Math.max(pY - 2, 1), miniBarWidth, 2.5);
@@ -1103,7 +1124,6 @@ if (targetPeak > miniPeakHeights[i]) {
             const width = rect.width;
             const height = rect.height;
 
-            // 🎚️ 1. Cyber Ladder
             if (currentMode === 'ladder') {
               const barGap = 2.5;
               const barWidth = Math.max((width - (numBars * barGap)) / numBars, 2);
@@ -1169,8 +1189,7 @@ if (targetPeak > miniPeakHeights[i]) {
                   canvasCtx.fillRect(x, peakY - 3, barWidth, 3);
                 }
               }
-            // 🔥 2. Flame Fire
-             } else if (currentMode === 'fire') {
+              } else if (currentMode === 'fire') {
               const barGap = 2;
               const barWidth = Math.max((width - (numBars * barGap)) / numBars, 2);
 
@@ -1222,7 +1241,6 @@ if (targetPeak > miniPeakHeights[i]) {
                 }
               });
             } 
-            // 🟢 3. Matrix Cyber Code (向右流動)
             else if (currentMode === 'matrix') {
               canvasCtx.font = '11px monospace';
               matrixDrops.forEach((drop, idx) => {
@@ -1237,7 +1255,6 @@ if (targetPeak > miniPeakHeights[i]) {
                 canvasCtx.fillText(char, drop.x, drop.y);
               });
             } 
-            // ⚡ 4. Neon Laser Grid
             else if (currentMode === 'laser') {
               const centerY = height / 2;
               for (let i = 0; i < numBars; i++) {
@@ -1256,7 +1273,6 @@ if (targetPeak > miniPeakHeights[i]) {
                 canvasCtx.stroke();
               }
             } 
-            // 🪞 5. Mirror Spectrum
             else if (currentMode === 'mirror') {
               const halfBars = numBars / 2;
               const barGap = 3;
@@ -1285,7 +1301,6 @@ if (targetPeak > miniPeakHeights[i]) {
                 canvasCtx.fill();
               }
             } 
-            // 🌀 6. Audio Vortex
             else if (currentMode === 'vortex') {
               const centerX = width / 2;
               const centerY = height / 2;
@@ -1308,7 +1323,6 @@ if (targetPeak > miniPeakHeights[i]) {
                 canvasCtx.fill();
               });
             } 
-            // 🌊 7. Bass Shockwave
             else if (currentMode === 'pulse') {
               const centerX = width / 2;
               const centerY = height / 2;
@@ -1350,7 +1364,6 @@ if (targetPeak > miniPeakHeights[i]) {
               canvasCtx.arc(centerX, centerY, coreRadius, 0, Math.PI * 2);
               canvasCtx.fill();
             } 
-            // 〰️ 8. Neon Wave
             else if (currentMode === 'wave') {
               canvasCtx.beginPath();
               canvasCtx.lineWidth = 3;
@@ -1374,7 +1387,6 @@ if (targetPeak > miniPeakHeights[i]) {
               canvasCtx.lineTo(width, height / 2);
               canvasCtx.stroke();
             } 
-            // ⭕ 9. Radial Ring
             else if (currentMode === 'radial') {
               const centerX = width / 2;
               const centerY = height / 2;
@@ -1402,7 +1414,6 @@ if (targetPeak > miniPeakHeights[i]) {
                 canvasCtx.stroke();
               }
             } 
-            // ✨ 10. Starburst
             else if (currentMode === 'starburst') {
               const centerX = width / 2;
               const centerY = height / 2;
