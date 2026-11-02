@@ -55,6 +55,16 @@
 
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* 📱 手機橫屏（Landscape）專屬：極致縮小 Playlist 歌名行距、gap 與內距，顯示最多歌曲 */
+    @media (max-height: 500px) and (orientation: landscape) {
+      #playlist-drawer .p-3, #playlist-drawer .p-2.5 { padding-top: 2px !important; padding-bottom: 2px !important; padding-left: 8px !important; padding-right: 8px !important; }
+      #playlist-items { padding: 4px !important; gap: 2px !important; }
+      #playlist-items > div { padding-top: 2px !important; padding-bottom: 2px !important; padding-left: 4px !important; padding-right: 4px !important; gap: 4px !important; }
+      #playlist-items img { width: 20px !important; height: 20px !important; border-radius: 3px !important; }
+      #playlist-items p.text-xs { font-size: 10px !important; line-height: 1.05 !important; }
+      #playlist-items p.text-\[10px\] { font-size: 8px !important; line-height: 1.0 !important; }
+    }
   </style>
 </head>
 <body class="h-full flex flex-col justify-between overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-zinc-950 select-none font-sans">
@@ -63,7 +73,7 @@
   <header class="relative z-20 flex items-center justify-between px-2 sm:px-4 py-1.5 bg-slate-900/90 backdrop-blur-md border-b border-slate-800/85 shrink-0 gap-1.5 sm:gap-2 w-full box-border overflow-hidden">
     
     <!-- Mobile Mini Visualizer -->
-    <div class="flex items-center flex-1 max-w-[150px] sm:max-w-[200px] md:hidden h-auto min-h-[44px] py-1 rounded bg-slate-950/60 border border-slate-800/80 overflow-hidden shrink-0">
+    <div class="flex items-center flex-1 max-w-[150px] sm:max-w-[200px] md:hidden h-[40px] py-1 rounded bg-slate-950/60 border border-slate-800/80 overflow-hidden shrink-0">
       <canvas id="mini-visualizer-canvas" class="w-full h-full block min-h-[40px]"></canvas>
     </div>
 

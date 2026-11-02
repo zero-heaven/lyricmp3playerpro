@@ -55,6 +55,16 @@
 
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* 📱 手機橫屏（Landscape）專屬：極致縮小 Playlist 歌名行距、gap 與內距，顯示最多歌曲 */
+    @media (max-height: 500px) and (orientation: landscape) {
+      #playlist-drawer .p-3, #playlist-drawer .p-2.5 { padding-top: 2px !important; padding-bottom: 2px !important; padding-left: 8px !important; padding-right: 8px !important; }
+      #playlist-items { padding: 4px !important; gap: 2px !important; }
+      #playlist-items > div { padding-top: 2px !important; padding-bottom: 2px !important; padding-left: 4px !important; padding-right: 4px !important; gap: 4px !important; }
+      #playlist-items img { width: 20px !important; height: 20px !important; border-radius: 3px !important; }
+      #playlist-items p.text-xs { font-size: 10px !important; line-height: 1.05 !important; }
+      #playlist-items p.text-\[10px\] { font-size: 8px !important; line-height: 1.0 !important; }
+    }
   </style>
 </head>
 <body class="h-full flex flex-col justify-between overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-zinc-950 select-none font-sans">
