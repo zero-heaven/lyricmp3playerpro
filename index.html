@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="h-full bg-slate-950 text-slate-100">
 <head>
   <meta charset="UTF-8">
@@ -49,16 +49,15 @@
 </head>
 <body class="h-full flex flex-col justify-between overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-zinc-950 select-none font-sans">
 
-  <!-- Header (手機版：視覺化與按鈕在同一行，並拉寬視覺化佔用空間) -->
+  <!-- Header -->
   <header class="relative z-20 flex items-center justify-between px-2 sm:px-4 py-1.5 bg-slate-900/90 backdrop-blur-md border-b border-slate-800/85 shrink-0 gap-1.5 sm:gap-2 w-full box-border overflow-hidden">
     
-    <!-- Mobile & Desktop Mini Visualizer (彈性拉寬佔滿可用空間，高度微調增加視覺張力) -->
-<!-- Mobile Mini Visualizer (手機版專用，在同一行並自動佔滿可用空間；桌機版 md:hidden 隱藏) -->
-    <div class="flex items-center flex-1 max-w-[150px] sm:max-w-[200px] md:hidden h-6 rounded bg-slate-950/60 border border-slate-800/80 overflow-hidden shrink-0">
+    <!-- Mobile Mini Visualizer (高度再增加 20% 至 h-[36px]) -->
+    <div class="flex items-center flex-1 max-w-[150px] sm:max-w-[200px] md:hidden h-[36px] rounded bg-slate-950/60 border border-slate-800/80 overflow-hidden shrink-0">
       <canvas id="mini-visualizer-canvas" class="w-full h-full block"></canvas>
     </div>
 
-    <!-- Center Control Buttons (精簡按鈕排版，確保手機與桌面皆完美顯示) -->
+    <!-- Center Control Buttons -->
     <div class="flex items-center gap-1 sm:gap-2 overflow-x-auto no-scrollbar flex-shrink-0 px-1 py-0.5 whitespace-nowrap justify-end">
       
       <!-- 1st Button: Color Mode -->
@@ -307,7 +306,7 @@
 
     const particles = Array.from({ length: 70 }, () => ({ x: 0, y: 0, vx: 0, vy: 0, radius: 0, alpha: 0, hue: 0 }));
     const fireSparks = Array.from({ length: 60 }, () => ({ x: 0, y: 0, vx: 0, vy: 0, size: 0, life: 0, maxLife: 0, hue: 0 }));
-    const matrixDrops = Array.from({ length: 36 }, () => ({ x: 0, y: Math.random() * 200, speed: Math.random() * 3 + 2, char: '01' }));
+    const matrixDrops = Array.from({ length: 36 }, () => ({ x: Math.random() * 300, y: (Math.random() - 0.5) * 50, speed: Math.random() * 3 + 2, char: '01' }));
     const shockwaves = [];
     let peakHeights = [];
     let miniPeakHeights = [];
@@ -647,8 +646,41 @@
     }
     function pauseAudio() { audio.pause(); iconPlayPause.className = "fa-solid fa-play text-xl"; }
 
-if (btnLyricColor) {
-      const lyricColors = [{ color: "#22c55e" }, { color: "#FF007F" }, { color: "#FF6F61" }, { color: "#9D00FF" }, { color: "#3399FF" }, { color: "#00FF66" }];
+    // 🎯 歌詞主題色解析
+    function getAccentHSL() {
+      const accent = getComputedStyle(document.documentElement).getPropertyValue('--lyric-accent').trim();
+      if (accent.startsWith('#')) {
+        let hex = accent.replace('#', '');
+        if (hex.length === 3) hex = hex.split('').map(c => c + c).join('');
+        const num = parseInt(hex, 16);
+        const r = (num >> 16) & 255, g = (num >> 8) & 255, b = num & 255;
+        const max = Math.max(r, g, b), min = Math.min(r, g, b);
+        let h, s, l = (max + min) / 2;
+        if (max === min) { h = s = 0; } 
+        else {
+          const d = max - min;
+          s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+          switch (max) {
+            case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+            case g: h = (b - r) / d + 2; break;
+            case b: h = (r - g) / d + 4; break;
+          }
+          h /= 6;
+        }
+        return { h: Math.round(h * 360), s: 95, l: 38 };
+      }
+      return { h: 142, s: 95, l: 38 };
+    }
+
+    if (btnLyricColor) {
+      const lyricColors = [
+        { color: "#22c55e" }, 
+        { color: "#FF007F" }, 
+        { color: "#FF6F61" }, 
+        { color: "#9D00FF" }, 
+        { color: "#3399FF" }, 
+        { color: "#00FF66" }
+      ];
       let currentColorIndex = parseInt(localStorage.getItem('lyricColorIndex') || '0');
       function applyLyricColor() {
         const selected = lyricColors[currentColorIndex];
@@ -916,6 +948,8 @@ if (btnLyricColor) {
         const isPlaying = !audio.paused && !audio.ended && audio.currentTime > 0;
         const currentMode = vizModes[currentVizModeIndex].id;
 
+        const accentHSL = getAccentHSL();
+
         if (isPlaying && analyser && frequencyDataArray) {
           analyser.getByteFrequencyData(frequencyDataArray);
           let bassSum = 0;
@@ -968,7 +1002,7 @@ if (btnLyricColor) {
           }
         }
 
-        // 🔴 Mini Visualizer (Same Row, Wider Space + Orange Peak Dash)
+        // 🔴 Mini Visualizer (手機版：畫布高度增加 20%，Dash 高度拉開、減緩重力下落速度)
         if (enableVisualizer && miniCanvasCtx && miniCanvas) {
           const mdpr = window.devicePixelRatio || 1;
           const mrect = miniCanvas.getBoundingClientRect();
@@ -981,20 +1015,26 @@ if (btnLyricColor) {
           miniCanvasCtx.clearRect(0, 0, mrect.width, mrect.height);
 
           const miniBars = 22;
-          const miniSegments = 10;
+          const miniSegments = 12; // 增加梯階數量
           const miniGap = 1.5;
           const miniBarWidth = Math.max((mrect.width - (miniBars * miniGap)) / miniBars, 2);
 
           for (let i = 0; i < miniBars; i++) {
             const freqIdx = Math.floor((i / miniBars) * numBars);
             const freqVal = barFrequencies[freqIdx];
-            const activeSegments = Math.round(freqVal * miniSegments);
-            const rawH = freqVal * miniSegments;
+            
+            // 梯階最高填滿到 85% 區域，為頂端 Dash 預留 15% 騰空浮動的自由空間
+            const activeSegments = Math.round(freqVal * (miniSegments - 2)); 
+            const rawH = freqVal * (miniSegments - 2);
 
-            if (rawH > miniPeakHeights[i]) {
-              miniPeakHeights[i] = rawH;
+            // 當音量推升時，Dash 彈跳比梯階主體高出 2.5 個單位段落，創造極致距離落差！
+            const targetPeak = rawH + 1;
+
+if (targetPeak > miniPeakHeights[i]) {
+              miniPeakHeights[i] = targetPeak;
             } else {
-              miniPeakHeights[i] = Math.max(0, miniPeakHeights[i] - 0.12);
+              // 加快下落速度從 0.035 調整為 0.055，讓 Dash 落下動作更明快
+              miniPeakHeights[i] = Math.max(0, miniPeakHeights[i] - 0.035);
             }
 
             const bx = i * (miniBarWidth + miniGap);
@@ -1004,23 +1044,39 @@ if (btnLyricColor) {
               const by = mrect.height - (s + 1) * (segH + 1);
 
               if (s < activeSegments) {
-                const hue = 120 + (s / miniSegments) * 140;
-                miniCanvasCtx.fillStyle = `hsl(${hue}, 95%, 55%)`;
+                const ratio = s / (miniSegments - 1);
+                let currentHue, currentSat, currentLight;
+                if (ratio < 0.20) {
+                  const subR = ratio / 0.20;
+                  currentHue = accentHSL.h;
+                  currentSat = 95;
+                  currentLight = 28 + subR * 12;
+                } else if (ratio < 0.80) {
+                  const subR = (ratio - 0.20) / 0.60;
+                  currentHue = accentHSL.h + subR * 30;
+                  currentSat = 90 - subR * 35;
+                  currentLight = 40 + subR * 40;
+                } else {
+                  const subR = (ratio - 0.80) / 0.20;
+                  currentHue = accentHSL.h + 30 + subR * 30;
+                  currentSat = 55 + subR * 35;
+                  currentLight = 80 + subR * 12;
+                }
+                miniCanvasCtx.fillStyle = `hsl(${currentHue}, ${currentSat}%, ${currentLight}%)`;
               } else {
                 miniCanvasCtx.fillStyle = 'rgba(30, 41, 59, 0.4)';
               }
               miniCanvasCtx.fillRect(bx, by, miniBarWidth, segH);
             }
 
-            // 🟠 Orange Dash Peak Line at Top
             const pVal = miniPeakHeights[i];
             if (pVal > 0.15) {
               const segH = (mrect.height - (miniSegments * 1)) / miniSegments;
               const pY = mrect.height - pVal * (segH + 1);
-              miniCanvasCtx.fillStyle = '#f97316'; // Bright Orange
-              miniCanvasCtx.shadowColor = '#ff6600';
-              miniCanvasCtx.shadowBlur = 4;
-              miniCanvasCtx.fillRect(bx, Math.max(pY - 2, 1), miniBarWidth, 2);
+              miniCanvasCtx.fillStyle = '#38bdf8'; /* 天藍色 Dash 帽 */
+              miniCanvasCtx.shadowColor = '#38bdf8';
+              miniCanvasCtx.shadowBlur = 8;
+              miniCanvasCtx.fillRect(bx, Math.max(pY - 2, 1), miniBarWidth, 2.5);
               miniCanvasCtx.shadowBlur = 0;
             }
           }
@@ -1029,6 +1085,7 @@ if (btnLyricColor) {
           miniCanvasCtx.clearRect(0, 0, miniCanvas.width, miniCanvas.height);
         }
 
+        // 💻 Desktop Visualizer
         if (enableVisualizer) {
           if (canvasCtx && canvas) {
             const dpr = window.devicePixelRatio || 1;
@@ -1046,6 +1103,7 @@ if (btnLyricColor) {
             const width = rect.width;
             const height = rect.height;
 
+            // 🎚️ 1. Cyber Ladder
             if (currentMode === 'ladder') {
               const barGap = 2.5;
               const barWidth = Math.max((width - (numBars * barGap)) / numBars, 2);
@@ -1068,9 +1126,27 @@ if (btnLyricColor) {
                   const y = height - (s + 1) * (segHeight + 1.5);
 
                   if (s < activeSegments) {
-                    const hue = 120 + (s / totalSegments) * 140;
-                    canvasCtx.fillStyle = `hsl(${hue}, 95%, 55%)`;
-                    canvasCtx.shadowColor = `hsl(${hue}, 95%, 50%)`;
+                    const ratio = s / (totalSegments - 1);
+                    let currentHue, currentSat, currentLight;
+                    if (ratio < 0.20) {
+                      const subR = ratio / 0.20;
+                      currentHue = accentHSL.h;
+                      currentSat = 95;
+                      currentLight = 28 + subR * 12;
+                    } else if (ratio < 0.80) {
+                      const subR = (ratio - 0.20) / 0.60;
+                      currentHue = accentHSL.h + subR * 30;
+                      currentSat = 90 - subR * 35;
+                      currentLight = 40 + subR * 40;
+                    } else {
+                      const subR = (ratio - 0.80) / 0.20;
+                      currentHue = accentHSL.h + 30 + subR * 30;
+                      currentSat = 55 + subR * 35;
+                      currentLight = 80 + subR * 12;
+                    }
+                    
+                    canvasCtx.fillStyle = `hsl(${currentHue}, ${currentSat}%, ${currentLight}%)`;
+                    canvasCtx.shadowColor = `hsl(${currentHue}, 90%, 50%)`;
                     canvasCtx.shadowBlur = 6;
                   } else {
                     canvasCtx.fillStyle = 'rgba(30, 41, 59, 0.4)';
@@ -1093,7 +1169,8 @@ if (btnLyricColor) {
                   canvasCtx.fillRect(x, peakY - 3, barWidth, 3);
                 }
               }
-} else if (currentMode === 'fire') {
+            // 🔥 2. Flame Fire
+             } else if (currentMode === 'fire') {
               const barGap = 2;
               const barWidth = Math.max((width - (numBars * barGap)) / numBars, 2);
 
@@ -1144,37 +1221,43 @@ if (btnLyricColor) {
                   canvasCtx.fill();
                 }
               });
-            } else if (currentMode === 'matrix') {
+            } 
+            // 🟢 3. Matrix Cyber Code (向右流動)
+            else if (currentMode === 'matrix') {
               canvasCtx.font = '11px monospace';
               matrixDrops.forEach((drop, idx) => {
-                drop.y += drop.speed * (bassEnergy * 2 + 0.5);
-                if (drop.y > height) drop.y = 0;
-                drop.x = (idx / matrixDrops.length) * width;
+                drop.x += drop.speed * (bassEnergy * 2 + 0.5);
+                if (drop.x > width) drop.x = 0;
+                drop.y = (idx / matrixDrops.length) * height;
 
                 const char = Math.random() > 0.5 ? '1' : '0';
-                canvasCtx.fillStyle = '#22c55e';
-                canvasCtx.shadowColor = '#4ade80';
+                canvasCtx.fillStyle = `hsl(${accentHSL.h}, 90%, 55%)`;
+                canvasCtx.shadowColor = `hsl(${accentHSL.h}, 90%, 65%)`;
                 canvasCtx.shadowBlur = 8;
                 canvasCtx.fillText(char, drop.x, drop.y);
               });
-            } else if (currentMode === 'laser') {
+            } 
+            // ⚡ 4. Neon Laser Grid
+            else if (currentMode === 'laser') {
               const centerY = height / 2;
               for (let i = 0; i < numBars; i++) {
                 const x = (i / numBars) * width;
                 const h = barFrequencies[i] * (height * 0.45);
-                const hue = (i / numBars) * 180 + 160;
+                const laserHue = (i * 8 + Date.now() * 0.05) % 360;
 
-                canvasCtx.strokeStyle = `hsl(${hue}, 100%, 60%)`;
-                canvasCtx.lineWidth = 2;
-                canvasCtx.shadowColor = `hsl(${hue}, 100%, 50%)`;
-                canvasCtx.shadowBlur = 12;
+                canvasCtx.strokeStyle = `hsl(${laserHue}, 100%, 60%)`;
+                canvasCtx.lineWidth = 2.5;
+                canvasCtx.shadowColor = `hsl(${laserHue}, 100%, 50%)`;
+                canvasCtx.shadowBlur = 14;
 
                 canvasCtx.beginPath();
                 canvasCtx.moveTo(x, centerY - h);
                 canvasCtx.lineTo(x, centerY + h);
                 canvasCtx.stroke();
               }
-            } else if (currentMode === 'mirror') {
+            } 
+            // 🪞 5. Mirror Spectrum
+            else if (currentMode === 'mirror') {
               const halfBars = numBars / 2;
               const barGap = 3;
               const totalWidthPerSide = (width / 2) - 10;
@@ -1184,13 +1267,13 @@ if (btnLyricColor) {
               for (let i = 0; i < halfBars; i++) {
                 const freqVal = barFrequencies[i];
                 const barH = freqVal * (height * 0.85);
+                const mirrorHue = (i * 12) % 360;
 
                 const lx = centerX - (i + 1) * (barWidth + barGap);
                 const ly = height - barH;
-                const hueL = 150 + (i / halfBars) * 100;
 
-                canvasCtx.fillStyle = `hsl(${hueL}, 90%, 55%)`;
-                canvasCtx.shadowColor = `hsl(${hueL}, 90%, 50%)`;
+                canvasCtx.fillStyle = `hsl(${mirrorHue}, 90%, 55%)`;
+                canvasCtx.shadowColor = `hsl(${mirrorHue}, 90%, 50%)`;
                 canvasCtx.shadowBlur = 10;
                 canvasCtx.beginPath();
                 canvasCtx.roundRect(lx, ly, barWidth, barH, [2, 2, 0, 0]);
@@ -1201,7 +1284,9 @@ if (btnLyricColor) {
                 canvasCtx.roundRect(rx, ly, barWidth, barH, [2, 2, 0, 0]);
                 canvasCtx.fill();
               }
-            } else if (currentMode === 'vortex') {
+            } 
+            // 🌀 6. Audio Vortex
+            else if (currentMode === 'vortex') {
               const centerX = width / 2;
               const centerY = height / 2;
               const time = Date.now() * 0.002 * (bassEnergy + 0.5);
@@ -1212,22 +1297,25 @@ if (btnLyricColor) {
                 const px = centerX + Math.cos(angle) * dist;
                 const py = centerY + Math.sin(angle) * dist;
                 const pSize = (barFrequencies[idx % numBars] * 4) + 1.5;
+                const vHue = (idx * 10 + Date.now() * 0.05) % 360;
 
-                const hue = (idx / particles.length) * 360 + (time * 50);
-                canvasCtx.fillStyle = `hsl(${hue}, 90%, 60%)`;
-                canvasCtx.shadowColor = `hsl(${hue}, 90%, 50%)`;
+                canvasCtx.fillStyle = `hsl(${vHue}, 90%, 60%)`;
+                canvasCtx.shadowColor = `hsl(${vHue}, 90%, 50%)`;
                 canvasCtx.shadowBlur = 8;
 
                 canvasCtx.beginPath();
                 canvasCtx.arc(px, py, pSize, 0, Math.PI * 2);
                 canvasCtx.fill();
               });
-            } else if (currentMode === 'pulse') {
+            } 
+            // 🌊 7. Bass Shockwave
+            else if (currentMode === 'pulse') {
               const centerX = width / 2;
               const centerY = height / 2;
 
               if (bassEnergy > 0.65 && Math.random() < 0.25) {
-                shockwaves.push({ r: 10, maxR: 180, alpha: 1.0, hue: Math.random() * 60 + 130 });
+                const randomHue = Math.floor(Math.random() * 360);
+                shockwaves.push({ r: 10, maxR: 180, alpha: 1.0, hue: randomHue });
               }
 
               for (let s = shockwaves.length - 1; s >= 0; s--) {
@@ -1249,22 +1337,25 @@ if (btnLyricColor) {
               }
 
               const coreRadius = 12 + (bassEnergy * 28);
+              const coreHue = (Date.now() * 0.05) % 360;
               const coreGrad = canvasCtx.createRadialGradient(centerX, centerY, 0, centerX, centerY, coreRadius);
-              coreGrad.addColorStop(0, '#34d399');
-              coreGrad.addColorStop(0.7, '#10b981');
+              coreGrad.addColorStop(0, `hsl(${coreHue}, 90%, 70%)`);
+              coreGrad.addColorStop(0.7, `hsl(${coreHue}, 90%, 50%)`);
               coreGrad.addColorStop(1, 'rgba(16, 185, 129, 0)');
 
               canvasCtx.fillStyle = coreGrad;
-              canvasCtx.shadowColor = '#10b981';
+              canvasCtx.shadowColor = `hsl(${coreHue}, 90%, 50%)`;
               canvasCtx.shadowBlur = 25;
               canvasCtx.beginPath();
               canvasCtx.arc(centerX, centerY, coreRadius, 0, Math.PI * 2);
               canvasCtx.fill();
-            } else if (currentMode === 'wave') {
+            } 
+            // 〰️ 8. Neon Wave
+            else if (currentMode === 'wave') {
               canvasCtx.beginPath();
               canvasCtx.lineWidth = 3;
-              canvasCtx.strokeStyle = '#10b981';
-              canvasCtx.shadowColor = '#34d399';
+              canvasCtx.strokeStyle = `hsl(${accentHSL.h}, 90%, 55%)`;
+              canvasCtx.shadowColor = `hsl(${accentHSL.h}, 90%, 60%)`;
               canvasCtx.shadowBlur = 15;
 
               const sliceWidth = width / numBars;
@@ -1282,7 +1373,9 @@ if (btnLyricColor) {
 
               canvasCtx.lineTo(width, height / 2);
               canvasCtx.stroke();
-            } else if (currentMode === 'radial') {
+            } 
+            // ⭕ 9. Radial Ring
+            else if (currentMode === 'radial') {
               const centerX = width / 2;
               const centerY = height / 2;
               const radius = Math.min(width, height) * 0.32;
@@ -1291,16 +1384,16 @@ if (btnLyricColor) {
               for (let i = 0; i < numBars; i++) {
                 const angle = i * angleStep;
                 const barLen = barFrequencies[i] * (height * 0.5);
+                const rHue = (i * 15 + Date.now() * 0.05) % 360;
 
                 const x1 = centerX + Math.cos(angle) * radius;
                 const y1 = centerY + Math.sin(angle) * radius;
                 const x2 = centerX + Math.cos(angle) * (radius + barLen);
                 const y2 = centerY + Math.sin(angle) * (radius + barLen);
 
-                const hue = (i / numBars) * 360;
-                canvasCtx.strokeStyle = `hsl(${hue}, 85%, 60%)`;
+                canvasCtx.strokeStyle = `hsl(${rHue}, 85%, 60%)`;
                 canvasCtx.lineWidth = 3;
-                canvasCtx.shadowColor = `hsl(${hue}, 85%, 50%)`;
+                canvasCtx.shadowColor = `hsl(${rHue}, 85%, 50%)`;
                 canvasCtx.shadowBlur = 10;
 
                 canvasCtx.beginPath();
@@ -1308,7 +1401,9 @@ if (btnLyricColor) {
                 canvasCtx.lineTo(x2, y2);
                 canvasCtx.stroke();
               }
-            } else if (currentMode === 'starburst') {
+            } 
+            // ✨ 10. Starburst
+            else if (currentMode === 'starburst') {
               const centerX = width / 2;
               const centerY = height / 2;
               const avgEnergy = bassEnergy;
@@ -1323,7 +1418,7 @@ if (btnLyricColor) {
                   p.vy = Math.sin(angle) * speed;
                   p.radius = Math.random() * 3.5 + 1.5;
                   p.alpha = 1;
-                  p.hue = Math.random() * 120 + 120;
+                  p.hue = (idx * 15) % 360;
                 }
 
                 p.x += p.vx;
