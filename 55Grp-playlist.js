@@ -11,48 +11,86 @@ const playlists = {
 [ar:Air Supply]
 [al:Lost in Love]
 [00:00.00]All Out of Love - Air Supply - 1980
-[00:22.01]I'm lying alone with my head on the phone(我一個人躺著，電話筒就在我的耳邊)
-[00:26.68]Thinking of you till it hurts(我就這樣，一直想著你，直到想不下去為止) 
-[00:31.17]I know you hurt too but what else can we do(我知道妳也很難過，但我們還能怎樣？)
-[00:35.42]Tormented and torn apart(這一切真是要人命啊！)
-[00:39.92]I wish I could carry your smile and my heart(我希望自己能繼續撐下去，有妳的微笑陪著我)
-[00:44.42]For times when my life seems so low(當我的人生很魯的時候…)
-[00:48.67]It would make me believe what tomorrow could bring(這樣，我就能相信，我的明天會更好)
-[00:52.42]When today doesn't really know, doesn't really know(因為，今天我迷惑，很迷惑)
-[00:59.42]I'm all out of love, I'm so lost without you(沒有人愛我了，沒有你我就像迷路的小羊)
-[01:04.17]I know you were right believing for so long(我知道你曾經相信過我)
-[01:09.17]I'm all out of love, what am I without you(現在，沒有你的愛，我還算是個人嗎？)
-[01:13.17]I can't be too late to say that I was so wrong(我蹉跎太久，一直沒告訴你是我錯了)
-[01:21.92]I want you to come back and carry me home(我想要你回來，帶我回家)
-[01:26.42]Away from this long lonely nights(帶我走出每個孤單寂寞的夜晚)
-[01:30.67]I'm reaching for you, are you feeling it too(我伸出手想要偷摸你一下，你感覺到了嗎？)
-[01:34.67]Does the feeling seem oh so right(這感覺對了)
-[01:39.42]And what would you say if I called on you now(你說我現在打電話給你好不好啊？)
-[01:43.92]And said that I can't hold on(告訴你，我再也撐不住了)
-[01:48.17]There's no easy way, it gets harder each day(吃回頭草這種事，沒有捷徑，如果不快點，就要被別人搶先了…)
-[01:52.42]Please love me or I'll be gone, I'll be gone(這一次，如果你不愛我，我就會消失，我會馬上滾)
-[01:58.67]I'm all out of love, I'm so lost without you(沒有人愛我了，沒有你我就像迷路的小羊)
-[02:03.67]I know you were right believing for so long(我知道你曾經相信過我)
-[02:08.18]I'm all out of love, what am I without you(現在，沒有你的愛，我還算是個人嗎？)
-[02:12.43]I can't be too late to say that I was so wrong(我蹉跎太久，一直沒告訴你我錯了)
-[02:21.17]Oh, what are you thinking of(噢，你現在想到了什麼呢？)
-[02:27.43]What are you thinking of(想到了什麼呀？)
-[02:32.17]What are you thinking of(噢，你現在想到的是我嗎？)
-[02:36.67]What are you thinking of(到底是不是我呢？)
-[02:47.42]I'm all out of love, I'm so lost without you(沒有人愛我了，沒有你我就像迷路的小羊)
-[02:52.68]I know you were right believing for so long(我知道你曾經相信過我)
-[02:57.67]I'm all out of love, what am I without you(現在，沒有你的愛，我還算是個人嗎？)
-[03:01.92]I can't be too late I know I was so wrong(我蹉跎太久，一直沒告訴你我錯了)
-[03:06.67]I'm all out of love, I'm so lost without you(沒有人愛我了，沒有你我就像迷路的小羊)
-[03:10.92]I know you were right believing for so long(我知道你曾經相信過我)
-[03:15.16]I'm all out of love, what am I without you(現在，沒有你的愛，我還算是個人嗎？)
-[03:19.42]I can't be too late I know I was so wrong(我蹉跎太久，一直沒告訴你我錯了)
-[03:24.42]I'm all out of love, I'm so lost without you(沒有人愛我了，沒有你我就像迷路的小羊)
-[03:28.42]I know you were right believing for so long(我知道你曾經相信過我)
-[03:33.17]I'm all out of love, what am I without you(現在，沒有你的愛，我還算是個人嗎？)
-[03:37.17]I can't be too late to say that I was so wrong(我蹉跎太久，一直沒告訴你我錯了)`, 
+[00:22.01]I'm lying alone with my head on the phone
+[00:26.68]Thinking of you till it hurts
+[00:31.17]I know you hurt too but what else can we do
+[00:35.42]Tormented and torn apart
+[00:39.92]I wish I could carry your smile and my heart
+[00:44.42]For times when my life seems so low
+[00:48.67]It would make me believe what tomorrow could bring
+[00:52.42]When today doesn't really know, doesn't really know
+[00:59.42]I'm all out of love, I'm so lost without you
+[01:04.17]I know you were right believing for so long
+[01:09.17]I'm all out of love, what am I without you
+[01:13.17]I can't be too late to say that I was so wrong
+[01:21.92]I want you to come back and carry me home
+[01:26.42]Away from this long lonely nights
+[01:30.67]I'm reaching for you, are you feeling it too
+[01:34.67]Does the feeling seem oh so right
+[01:39.42]And what would you say if I called on you now
+[01:43.92]And said that I can't hold on
+[01:48.17]There's no easy way, it gets harder each day
+[01:52.42]Please love me or I'll be gone, I'll be gone
+[01:58.67]I'm all out of love, I'm so lost without you
+[02:08.18]I'm all out of love, what am I without you
+[02:12.43]I can't be too late to say that I was so wrong
+[02:21.17]Oh, what are you thinking of
+[02:27.43]What are you thinking of
+[02:32.17]What are you thinking of
+[02:36.67]What are you thinking of
+[02:47.42]I'm all out of love, I'm so lost without you
+[02:52.68]I know you were right believing for so long
+[02:57.67]I'm all out of love, what am I without you
+[03:01.92]I can't be too late I know I was so wrong
+[03:06.67]I'm all out of love, I'm so lost without you
+[03:10.92]I know you were right believing for so long
+[03:15.16]I'm all out of love, what am I without you
+[03:19.42]I can't be too late I know I was so wrong
+[03:24.42]I'm all out of love, I'm so lost without you
+[03:28.42]I know you were right believing for so long
+[03:33.17]I'm all out of love, what am I without you
+[03:37.17]I can't be too late to say that I was so wrong`,
     lrcRaw2: `
-
+[00:22.01]我一個人躺著，電話筒就在我的耳邊
+[00:26.68]我就這樣，一直想著你，直到想不下去為止 
+[00:31.17]我知道妳也很難過，但我們還能怎樣？
+[00:35.42]這一切真是要人命啊！
+[00:39.92]我希望自己能繼續撐下去，有妳的微笑陪著我
+[00:44.42]當我的人生很魯的時候…
+[00:48.67]這樣，我就能相信，我的明天會更好
+[00:52.42]因為，今天我迷惑，很迷惑
+[00:59.42]沒有人愛我了，沒有你我就像迷路的小羊
+[01:04.17]我知道你曾經相信過我
+[01:09.17]現在，沒有你的愛，我還算是個人嗎？
+[01:13.17]我蹉跎太久，一直沒告訴你是我錯了
+[01:21.92]我想要你回來，帶我回家
+[01:26.42]帶我走出每個孤單寂寞的夜晚
+[01:30.67]我伸出手想要偷摸你一下，你感覺到了嗎？
+[01:34.67]這感覺對了
+[01:39.42]你說我現在打電話給你好不好啊？
+[01:43.92]告訴你，我再也撐不住了
+[01:48.17]吃回頭草這種事，沒有捷徑，如果不快點，就要被別人搶先了…
+[01:52.42]這一次，如果你不愛我，我就會消失，我會馬上滾
+[01:58.67]沒有人愛我了，沒有你我就像迷路的小羊
+[02:03.67]我知道你曾經相信過我
+[02:08.18]現在，沒有你的愛，我還算是個人嗎？
+[02:12.43]我蹉跎太久，一直沒告訴你我錯了
+[02:21.17]噢，你現在想到了什麼呢？
+[02:27.43]想到了什麼呀？
+[02:32.17]噢，你現在想到的是我嗎？
+[02:36.67]到底是不是我呢？
+[02:47.42]沒有人愛我了，沒有你我就像迷路的小羊
+[02:52.68]我知道你曾經相信過我
+[02:57.67]現在，沒有你的愛，我還算是個人嗎？
+[03:01.92]我蹉跎太久，一直沒告訴你我錯了
+[03:06.67]沒有人愛我了，沒有你我就像迷路的小羊
+[03:10.92]我知道你曾經相信過我
+[03:15.16]現在，沒有你的愛，我還算是個人嗎？
+[03:19.42]我蹉跎太久，一直沒告訴你我錯了
+[03:24.42]沒有人愛我了，沒有你我就像迷路的小羊
+[03:28.42]我知道你曾經相信過我
+[03:33.17]現在，沒有你的愛，我還算是個人嗎？
+[03:37.17]我蹉跎太久，一直沒告訴你我錯了
 `
 },
   {
@@ -334,7 +372,36 @@ const playlists = {
 [03:37.69]My love, take my breath away
 [03:48.15]My love, take my breath away
 [04:00.79]Take My Breath Away
-[04:07.98]My Love` 
+[04:07.98]My Love`, 
+    lrcRaw2: `
+[00:00.00]Berlin - Take My breath Away 1986
+[00:08.00]空戰電影「捍衛戰士」( Top Gun )主題曲
+[00:11.73]看著我在這個愚蠢戀人遊戲中的一舉一動
+[00:21.42]在這個無邊際的海洋中，戀人們終於知道不再害羞
+[00:31.17]轉身回到心裡某個秘密地方
+[00:41.30]看著你緩緩地轉身過來對我說
+[00:50.24]你真是令我神魂顛倒
+[00:59.97]你真是令我神魂顛倒
+[01:11.08]看著我仍然在等待，仍然期盼著愛情
+[01:21.10]從不猶豫變成命運的犧牲者
+[01:30.86]轉身回到某個秘密地方隱藏起來
+[01:40.88]看著你緩緩地轉身過來對我說
+[01:49.53]你真是令我神魂顛倒
+[02:00.81]透過沙漏，我看見了你,一下子就溜走了
+[02:10.98]當鏡子破裂時，我呼喚著你,轉過身聽到你說
+[02:19.60]如果只是為了今天，我也不再害怕
+[02:29.72]你真是令我神魂顛倒
+[02:37.50]你真是令我神魂顛倒
+[02:50.55]看著我在這個愚蠢戀人遊戲中的一舉一動
+[03:00.38]被某個念頭糾纏著,某個地方有個燃燒中的愛情
+[03:10.33]轉身回到心裡某個秘密地方
+[03:20.36]看著你緩緩地轉身過來對我說
+[03:29.06]你真是令我神魂顛倒
+[03:37.69]我的最愛，你真是令我神魂顛倒
+[03:48.15]我的最愛，你真是令我神魂顛倒
+[04:00.79]你真是令我神魂顛倒
+[04:07.98]我的最愛
+`
   },
   {
     id: "song-7",
@@ -405,7 +472,39 @@ const playlists = {
 [03:43.35]隨著時光流逝，我一天比一天更愛你
 [03:43.35]I love you more and more each day as time goes by
 [03:50.99]隨著時光流逝，我一天比一天更愛你
-[03:50.99]I love you more and more each day as time goes by` 
+[03:50.99]I love you more and more each day as time goes by`,
+    lrcRaw2: `[00:01.10]Movie theme by Casablanca(北非影碟) 1942
+[00:13.00]Casablanca - Bertie Higgins 1982
+[00:15.84]看著《卡薩布蘭卡》這部片時，我愛上了你
+[00:23.48]當時汽車電影院的后排燈光閃爍不定
+[00:30.86]爆米花和可樂在星光下
+[00:34.73]變成了香檳和魚子醬
+[00:39.29]我們在漫長的而燥熱的夏夜里盡情歡笑
+[00:46.23]我以為在看《卡薩布蘭卡》時，你愛上了我
+[00:53.91]咖啡館里的吊扇下牽手
+[00:56.79]在點著燭光的里克
+[01:01.40]我們躲在聚光燈照不到的陰影里
+[01:05.25]你的眼里映著摩洛哥的月光
+[01:08.47]隨著電影在我那輛舊雪佛萊里變著魔術
+[01:15.83]噢！卡薩布蘭卡的親吻依舊
+[01:23.64]但沒有了你的嘆息，那吻已不成吻
+[01:31.42]請來卡薩布蘭卡找我
+[01:39.05]隨著時光流逝，我一天比一天更愛你
+[02:20.84]我猜，在卡薩布蘭卡有很多傷心人
+[02:28.14]你知道我從未到過那里所以我不是很清楚
+[02:35.44]我想我們的愛情故事不會被
+[02:40.14]搬上銀幕
+[02:43.50]但當我不得不看著你離去，我也感受到那種傷痛
+[02:50.54]噢！卡薩布蘭卡的親吻依舊
+[02:58.65]但沒有了你的嘆息，那吻已不成吻
+[03:05.39]請來卡薩布蘭卡找我
+[03:13.45]隨著時光流逝，我一天比一天更愛你
+[03:20.39]噢！卡薩布蘭卡的親吻依舊
+[03:28.25]但沒有了你的嘆息，那吻已不成吻
+[03:35.82]請來卡薩布蘭卡找我
+[03:43.35]隨著時光流逝，我一天比一天更愛你
+[03:50.99]隨著時光流逝，我一天比一天更愛你
+`
   },
   {
     id: "song-8",
@@ -988,7 +1087,77 @@ const playlists = {
 [03:09.42]So hold me tight
 [03:10.77]Hold me tight, or don't
 [03:15.06]Oh na na na na na na na na na na na
-[03:20.29]Na na na na na na na` 
+[03:20.29]Na na na na na na na`,
+    lrcRaw2: `[00:00.00]Hold Me Tight Or Don't - Fall Out Boy (2018)(抱緊我，否則就別想了)
+[00:05.52]Oh na na na na na na na na
+[00:10.09]我從未真正感受到一件事
+[00:13.15]我只是有點太冷酷而已
+[00:16.34]你是我的唯一
+[00:18.22]那又令我感覺更深刻了
+[00:21.04]我捏了自己一下
+[00:23.21]不再半夢半醒
+[00:26.08]我運氣很背地清醒了
+[00:28.06]我運氣很背地清醒了
+
+[00:30.01]當你鬆開你的縫線時
+[00:34.04]我想要睡在你的片片飛散的絨毛上
+[00:37.45]一切自你的心中吐露出來
+[00:42.09]我已經完全對這段回憶上癮了
+[00:45.17]我需要平靜一下
+
+[00:48.04]又一天過去了
+[00:54.63]所以就抱緊我
+[00:58.47]抱緊我，不然就走開吧
+[01:00.30]噢不，這不會是我們的結局
+[01:04.43]所以緊緊抱住我
+[01:06.80]緊緊抱住我，不然就離開吧
+
+[01:10.10]Oh na na na na na na na na na na na
+[01:12.91]Na na na na na na na
+[01:15.52]Oh na na na na na na na na na na na
+
+[01:20.51]我又太過興奮了
+[01:23.00]清楚明白我無法繼續和你廝守
+[01:25.74]也不能只和你做朋友
+[01:28.01]我愛你愛到死
+[01:30.13]但我只是不能，只是不能佯裝罷了
+[01:33.03]我們原本不是愛人
+[01:35.25]只是不只是朋友的知己而已
+[01:37.96]我們真的有當過朋友嗎?
+[01:40.27]但每當你的縫線鬆脫之際
+[01:43.87]我就想睡在你的片片飛散的絨毛上
+[01:47.37]一切自你的心中吐露出來
+[01:51.96]我完全沉浸在這段回憶當中無法自拔
+[01:55.80]我需要平靜一下
+
+[01:59.34]又一天流逝了
+[02:04.48]所以緊緊抱住我
+[02:07.25]要不緊緊抱住我，不然就離開吧
+[02:10.33]噢不，這不該是我們兩人的結局
+[02:14.30]所以緊緊地抱住我
+[02:16.50]緊緊抱住我，不然就離開我吧
+
+[02:20.10]Oh na na na na na na na na na na na
+[02:23.11]Na na na na na na na
+[02:25.33]Oh na na na na na na na na na na na
+[02:27.01]緊緊抱住我，不然就離開我吧
+
+[02:29.98]因為我忍耐已經到限度了
+[02:34.97]在我們兩人之間的隔閡
+[02:37.89]將我如同利刃般地磨利
+[02:41.29]已經踩到底線了
+[02:44.89]我們兩人之間的距離
+[02:47.61]令我一再憤怒不已
+[02:55.19]一天又這樣過去了
+
+[02:59.01]所以抱緊我
+[03:01.42]抱緊我，不然離開吧
+[03:04.82]我很確定這並非我們兩人的結局
+[03:09.42]所以6就抱緊我吧
+[03:11.77]緊緊抱住我，不然就離開我吧
+
+[03:15.06]Oh na na na na na na na na na na na
+[03:20.29]Na na na na na na na`
   },
   {
     id: "song-16",
@@ -1072,7 +1241,80 @@ const playlists = {
 [02:51.61]Don't get too close
 [02:54.25]It's dark inside
 [02:56.58]It's where my demons hide
-[02:59.29]It's where my demons hide` 
+[02:59.29]It's where my demons hide`,
+    lrcRaw2: `[00:00.00]Imagine Dragons - Demons (惡魔)
+[00:09.45]當寒冬來臨
+[00:12.70]一張張名片被折疊丟棄
+[00:15.39]那些我們認可的聖人
+[00:18.12]是由金錢所堆砌
+[00:20.75]當夢想破滅
+[00:23.62]那些我們曾推戴的人
+[00:26.13]卻是最糟糕的
+[00:28.69]他的血液污穢地流著
+
+[00:32.51]我想藏住事實
+[00:35.17]我想庇護住你
+[00:37.84]但在我們體內的野獸
+[00:40.57]使我們無處躲藏
+[00:43.26]無論我們怎麼被教養
+[00:45.95]我們依舊被貪心佔據
+[00:48.54]這是我貪婪國度的到來
+[00:51.21]這是我貪婪國度的到來
+
+[00:54.24]當你感受到我的體溫
+[00:56.86]直視我眼
+[00:59.38]那是惡魔螫伏之處
+[01:01.91]那是惡魔螫伏之處
+[01:04.80]別靠太近
+[01:07.46]裡頭充滿黑暗
+[01:10.07]那是惡魔螫伏之處
+[01:12.63]那是惡魔螫伏之處
+
+[01:14.78]當絕望召喚時
+[01:16.85]已是一切的終點
+[01:19.16]當光明褪去
+[01:21.92]所有罪惡之人匍匐而出
+[01:24.86]為你挖掘墳墓
+[01:27.35]所有的偽裝
+[01:30.13]將一一出現
+[01:32.81]在你思緒雜亂之處
+
+[01:36.70]我不想讓你陷入萬惡淵藪
+[01:39.33]但我跟隨你前往地獄
+[01:41.90]而這一切都為了你
+[01:44.64]別想藏住事實
+[01:47.37]無論我們怎麼被教養
+[01:49.90]我們依舊被貪心佔據
+[01:52.63]這是我貪婪國度的到來
+[01:55.31]這是我貪婪國度的到來
+
+[01:58.23]當你感受到我的體溫
+[02:00.80]直視我眼
+[02:03.55]那是惡魔螫伏之處
+[02:06.00]那是惡魔螫伏之處
+[02:08.96]別靠太近
+[02:11.53]裡頭充滿黑暗
+[02:14.02]那是惡魔螫伏之處
+[02:16.57]那是惡魔螫伏之處
+
+[02:19.57]他們說這是你應得的
+[02:21.92]但我卻認為是命運造就
+[02:24.56]貪婪的魔鬼深織在我靈魂中
+[02:27.22]我必須讓你離開
+[02:30.13]你眼是如此閃耀
+[02:32.70]我想保持住這光輝
+[02:35.19]我無法摒棄他
+[02:37.91]除非你告訴我方法
+
+[02:41.02]當你感受到我的體溫
+[02:43.56]直視我眼
+[02:46.09]那是惡魔螫伏之處
+[02:48.53]那是惡魔螫伏之處
+[02:51.61]別靠太近
+[02:54.25]裡頭充滿黑暗
+[02:56.58]那是惡魔螫伏之處
+[02:59.29]那是惡魔螫伏之處
+`
   }
   ],
   PlayList3: [
@@ -1175,56 +1417,61 @@ const playlists = {
     audioUrl: "https://zero-heaven.github.io/lyricmp3player/mp3/John Lennon - Imagine.mp3",
     lrcRaw: `[ti: Imagine]
 [ar: John Lennon]
-[00:00.00]Imagine - John Lennon  (Bilingual Lrc)
-
-[00:14.52]Imagine there's no heaven我在想像，如果世界上沒有天堂會怎樣？
-
-[00:21.01]It's easy if you try如果你試著想像，其實並不難
-
-[00:27.32]No hell below us沒有天堂，也沒有地獄
-
-[00:34.43]Above us only sky頭頂上只有一片藍天
-
-[00:39.86] Imagine all the people想像一下，如果每個人都 
-[00:45.40]Living for today活在當下，世界會是如何？
-
-[00:53.31]Imagine there's no countries想想看，如果這個世界上，沒有國家會怎樣？
-
-[00:59.27]It isn't hard to do其實這是有可能的
-
-[01:05.56]Nothing to kill or die for這樣就不用打戰，也不會有無辜的生命死去
-
-[01:11.81]And no religion too如果世界上沒有宗教呢？
-
-[01:18.02]Imagine all the people想像看看， 
-[01:23.56]Living life in peace這個世界就真的和平了
-
-[01:31.35]You may say I'm a dreamer你可能覺得我在作夢
-
-[01:37.09]But I'm not the only one但是我不是唯一這麼想的人
-
-[01:43.39]I hope someday you'll join us希望有一天，你也能加入我們
-
-[01:49.92]And the world will be as one這個世界再也沒有分裂的國家、對立的陣營
-
-[01:56.08]Imagine no possessions大家都沒有財產
-
-[02:02.33]I wonder if you can可以嗎？
-
-[02:08.73]No need for greed or hunger就不會再有無數貪婪和飢餓的人
-
-[02:14.92]A brotherhood of man大家都像兄弟姐妹
-
-[02:21.11]Imagine all the people 想像所有的人，
-[02:26.67]Sharing all the world都能和平共享這個世界的資源
-
-[02:34.48]You may say I'm a dreamer你會覺得我很傻
-
-[02:40.49]But I'm not the only one不過，我不是唯一的傻子
-
-[02:46.50]I hope someday you'll join us希望有一天你能加入我們
-
-[02:53.27]And the world will live as one這個世界就和平了` 
+[00:00.00]Imagine - John Lennon
+[00:14.52]Imagine there's no heaven
+[00:21.01]It's easy if you try
+[00:27.32]No hell below us
+[00:34.43]Above us only sky
+[00:39.86] Imagine all the people
+[00:45.40]Living for today
+[00:53.31]Imagine there's no countries
+[00:59.27]It isn't hard to do
+[01:05.56]Nothing to kill or die for
+[01:11.81]And no religion too
+[01:18.02]Imagine all the people
+[01:23.56]Living life in peace
+[01:31.35]You may say I'm a dreamer
+[01:37.09]But I'm not the only one
+[01:43.39]I hope someday you'll join us
+[01:49.92]And the world will be as one
+[01:56.08]Imagine no possessions
+[02:02.33]I wonder if you can
+[02:08.73]No need for greed or hunger
+[02:14.92]A brotherhood of man
+[02:21.11]Imagine all the people
+[02:26.67]Sharing all the world
+[02:34.48]You may say I'm a dreamer
+[02:40.49]But I'm not the only one
+[02:46.50]I hope someday you'll join us
+[02:53.27]And the world will live as one`,
+    lrcRaw2: `[00:00.00]Imagine - John Lennon (想像 1971)
+[00:14.52]我在想像，如果世界上沒有天堂會怎樣？
+[00:21.01]如果你試著想像，其實並不難
+[00:27.32]沒有天堂，也沒有地獄
+[00:34.43]頭頂上只有一片藍天
+[00:39.86]想像一下，如果每個人都
+[00:45.40]活在當下，世界會是如何？
+[00:53.31]想想看，如果這個世界上，沒有國家會怎樣？
+[00:59.27]其實這是有可能的
+[01:05.56]這樣就不用打戰，也不會有無辜的生命死去
+[01:11.81]如果世界上沒有宗教呢？
+[01:18.02]想像看看，
+[01:23.56]這個世界就真的和平了
+[01:31.35]你可能覺得我在作夢
+[01:37.09]但是我不是唯一這麼想的人
+[01:43.39]希望有一天，你也能加入我們
+[01:49.92]這個世界再也沒有分裂的國家、對立的陣營
+[01:56.08]大家都沒有財產
+[02:02.33]可以嗎？
+[02:08.73]就不會再有無數貪婪和飢餓的人
+[02:14.92]大家都像兄弟姐妹
+[02:21.11]想像所有的人，
+[02:26.67]都能和平共享這個世界的資源
+[02:34.48]你會覺得我很傻
+[02:40.49]不過，我不是唯一的傻子
+[02:46.50]希望有一天你能加入我們
+[02:53.27]這個世界就和平了
+`
   },
   {
     id: "song-20",
@@ -1390,9 +1637,7 @@ const playlists = {
     audioUrl: "https://zero-heaven.github.io/lyricmp3player/mp3/Olly Murs - That Girl.mp3",
     lrcRaw: `[ti:That Girl]
 [ar:Olly Murs]
-[length:02:54.79]
 [00:00.00]Olly Murs - That Girl
-
 [00:00.01]There's a girl but I let her get away
 [00:05.90]It's all my fault cause pride got in the way
 [00:11.15]And I'd be lying if I said I was okay
@@ -1459,7 +1704,73 @@ const playlists = {
 [02:43.71]You don't wanna lose that love
 [02:45.36]Cause there's no hope for the broken heart
 [02:47.85]About that girl
-[02:49.60]The one I let get away` 
+[02:49.60]The one I let get away`,
+    lrcRaw2: `
+[00:00.00]有個女孩，離開我了
+[00:04.89]錯全在我，讓自尊心作祟
+[00:10.06]說「我很好」，肯定是謊話
+[00:16.17]提到那女孩，我後悔不已
+
+[00:21.09]只是一直說著，這不可能
+[00:23.59]事情不應該是現在這個樣子
+
+[00:26.57]我一直說著，不會是這樣的
+[00:29.92]總有個方法，能讓妳回到我身邊的
+
+[00:32.05]（現在我告訴你），
+[00:33.88]如果需要某個人，大聲說出口
+[00:36.60]不要讓他們有機會離你而去
+[00:38.95]你不會想抱著遺憾收尾的
+[00:41.72]因為那正是我每一天正遭受的感覺
+[00:43.86]不...
+[00:46.52]破碎的心無所適從（你難道不知道嗎）
+[00:49.76]不...
+
+[00:52.11]破碎的你無處可歸的
+[00:54.23]有個女孩，離開了我
+[00:58.62]錯全在我，誰叫我說我需要空間
+[01:04.21]日以繼夜我折騰自己
+[01:10.22]關於那女孩，我只有後悔
+[01:14.87]只是一直說著，這不可能
+[01:17.53]事情不應該是這的樣子
+[01:20.56]我一直說著，不會是這樣的
+[01:22.91]總有個辦法讓妳, 總有個辦法能讓妳
+[01:26.07]回到我身邊
+
+[01:27.54]（現在我告訴你）如果需要某個人，大聲說出口
+[01:30.31]不要讓他們有機會離你而去
+[01:33.07]你不會想抱著遺憾收尾的
+[01:35.61]因為那正是我每一天正遭受的感覺（你難道不知道嗎）
+[01:38.21]不...
+[01:40.36]破碎的心無所適從（你難道不知道嗎）
+[01:43.81]不...
+[01:46.01]破碎的你無處可歸的
+
+[01:49.09]無處可歸, 破碎之心無所適從
+[01:54.36]無法呼吸, 無法責怪任何人
+[02:00.16]無處可歸, 破碎之心無所適從
+[02:04.47]提到那女孩, 我後悔不已
+
+[02:09.38]（現在我告訴你）
+[02:10.93]如果需要某個人，大聲說出口
+[02:13.48]不要讓他們有機會離你而去
+[02:16.31]你不會想抱著遺憾收尾的
+[02:18.87]因為那正是我每一天正遭受的感覺
+[02:20.80]（你難道不知道嗎）
+[02:21.95]不...
+[02:23.59]破碎的心無所適從
+[02:26.18]（你難道不知道嗎）
+[02:27.28]不...
+
+[02:29.00]破碎的你無處可歸的
+[02:32.66]你不會想失去愛人的
+[02:34.54]因為那只會讓你受傷
+[02:36.79]（我告訴你）你不會想失去愛人的
+[02:40.00]因為那只會讓你受傷
+[02:42.22]（我告訴你）你不會想失去這份愛的
+[02:45.25]因為破碎之心了無希望
+[02:47.76]關於那女孩,
+[02:49.43]我僅只有後悔`
   }
   ],
     PlayList4: [
@@ -1577,7 +1888,6 @@ const playlists = {
 [ar:Phil Collins]
 [al:Music From the Original Motion Picture Soundtrack]
 [00:00.00]Against All Odds - Phil Collins (1984)
-
 [00:08.26]How can I just let you walk away
 [00:11.64]Just let you leave without a trace
 [00:16.01]When I stand here taking every breath, with you, ooh
@@ -1615,7 +1925,52 @@ const playlists = {
 [02:41.78]And you coming back to me is against all odds
 [02:47.21]It's the chance I've gotta take
 [02:57.14]Instrumental
-[03:04.54]Just take a look at me now` 
+[03:04.54]Just take a look at me now`,
+    lrcRaw2: `[00:00.00]Against All Odds - Phil Collins (1984)(克服重重困難)
+[00:05.26]电影《再看我一眼》
+[00:08.26]我怎能讓你離去
+[00:11.64]讓你不留痕跡的離去
+[00:16.01]當我站在這裡，與你一同呼吸
+[00:24.04]畢竟你是唯一 真正了解我的人
+
+[00:32.84]你怎能就這樣離開我
+[00:36.50]當我眼睜睜地看著你離去
+[00:40.90]因為我們曾經一起分享歡笑、痛苦
+[00:44.97]甚至分享淚水
+[00:48.78]畢竟你是唯一 真正了解我的人
+
+[00:56.08]那麼，再看我一眼吧
+[01:00.59]只因空中一片冷寂
+[01:04.67]這裡已沒有留下什麼能讓我記起
+[01:10.15]記憶中你的容顏
+[01:13.53]此刻，再看我一眼
+[01:17.25]只因空中一片冷寂
+[01:21.26]要你再回我身邊，已是完全不可能
+[01:26.41]那是我必須面對的
+
+[01:34.31]♪♪
+[01:36.75]但願我能讓你回頭
+[01:41.09]回過頭來看我在哭泣
+[01:44.58]有太多話想對你說
+[01:48.93]有太多的疑惑
+[01:52.84]畢竟你是唯一 真正了解我的人
+
+[02:00.08]那麼，再看我一眼吧
+[02:04.81]只因空中一片冷寂
+[02:08.88]這裡已沒有留下什麼能讓我記起
+[02:14.01]記憶中你的容顏
+[02:17.09]此刻，再看我一眼
+[02:20.78]只因空中一片冷寂
+[02:25.43]但是，等你便是我唯一能做的
+[02:30.44]也是我必須面對的
+[02:32.97]此刻，好好的看我一眼
+[02:37.43]因為我將一直佇立在此
+[02:41.78]要你回我身邊，雖然是完全不可能
+[02:47.21]卻是我唯一的機會
+
+[02:57.14]♪♪
+[03:04.54]就看我一眼吧！
+`
   },
   {
     id: "song-28",
@@ -1675,7 +2030,56 @@ const playlists = {
 [04:41.81]Paradise
 [04:46.30]Mhm, paradise
 [04:51.21]Paradise
-[04:54.19]Just another day` 
+[04:54.19]Just another day`,
+    lrcRaw2: `[00:00.00]Another day in paradise - Phil Collins  (天堂裡的另一天) 1989
+[00:35.05]她對路人喊著：
+[00:40.16]先生，您能幫我個忙嗎？
+[00:44.18]這裡好冷，我找不到可以睡覺的地方……
+[00:48.58]你知道我能去哪裡嗎？
+[00:53.59]路人繼續走著，沒有回頭
+[00:58.40]假裝沒聽到她的聲音
+[01:02.89]等他穿越馬路的時候，開始輕鬆地吹起口哨…
+[01:07.79]這一幕，看起來真是尷尬啊！
+[01:12.02]嗯，當你見死不救的時候，再想想吧！
+[01:15.34]對我們來說，明天只是另一天
+[01:21.14]噢！再想一想這遊民吧！
+[01:25.27]因為對你來說，明天只是…
+[01:28.27]另一個好日子，對你和我來說是這樣，
+[01:39.76]但是想想這些人吧！
+[01:50.12]她大聲喊叫，希望能引起路人的注意
+[01:54.93]他知道，她一直在哭
+[01:59.56]她的腳掌都起泡了
+[02:04.28]她沒辦法走路，但是她試著走路
+[02:08.61]哦！當你見死不救的時候，再想想吧！
+[02:12.10]對我們來說，明天只是另一天
+[02:17.40]噢！再想一想這遊民吧！
+[02:21.30]因為對你來說，明天只是…
+[02:25.16]另一個好日子，對你我來說是如此，
+[02:36.05]但想想這些人吧！
+[02:47.40]天啊！難道沒有人能幫幫他們嗎？
+[02:55.85]天啊！看看這些可憐的人，你心理一定有些想說的話，不是嗎？
+[03:07.76]從她臉上的皺紋，你可以看出一些事情
+[03:12.60]你知道，她已經在街頭住了很久
+[03:17.18]也許她是從另一條街搬過來的
+[03:21.83]因為，那裡沒有她的容身之地…
+[03:26.30]哦！當你見死不救的時候，再想想吧！
+[03:30.03]對我們來說，明天只是另一天
+[03:35.23]噢！再想一想這遊民吧！
+[03:39.13]因為對你來說，明天只是…
+[03:42.15]另一個好日子，對你和我來說是如此的，
+[03:49.07]但是想想這些人吧！
+[03:54.37]嗯...
+[03:59.08]再想想這些人吧！
+[04:03.65]某一天你我剛好在天堂中相遇
+[04:12.53]某一天你我剛好在天堂中相遇
+[04:22.65]天堂
+[04:26.31]再想想這些人吧！
+[04:32.04]你的生活，與街友相比，基本上應該是天堂吧！
+[04:36.21]再想想這些人吧！
+[04:41.81]天堂
+[04:46.30]嗯...天堂
+[04:51.21]天堂
+`
   },
   {
     id: "song-29",
@@ -2056,77 +2460,77 @@ const playlists = {
 [ar:Simon & Garfunkel]
 [al:Wednesday Morning, 3 A.M.]
 [au:Paul Simon]
-
 [00:00.00]Simon & Garfunkel - The Sound of Silence  (Bilingual Lrc)
-
-[00:04.070]你好 黑暗 我的老朋友
 [00:04.070]Hello darkness my old friend.
-[00:07.690]我又來和你交談
 [00:07.690]I've come 2 talk with U again.
-[00:12.170]因為有一種幻覺正向悄悄地向我襲來
 [00:12.170]Because a vision softly creeping.
-[00:15.880]在我熟睡的時候留下了它的種子
 [00:15.880]Left its seeds while I was sleeping.
-[00:21.440]這種幻覺在我的腦海裡生根發芽
 [00:21.440]And the vision that was planted in my brain.
-[00:27.130]纏繞著我
 [00:27.130]Still remains.
-[00:31.910]伴隨著寂靜的聲音
 [00:31.910]Within the sound of silence !
-[00:37.460]在不安的夢幻中我獨自行走
 [00:37.460]In restless dreams I walk alone.
-[00:42.040]狹窄的鵝卵石街道
 [00:42.040]Narrow streets of cobble stone.
-[00:46.460]在路燈的光環照耀下
 [00:46.460]'Neath the halo of a street lamp.
-[00:50.780]我豎起衣領 抵禦嚴寒和潮濕
 [00:50.780]I turned my collar 2 the cold & damp.
-[00:55.530]一道耀眼的霓虹燈光刺入我的眼睛
 [00:55.530]When my eyes were stabbled by the flash of a neon light.
-[01:02.630]它劃破夜空
 [01:02.630]That split the night.
-[01:06.380]觸摸著寂靜的聲音
 [01:06.380]And touched the sound of silence.
-[01:11.660]A在炫目的燈光下
 [01:11.660]And in the naked night I saw.
-[01:16.150]我看見成千上萬的人
 [01:16.150]Ten thousand people maybe more.
-[01:21.300]人們說而不言
 [01:21.300]People talking without speaking.
-[01:25.350]聽而不聞
 [01:25.350]People hearing without listening.
-[01:30.000]人們創造歌曲卻唱不出聲來
 [01:30.000]People writing songs that voices never share.
-[01:37.420]沒有人敢
 [01:37.420]And no one dare.
-[01:40.780]打擾這寂靜的聲音
 [01:40.780]Disturb the sound of silence.
-[01:46.890]我說：“傻瓜，難道你不知道
 [01:46.890]"Fool" said I "U do not know."
-[01:51.080]寂靜如同頑疾滋長”
 [01:51.080]"Silence like a cancer grows."
-[01:55.360]聽我對你說的有益的話
 [01:55.360]"Hear my words that I might teach U."
-[02:00.000]拉住我伸給你的手
 [02:00.000]"Take my arms that I might reach U."
-[02:04.170]但是我的話猶如雨滴飄落
 [02:04.170]But my words like silent rain-drops fell.
-[02:13.580]在寂靜的水井中迴響
 [02:13.580]And echoed in the wells of silence.
-[02:21.000]人們(向自己創造的霓虹之神)鞠躬 祈禱
 [02:21.000]And the people bow & prayed.
-[02:25.280]人們(向自己創造的霓虹之神)鞠躬 祈禱
 [02:25.280]To the neon God they made.
-[02:29.470]神光中閃射出告誡的語句
 [02:29.470]And the sign flash out its warning.
-[02:34.020]在字裡行間指明
 [02:34.020]In the words that it was forming.
-[02:38.300]它告訴人們
 [02:38.300]And the sign said "The words of the prophers.
-[02:42.020]預言者的話都已寫在地鐵的牆上和房屋的大廳裡
 [02:42.020]Are written the subway walls & tenement halls".
+[02:49.210]And whispered in the sounds of silence.`,
+    lrcRaw2: `[00:00.00]Simon & Garfunkel - The Sound of Silence 1964 (寂靜的聲音)
+[00:04.070]你好 黑暗 我的老朋友
+[00:07.690]我又來和你交談
+[00:12.170]因為有一種幻覺正向悄悄地向我襲來
+[00:15.880]在我熟睡的時候留下了它的種子
+[00:21.440]這種幻覺在我的腦海裡生根發芽
+[00:27.130]纏繞著我
+[00:31.910]伴隨著寂靜的聲音
+[00:37.460]在不安的夢幻中我獨自行走
+[00:42.040]狹窄的鵝卵石街道
+[00:46.460]在路燈的光環照耀下
+[00:50.780]我豎起衣領 抵禦嚴寒和潮濕
+[00:55.530]一道耀眼的霓虹燈光刺入我的眼睛
+[01:02.630]它劃破夜空
+[01:06.380]觸摸著寂靜的聲音
+[01:11.660]A在炫目的燈光下
+[01:16.150]我看見成千上萬的人
+[01:21.300]人們說而不言
+[01:25.350]聽而不聞
+[01:30.000]人們創造歌曲卻唱不出聲來
+[01:37.420]沒有人敢
+[01:40.780]打擾這寂靜的聲音
+[01:46.890]我說：“傻瓜，難道你不知道
+[01:51.080]寂靜如同頑疾滋長”
+[01:55.360]聽我對你說的有益的話
+[02:00.000]拉住我伸給你的手
+[02:04.170]但是我的話猶如雨滴飄落
+[02:13.580]在寂靜的水井中迴響
+[02:21.000]人們(向自己創造的霓虹之神)鞠躬 祈禱
+[02:25.280]人們(向自己創造的霓虹之神)鞠躬 祈禱
+[02:29.470]神光中閃射出告誡的語句
+[02:34.020]在字裡行間指明
+[02:38.300]它告訴人們
+[02:42.020]預言者的話都已寫在地鐵的牆上和房屋的大廳裡
 [02:49.210]在寂靜的聲音裡低語
-[02:49.210]And whispered in the sounds of silence.` 
+`
   },
   {
     id: "song-37",
@@ -2284,7 +2688,6 @@ const playlists = {
     lrcRaw: `[ti:Goodbye to Love]
 [length:03:59.57]
 [ar:The Carpenter]
-
 [00:00.00]Goodbye to Love - The Carpenter
 [00:00.04]I'll say goodbye to love
 [00:05.35]No one ever cared if I should live or die
@@ -2316,7 +2719,39 @@ const playlists = {
 [02:03.42]I've been wrong
 [02:04.81]But for now this is my song.
 [02:09.66]And it's goodbye to love
-[02:16.08]I'll say goodbye to love.` 
+[02:16.08]I'll say goodbye to love.`,
+    lrcRaw2: `[00:01.00]我將與愛情永別
+[00:05.35]沒有人曾在乎我的死活
+[00:11.76]一次又一次地，與愛情相遇的機會
+[00:15.24]從我身旁溜走
+[00:17.35]所以我只知道如何沒有愛情
+[00:19.48]也能好好活著
+[00:22.67]我好像無法找到愛的方法
+[00:27.72]所以我下定決心要
+[00:31.18]獨自一個人活著
+[00:33.56]儘管這不容易，
+[00:36.21]但我想自己能找到解決的辦法
+[00:39.15]於是我要對愛情說再見
+[00:43.67]對我的心來說，似乎看不見明天
+[00:49.80]但我想時間會沖淡一切苦澀的記憶
+[00:53.78]或許我會發現有一個可以相信的人
+[00:58.30]然後為了這些事情好好的活下去
+[01:05.75]這些年來徒勞無功的尋找
+[01:08.13]終於到了該停手的時候
+[01:11.34]寂寞與空虛將是我
+[01:14.53]唯一的夥伴
+[01:16.66]當愛情已成往事，
+[01:19.62]我會盡力活下去
+[01:49.14]未來對我們而言，
+[01:51.07]是件神秘的事情
+[01:54.78]沒有人能預言命運之輪何時會
+[01:58.77]落到自己身上
+[01:59.93]或許有一天我會發現
+[02:03.42]自己錯了
+[02:04.81]但在那之前，這首歌代表了我的心聲
+[02:09.66]代表了我與愛情永別
+[02:16.08]我將對愛情說再見
+[02:27.08]【愛是什麼呢？伴侶的意義又是什麼呢？】`
   }
   ],
     PlayList6: [
@@ -2494,135 +2929,141 @@ const playlists = {
 [ar:The Carpenters]
 [al:Now & Then]
 [au:John Bettis; Richard Lynn Carpenter]
-[length:03:59.70]
-
-[00:00.10]《昨日重現》
 [00:00.10]Yesterday Once More - The Carpenters (1973)
-[00:01.57]年輕時候
 [00:01.57]When I was young,
-[00:03.31]我喜歡聽收音機
 [00:03.31]I'd listen to the radio
-[00:08.00]等待我最愛的歌
 [00:08.00]Waiting for my favorite songs
-[00:13.80]一邊聽來一邊唱
 [00:13.80]When they played I'd sing along
-[00:18.50]心情多歡暢
 [00:18.50]It make me smile
-[00:25.10]舊日時光多快樂
 [00:25.10]Those were such happy times
-[00:27.89]轉瞬已消逝
 [00:27.89]And not so long ago
-[00:31.05]不知失落在何處
 [00:31.05]How I wondered where they'd gone
-[00:36.22]而如今它們又重現
 [00:36.22]But they're back again
-[00:39.67]像失散的舊友重逢
 [00:39.67]Just like a long lost friend
-[00:42.54]我至愛的老歌
 [00:42.54]All the songs I love so well
-[00:47.71]每段旋律
 [00:47.71]Every sha-la-la-la,
-[00:51.45]每個音符
 [00:51.45]Every Wo-o-wo-o
-[00:54.32]仍然動人
 [00:54.32]Still shines
-[00:59.77]每個迷人的音節
 [00:59.77]Every shing-a-ling-a-ling
-[01:02.65]重新又響起
 [01:02.65]That they're starting to sing,
-[01:05.51]感覺多美妙
 [01:05.51]so fine
 
-[01:11.17]唱到那段往事
 [01:11.17]When they get to the part
-[01:13.76]他把她的心傷透
 [01:13.76]Where he's breaking her heart
-[01:16.91]淚水不禁奪眶而出
 [01:16.91]It can really make me cry
-[01:21.22]就像從前一樣
 [01:21.22]Just like before
-[01:27.45]彷彿昨日重現
 [01:27.45]It's yesterday once more
-[01:30.03](無比惆悵)
 [01:30.03](Shoobie-doo, lang, lang)
-[01:35.77](無比惆悵)
 [01:35.77](Shoobie-doo, lang, lang)
 
-[01:40.08]回首當年情景
 [01:40.08]Looking back on how it was
-[01:43.52]往事歷歷
 [01:43.52]in years gone by
-[01:45.82]好時光一去不復
 [01:45.82]And the good times that I had
-[01:51.56]怎不叫人心傷
 [01:51.56]Makes today seem rather sad
-[01:56.15]一切都已不再
 [01:56.15]So much has changed
-[02:03.15]我願唱給他們聽
 [02:03.15]It was songs of love
-[02:05.74]那一首情歌
 [02:05.74]That I would sing to them
-[02:08.82]我要記住每一句歌詞
 [02:08.82]And I'd memorize each word
-[02:13.99]那些熟悉的旋律
 [02:13.99]Those old melodies
-[02:17.44]依舊打動我的心坎
 [02:17.44]still sound so good to me
-[02:20.30]時光阻隔 幻化無蹤
 [02:20.30]As they melt the years away
 
-[02:25.46]每段旋律
 [02:25.46]Every sha-la-la-la,
-[02:28.91]每個音符
 [02:28.91]Every Wo-o-wo-o,
-[02:31.77]依然動人
 [02:31.77]still shines
-[02:33.21](只有老歌，但好東西)
 [02:33.21](Only oldies, but goodies)
 
-[02:37.43]每個迷人的音節
 [02:37.43]Every shing-a-ling-a-ling
-[02:40.31]重新又響起
 [02:40.31]That they're starting to sing
-[02:42.89]感覺多美妙
 [02:42.89]So fine
-[02:48.55]一切最美的回憶
 [02:48.55]All my best memorize,
-[02:51.42]清晰重現眼前
 [02:51.42]come back clearly to me
-[02:54.29]有些甚至叫我落淚
 [02:54.29]Some can even make me cry
-[02:58.59]就像從前一樣
 [02:58.59]Just like before
-[03:04.82]彷彿昨日重現
 [03:04.82]It's yesterday once more
 [03:07.39](Shoobie-doo, lang, lang)
 
-[03:11.13]每段旋律
 [03:11.13]Every Sha-la-la-la,
-[03:14.29]每個音符
 [03:14.29]Every Wo-o-wo-o
-[03:17.16]依然動人
 [03:17.16]still shines
-[03:22.61]每個迷人的音節
 [03:22.61]Every shing-a-ling-a-ling
-[03:25.55]重新又響起
 [03:25.55]That they're starting to sing
-[03:28.64]如此美好
 [03:28.64]So fine
 
-[03:33.43]每段旋律
 [03:33.43]Every Sha-la-la-la,
-[03:36.88]每個音符
 [03:36.88]Every Wo-o-wo-o
-[03:39.74]依然動人
 [03:39.74]still shines
-[03:45.19]每個迷人的音節
 [03:45.19]Every shing-a-ling-a-ling
-[03:48.35]重新又響起
 [03:48.35]That they're starting to sing
+[03:51.22]So fine`,
+    lrcRaw2: `[00:01.57]年輕時候
+[00:03.31]我喜歡聽收音機
+[00:08.00]等待我最愛的歌
+[00:13.80]一邊聽來一邊唱
+[00:18.50]心情多歡暢
+[00:25.10]舊日時光多快樂
+[00:27.89]轉瞬已消逝
+[00:31.05]不知失落在何處
+[00:36.22]而如今它們又重現
+[00:39.67]像失散的舊友重逢
+[00:42.54]我至愛的老歌
+
+[00:47.71]每段旋律
+[00:51.45]每個音符
+[00:54.32]仍然動人
+[00:59.77]每個迷人的音節
+[01:02.65]重新又響起
+[01:05.51]感覺多美妙
+
+[01:11.17]唱到那段往事
+[01:13.76]他把她的心傷透
+[01:16.91]淚水不禁奪眶而出
+[01:21.22]就像從前一樣
+[01:27.45]彷彿昨日重現
+[01:30.03](無比惆悵)
+[01:35.77](無比惆悵)
+
+[01:40.08]回首當年情景
+[01:43.52]往事歷歷
+[01:45.82]好時光一去不復
+[01:51.56]怎不叫人心傷
+[01:56.15]一切都已不再
+[02:03.15]我願唱給他們聽
+[02:05.74]那一首情歌
+[02:08.82]我要記住每一句歌詞
+[02:13.99]那些熟悉的旋律
+[02:17.44]依舊打動我的心坎
+[02:20.30]時光阻隔 幻化無蹤
+
+[02:25.46]每段旋律
+[02:28.91]每個音符
+[02:31.77]依然動人
+[02:33.21](只有老歌，但好東西)
+
+[02:37.43]每個迷人的音節
+[02:40.31]重新又響起
+[02:42.89]感覺多美妙
+[02:48.55]一切最美的回憶
+[02:51.42]清晰重現眼前
+[02:54.29]有些甚至叫我落淚
+[02:58.59]就像從前一樣
+[03:04.82]彷彿昨日重現
+
+[03:11.13]每段旋律
+[03:14.29]每個音符
+[03:17.16]依然動人
+[03:22.61]每個迷人的音節
+[03:25.55]重新又響起
+[03:28.64]如此美好
+
+[03:33.43]每段旋律
+[03:36.88]每個音符
+[03:39.74]依然動人
+[03:45.19]每個迷人的音節
+[03:48.35]重新又響起
 [03:51.22]如此美好
-[03:51.22]So fine` 
+[03:53.55]《昨日重現》
+`
   },
   {
     id: "song-45",
@@ -2738,98 +3179,100 @@ const playlists = {
 [al: Hotel California]
 [ti: Hotel California]
 [00:00.20]Hotel California - The Eagles  (Bilingual Lrc)
-[00:52.59]行駛在昏黑的荒漠公路上,涼風吹過我的頭髮
 [00:52.59]On a dark desert highway, cool wind in my hair
-[00:58.84]溫馨的大麻香，瀰漫在空氣中
 [00:58.84]Warm smell of colitas, rising up through the air
-[01:05.50]抬頭遙望遠方，我看到微弱的燈光
 [01:05.50]Up ahead in the distance, I saw a shimmering light
-[01:11.99]我的頭越來越沉,視線也變得模糊
 [01:11.99]My head grew heavy and my sight grew dim
-[01:14.99]我不得不停下來過夜
 [01:14.99]I had to stop for the night.
-[01:18.74]她站在門口那兒招呼我
 [01:18.74]There she stood in the doorway;
-[01:21.74]我聽到遠處教堂的鐘聲
 [01:21.74]I heard the mission bell
-[01:25.24]我在心裡對自己說
 [01:25.24]And I was thinking to myself
-[01:27.49]這裡可能是天堂也可能是地獄
 [01:27.49]'This could be heaven or this could be Hell'
-[01:32.39]然後她點燃了蠟燭，給我引路
 [01:32.39]Then she lit up a candle and she showed me the way
-[01:38.85]沿著走廊傳來陣陣說話聲
 [01:38.85]There were voices down the corridor,
-[01:42.19]我想我聽到他們在說...
 [01:42.19]I thought I heard them say
-[01:45.85]歡迎來到加州旅館
 [01:45.85]Welcome to the Hotel California
-[01:51.14]如此美麗的地方
 [01:51.14]Such a lovely place (such a lovely place)
-[01:54.55]多麼可愛的的面容
 [01:54.55]Such a lovely face.
-[01:57.64]加州旅館有充足的房間
 [01:57.64]Plenty of room at the Hotel California
-[02:04.15]一年的任何時候,你都能在這找到房洹
 [02:04.15]Any time of year (any time of year) you can find it here
-[02:11.79]她的心為珠寶所扭曲,她擁有豪華奔馳車
 [02:11.79]Her mind is Tiffany-twisted, she got the Mercedes bends
-[02:18.10]她有許多漂亮的小伙子,她稱之為朋友
 [02:18.10]She got a lot of pretty, pretty boys, that she calls friends
-[02:24.45]他們在庭院裡翩翩起舞，夏日的香汗伶俐
 [02:24.45]How they dance in the courtyard, sweet summer sweat
-[02:30.69]有些舞是為了回憶,而有些舞是為了忘卻
 [02:30.69]Some dance to remember, some dance to forget
-[02:37.40]於是我叫來領班
 [02:37.40]So I called up the Captain,
-[02:41.24]請給我來些酒
 [02:41.24]'Please bring me my wine'
-[02:43.64]他說我們這不供應列酒,從1969年起。
 [02:43.64]He said, 'we haven't had that spirit here since nineteen sixty-nine'
-[02:51.14]遠處仍然傳來他們的話語
 [02:51.14]And still those voices are calling from far away,
-[02:57.49]在半夜把你吵醒
 [02:57.49]Wake you up in the middle of the night
-[03:00.59]只聽到他們在說...
 [03:00.59]Just to hear them say"
-[03:03.89]歡迎來到加州旅館
 [03:03.89]Welcome to the Hotel California
-[03:09.54]如此美麗的地方
 [03:09.54]Such a lovely place (such a lovely place)
-[03:12.94]如此美麗的地方
 [03:12.94]Such a lovely face.
-[03:16.09]他們在加州旅館盡情狂歡。
 [03:16.09]They livin' it up at the Hotel California
-[03:21.94]好得令人吃驚,使你有來到這的藉口
 [03:21.94]What a nice surprise (what a nice surprise), bring your alibis
-[03:28.84]天花板上鑲嵌著的鏡子
 [03:28.84]Mirrors on the ceiling,
-[03:32.25]冰鎮著的粉色香檳
 [03:32.25]The pink champagne on ice
-[03:34.85]她說我們都是這的囚徒 ,但是是我們自願的。
 [03:34.85]And she said, 'we are all just prisoners here, of our own device'
-[03:41.95]在主人的臥房裡
 [03:41.95]And in the master's chambers,
-[03:45.10]他們為宴會聚在一起
 [03:45.10]They gathered for the feast
-[03:48.19]他們彼此間用鋼刀相互砍殺
 [03:48.19]They stab it with their steely knives,
-[03:50.78]但他們甚至不能殺死野獸！
 [03:50.78]But they just can't kill the beast
-[03:55.39]我所記得的最後一件事
 [03:55.39]Last thing I remember, I was
-[03:59.49]是我跑向門口
 [03:59.49]Running for the door
-[04:02.29]我必須找到來時的路，回到我過去的地方
 [04:02.29]I had to find the passage back to the place I was before
-[04:08.44]守夜人說放寬心
 [04:08.44]'Relax' said the night man,
-[04:10.84]我們只是照常接待
 [04:10.84]'We are programmed to receive.
-[04:14.95]你想什麼時候結帳都可以
 [04:14.95]You can check out any time you like,
+[04:17.85]But you can never leave!'`,
+    lrcRaw2: `[00:00.20](加州旅館 1976)
+[00:52.59]行駛在昏黑的荒漠公路上,涼風吹過我的頭髮
+[00:58.84]溫馨的大麻香，瀰漫在空氣中
+[01:05.50]抬頭遙望遠方，我看到微弱的燈光
+[01:11.99]我的頭越來越沉,視線也變得模糊
+[01:14.99]我不得不停下來過夜
+[01:18.74]她站在門口那兒招呼我
+[01:21.74]我聽到遠處教堂的鐘聲
+[01:25.24]我在心裡對自己說
+[01:27.49]這裡可能是天堂也可能是地獄
+[01:32.39]然後她點燃了蠟燭，給我引路
+[01:38.85]沿著走廊傳來陣陣說話聲
+[01:42.19]我想我聽到他們在說...
+[01:45.85]歡迎來到加州旅館
+[01:51.14]如此美麗的地方
+[01:54.55]多麼可愛的的面容
+[01:57.64]加州旅館有充足的房間
+[02:04.15]一年的任何時候,你都能在這找到房洹
+[02:11.79]她的心為珠寶所扭曲,她擁有豪華奔馳車
+[02:18.10]她有許多漂亮的小伙子,她稱之為朋友
+[02:24.45]他們在庭院裡翩翩起舞，夏日的香汗伶俐
+[02:30.69]有些舞是為了回憶,而有些舞是為了忘卻
+[02:37.40]於是我叫來領班
+[02:41.24]請給我來些酒
+[02:43.64]他說我們這不供應列酒,從1969年起。
+[02:51.14]遠處仍然傳來他們的話語
+[02:57.49]在半夜把你吵醒
+[03:00.59]只聽到他們在說...
+[03:03.89]歡迎來到加州旅館
+[03:09.54]如此美麗的地方
+[03:12.94]如此美麗的地方
+[03:16.09]他們在加州旅館盡情狂歡。
+[03:21.94]好得令人吃驚,使你有來到這的藉口
+[03:28.84]天花板上鑲嵌著的鏡子
+[03:32.25]冰鎮著的粉色香檳
+[03:34.85]她說我們都是這的囚徒 ,但是是我們自願的。
+[03:41.95]在主人的臥房裡
+[03:45.10]他們為宴會聚在一起
+[03:48.19]他們彼此間用鋼刀相互砍殺
+[03:50.78]但他們甚至不能殺死野獸！
+[03:55.39]我所記得的最後一件事
+[03:59.49]是我跑向門口
+[04:02.29]我必須找到來時的路，回到我過去的地方
+[04:08.44]守夜人說放寬心
+[04:10.84]我們只是照常接待
+[04:14.95]你想什麼時候結帳都可以
 [04:17.85]但你永遠無法離去！
-[04:17.85]But you can never leave!'` 
+`
   },
   {
     id: "song-48",
@@ -3036,10 +3479,7 @@ const playlists = {
 [ar:The Righteous Brothers]
 [al:Just Once in My Life]
 [au:Lyricist:Alex North;Composer:Hy Zaret]
-[by:Unlimit Love 1965]
-
 [00:00.00]Unchained Melody - The Righteous Brothers 1965(theme of Movie《Ghost》1990)
-
 [00:00.100]Oh, my love, my darling
 [00:11.110]I've hungered for your touch
 [00:17.995]Alone, lonely time
@@ -3066,7 +3506,36 @@ const playlists = {
 [02:36.521]and time can do so much
 [02:43.358]Are you still mine
 [02:54.020]I need your love
-[03:01.979]God <God>, speed your love, God speed your love to me` 
+[03:01.979]God <God>, speed your love, God speed your love to me`,
+    lrcRaw2: `[00:00.00]電影《人鬼情未了》Ghost
+[00:00.100]噢！吾愛，親愛的
+[00:11.110]我渴望你的觸摸
+[00:17.995]在漫長、寂寞的時光裡
+[00:28.861]時光緩緩的流逝
+[00:39.823]而時光無所不能
+[00:46.810]你仍屬於我嗎？
+[00:55.016]我需要你的愛
+[01:05.738]我需要你的愛
+[01:12.822]上天為我護佑著你的愛
+
+[01:27.177]寂寞的河
+[01:30.007]流向大海
+[01:34.13]流向大海敞開的懷抱
+[01:41.875]寂寞的河嘆息道：為我等待
+[01:46.990]為我等待
+[01:49.046]我將回來，
+[01:52.345]為我等待.......
+
+[01:56.457]噢！吾愛，親愛的
+[02:07.089]我【渴望】你的觸摸
+[02:14.528]在漫長、寂寞的時光裡
+
+[02:25.389]時光緩緩的流逝
+[02:36.521]而時光無所不能
+[02:43.358]你仍屬於我嗎？
+[02:54.020]我需要你的愛
+[03:01.979]【上天】上天為我護佑著你的愛
+`
   },
   {
     id: "song-54",
