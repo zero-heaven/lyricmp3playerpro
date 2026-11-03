@@ -16,3 +16,5 @@ and if you have local mp3 please follow subdir mp3/ all of your mp3 files and lr
 12. *fix mobile phone and desktop pc screen size arrange ratio.
 13. *add more visualizer and can save you choice which visualizer mode and lyric color.
 14. *fixed now support both playlist.js sub header(for group/classify)/normal plain playlist.
+15. *add support lyric2 you can two lyrics in one to show.*in playlist.js add the extra header: ,lrcRaw2: ` `
+16. *fix playlist in mobile landscape open playislt songs add scroll and use overlay ontop method. 
