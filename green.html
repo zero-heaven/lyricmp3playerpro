@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="h-full bg-slate-950 text-slate-100">
 <head>
   <meta charset="UTF-8">
@@ -56,7 +56,7 @@
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-/* 📱 手機橫屏（Landscape）專屬：極致縮小 Playlist 歌名行距、gap 與內距，顯示最多歌曲 */
+    /* 📱 手機橫屏（Landscape）專屬：極致縮小 Playlist 歌名行距、gap 與內距，顯示最多歌曲 */
     @media (max-height: 500px) and (orientation: landscape) {
       #playlist-drawer .p-3, #playlist-drawer .p-2.5 { padding-top: 2px !important; padding-bottom: 2px !important; padding-left: 8px !important; padding-right: 8px !important; }
       #playlist-items { padding: 4px !important; gap: 2px !important; }
@@ -186,6 +186,11 @@
               <i class="fa-solid fa-arrows-rotate text-[9px] mr-1"></i>
               <span id="label-sync-mode">LRC Synced</span>
             </button>
+            <!-- 🆕 雙歌詞切換按鈕 -->
+            <button id="btn-toggle-dual-lyric" class="hidden px-2.5 py-1 text-[10px] font-bold tracking-wider uppercase rounded-full bg-slate-800 text-slate-400 border border-slate-700 hover:bg-slate-700 hover:text-slate-200 transition-all shrink-0">
+              <i class="fa-solid fa-layer-group text-[9px] mr-1"></i>
+              <span id="label-dual-lyric">Lyric 1</span>
+            </button>
           </div>
         </div>
 
@@ -196,7 +201,7 @@
       </section>
     </div>
 
-    <!-- Playlist Popup Overlay Modal (改為中央彈出式浮動視窗，具備獨立高度與滾動條) -->
+    <!-- Playlist Popup Overlay Modal -->
     <div id="playlist-drawer" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6 transition-opacity duration-300 hidden">
       <div class="w-full max-w-md bg-slate-900 border border-slate-800 rounded-2xl shadow-2xl flex flex-col max-h-[82vh] overflow-hidden">
         
@@ -255,7 +260,7 @@
       <div class="flex items-center gap-2 sm:gap-4 order-2 md:order-1">
         <button id="btn-shuffle" title="Shuffle Playback" class="p-1.5 sm:p-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 transition-all"><i class="fa-solid fa-shuffle text-sm sm:text-base"></i></button>
         <button id="btn-prev" class="p-1.5 sm:p-2 rounded-xl text-slate-300 hover:text-white hover:bg-slate-800"><i class="fa-solid fa-backward-step text-base sm:text-lg"></i></button>
-        <button id="btn-play-pause" class="p-2.5 sm:p-3.5 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold shadow-lg"><i id="icon-play-pause" class="fa-solid fa-play text-lg sm:text-xl"></i></button>
+        <button id="btn-play-pause" class="py-2.5 px-6 sm:py-3.5 sm:px-8 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold shadow-lg"><i id="icon-play-pause" class="fa-solid fa-play text-xl sm:text-2xl"></i></button>
         <button id="btn-next" class="p-1.5 sm:p-2 rounded-xl text-slate-300 hover:text-white hover:bg-slate-800"><i class="fa-solid fa-forward-step text-base sm:text-lg"></i></button>
         <button id="btn-loop-mode" class="p-1.5 sm:p-2 rounded-xl text-emerald-400 hover:bg-slate-800 relative"><i class="fa-solid fa-repeat text-sm sm:text-base"></i></button>
         <span id="lyric-btn" onclick="toggleLyric()" style="cursor: pointer; font-size: 18px;"></span>
@@ -274,7 +279,8 @@
           group: track.group || 'all',
           audioUrl: track.audioUrl || track.src || '',
           cover: track.cover || 'https://placehold.co/400x400/1e293b/10b981?text=No+Cover',
-          lrcRaw: track.lrcRaw || ''
+          lrcRaw: track.lrcRaw || '',
+          lrcRaw2: track.lrcRaw2 || ''
         }));
       } else if (typeof playlists === 'object' && playlists !== null) {
         playlist = [];
@@ -286,7 +292,8 @@
                 group: track.group || groupName,
                 audioUrl: track.audioUrl || track.src || '',
                 cover: track.cover || 'https://placehold.co/400x400/1e293b/10b981?text=No+Cover',
-                lrcRaw: track.lrcRaw || ''
+                lrcRaw: track.lrcRaw || '',
+                lrcRaw2: track.lrcRaw2 || ''
               });
             });
           }
@@ -298,12 +305,15 @@
         group: track.group || 'all',
         audioUrl: track.audioUrl || track.src || '',
         cover: track.cover || 'https://placehold.co/400x400/1e293b/10b981?text=No+Cover',
-        lrcRaw: track.lrcRaw || ''
+        lrcRaw: track.lrcRaw || '',
+        lrcRaw2: track.lrcRaw2 || ''
       }));
     }
 
     let currentTrackIndex = 0;
     let parsedLyrics = [];
+    let parsedLyrics2 = []; // 🆕 第二歌詞陣列
+    let lyricDisplayMode = 'single'; // 🆕 歌詞模式: 'single' | 'dual' | 'second'
     let activeLyricIndex = -1;
     let isShuffle = false;
     let loopMode = 'all';
@@ -377,6 +387,10 @@
     const btnLyricColor = document.getElementById('btn-lyric-color'); 
     const btnToggleSync = document.getElementById('btn-toggle-sync');
     const labelSyncMode = document.getElementById('label-sync-mode');
+
+    // 🆕 雙歌詞按鈕 DOM 元素
+    const btnToggleDualLyric = document.getElementById('btn-toggle-dual-lyric');
+    const labelDualLyric = document.getElementById('label-dual-lyric');
 
     const btnPlayPause = document.getElementById('btn-play-pause');
     const iconPlayPause = document.getElementById('icon-play-pause');
@@ -503,7 +517,7 @@
       return { meta, lines: lyricLines };
     }
 
-    function loadTrack(index) {
+function loadTrack(index) {
       if (!playlist || index < 0 || index >= playlist.length) return;
       currentTrackIndex = index;
       const track = playlist[index];
@@ -518,6 +532,34 @@
 
       const parsed = parseLRC(track.lrcRaw);
       parsedLyrics = parsed.lines;
+
+      // 1. Reset lyric mode back to default single mode
+      lyricDisplayMode = 'single';
+
+      // 2. Safely inspect if lrcRaw2 exists and contains valid timestamped lyrics
+      const raw2 = (track.lrcRaw2 || '').toString().trim();
+      const hasValidLrc2 = raw2 !== '' && raw2.includes('[');
+
+      if (hasValidLrc2) {
+        const parsed2 = parseLRC(track.lrcRaw2);
+        parsedLyrics2 = parsed2.lines;
+        
+        // Show and enable button for tracks with dual lyrics
+        if (btnToggleDualLyric) {
+          btnToggleDualLyric.classList.remove('hidden');
+          btnToggleDualLyric.disabled = false;
+          labelDualLyric.textContent = 'Lyric 1';
+          btnToggleDualLyric.className = 'px-2.5 py-1 text-[10px] font-bold tracking-wider uppercase rounded-full bg-slate-800 text-slate-400 border border-slate-700 hover:bg-slate-700 hover:text-slate-200 transition-all shrink-0';
+        }
+      } else {
+        parsedLyrics2 = [];
+        
+        // Hide and disable button completely if no second lyrics exist
+        if (btnToggleDualLyric) {
+          btnToggleDualLyric.classList.add('hidden');
+          btnToggleDualLyric.disabled = true;
+        }
+      }
 
       const songTitle = parsed.meta.ti || track.title || "Unknown Title";
       const songArtist = parsed.meta.ar || track.artist || "Unknown Artist";
@@ -577,17 +619,53 @@
       updateLyricDisplayState();
     }
 
+    // 🆕 點擊按鈕循環切換模式：單一第一歌詞 -> 雙歌詞同步展示 -> 單一第二歌詞
+    if (btnToggleDualLyric) {
+      btnToggleDualLyric.onclick = () => {
+        if (lyricDisplayMode === 'single') {
+          lyricDisplayMode = 'dual';
+          labelDualLyric.textContent = 'Dual Synced';
+          btnToggleDualLyric.className = 'px-2.5 py-1 text-[10px] font-bold tracking-wider uppercase rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 hover:bg-emerald-500/30 transition-all shrink-0';
+        } else if (lyricDisplayMode === 'dual') {
+          lyricDisplayMode = 'second';
+          labelDualLyric.textContent = 'Lyric 2';
+          btnToggleDualLyric.className = 'px-2.5 py-1 text-[10px] font-bold tracking-wider uppercase rounded-full bg-cyan-500/20 text-cyan-400 border border-cyan-500/40 hover:bg-cyan-500/30 transition-all shrink-0';
+        } else {
+          lyricDisplayMode = 'single';
+          labelDualLyric.textContent = 'Lyric 1';
+          btnToggleDualLyric.className = 'px-2.5 py-1 text-[10px] font-bold tracking-wider uppercase rounded-full bg-slate-800 text-slate-400 border border-slate-700 hover:bg-slate-700 hover:text-slate-200 transition-all shrink-0';
+        }
+        renderLyrics();
+        if (!audio.paused && isLrcSynced) updateKaraokeLyrics(audio.currentTime);
+      };
+    }
+
     function renderLyrics() {
       lyricContainer.innerHTML = '';
       if (parsedLyrics.length === 0) {
         lyricContainer.innerHTML = `<p class="text-slate-400 italic text-base drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">No lyrics found for this track.</p>`;
         return;
       }
+
       parsedLyrics.forEach((item, i) => {
         const p = document.createElement('p');
         p.id = `lyric-line-${i}`;
-        p.className = 'text-base sm:text-lg md:text-xl font-medium text-slate-200 drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] transition-all duration-200 cursor-pointer hover:text-white';
-        p.textContent = item.text;
+        p.className = 'text-base sm:text-lg md:text-xl font-medium text-slate-200 drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] transition-all duration-200 cursor-pointer hover:text-white py-1';
+        
+        let lineHtml = item.text;
+
+        // 🆕 根據模式組合第一/第二歌詞
+        if (lyricDisplayMode === 'dual' && parsedLyrics2.length > 0) {
+          const match2 = parsedLyrics2.find(l => Math.abs(l.time - item.time) < 0.6) || { text: '' };
+          if (match2.text) {
+            lineHtml += `<span id="lyric-sub-${i}" class="block text-sm sm:text-base md:text-lg font-normal text-slate-400 mt-0.5">${match2.text}</span>`;
+          }
+        } else if (lyricDisplayMode === 'second' && parsedLyrics2.length > 0) {
+          const match2 = parsedLyrics2.find(l => Math.abs(l.time - item.time) < 0.6) || { text: item.text };
+          lineHtml = match2.text;
+        }
+
+        p.innerHTML = lineHtml;
         p.onclick = () => { audio.currentTime = item.time; playAudio(); };
         lyricContainer.appendChild(p);
       });
@@ -764,7 +842,7 @@
         if (activeLyricIndex !== -1) {
           const activeEl = document.getElementById(`lyric-line-${activeLyricIndex}`);
           if (activeEl) {
-            activeEl.className = 'text-base sm:text-lg md:text-xl font-medium text-slate-200 drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] transition-all duration-200 cursor-pointer hover:text-white';
+            activeEl.className = 'text-base sm:text-lg md:text-xl font-medium text-slate-200 drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] transition-all duration-200 cursor-pointer hover:text-white py-1';
             activeEl.style.removeProperty('--progress');
           }
           activeLyricIndex = -1;
@@ -778,6 +856,7 @@
       };
     }
 
+    // 🆕 同步跟隨與色彩特效（同時支援第一與第二歌詞）
     function updateKaraokeLyrics(currentTime) {
       if (!parsedLyrics || parsedLyrics.length === 0 || !isLrcSynced) return;
       let index = -1;
@@ -788,7 +867,7 @@
         if (activeLyricIndex !== -1) {
           const prevEl = document.getElementById(`lyric-line-${activeLyricIndex}`);
           if (prevEl) {
-            prevEl.className = 'text-base sm:text-lg md:text-xl font-medium text-slate-200 drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] transition-all duration-200 cursor-pointer hover:text-white';
+            prevEl.className = 'text-base sm:text-lg md:text-xl font-medium text-slate-200 drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] transition-all duration-200 cursor-pointer hover:text-white py-1';
             prevEl.style.removeProperty('--progress');
           }
         }
@@ -801,19 +880,29 @@
       if (activeLyricIndex !== -1) {
         const activeEl = document.getElementById(`lyric-line-${activeLyricIndex}`);
         if (activeEl) {
+          const subEl = document.getElementById(`lyric-sub-${activeLyricIndex}`);
+          
           if (karaokeColorMode === 'gradient') {
             const currentLineTime = parsedLyrics[activeLyricIndex].time;
             const nextLineTime = (activeLyricIndex + 1 < parsedLyrics.length) ? parsedLyrics[activeLyricIndex + 1].time : audio.duration;
             const percent = Math.min(Math.max(((currentTime - currentLineTime) / (nextLineTime - currentLineTime)) * 100, 0), 100);
+            
             activeEl.style.removeProperty('--progress');
-            activeEl.className = 'text-lg sm:text-xl md:text-2xl font-bold lyric-gradient-active drop-shadow-[0_2px_10px_rgba(0,0,0,1)] transition-all cursor-pointer';
+            activeEl.className = 'text-lg sm:text-xl md:text-2xl font-bold lyric-gradient-active drop-shadow-[0_2px_10px_rgba(0,0,0,1)] transition-all cursor-pointer py-1';
             activeEl.style.setProperty('--progress', `${percent}%`);
+
+            if (subEl) {
+              subEl.className = 'block text-sm sm:text-base md:text-lg font-semibold lyric-gradient-active mt-0.5';
+              subEl.style.setProperty('--progress', `${percent}%`);
+            }
           } else if (karaokeColorMode === 'plain') {
             activeEl.style.removeProperty('--progress');
-            activeEl.className = 'text-lg sm:text-xl md:text-2xl font-bold lyric-plain-active drop-shadow-[0_2px_10px_rgba(0,0,0,1)] transition-all cursor-pointer';
+            activeEl.className = 'text-lg sm:text-xl md:text-2xl font-bold lyric-plain-active drop-shadow-[0_2px_10px_rgba(0,0,0,1)] transition-all cursor-pointer py-1';
+            if (subEl) subEl.className = 'block text-sm sm:text-base md:text-lg font-semibold lyric-plain-active mt-0.5';
           } else {
             activeEl.style.removeProperty('--progress');
-            activeEl.className = 'text-lg sm:text-xl md:text-2xl font-bold lyric-none-active drop-shadow-[0_2px_10px_rgba(0,0,0,1)] transition-all cursor-pointer';
+            activeEl.className = 'text-lg sm:text-xl md:text-2xl font-bold lyric-none-active drop-shadow-[0_2px_10px_rgba(0,0,0,1)] transition-all cursor-pointer py-1';
+            if (subEl) subEl.className = 'block text-sm sm:text-base md:text-lg font-semibold lyric-none-active mt-0.5';
           }
         }
       }
@@ -960,11 +1049,8 @@
       }
     };
 
-    // 點擊 Playlist 按鈕開啟彈窗 (移除 hidden 類別)
     btnTogglePlaylist.onclick = () => playlistDrawer.classList.remove('hidden');
-    // 點擊關閉按鈕隱藏彈窗
     btnClosePlaylist.onclick = () => playlistDrawer.classList.add('hidden');
-    // 點擊彈窗外部背景也能關閉
     playlistDrawer.onclick = (e) => { if (e.target === playlistDrawer) playlistDrawer.classList.add('hidden'); };
 
     function startVisualizerAnimation() {
@@ -1060,6 +1146,7 @@
             const activeSegments = Math.round(freqVal * (miniSegments - 2)); 
             const rawH = freqVal * (miniSegments - 2);
 
+         //dash(peak) distance with ladder
             const targetPeak = rawH + 1;
 
             if (targetPeak > miniPeakHeights[i]) {
@@ -1199,7 +1286,8 @@
                   canvasCtx.fillRect(x, peakY - 3, barWidth, 3);
                 }
               }
-              } else if (currentMode === 'fire') {
+            } 
+            else if (currentMode === 'fire') {
               const barGap = 2;
               const barWidth = Math.max((width - (numBars * barGap)) / numBars, 2);
 
@@ -1250,7 +1338,7 @@
                   canvasCtx.fill();
                 }
               });
-            } 
+            }
             else if (currentMode === 'matrix') {
               canvasCtx.font = '11px monospace';
               matrixDrops.forEach((drop, idx) => {

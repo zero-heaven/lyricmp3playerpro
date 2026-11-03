@@ -50,8 +50,11 @@ const playlists = {
 [03:24.42]I'm all out of love, I'm so lost without you(沒有人愛我了，沒有你我就像迷路的小羊)
 [03:28.42]I know you were right believing for so long(我知道你曾經相信過我)
 [03:33.17]I'm all out of love, what am I without you(現在，沒有你的愛，我還算是個人嗎？)
-[03:37.17]I can't be too late to say that I was so wrong(我蹉跎太久，一直沒告訴你我錯了)` 
-  },
+[03:37.17]I can't be too late to say that I was so wrong(我蹉跎太久，一直沒告訴你我錯了)`, 
+    lrcRaw2: `
+
+`
+},
   {
     id: "song-2",
     title: "A Time For Us",
@@ -110,12 +113,12 @@ const playlists = {
     album: "Odessa: The Complete Odessa",
     cover: "https://zero-heaven.github.io/lyricmp3player/mp3/Bee Gees - First Of May.jpg",
     audioUrl: "https://zero-heaven.github.io/lyricmp3player/mp3/Bee Gees - First Of May.mp3",
-    lrcRaw: `[ti:First Of May]
+    lrcRaw: `
+[ti:First Of May]
 [ar:Bee Gees]
 [al:Odessa: The Complete Odessa]
 [00:00.00]First Of May - Bee Gees (1969)
 [00:13.00]movie theme <Melody> (1971)
-
 [00:18.25]When I was small, and Christmas trees were tall,
 [00:25.43]we used to love while others used to play.
 [00:33.30]Don't ask me why, but time has passed us by,
@@ -139,8 +142,39 @@ const playlists = {
 [02:19.82]When I was small, and Christmas trees were tall,
 [02:26.93]do do do do do do do do do...
 [02:36.27]Don't ask me why, but time has passed us by,
-[02:43.71]some one else moved in from far away.` 
-  },
+[02:43.71]some one else moved in from far away.`, 
+    lrcRaw2: `
+[ti:First Of May]
+[ar:Bee Gees]
+[al:Odessa: The Complete Odessa]
+[00:00.00]First Of May - Bee Gees (五月情懷)(1969)
+[00:13.00]電影《兩小無猜》 (1971)
+[00:18.25]當我小時候，聖誕樹總是很高
+[00:25.43]當別人只懂得嬉戲玩耍的時候，我們卻開始相愛了
+[00:33.30]別問我怎麼會，但時間就這麼從我們身旁流逝過
+[00:40.79]還有人從遙遠的地方搬來了！
+
+[00:48.60]現在，我們都長大了，聖誕樹卻顯得小了
+[00:56.22]你也不再提問往日的時光
+[01:03.00]]但你與我，我們的愛是永恆的
+[01:11.37]我想每到五月一號，我們的眼淚都會流下
+
+[01:19.96]那棵掛滿童年回憶的蘋果樹
+[01:26.83]我曾望著蘋果一個一個的掉落
+[01:33.24]我想起了過去的所有時光
+[01:41.79]那一日我吻了你的臉頰而你是屬於我的
+
+[01:49.04]現在，我們都長大了，聖誕樹卻顯得小了
+[01:57.01]你也不再提問往日的時光
+[02:03.94]但你與我，我們的愛是永恆的
+[02:11.34]我想每到五月一號，我們的眼淚都會流下
+
+[02:19.82]當我小時候，聖誕樹總是很高
+[02:26.93]嘟嘟 嘟嘟 嘟嘟 嘟嘟嘟...
+[02:36.27]別問我怎麼會，但時間就這麼從我們身旁流逝過
+[02:43.71]還有人從遙遠的地方搬來了！
+`
+},
   {
     id: "song-4",
     title: "Massachusetts",
