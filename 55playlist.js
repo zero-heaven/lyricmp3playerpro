@@ -1354,55 +1354,110 @@ const playlists = [
     id: "song-17",
     title: "What A Feeling",
     artist: "Irene Cara",
-    album: "Unknown Album",
+    album: "Flashdance",
     cover: "https://zero-heaven.github.io/lyricmp3player/mp3/Irene Cara - What A Feeling.jpg",
     audioUrl: "https://zero-heaven.github.io/lyricmp3player/mp3/Irene Cara - What A Feeling.mp3",
     lrcRaw: `[ti:What A Feeling]
 [ar:Irene Cara]
-[by:Freedom of Motherland]
-[re:正義必勝]
-[re:正義必勝]
+[au:Irene Cara and Keith Forsey / Giorgio Moroder]
+[length:03:59.34]
+[00:10.42]First, when there's nothing
+[00:15.33]But a slow glowing dream
+[00:20.34]That your fear seems to hide
+[00:25.36]Deep inside your mind
+[00:30.87]All alone, I have cried
+[00:35.89]Silent tears full of pride
+[00:40.91]In a world made of steel
+[00:45.94]Made of stone
+[00:53.96]Well, I hear the music
+[00:57.98]Close my eyes, feel the rhythm
+[01:01.73]Wrap around, take a hold of my heart
+[01:09.51]What a feeling
+[01:13.03]Being's believin'
+[01:17.04]I can have it all, now I'm dancing for my life
+[01:24.57]Take your passion
+[01:28.33]And make it happen
+[01:32.34]Pictures come alive
+[01:34.59]You can dance right through your life
+[01:56.16]Now I hear the music
+[02:00.18]Close my eyes, I am rhythm
+[02:04.19]In a flash, it takes hold of my heart
+[02:11.47]What a feeling
+[02:15.23]Being's believin'
+[02:19.00]I can have it all, now I'm dancing for my life
+[02:26.77]Take your passion
+[02:30.54]And make it happen
+[02:34.55]Pictures come alive
+[02:36.81]You can dance right through your life
+[02:42.57]What a feeling
+[02:58.12]What a feeling (I am music now)
+[03:01.88]Being's believin' (I am rhythm now)
+[03:05.64]Pictures come alive
+[03:07.90]You can dance right through your life
+[03:13.42]What a feeling (I can really have it all)
+[03:17.68]What a feeling (pictures come alive when I call)
+[03:21.45]I can have it all (I can really have it all)
+[03:25.46]Have it all (pictures come alive when I call)
+[03:35.14]I can have it all (being's believin')
+[03:36.89]Being's believin' (take your passion)
+[03:44.67]Make it happen
+[03:47.17](What a feeling)
+[03:48.68]What a feeling`,
+    lrcRaw2: `
+[00:10.42]起初，當萬籟俱寂，
+[00:15.33]只剩下一抹緩緩微光的夢想
+[00:20.34]那份被妳的恐懼，
+[00:25.36]深深掩埋在心底的渴望
+[00:30.87]孑然一身，我曾流下那些
+[00:35.89]充滿傲氣的無聲淚水
+[00:40.91]在這鋼鐵鑄造、
+[00:45.94]亂石堆砌的冰冷世界裡
 
-[00:00.00]What A Feeling - Irene Cara : Flashdance(閃舞) 1983
+[Verse 1] 
+[00:53.96]當我聽見音樂，
+[00:57.98]閉上雙眼，感受那律動的脈搏
+[01:01.73]它將我重重包裹，徹底擄獲了我的心
 
-[00:10.31]First when there's nothing
-[00:14.17]But a slow glowing dream
-[00:19.21]That your fear seems to hide
-[00:24.39]Deep inside your mind
-[00:29.08]All alone I have cried
-[00:33.72]Silent tears full of pride
-[00:39.58]In a world made of steel,Made of stone
-[00:51.98]Well, I hear the music,
-[00:55.79]Close my eyes, feel the rhythm
-[00:59.41]Wrap around, take a holdOf my heart
-[01:06.65]What a feeling
-[01:09.71]Bein's believin'
-[01:13.43]I can have it all, now I'm dancing for my life
-[01:21.05]Take your passion
-[01:24.61]And make it happen
-[01:28.63]Pictures come alive,
-[01:31.91]You can dance right through your life
-[01:51.17]Now I hear the music
-[01:56.53]Close my eyes, I am rhythm
-[01:58.98]In a flash it takes hold
-[02:02.35]Of my heart
-[02:06.15]What a feeling
-[02:09.45]Bein's believin'
-[02:13.13]I can have it all, now I'm dancing for my life
-[02:20.60]Take your passion
-[02:24.34]And make it happen
-[02:28.11]Pictures come alive,
-[02:30.34]Now I'm dancing through my life
-[02:36.04]What a feeling
-[02:50.88]What a feeling (I am music now)
-[02:54.01]Bein's believin' (I am rhythm now)
-[02:58.13]Pictures come alive,
-[03:01.61]You can dance right through your life.
-[03:05.46]What a feeling (you can really have it al)
-[03:09.46]What a feeling (pictures come alive when I call)
-[03:12.81]I can have it all (I can really have it all)
-[03:16.86]Have it all (pictures come alive when I call)
-[03:24.45]What a feeling!!!!` 
+[Chorus]
+[01:09.51]多麼奇妙的感覺，
+[01:13.03]活著本身就是一種奇蹟 
+[01:17.04]我可以擁有一切，此刻我正為我的生命而起舞
+[01:24.57]釋放妳的激情，
+[01:28.33]讓那些夢想成真吧
+[01:32.34]腦中的畫面變成了現實，
+[01:34.59]妳能一路舞動，穿透妳的人生
+
+[Verse 2]
+[01:56.16]此刻我聽見音樂，
+[02:00.18]閉上雙眼，我本身就是那節奏
+[02:04.19]在那一瞬間，它掌控了我跳動的心房
+
+[Chorus]
+[02:11.47]多麼震撼的感覺，
+[02:15.23]生存即是相信的力量
+[02:19.00]我能擁有一切，現在我正為我的靈魂舞動
+[02:26.77]抓住妳的熱誠，
+[02:30.54]將其付諸實現
+[02:34.55]願景全都活了過來，
+[02:36.81]此刻我正舞動著穿過我的人生
+[02:42.57]多麼美妙的感覺 
+
+[Chorus]
+[02:58.12]多麼美妙的感覺（我現在就是音樂），
+[03:01.88]活著就是信仰（我現在就是節奏）
+[03:05.64]夢想幻化為現實，
+[03:07.90]妳能靠著舞蹈闖過妳的人生
+[03:13.42]多麼美妙的感覺（我真的能擁有一切）
+[03:17.68]多麼美妙的感覺（當我召喚時，幻夢即成真）
+[03:21.45]我能擁有一切（我真的能掌控所有）
+[03:25.46]擁有一切（當我大聲呼喚，夢想就會實現）
+[03:35.14]我能擁有一切（我真的能掌控所有）
+[03:36.89]活著就是奇蹟 (帶上妳的激情)
+[03:44.67](讓它成真) 讓它發生吧
+[03:47.17](多麼美妙的感覺)
+[03:48.68]多麼美妙的感覺
+(活著就是一種奇蹟)
+` 
   },
   {
     id: "song-18",
@@ -1826,40 +1881,64 @@ const playlists = [
     album: "Unknown Album",
     cover: "https://zero-heaven.github.io/lyricmp3player/mp3/Peter, Paul & Mary - Blowing in the Wind.jpg",
     audioUrl: "https://zero-heaven.github.io/lyricmp3player/mp3/Peter, Paul & Mary - Blowing in the Wind.mp3",
-    lrcRaw: `[ti:Blowin' in the wind]
-[ar:Peter, Paul and Mary]
-[by:Annie]
-[id:blihaock]
-[length:02:57]
+    lrcRaw: `[ar: Peter, Paul & Mary]
+[al: Around the Campfire]
+[ti: Blowin' In the Wind]
+[length: 02:56]
 
-[00:00.00]Peter, Paul and Mary
-[00:00.00]Blowin' in the wind
-[00:00.00]Paroles et musique : Bob Dylan    1963
-[00:00.00][01:49.87][02:40.54][02:51.49] 
-[00:12.59]How many roads must a man walk down
-[00:18.38]Before they call him a man ?
-[00:24.91]How many seas must a white dove sail
-[00:30.57]Before she sleeps in the sand ?
-[00:37.22]How many times must the cannon balls fly
-[00:42.89]Before they're forever banned ?
-[00:49.36][01:38.25]The answer, my friend, is blowin' in the wind
-[00:55.02][01:44.16]The answer is blowin' in the wind.
-[01:02.23]How many years must a mountain exist
-[01:07.70]Before it is washed to the sea ?
-[01:14.23]How many years can some people exist
-[01:19.84]Before they're allowed to be free ?
-[01:26.56]How many times can a man turn his head
-[01:31.97]And pretend that he just doesn't see ?
-[01:51.52]How many times must a man look up
-[01:56.80]Before he can see the sky ?
-[02:03.37]How many ears must one man have
-[02:09.12]Before he can hear people cry ?
-[02:15.41]How many deaths will it take
-[02:19.63]'Till he knows that too many people have died ?
-[02:27.74]The answer, my friend, is blowin' in the wind.
-[02:33.75][02:47.56]The answer is blowin' in the wind
-]
-[al: In the wind` 
+[00:12.15]How many roads must a man walk down
+[00:18.05]Before they call him a man?
+[00:24.46]How many seas must a white dove sail
+[00:30.55]Before she sleeps in the sand?
+[00:36.77]How many times must the cannon balls fly
+[00:42.94]Before they're forever banned?
+[00:49.10]The answer, my friend, is blowin' in the wind
+[00:55.24]The answer is blowin' in the wind
+[01:01.18]How many years must a mountain exist
+[01:07.53]Before it is washed to the sea?
+[01:14.06]How many years can some people exist
+[01:19.92]Before they're allowed to be free?
+[01:26.10]How many times can a man turn his head
+[01:32.14]And pretend that he just doesn't see?
+[01:38.63]The answer, my friend, is blowin' in the wind
+[01:44.37]The answer is blowin' in the wind
+[01:50.15]How many times must a man look up
+[01:56.34]Before he can see the sky?
+[02:03.00]How many ears must one man have
+[02:08.73]Before he can hear people cry?
+[02:15.15]How many deaths will it take till he knows
+[02:21.29]That too many people have died?
+[02:27.70]The answer, my friend, is blowin' in the wind
+[02:33.52]The answer is blowin' in the wind
+[02:45.48]The answer is blowin' in the wind` ,
+    lrcRaw2: `
+[00:12.15]一個人要經歷多長的旅途 
+[00:18.05]才能成為真正的男人 
+[00:24.46]鴿子要飛躍幾重大海 
+[00:30.55]才能在沙灘上安眠 
+[00:36.77]要多少炮火 
+[00:42.94]才能換來和平 
+[00:49.10]那答案，我的朋友，飄零在風中 
+[00:55.24]答案隨風飄逝
+
+[01:01.18]山峰要屹立多久 
+[01:07.53]才是滄海桑田 
+[01:14.06]人們要等待多久 [01:19.92]才能得到自由 
+[01:26.10]一個人要幾度回首 
+[01:32.14]才能視而不見 
+[01:38.63]那答案，我的朋友，在風中飄零 
+[01:44.37]答案隨風而逝
+
+[01:50.15]一個人要仰望多少次 
+[01:56.34]才能見蒼穹 
+[02:03.00]一個人要多麼善聽 
+[02:08.73]才能聽見他人的呐喊 
+[02:15.15]多少生命要隕落
+[02:21.29]才知道那已故的眾生 
+[02:27.70]答案，我的朋友，在風中飄零 
+[02:33.52]答案隨風而逝
+[02:45.48]答案隨風而逝
+ `
   },
   {
     id: "song-26",
