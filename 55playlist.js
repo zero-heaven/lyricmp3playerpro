@@ -512,16 +512,16 @@ const playlists = [
 [01:24.47]Call me oh my love.
 [01:27.22]When you're ready we can share the wine.
 [01:31.12]Call me.
+
 [01:38.19]Ooh, he speaks the languages of love.
 [01:44.91]Ooh, amore, chiamami （chiamami）.
 [01:52.07]Ooh, appelle-moi, mon cheri (appelle-moi).
 [01:58.12]Anytime, anyplace, anywhere, anyway!
 [02:03.80]Anytime, anyplace, anywhere, any day, anyway!
-[02:10.38]
+[02:10.38]🎵
 [02:43.40]Call me my love.
 [02:46.36]Call me, call me any anytime.
 [02:50.42]Call me for a ride.
-[02:52.44]
 [02:53.22]Call me, call me for some overtime.
 [02:57.02]Call me my love.
 [02:59.96]Call me, call me in a sweet design.
@@ -531,7 +531,59 @@ const playlists = [
 [03:17.15]Call me.
 [03:19.03]Oh, call me, ooh ooh ah.
 [03:24.17]Call me my love.
-[03:26.98]Call me, call me any anytime` 
+[03:26.98]Call me, call me any anytime`,
+    lrcRaw2:`
+[Verse 1] 
+[00:15.48]用你的色彩裝點我，寶貝，
+[00:19.20]把我染成跟你愛車一樣的顏色
+[00:22.28]用你的顏色定義我，親愛的，
+[00:25.80]我知道你的真面目
+[00:29.18]從你的色卡中挑選一種
+[00:32.35]我明白你的底細與來歷
+
+[Chorus]
+[00:35.51]打電話給我，就在電話線上
+[00:38.29]打給我，隨時隨地都可以
+Call me (Call me), I'll arrive
+[00:38.29]撥給我，我隨傳隨到
+[00:42.27]無論白晝或黑夜，你都能召喚我
+[00:48.97]撥給我
+
+[Verse 2]
+[00:56.28]用吻將我覆蓋，寶貝，
+[00:59.40]用愛將我淹沒
+[01:02.82]讓我滾落在名牌床單中，
+[01:05.81]我永遠不會滿足
+[01:09.11]情感湧現，我不明白原因
+[01:13.08]試圖遮掩愛情背後的不在場證明
+
+[Chorus]
+[01:17.42]打給我，保持聯絡
+[01:20.56]撥給我，任何時刻都行
+[01:24.47]呼喚我，我即刻現身
+[01:27.22]當你準備好了，我們能共飲這杯美酒，
+[01:31.12]打給我吧
+
+[​​Bridge]
+[01:38.19]喔，他訴說著愛的語言
+[01:44.91]喔，愛人，呼喚我，呼喚我吧（義大利語）
+[01:52.07]喔，撥給我，我的親愛的，撥給我（法語）
+[01:58.12]隨時、隨地、無論何處、無論如何
+[02:03.80]任何時刻、任何地點、任何日子、任何方式
+
+[02:43.40]打給我，我的愛
+[02:46.36]打給我，無論日夜
+[02:50.42]打電話給我 去載妳
+[02:53.22]打電話給我 為一些加班.
+[02:57.02]打電話給我 我的愛
+[02:59.96]打電話給我 用甜言蜜語
+[03:03.62]打電話給我 打電話給我用妳愛的愛的藉口
+[03:10.42]打電話給我 在線上
+[03:13.26]打電話給我, 任何時間打電話給我
+[03:17.15]打電話給我(打電話給我)
+[03:19.03]噢，打電話給我，噢噢啊
+[03:24.17]打電話給我 我的愛
+[03:26.98]打電話給我, 任何時間打電話給我`
   },
   {
     id: "song-9",
@@ -1354,13 +1406,15 @@ const playlists = [
   },
   {
     id: "song-17",
-    title: "What A Feeling",
+    title: "What a Feelin'",
     artist: "Irene Cara",
-    album: "Flashdance",
+    album: "What a Feelin'",
     cover: "https://zero-heaven.github.io/lyricmp3player/mp3/Irene Cara - What A Feeling.jpg",
     audioUrl: "https://zero-heaven.github.io/lyricmp3player/mp3/Irene Cara - What A Feeling.mp3",
-    lrcRaw: `[ti:What A Feeling]
+    lrcRaw: `
+[ti:What a Feelin']
 [ar:Irene Cara]
+[al:What a Feelin']
 [au:Irene Cara and Keith Forsey / Giorgio Moroder]
 [length:03:59.34]
 [00:10.42]First, when there's nothing
