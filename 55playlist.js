@@ -888,9 +888,9 @@ const playlists = [
 [02:05.46]Little things I should have said and done
 [02:11.27]I just never took the time
 
-[02:16.29]You were always on my mind
-[02:21.19]You are always on my mind
-[02:36.21]You are always on my mind
+[02:15.29]You were always on my mind
+[02:21.02]You are always on my mind
+[02:36.01]You are always on my mind
 
 [02:45.33]Maybe I didn't treat you
 [02:51.48]Quite as good as I should have
@@ -901,7 +901,7 @@ const playlists = [
 
 [03:17.39]And I guess I never told you
 [03:22.40]I'm so happy that you're mine
-[03:28.08]Maybe I didn't treat you`,
+[03:28.08]Maybe I didn't treat you...`,
     lrcRaw2: `
 [00:00.00]《常駐我心》
 
