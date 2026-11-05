@@ -105,44 +105,45 @@ const playlists = {
 [al:OSCAR]
 [au:Nino Rota]
 [in:Romeo & Juliet in 1968]
-[00:00.00]Andy Williams - A Time For Us  (Bilingual Lrc)
-
-[00:10.45]我倆的時光，總有一天會來
+[00:00.00]Andy Williams - A Time For Us
 [00:10.45]A time for us, someday there'll be
-[00:16.15]當鎖鏈被勇氣蝕穿，從愛中而生必然是自由的(無所顧忌的愛)
 [00:16.15]When chains are torn by courage born Of a love that's free 
-[00:23.12]長久被否定的夢想將大放異彩
 [00:23.12]A time when dreams so long denied can flourish
-[00:31.85]我們現在必須隱藏的愛終得浮現
 [00:31.85]As we unveil The love we now must hide
-[00:42.02]我倆的時光，指日可待
 [00:42.02]A time for us, at last to see
-[00:51.07]人生中一段值得我倆珍惜的時光
 [00:51.07]A life worth while for you and me
-[00:59.53]用愛穿越淚水與荊棘，
 [00:59.53]And with our love through tears and thorns
-[01:04.39]我們一定能承受，像我們安然度過每場暴風雨
 [01:04.39]We will endure as we pass surely Through every storm
-[01:11.05]我倆的時光，總有一天會來
 [01:11.05]A time for us, someday there'll be a new world
-[01:20.50]一個嶄新的世界，
 [01:20.50]a world of shining hope
-[01:23.85]為你我閃耀著希望的世界
 [01:23.85]For you and me
-[01:29.91]我倆的時光，指日可待
 [01:29.91]A time for us at last to see
-[01:39.26]人生中一段值得我倆珍惜的時光
 [01:39.26]A life worth while for you and me
-[01:47.75]用愛穿越淚水與荊棘，
 [01:47.75]And with our love through tears and thorns
-[01:52.71]我們一定能承受，像我們安然度過每場暴風雨
 [01:52.71]We will endure as we pass surely Through every storm
-[01:58.84]我倆的時光，總有一天會來
 [01:58.84]A time for us, someday there'll be a new world
-[02:08.68]一個嶄新的世界，
 [02:08.68]a world of shining hope
+[02:13.61]For you and me`,
+    lrcRaw2: `
+[00:10.45]我倆的時光，總有一天會來
+[00:16.15]當鎖鏈被勇氣蝕穿，從愛中而生必然是自由的(無所顧忌的愛)
+[00:23.12]長久被否定的夢想將大放異彩
+[00:31.85]我們現在必須隱藏的愛終得浮現
+[00:42.02]我倆的時光，指日可待
+[00:51.07]人生中一段值得我倆珍惜的時光
+[00:59.53]用愛穿越淚水與荊棘，
+[01:04.39]我們一定能承受，像我們安然度過每場暴風雨
+[01:11.05]我倆的時光，總有一天會來
+[01:20.50]一個嶄新的世界，
+[01:23.85]為你我閃耀著希望的世界
+[01:29.91]我倆的時光，指日可待
+[01:39.26]人生中一段值得我倆珍惜的時光
+[01:47.75]用愛穿越淚水與荊棘，
+[01:52.71]我們一定能承受，像我們安然度過每場暴風雨
+[01:58.84]我倆的時光，總有一天會來
+[02:08.68]一個嶄新的世界，
 [02:13.61]為你我閃耀著希望的世界
-[02:13.61]For you and me` 
+ `
   },
   {
     id: "song-3",
@@ -224,36 +225,37 @@ const playlists = {
 [ar:Bee Gees]
 [al:Mythology]
 [au:Maurice Gibb, Barry Gibb, Robin Gibb]
-[00:00.00]Bee Gees - Massachusetts  (Bilingual Lrc)
-
-[00:09.11]好像我要回到麻薩諸塞州了
+[00:00.00]Bee Gees - Massachusetts
 [00:09.11]Feel I'm goin' back to Massachusetts
-[00:18.31]某些景況提醒我該回家去了
 [00:18.31]Something's telling me I must go home
-[00:26.17]而麻薩諸塞州的燈火全都熄滅了
 [00:26.17]And the lights all went out in Massachusetts
-[00:35.21]就在我離去讓她孤單一人的那天
 [00:35.21]The day I left her standing on her own
-[00:46.11]想搭便車到舊金山
 [00:46.11]Tried to hitch a ride to San Francisco
-[00:55.45]做些我想做的事
 [00:55.45]Gotta do the things I wanna do
-[01:03.71]而麻薩諸塞州的燈火全都熄滅了
 [01:03.71]And the lights all went out in Massachusetts
-[01:12.21]他們將我帶回到與你共度的過往
 [01:12.21]They brought me back to see my way with you
-[01:23.40]聊起在麻薩諸塞州的生活
 [01:23.40]Talk about the life in Massachusetts
-[01:32.92]談著我曾經遇見過的人們
 [01:32.92]Speak about the people I have seen
-[01:41.02]而麻薩諸塞州的燈火全都熄滅了
 [01:41.02]And the lights all went out in Massachusetts
-[01:50.05]麻薩諸塞州這個我曾熟悉的地方
 [01:50.05]And Massachusetts is one place I have seen
-[02:00.21]我一定會記得麻薩諸塞州...
 [02:00.21]I will be back to Massachusetts
 [02:03.94](I will be back to Massachusetts)
-[02:07.94]I will be back to Massachusetts` 
+[02:07.94]I will be back to Massachusetts`,
+    lrcRaw2: `
+[00:09.11]好像我要回到麻薩諸塞州了
+[00:18.31]某些景況提醒我該回家去了
+[00:26.17]而麻薩諸塞州的燈火全都熄滅了
+[00:35.21]就在我離去讓她孤單一人的那天
+[00:46.11]想搭便車到舊金山
+[00:55.45]做些我想做的事
+[01:03.71]而麻薩諸塞州的燈火全都熄滅了
+[01:12.21]他們將我帶回到與你共度的過往
+[01:23.40]聊起在麻薩諸塞州的生活
+[01:32.92]談著我曾經遇見過的人們
+[01:41.02]而麻薩諸塞州的燈火全都熄滅了
+[01:50.05]麻薩諸塞州這個我曾熟悉的地方
+[02:00.21]我一定會記得麻薩諸塞州...
+ `
   },
   {
     id: "song-5",
@@ -266,75 +268,76 @@ const playlists = {
 [ar:Bee Gees]
 [al:The Very Best Of The Bee Gees]
 [au:Barry Gibb / Maurice Gibb / Robin Gibb]
-[00:00.00]Movie theme by Melody(兩小無猜)1971 
-[00:00.00]Melody Fair - Bee Gees 1969 :  (Bilingual Lrc)
-
-[00:27.50]那位哭喪著臉的女孩是誰？
+[00:00.00]Movie theme by Melody 1971 
+[00:00.00]Melody Fair - Bee Gees 1969
 [00:27.50]Who Is The Girl With The Crying Face
-[00:33.50]她正注視著這大千世界
 [00:33.50]Looking At Millions Of Signs
-[00:39.50]她明白人生就是一場賽跑
 [00:39.50]She Knows That Life Is A Running Race
-[00:45.50]她的臉不應該有任何跡象
 [00:45.50]Her Face Shouldn't Show Any Sign
-[00:48.50]美麗的梅樂蒂，你不梳理你的頭髮嗎？
 [00:48.50]Melody Fair Won't You Comb Your Hair
-[00:54.50]你也可以漂亮
 [00:54.50]You Can Be Beautiful Too
-[00:58.50]美麗的梅樂蒂，
 [00:58.50]Melody Fair
-[01:02.50]記住你只是個女人
 [01:02.50]Remember You're Only A Woman Ah Ah
-[01:10.50]美麗的梅樂蒂，
 [01:10.50]Melody Fair
-[01:14.50]別忘了你只是個女孩
 [01:14.50]Remember You're Only A Girl
-[01:23.50]啊........
-[01:23.50]Ah.........
-[01:30.50]那位倚在窗邊的女孩是誰？
+[01:23.50]Ah........
 [01:30.50]Who Is The Girl At The Window Pane
-[01:36.50]望著雨水傾瀉而下
 [01:36.50]Watching The Rain Falling Down
-[01:42.50]梅樂蒂，人生並不像一場雨
 [01:42.50]Melody Life Isn't Like The Rain
-[01:47.50]它就像旋轉木馬一樣
 [01:47.50]It's Just Like A Merry-Go-Round
-[01:51.50]美麗的梅樂蒂，你不梳理你的頭髮嗎？
 [01:51.50]Melody Fair Won't You Comb Your Hair
-[01:56.50]你也可以漂亮
 [01:56.50]You Can Be Beautiful Too
-[02:01.50]美麗的梅樂蒂，
 [02:01.50]Melody Fair
-[02:05.50]記住你只是個女人
 [02:05.50]Remember You're Only A Woman Ah Ah
-[02:13.50]美麗的梅樂蒂，
 [02:13.50]Melody Fair
-[02:17.50]別忘了你只是個女孩
 [02:17.50]Remember You're Only A Girl
-[02:26.50]啊........
 [02:26.50]Ah.........
-[02:33.50]那位哭喪著臉的女孩是誰？
 [02:33.50]Who Is The Girl With The Crying Face
-[02:38.50]她正注視著這大千世界
 [02:38.50]Looking At Millions Of Signs
-[02:44.50]她明白人生就是一場賽跑
 [02:44.50]She Knows That Life Is A Running Race
-[02:50.50]她的臉不應該有任何跡象
 [02:50.50]Her Face Shouldn't Show Any Sign
-[02:53.50]美麗的梅樂蒂，你不梳一梳頭髮嗎？
 [02:53.50]Melody Fair Won't You Comb Your Hair
-[02:59.50]你也可以很漂亮
 [02:59.50]You Can Be Beautiful Too
-[03:04.50]美麗的梅樂蒂，
 [03:04.50]Melody Fair
-[03:08.50]記住你只是個女人
 [03:08.50]Remember You're Only A Woman Ah Ah
-[03:16.50]美麗的梅樂蒂，
 [03:16.50]Melody Fair
-[03:20.50]別忘了你只是個女孩
 [03:20.50]Remember You're Only A Girl
+[03:29.50]Ah.........`,
+    lrcRaw2: `
+[00:00.00](兩小無猜)
+[00:27.50]那位哭喪著臉的女孩是誰
+[00:33.50]她正注視著這大千世界
+[00:39.50]她明白人生就是一場賽跑
+[00:45.50]她的臉不應該有任何跡象
+[00:48.50]美麗的梅樂蒂，你不梳理你的頭髮嗎
+[00:54.50]你也可以漂亮
+[00:58.50]美麗的梅樂蒂，
+[01:02.50]記住你只是個女人
+[01:10.50]美麗的梅樂蒂，
+[01:14.50]別忘了你只是個女孩
+[01:23.50]啊........
+[01:30.50]那位倚在窗邊的女孩是誰
+[01:36.50]望著雨水傾瀉而下
+[01:42.50]梅樂蒂，人生並不像一場雨
+[01:51.50]美麗的梅樂蒂，你不梳理你的頭髮嗎？
+[01:47.50]它就像旋轉木馬一樣
+[01:56.50]你也可以漂亮
+[02:01.50]美麗的梅樂蒂，
+[02:13.50]美麗的梅樂蒂，
+[02:17.50]別忘了你只是個女孩
+[02:26.50]啊........
+[02:33.50]那位哭喪著臉的女孩是誰
+[02:38.50]她正注視著這大千世界
+[02:44.50]她明白人生就是一場賽跑
+[02:50.50]她的臉不應該有任何跡象
+[02:53.50]美麗的梅樂蒂，你不梳一梳頭髮嗎
+[02:59.50]你也可以很漂亮
+[03:04.50]美麗的梅樂蒂，
+[03:08.50]記住你只是個女人
+[03:16.50]美麗的梅樂蒂，
+[03:20.50]別忘了你只是個女孩
 [03:29.50]啊........
-[03:29.50]Ah.........` 
+`
   },
   {
     id: "song-6",
@@ -413,68 +416,38 @@ const playlists = {
     lrcRaw: `[ar: Bertie Higgins]
 [al: Just Another Day in Paradise]
 [ti: Casablanca]
-[00:01.10]Movie theme by Casablanca(北非影碟) 1942
-[00:13.00]Casablanca - Bertie Higgins 1982 :   (Bilingual Lrc)
-[00:15.84]看著《卡薩布蘭卡》這部片時，我愛上了你
-[00:15.84]I fell in love with you watching Casablanca
-[00:23.48]當時汽車電影院的后排燈光閃爍不定
-[00:23.48]Back row at the driven show in the flickering light
-[00:30.86]爆米花和可樂在星光下
-[00:30.86]Popcorn and cokes beneath the stars
-[00:34.73]變成了香檳和魚子醬
-[00:34.73]became champagne and caviar
-[00:39.29]我們在漫長的而燥熱的夏夜里盡情歡笑
-[00:39.29]Making love on a long hot summer's night
-[00:46.23]我以為在看《卡薩布蘭卡》時，你愛上了我
-[00:46.23]I thought you fell in love with me watching Casablanca
-[00:53.91]咖啡館里的吊扇下牽手
-[00:53.91]Holding hand neath the paddle fan
-[00:56.79]在點著燭光的里克
-[00:56.79]in rick's candle lit cafe
-[01:01.40]我們躲在聚光燈照不到的陰影里
-[01:01.40]Hiding in the shadows from the spies
-[01:05.25]你的眼里映著摩洛哥的月光
-[01:05.25]Monoccan moonshine in your eyes
-[01:08.47]隨著電影在我那輛舊雪佛萊里變著魔術
-[01:08.47]Making magic at the movies in my old Chevrolet
-[01:15.83]噢！卡薩布蘭卡的親吻依舊
-[01:15.83]Oh a kiss is still a kiss in Casablanca
-[01:23.64]但沒有了你的嘆息，那吻已不成吻
-[01:23.64]But kiss is not a kiss without your sigh
-[01:31.42]請來卡薩布蘭卡找我
-[01:31.42]Please come back to me in Casablanca
-[01:39.05]隨著時光流逝，我一天比一天更愛你
-[01:39.05]I love you more and more each day as time goes by
-[02:20.84]我猜，在卡薩布蘭卡有很多傷心人
-[02:20.84]I guess there're many broken hearts in Casablanca
-[02:28.14]你知道我從未到過那里所以我不是很清楚
-[02:28.14]You know I've never really been there so I don't know
-[02:35.44]我想我們的愛情故事不會被
-[02:35.44]I guess our love story will never be seen
-[02:40.14]搬上銀幕
-[02:40.14]on the big wide silver screen
-[02:43.50]但當我不得不看著你離去，我也感受到那種傷痛
-[02:43.50]But it hurt just as bad when I had to watch you go
-[02:50.54]噢！卡薩布蘭卡的親吻依舊
-[02:50.54]Oh a kiss is still a kiss in Casablanca
-[02:58.65]但沒有了你的嘆息，那吻已不成吻
-[02:58.65]But kiss is not a kiss without your sigh
-[03:05.39]請來卡薩布蘭卡找我
-[03:05.39]Please come back to me in Casablanca
-[03:13.45]隨著時光流逝，我一天比一天更愛你
-[03:13.45]I love you more and more each day as time goes by
-[03:20.39]噢！卡薩布蘭卡的親吻依舊
-[03:20.39]Oh a kiss is still a kiss in Casablanca
-[03:28.25]但沒有了你的嘆息，那吻已不成吻
-[03:28.25]But kiss is not a kiss without your sigh
-[03:35.82]請來卡薩布蘭卡找我
-[03:35.82]Please come back to me in Casablanca
-[03:43.35]隨著時光流逝，我一天比一天更愛你
-[03:43.35]I love you more and more each day as time goes by
-[03:50.99]隨著時光流逝，我一天比一天更愛你
-[03:50.99]I love you more and more each day as time goes by`,
-    lrcRaw2: `[00:01.10]Movie theme by Casablanca(北非影碟) 1942
+[00:01.10]Movie theme by Casablanca 1942
 [00:13.00]Casablanca - Bertie Higgins 1982
+[00:15.84]I fell in love with you watching Casablanca
+[00:23.48]Back row at the driven show in the flickering light
+[00:30.86]Popcorn and cokes beneath the stars
+[00:34.73]became champagne and caviar
+[00:39.29]Making love on a long hot summer's night
+[00:46.23]I thought you fell in love with me watching Casablanca
+[00:53.91]Holding hand neath the paddle fan
+[00:56.79]in rick's candle lit cafe
+[01:01.40]Hiding in the shadows from the spies
+[01:05.25]Monoccan moonshine in your eyes
+[01:08.47]Making magic at the movies in my old Chevrolet
+[01:15.83]Oh a kiss is still a kiss in Casablanca
+[01:23.64]But kiss is not a kiss without your sigh
+[01:31.42]Please come back to me in Casablanca
+[01:39.05]I love you more and more each day as time goes by
+[02:20.84]I guess there're many broken hearts in Casablanca
+[02:28.14]You know I've never really been there so I don't know
+[02:35.44]I guess our love story will never be seen
+[02:40.14]on the big wide silver screen
+[02:43.50]But it hurt just as bad when I had to watch you go
+[02:50.54]Oh a kiss is still a kiss in Casablanca
+[02:58.65]But kiss is not a kiss without your sigh
+[03:05.39]Please come back to me in Casablanca
+[03:13.45]I love you more and more each day as time goes by
+[03:20.39]Oh a kiss is still a kiss in Casablanca
+[03:28.25]But kiss is not a kiss without your sigh
+[03:35.82]Please come back to me in Casablanca
+[03:43.35]I love you more and more each day as time goes by
+[03:50.99]I love you more and more each day as time goes by`,
+    lrcRaw2: `[00:01.10] (北非影碟) 1942
 [00:15.84]看著《卡薩布蘭卡》這部片時，我愛上了你
 [00:23.48]當時汽車電影院的后排燈光閃爍不定
 [00:30.86]爆米花和可樂在星光下
@@ -497,7 +470,7 @@ const playlists = {
 [02:43.50]但當我不得不看著你離去，我也感受到那種傷痛
 [02:50.54]噢！卡薩布蘭卡的親吻依舊
 [02:58.65]但沒有了你的嘆息，那吻已不成吻
-[03:05.39]請來卡薩布蘭卡找我
+[03:05.39]請來卡薩布蘭卡找
 [03:13.45]隨著時光流逝，我一天比一天更愛你
 [03:20.39]噢！卡薩布蘭卡的親吻依舊
 [03:28.25]但沒有了你的嘆息，那吻已不成吻
@@ -715,56 +688,56 @@ const playlists = {
     lrcRaw: `[ti:Longer]
 [ar:Dan Fogelderg]
 [al:Phoenix]
-
 [00:00.00]Longer - Dan Fogelderg 1979
-[00:23.50]早在海裡有魚兒之前
 [00:23.50]Longer than there've been fishes in the ocean
-[00:29.43]比任何鳥兒飛到更高的地方過
 [00:29.43]Higer than any bird ever flew
-[00:35.08]遠在天上有星星之前
 [00:35.08]Longer than there've been stars up in the heavens
-[00:41.93]我就已經深愛著你(與你墜入愛河)
 [00:41.93]I've been in love with you(I am in love with you)
-[02:31.05]早在海裡有魚兒之前
 [02:31.05]Longer than there've been fishes in the ocean
-[02:36.45]比任何鳥兒飛到更高的地方過
 [02:36.45]Higer than any bird ever flew 
-[02:43.97]遠在天上有星星之前
 [02:43.97]Longer than there've been stars up in the heavens
-[02:48.54]我就已經深愛著你(與你墜入愛河)
 [02:48.54]I've been in love with you(I am in love with you)
-[02:54.10]我就已經深愛著你(與你墜入愛河)
 [02:54.10]I've been in love with you(I am in love with you)
-[00:46.93]遠比任何山峰上的大教堂更堅固
 [00:46.93]Stronger than any mountain cathedral 
-[00:54.40]遠比樹的成長更真實
 [00:54.40]Truer than any tree ever grew
-[01:00.30]比原始森林更深邃
 [01:00.30]Deeper than any forest primeval
-[01:06.52]我與你墜入了愛河
 [01:06.52]I am in love with you
-[01:12.31]我會在冬日裡帶來熾火
 [01:12.31]I'll bring fire in the winters
-[01:18.14]在春日裡，你帶來陣雨
 [01:18.14]You'll send showers in the springs
-[01:24.62]我們將飛越過秋天與夏日
 [01:24.62]We'll fly through the falls and summers
-[01:30.60]以我們雙翼上的愛
 [01:30.60]With love on our my wings
-[01:37.72]若干年後，
 [01:37.72]Through the years
-[01:38.40]當熾火轉弱
 [01:38.40]As the fire starts to mellow
-[01:42.41]燃燒著我們生命之書裡的字句
 [01:42.41]Burning lines in the book of our lives
-[01:48.54]雖然封面已斑駁，
 [01:48.54]Though the binding cracks
-[01:51.50]書頁亦逐漸泛黃
 [01:51.50]And the pages start to yellow
-[01:54.36]我依然愛著你
 [01:54.36]I'll be in love with you
-[01:57.50]依然深愛著你
-[01:57.50]I'll be in love with you` 
+[01:57.50]I'll be in love with you`,
+    lrcRaw2: `
+[00:23.50]早在海裡有魚兒之前
+[00:29.43]比任何鳥兒飛到更高的地方過
+[00:35.08]遠在天上有星星之前
+[00:41.93]我就已經深愛著你(與你墜入愛河)
+[02:31.05]早在海裡有魚兒之前
+[02:36.45]比任何鳥兒飛到更高的地方過
+[02:43.97]遠在天上有星星之前
+[02:48.54]我就已經深愛著你(與你墜入愛河)
+[02:54.10]我就已經深愛著你(與你墜入愛河)
+[00:46.93]遠比任何山峰上的大教堂更堅固
+[00:54.40]遠比樹的成長更真實
+[01:00.30]比原始森林更深邃
+[01:06.52]我與你墜入了愛河
+[01:12.31]我會在冬日裡帶來熾火
+[01:18.14]在春日裡，你帶來陣雨
+[01:24.62]我們將飛越過秋天與夏日
+[01:30.60]以我們雙翼上的愛
+[01:37.72]若干年後，
+[01:38.40]當熾火轉弱
+[01:42.41]燃燒著我們生命之書裡的字句
+[01:48.54]雖然封面已斑駁，
+[01:51.50]書頁亦逐漸泛黃
+[01:54.36]我依然愛著你
+[01:57.50]依然深愛著你`
   },
   {
     id: "song-12",
@@ -881,51 +854,112 @@ const playlists = {
     album: "The Fool Album",
     cover: "https://zero-heaven.github.io/lyricmp3player/mp3/Elvis Presley - Always on My Mind.jpg",
     audioUrl: "https://zero-heaven.github.io/lyricmp3player/mp3/Elvis Presley - Always on My Mind.mp3",
-    lrcRaw: `[ti:Always On My Mind]
+    lrcRaw: `
+[ti:Always On My Mind]
 [ar:Elvis Presley]
 [al:The Fool Album]
 [au:Wayne Thompson/Mark James/Johnny Christopher]
-[00:00.00]Always On My Mind - Elvis Presley (1973)  (Bilingual Lrc)
+[00:00.00]Always On My Mind - Elvis Presley 1973
 
-[00:07.89]Maybe I didn't treat you 或許我對妳不夠好
+[00:07.89]Maybe I didn't treat you 
 [00:13.71]Quite as good as I should have
 [00:18.94]Maybe I didn't love you
 [00:24.54]Quite as often as I could have
-[00:30.05]Little things I should have said and done 許多該說、該做的小事情
-[00:35.58]I just never took the time 我都沒有說，也沒有做
 
-[00:40.31]You were always on my mind 妳的倩影永遠縈繞我心
-[00:45.67]You were always on my mind 妳的倩影永遠縈繞我心
+[00:30.05]Little things I should have said and done 
+[00:35.58]I just never took the time
 
-[00:51.52]Maybe I didn't hold you 或許，在妳孤寂的時候，我沒有抱著妳
+[00:40.31]You were always on my mind
+[00:45.67]You were always on my mind
+
+[00:51.52]Maybe I didn't hold you
 [00:56.76]All those lonely, lonely times
-[01:01.98]And I guess I never told you 我猜，我也沒告訴過妳
-[01:07.30]I'm so happy that you're mine 妳的愛，讓我感到無比幸福
-[01:12.51]If I make you feel second best 若我讓妳覺得妳不是我的最愛
-[01:17.39]Girl, I'm sorry I was blind 寶貝，那我真的要對妳說聲抱歉，是我不懂珍惜妳
+[01:01.98]And I guess I never told you
+[01:07.30]I'm so happy that you're mine
 
-[01:22.58]You were always on my mind 妳的倩影永遠縈繞我心
-[01:28.07]You were always on my mind 妳的倩影永遠縈繞我心
+[01:12.51]If I make you feel second best
+[01:17.39]Girl, I'm sorry I was blind
 
-[01:32.44]Tell me, tell me that your sweet love hasn't died 告訴我，告訴我妳對我深情依舊
-[01:42.95]Give me, give me one more chance 給我，請再給我一次機會
-[01:49.53]To keep you satisfied, satisfied  satisfied 讓我帶給妳幸福
+[01:24.01]You were always on my mind
+[01:28.37]You were always on my mind
 
-[02:04.46]Little things I should have said and done 許多該說、該做的小事情
-[02:09.77]I just never took the time 我都沒有說，也沒有做
-[02:14.29]You were always on my mind 妳的倩影永遠縈繞我心
-[02:19.69]You are always on my mind
-[02:34.31]You are always on my mind
-[02:44.73]Maybe I didn't treat you 或許我對妳不夠好
-[02:49.88]Quite as good as I should have
-[02:55.12]Maybe I didn't love you 或許，我對妳不夠愛
-[03:00.23]Quite as often as I could have
+[01:33.44]Tell me, tell me that your sweet love hasn't died
+[01:43.95]Give me, give me one more chance
+[01:50.03]To keep you satisfied, satisfied  satisfied
 
-[03:05.35]Maybe I didn't hold you 或許，在妳孤寂的時候，我沒有抱著妳
-[03:10.47]All those lonely, lonely times
-[03:15.59]And I guess I never told you 我猜，我也沒告訴過妳
-[03:20.70]I'm so happy that you're mine 妳的愛，讓我感到無比幸福
-[03:25.88]Maybe I didn't treat you 或許我對妳不夠好` 
+[02:05.46]Little things I should have said and done
+[02:11.27]I just never took the time
+
+[02:16.29]You were always on my mind
+[02:21.19]You are always on my mind
+[02:36.21]You are always on my mind
+
+[02:45.33]Maybe I didn't treat you
+[02:51.48]Quite as good as I should have
+[02:57.12]Maybe I didn't love you
+[03:02.23]Quite as often as I could have
+[03:07.35]Maybe I didn't hold you
+[03:12.47]All those lonely, lonely times
+
+[03:17.39]And I guess I never told you
+[03:22.40]I'm so happy that you're mine
+[03:28.08]Maybe I didn't treat you`,
+    lrcRaw2: `
+[00:00.00]《常駐我心》
+
+[Verse 1] 
+[00:07.89]也許我待你不夠好
+[00:13.71]沒能給予你應有的善待
+[00:18.94]也許我愛你不夠多
+[00:24.54]沒有時常表達愛意
+
+[Pre-Chorus]
+[00:30.05]那些本該說出口、本該去做的小事
+[00:35.58]我卻從未抽出時間完成
+
+[Chorus]
+[00:40.31]但妳一直都在我的心上
+[00:45.67]妳始終佔據著我的心
+
+[Verse 2]
+[00:51.52]也許我沒能擁抱你
+[00:56.76]在你那些無比孤獨的時刻
+[01:01.98]我想我也從未告訴你
+[01:07.30]能擁有妳，我感到多麼幸福
+
+[Pre-Chorus]
+[01:12.51]如果我讓你覺得自己不是最重要的人
+[01:17.39]親愛的，對不起，是我當時太盲目了
+
+[Chorus]
+[01:24.01]但妳一直都在我的心上
+[01:28.37]妳始終佔據著我的心
+
+[Bridge]
+[01:33.44]告訴我，告訴我你那份甜蜜的愛尚未消逝
+[01:43.95]再給我，再給我一次機會
+[01:50.03]讓我好好彌補、讓妳感到滿足
+
+[Pre-Chorus]
+[02:05.46]那些本該說出口、本該去做的小事
+[02:11.27]我卻從未抽出時間兌現
+
+[Chorus]
+[02:16.29]但妳一直都在我的心上
+[02:21.19]妳始終佔據著我的心
+[02:36.21]妳一直都在我的心上
+
+[Outro]
+[02:45.33]也許我待你
+[02:51.48]並未如我本該做到的那麼好
+[02:57.12]也許我愛你
+[03:02.23]並未如我本能做到的那麼多
+[03:07.35]也許我沒能擁抱你
+[03:12.47]在那些無比孤獨的時刻
+
+[03:17.39]我想我也從來沒有告訴過你
+[03:22.40]能擁有你，我感到多麼幸福
+[03:28.08]也許我待你...`,
   },
   {
     id: "song-14",
