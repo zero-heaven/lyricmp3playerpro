@@ -1,4 +1,4 @@
-const playlists = {
+﻿const playlists = {
   PlayList1: [
   {
     id: "song-1",
@@ -542,10 +542,12 @@ const playlists = {
 [00:32.35]我明白你的底細與來歷
 
 [Chorus]
-[00:35.51]打給我，就在電話線上
-[00:38.29]打給我，任何時刻都行
-[00:42.27]無論日與夜，你都能召喚我
-[00:48.97]打給我
+[00:35.51]打電話給我，就在電話線上
+[00:38.29]打給我，隨時隨地都可以
+Call me (Call me), I'll arrive
+[00:38.29]撥給我，我隨傳隨到
+[00:42.27]無論白晝或黑夜，你都能召喚我
+[00:48.97]撥給我
 
 [Verse 2]
 [00:56.28]用吻將我覆蓋，寶貝，
@@ -557,31 +559,31 @@ const playlists = {
 
 [Chorus]
 [01:17.42]打給我，保持聯絡
-[01:20.56]打給我，任何時候都行
-[01:24.47]打給我，我即刻現身
-[01:27.22]等你準備好，我們就來共享這款美酒吧。
+[01:20.56]撥給我，任何時刻都行
+[01:24.47]呼喚我，我即刻現身
+[01:27.22]當你準備好了，我們能共飲這杯美酒，
 [01:31.12]打給我吧
 
 [​​Bridge]
 [01:38.19]喔，他訴說著愛的語言
-[01:44.91]喔，愛人，打給我，打給我吧（義大利語）
-[01:52.07]喔，打給我，我的親愛的，打給我（法語）
+[01:44.91]喔，愛人，呼喚我，呼喚我吧（義大利語）
+[01:52.07]喔，撥給我，我的親愛的，撥給我（法語）
 [01:58.12]隨時、隨地、無論何處、無論如何
 [02:03.80]任何時刻、任何地點、任何日子、任何方式
 
 [02:43.40]打給我，我的愛
 [02:46.36]打給我，無論日夜
-[02:50.42]打給我 去載妳
-[02:53.22]打給我 為一些加班.
-[02:57.02]打給我 我的愛
-[02:59.96]打給我 用甜言蜜語
-[03:03.62]打給我 打給我用妳愛的愛的藉口
-[03:10.42]打給我 在線上
-[03:13.26]打給我，任何時候都行
-[03:17.15]打給我(打給我)
-[03:19.03]噢，打給我，噢噢啊
-[03:24.17]打給我 我的愛
-[03:26.98]打給我，任何時候都行`
+[02:50.42]打電話給我 去載妳
+[02:53.22]打電話給我 為一些加班.
+[02:57.02]打電話給我 我的愛
+[02:59.96]打電話給我 用甜言蜜語
+[03:03.62]打電話給我 打電話給我用妳愛的愛的藉口
+[03:10.42]打電話給我 在線上
+[03:13.26]打電話給我, 任何時間打電話給我
+[03:17.15]打電話給我(打電話給我)
+[03:19.03]噢，打電話給我，噢噢啊
+[03:24.17]打電話給我 我的愛
+[03:26.98]打電話給我, 任何時間打電話給我`
   }
   ],
   PlayList2: [
@@ -1710,28 +1712,54 @@ const playlists = {
 [ti:To Sir with Love]
 [au:Don Black and Mark London]
 [00:01.11]To Sir with Love - Lulu  1967
-[00:10.35]Those schoolgirl days那些在女子學校的日子
-[00:15.52]of telling tales and biting nails are gone說著故事、咬著指甲的歲月已不再
-[00:25.47]But in my mind但是在我心中
-[00:29.78]I know they will still live on and on, and on我知道這段歲月將依然活
-[00:39.82]But how do you thank someone但是妳該如何感謝
-[00:43.26]Who has taken you from crayons to perfume?那個從蠟筆到香水一直引導妳的人
-[00:49.27]It isn't easy, but I'll try那並不容易，但我願意試試
-[00:57.88]If you wanted the sky如果你要整片天空
-[01:00.09]Write across the sky in letters我會在天空上寫滿字
-[01:05.25]That would soar a thousand feet high那將會有一千英呎高
-[01:10.41]"To Sir, with love"寫著"吾愛吾師"
+[00:10.35]Those schoolgirl days
+[00:15.52]of telling tales and biting nails are gone
+[00:25.47]But in my mind
+[00:10.35]Those schoolgirl days
+[00:15.52]of telling tales and biting nails are gone
+[00:25.47]But in my mind
+[00:29.78]I know they will still live on and on, and on
+[00:39.82]But how do you thank someone
+[00:43.26]Who has taken you from crayons to perfume?
+[00:49.27]It isn't easy, but I'll try
+[00:57.88]If you wanted the sky
+[01:00.09]Write across the sky in letters
+[01:05.25]That would soar a thousand feet high
+[01:10.41]"To Sir, with love"
 [01:19.21]The time has come
-[01:24.09]For closing books and long last looks must end闔上課本的時刻已來到，最後的一瞥還是要結束
-[01:33.74]And as I leave當我離開
-[01:38.91]I know that I am leaving my best friend我明白我將離開我最好的朋友
-[01:48.66]A friend who taught me right from wrong一個教導我分辨對錯、
-[01:52.67]and weak from strong, that's a lot to learn從軟弱變堅強的朋友,要學的東西還很多
-[01:57.84]What, what can I give you in return?但我能送你什麼來報答你呢？
-[02:07.22]If you wanted the moon如果你想要月亮
-[02:09.51]I would try to make a start我會努力試試看
-[02:12.58]But I would rather you let me give my heart但我寧可你讓我把心獻給你
-[02:20.04]To Sir, with love寫上"吾愛吾師"` 
+[01:24.09]For closing books and long last looks must end
+[01:33.74]And as I leave
+[01:38.91]I know that I am leaving my best friend
+[01:48.66]A friend who taught me right from wrong
+[01:52.67]and weak from strong, that's a lot to learn
+[01:57.84]What, what can I give you in return?
+[02:07.22]If you wanted the moon
+[02:09.51]I would try to make a start
+[02:12.58]But I would rather you let me give my heart
+[02:20.04]To Sir, with love`,
+    lrcRaw2: `
+[00:01.11]《給老師，懷著愛》－露露
+[00:10.35]那些在女子學校的日子
+[00:15.52]說著故事、咬著指甲的歲月已不再
+[00:25.47]但是在我心中
+[00:29.78]我知道這段歲月將依然活
+[00:39.82]但是妳該如何感謝
+[00:43.26]那個從蠟筆到香水一直引導妳的人
+[00:49.27]那並不容易，但我願意試試
+[00:57.88]如果你要整片天空
+[01:00.09]我會在天空上寫滿字
+[01:05.25]那將會有一千英呎高
+[01:10.41]寫著"吾愛吾師"
+[01:24.09]闔上課本的時刻已來到，最後的一瞥還是要結束
+[01:33.74]當我離開
+[01:38.91]我明白我將離開我最好的朋友
+[01:48.66]一個教導我分辨對錯、
+[01:52.67]從軟弱變堅強的朋友,要學的東西還很多
+[01:57.84]但我能送你什麼來報答你呢？
+[02:07.22]如果你想要月亮
+[02:09.51]我會努力試試看
+[02:12.58]但我寧可你讓我把心獻給你
+[02:20.04]吾愛吾師`
   },
   {
     id: "song-23",
@@ -1995,58 +2023,58 @@ const playlists = {
     lrcRaw: `[ti: Lemon Tree]
 [ar: Peter, Paul & Mary]
 [al: Peter, Paul & Mary]
-[00:00.00]Peter, Paul & Mary - Lemon Tree (檸檬樹) 1962  (Bilingual Lrc)
-
-[00:06.47]當我還只是個十歲男孩，我父親對我說：
+[00:00.00]Peter, Paul & Mary - Lemon Tree 1962
 [00:06.47]When I was just a lad of ten, my father said to me,
-[00:12.12]「來向這可愛的檸檬樹學習一堂課。」
 [00:12.12]"Come here and take a lesson from the lovely lemon tree."
-[00:17.41]「孩子呀！不要以『愛』為信仰。」我父親對我說：
 [00:17.41]"Don't put your faith in love, my boy", my father said to me,
-[00:23.01]「我害怕你會發現『愛』像這可愛的檸檬樹。」
 [00:23.01]"I fear you'll find that love is like the lovely lemon tree."
-[00:30.01]檸檬樹十分漂亮，而且檸檬的花很香。
 [00:30.01]Lemon tree very pretty and the lemon flower is sweet
-[00:36.41]可惜檸檬果實的味太酸，不能夠直接吃。
 [00:36.41]but the fruit of the poor lemon is impossible to eat.
-[00:42.11]檸檬樹十分漂亮，而且檸檬的花很香。
 [00:42.11]Lemon tree very pretty and the lemon flower is sweet
-[00:48.01]可惜檸檬果實的味太酸，不能夠直接吃。
 [00:48.01]but the fruit of the poor lemon is impossible to eat.
-[00:55.51]一天我與愛人躺在那檸檬樹底下。
 [00:55.51]One day beneath the lemon tree, my love and I did lie
-[01:02.01]一個甜美的女孩，當她微笑，星星都會升滿天。
 [01:02.01]A girl so sweet that when she smiled the stars rose in the sky.
-[01:07.01]我們整個夏天在那檸檬樹下，沐浴在愛中。
 [01:07.01]We passed that summer lost in love beneath the lemon tree
-[01:13.01]她音樂般的笑聲，使我忘記了父親的話。
 [01:13.01]the music of her laughter hid my father's words from me:
-[01:20.01]檸檬樹十分漂亮，而且檸檬的花很香。
 [01:20.01]Lemon tree very pretty and the lemon flower is sweet
-[01:27.01]可惜檸檬果實的味太酸，不能夠直接吃。
 [01:27.01]but the fruit of the poor lemon is impossible to eat.
-[01:33.01]檸檬樹十分漂亮，而且檸檬的花很香。
 [01:33.01]Lemon tree very pretty and the lemon flower is sweet
-[01:39.01]可惜檸檬果實的味太酸，不能夠直接吃。
 [01:39.01]but the fruit of the poor lemon is impossible to eat.
-[01:46.01]一天她帶走了太陽，也沒留下一句話。
 [01:46.01]One day she left without a word. She took away the sun.
-[01:52.01]在她留下的黑暗中，我知道她做了些什麼。
 [01:52.01]And in the dark she left behind, I knew what she had done.
-[01:58.01]她離我找了新對象，這是老調而真的故事。
 [01:58.01]She'd left me for another, it's a common tale but true.
-[02:04.01]傷透的男人變聰明了，我把這些話頌給你。
 [02:04.01]A sadder man but wiser now I sing these words to you:
-[02:12.01]檸檬樹十分漂亮，而且檸檬的花很香。
 [02:12.01]Lemon tree very pretty and the lemon flower is sweet
-[02:19.01]可惜檸檬果實的味太酸，不能夠直接吃。
 [02:19.01]but the fruit of the poor lemon is impossible to eat.
-[02:25.01]檸檬樹十分漂亮，而且檸檬的花很香。
 [02:25.01]Lemon tree very pretty and the lemon flower is sweet
-[02:31.01]可惜檸檬果實的味太酸，不能夠直接吃。
 [02:31.01]but the fruit of the poor lemon is impossible to eat.
-[02:38.01]檸檬樹...
-[02:38.01]Lemon tree...` 
+[02:38.01]Lemon tree...`,
+    lrcRaw2: `
+[00:06.47]當我還只是個十歲男孩，我父親對我說：
+[00:12.12]「來向這可愛的檸檬樹學習一堂課。」
+[00:17.41]「孩子呀！不要以『愛』為信仰。」我父親對我說：
+[00:23.01]「我害怕你會發現『愛』像這可愛的檸檬樹。」
+[00:30.01]檸檬樹十分漂亮，而且檸檬的花很香。
+[00:36.41]可惜檸檬果實的味太酸，不能夠直接吃。
+[00:42.11]檸檬樹十分漂亮，而且檸檬的花很香。
+[00:48.01]可惜檸檬果實的味太酸，不能夠直接吃。
+[00:55.51]一天我與愛人躺在那檸檬樹底下。
+[01:02.01]一個甜美的女孩，當她微笑，星星都會升滿天。
+[01:07.01]我們整個夏天在那檸檬樹下，沐浴在愛中。
+[01:13.01]她音樂般的笑聲，使我忘記了父親的話。
+[01:20.01]檸檬樹十分漂亮，而且檸檬的花很香。
+[01:27.01]可惜檸檬果實的味太酸，不能夠直接吃。
+[01:33.01]檸檬樹十分漂亮，而且檸檬的花很香。
+[01:39.01]可惜檸檬果實的味太酸，不能夠直接吃。
+[01:46.01]一天她帶走了太陽，也沒留下一句話。
+[01:52.01]在她留下的黑暗中，我知道她做了些什麼。
+[01:58.01]她離我找了新對象，這是老調而真的故事。
+[02:04.01]傷透的男人變聰明了，我把這些話頌給你。
+[02:12.01]檸檬樹十分漂亮，而且檸檬的花很香。
+[02:19.01]可惜檸檬果實的味太酸，不能夠直接吃。
+[02:25.01]檸檬樹十分漂亮，而且檸檬的花很香。
+[02:31.01]可惜檸檬果實的味太酸，不能夠直接吃。
+[02:38.01]檸檬樹...`
   },
   {
     id: "song-27",
@@ -2262,84 +2290,81 @@ const playlists = {
     lrcRaw: `[ti:Right Here Waiting]
 [ar:Richard Marx]
 [al:Repeat Offender]
-[Motherland]
-[re:正義必勝]
-[re:正義必勝]
-
-[00:00.00]Right Here Waiting - Richard Marx  (Bilingual Lrc)
-
-[00:46.00]隔海相思，日復一日
+[00:00.00]Right Here Waiting - Richard Marx
 [00:46.00]Oceans apart day after day
-[00:51.00]我逐漸陷入瘋狂
 [00:51.00]And I slowly go insane
-[00:56.00]在電話裡聽著你的聲音
 [00:56.00]I hear your voice on the line
-[01:02.00]但那不能療傷止痛
 [01:02.00]But it doesn't stop the pain
-[01:07.00]如果永遠見不到你
 [01:07.00]If I see you next to never
-[01:12.00]我倆還談什麼天長地久
 [01:12.00]How can we say forever
-[01:17.00]不論你去了哪裡？
 [01:17.00]Wherever you go
-[01:20.00]不管你做了什麼？
 [01:20.00]Whatever you do
-[01:22.00]我都會在此為你等候
 [01:22.00]I will be right here waiting for you
-[01:28.00]不管未來如何
 [01:28.00]Whatever it takes
-[01:30.00]或我有多麼傷心
 [01:30.00]Or how my heart breaks
-[01:32.00]我都會在此為你等候
 [01:32.00]I will be right here waiting for you
-[01:44.00]過去我一直視為理所當然
 [01:44.00]I took for granted, all the times
-[01:50.00]以為那終究會繼續
 [01:50.00]That I thought would last somehow
-[01:55.00]我聽到笑語，嚐到淚水
 [01:55.00]I hear the laughter, I taste the tears
-[02:01.00]現在卻無法靠近你
 [02:01.00]But I can't get near you now
-[02:06.00]寶貝，你難道看不出來？
 [02:06.00]Oh, can't you see it baby
-[02:11.00]你已經令我瘋狂
 [02:11.00]You've got me goin' crazy
-[02:16.00]不論你去了哪裡？
 [02:16.00]Wherever you go
-[02:19.00]不管你做了什麼？
 [02:19.00]Whatever you do
-[02:21.00]我都會在此為你等候
 [02:21.00]I will be right here waiting for you
-[02:27.00]不管未來如何
 [02:27.00]Whatever it takes
-[02:30.00]或我有多麼傷心
 [02:30.00]Or how my heart breaks
-[02:32.00]我都會在此為你等候
 [02:32.00]I will be right here waiting for you
-[02:39.00]我懷疑要怎樣才讓這段戀情繼續下去
 [02:39.00]I wonder how we can survive This romance
-[02:49.00]如果最後我能夠和你在一起
 [02:49.00]But in the end if I'm with you
-[02:54.00]我會好好把握機會
 [02:54.00]I'll take the chance
-[03:22.00]寶貝，你難道看不出來？
 [03:22.00]Oh,can't you see it baby
-[03:26.00]你已經令我瘋
 [03:26.00]You've got me going crazy
-[03:31.00]狂不論你去了哪裡？
 [03:31.00]Wherever you go
-[03:33.00]不管你做了什麼？
 [03:33.00]Whatever you do
-[03:36.00]我都會在此為你等候
 [03:36.00]I will be right here waiting for you
-[03:41.00]不管未來如何
 [03:41.00]Whatever it takes
-[03:44.00]或我有多麼傷心
 [03:44.00]Or how my heart breaks
-[03:47.00]我都會在此為你等候
 [03:47.00]I will be right here waiting for you
-[04:01.00]在此為你等候
-[04:01.00]Waiting for you` 
+[04:01.00]Waiting for you`,
+    lrcRaw2: `
+[00:00.00]在此守候 - 理查馬克斯
+[00:46.00]隔海相思，日復一日
+[00:51.00]我逐漸陷入瘋狂
+[00:56.00]在電話裡聽著你的聲音
+[01:02.00]但那不能療傷止痛
+[01:07.00]如果永遠見不到你
+[01:12.00]我倆還談什麼天長地久
+[01:17.00]不論你去了哪裡？
+[01:20.00]不管你做了什麼？
+[01:22.00]我都會在此為你等候
+[01:28.00]不管未來如何
+[01:30.00]或我有多麼傷心
+[01:32.00]我都會在此為你等候
+[01:44.00]過去我一直視為理所當然
+[01:50.00]以為那終究會繼續
+[01:55.00]我聽到笑語，嚐到淚水
+[02:01.00]現在卻無法靠近你
+[02:06.00]寶貝，你難道看不出來？
+[02:11.00]你已經令我瘋狂
+[02:16.00]不論你去了哪裡？
+[02:19.00]不管你做了什麼？
+[02:21.00]我都會在此為你等候
+[02:27.00]不管未來如何
+[02:30.00]或我有多麼傷心
+[02:32.00]我都會在此為你等候
+[02:39.00]我懷疑要怎樣才讓這段戀情繼續下去
+[02:49.00]如果最後我能夠和你在一起
+[02:54.00]我會好好把握機會
+[03:22.00]寶貝，你難道看不出來？
+[03:26.00]你已經令我瘋
+[03:31.00]狂不論你去了哪裡？
+[03:33.00]不管你做了什麼？
+[03:36.00]我都會在此為你等候
+[03:41.00]不管未來如何
+[03:44.00]或我有多麼傷心
+[03:47.00]我都會在此為你等候
+[04:01.00]在此為你等候`
   },
   {
     id: "song-30",
@@ -2400,31 +2425,55 @@ const playlists = {
     audioUrl: "https://zero-heaven.github.io/lyricmp3player/mp3/Sarah Brightman - Scarborough Fair.mp3",
     lrcRaw: `[ti:Scarborough Fair]
 [ar:Sarah Brightman]
-[00:00.00]Scarborugh fair - Sarah Brightman  (Bilingual Lrc)
-
-[00:10.87]Are you going to Scarborough Fair 你們正要去史卡博羅市集嗎?
-[00:18.61]Parsley, sage, rosemary and thyme 荷蘭芹、鼠尾草、迷迭香和百里香 
-[00:27.85]Remember me to one who lives there 請記得代我問候住在那裡的一個人  
-[00:35.41]She was once a true love of mine 他曾是我的真情摯愛 
+[00:00.00]Scarborugh fair - Sarah Brightman
+[00:10.87]Are you going to Scarborough Fair
+[00:18.61]Parsley, sage, rosemary and thyme
+[00:27.85]Remember me to one who lives there
+[00:35.41]She was once a true love of mine
 [00:41.89] 
-[00:45.68]Tell her to make me a cambric shirt 跟他說為我縫件白亞麻襯衫   
-[00:53.50]Parsley, sage, rosemary and thyme 荷蘭芹、鼠尾草、迷迭香和百里香
-[01:02.78]Without no seams nor needle work 不用縫線也沒有針工  
-[01:10.32]Then she'll be a true love of mine 那麼他將會是我的真情摯愛  
-[01:20.59]Tell her to find me an acre of land 跟他說為我找一畝地  
-[01:28.24]Parsley, sage, rosemary and thyme 荷蘭芹、鼠尾草、迷迭香和百里香  
-[01:37.85]Between salt water and the sea strands 在海水與淺灘之間 
-[01:45.58]Then she'll be a true love of mine 那麼他將會是我的真情摯愛  
+[00:45.68]Tell her to make me a cambric shirt
+[00:53.50]Parsley, sage, rosemary and thyme
+[01:02.78]Without no seams nor needle work
+[01:10.32]Then she'll be a true love of mine
+[01:20.59]Tell her to find me an acre of land
+[01:28.24]Parsley, sage, rosemary and thyme
+[01:37.85]Between salt water and the sea strands
+[01:45.58]Then she'll be a true love of mine
 [01:51.93]
-[01:55.66]Tell her to reap it with a sickle of leather 要他用皮製的鐮刀收割 
-[02:03.38]Parsley, sage, rosemary and thyme 荷蘭芹、鼠尾草、迷迭香和百里香  
-[02:12.76]And gather it all in a bunch of heather 用石南草捆紮成束  
-[02:20.73]Then she'll be a true love of mine 那麼他將會是我的真情摯愛
+[01:55.66]Tell her to reap it with a sickle of leather
+[02:03.38]Parsley, sage, rosemary and thyme
+[02:12.76]And gather it all in a bunch of heather
+[02:20.73]Then she'll be a true love of mine
 [02:27.62]
-[02:31.01]Are you going to Scarborough Fair 你們正要去史卡博羅市集嗎? 
-[02:38.69]Parsley, sage, rosemary and thyme 荷蘭芹、鼠尾草、迷迭香和百里香
-[02:47.98]Remember me to one who lives there 請記得代我問候住在那裡的一個人 
-[02:55.69]She was once a true love of mine 他曾是我的真情摯愛` 
+[02:31.01]Are you going to Scarborough Fair
+[02:38.69]Parsley, sage, rosemary and thyme
+[02:47.98]Remember me to one who lives there
+[02:55.69]She was once a true love of mine`,
+    lrcRaw2: `
+[00:00.00]《斯卡布羅集市》——莎拉‧布萊曼
+[00:10.87]你們正要去史卡博羅市集嗎
+[00:18.61]荷蘭芹、鼠尾草、迷迭香和百里香
+[00:27.85]請記得代我問候住在那裡的一個人
+[00:35.41]他曾是我的真情摯愛 
+[00:41.89]
+[00:45.68]跟他說為我縫件白亞麻襯衫   
+[00:53.50]荷蘭芹、鼠尾草、迷迭香和百里香
+[01:02.78]不用縫線也沒有針工  
+[01:10.32]那麼他將會是我的真情摯愛  
+[01:20.59]跟他說為我找一畝地  
+[01:28.24]荷蘭芹、鼠尾草、迷迭香和百里香  
+[01:37.85]在海水與淺灘之間 
+[01:45.58]那麼他將會是我的真情摯愛  
+[01:51.93]
+[01:55.66]要他用皮製的鐮刀收割 
+[02:03.38]荷蘭芹、鼠尾草、迷迭香和百里香  
+[02:12.76]用石南草捆紮成束  
+[02:20.73]那麼他將會是我的真情摯愛
+[02:27.62]
+[02:31.01]你們正要去史卡博羅市集嗎? 
+[02:38.69]荷蘭芹、鼠尾草、迷迭香和百里香
+[02:47.98]請記得代我問候住在那裡的一個人 
+[02:55.69]他曾是我的真情摯愛`
   },
   {
     id: "song-32",
@@ -2470,56 +2519,85 @@ const playlists = {
     audioUrl: "https://zero-heaven.github.io/lyricmp3player/mp3/Shakin' Stevens - Because I Love You.mp3",
     lrcRaw: `[ti: Because I Love You]
 [ar: Shakin' Stevens]
-
-[00:00.00]Because I Love You - Shakin' Stevens  (Bilingual Lrc)
-
-[00:00.71]If I got down on my knees and I pleaded with you,(如果我向妳跪下 如果我向妳哀求)
-[00:05.61]if I crossed a million oceans just to be with you,(如果我渡千山萬水，只為了與妳相依)
-[00:10.08]Would you ever(妳還會)
-[00:14.28]Let me down?(拒絕我嗎？)
-
-[00:19.05]If I climbed the highest mountain just to hold you tight,(如果我登高峰，只為了抓緊妳)
-[00:23.55]if I said that I would love you every single night,(如果我告訴妳，我會愛妳一生一世)
-[00:29.20]Would you ever(妳還會)
-[00:33.35]Let me down?(拒絕我嗎？)
-
-[00:38.06]Well, I'm sorry if it sounds kinda sad,(啊！如果這些話語帶著憂鬱，真的抱歉)
-[00:42.91]it's just that(我)
-[00:48.79]worried,(擔心)
-[00:52.08]so worried(很擔心)
-[00:56.34]that you'll let me down.(妳會離我而去)
-
-[01:01.03]Because I love you,(啊！只因為我愛妳呀！)
-[01:07.47]love you,(我愛妳呀！)
-[01:12.15]love you,(愛妳！)
-[01:15.12]so don't let me down.(不要拒絕我，好嗎？)
-
-[01:20.74]If I swam the longest river just to call your name,(如果我游渡長河，只為呼喚妳的名字)
-[01:25.52]if I said the way I feel for you would never change,(如果我說我愛妳不變)
-[01:30.30]Would you ever fool around?(妳還會再愚弄我嗎？)
-
-[01:39.52]Well, I'm sorry if it sounds kinda bad,(啊！如果那些話語帶著憂鬱，真的抱歉)
-[01:44.88]it's just that(我)
-[01:49.02]worried,(我擔心)
-[01:53.26]I'm so worried(擔心)
-[01:57.15]that you'll let me down.(妳會離我而去)
-
-[02:02.59]Because I(love you, love you),(啊！只因為我愛妳)
-[02:13.07]love you,(愛妳，)
-[02:18.03]love you.(愛妳呀！)
-
-[02:20.38]Well I'm sorry if it sounds kinda bad,(啊！如果那些話語帶著憂鬱，真的抱歉)
-[02:26.99]it's just that(我)
-[02:31.84]worried,(擔心)
-[02:35.68]I'm so worried(擔心)
-[02:39.18]that you'll let me down.(妳會離我而去)
-
-[02:44.31]Because I love you,(啊！只因為我愛妳)
-[02:50.91]love you,(愛妳)
-
-[02:54.40]Oooh, I love you,(嗚...，愛妳呀！)
-[02:59.95]love you,(愛妳，)
-[03:04.81]love you.(愛妳。)` 
+[00:00.00]Because I Love You - Shakin' Stevens
+[00:00.71]If I got down on my knees and I pleaded with you,
+[00:05.61]if I crossed a million oceans just to be with you,
+[00:10.08]Would you ever
+[00:14.28]Let me down?
+[00:19.05]If I climbed the highest mountain just to hold you tight,
+[00:23.55]if I said that I would love you every single night,
+[00:29.20]Would you ever
+[00:33.35]Let me down?
+[00:38.06]Well, I'm sorry if it sounds kinda sad,
+[00:42.91]it's just that
+[00:48.79]worried,
+[00:52.08]so worried
+[00:56.34]that you'll let me down.
+[01:01.03]Because I love you,
+[01:07.47]love you,
+[01:12.15]love you,
+[01:15.12]so don't let me down.
+[01:20.74]If I swam the longest river just to call your name,
+[01:25.52]if I said the way I feel for you would never change,
+[01:30.30]Would you ever fool around?
+[01:39.52]Well, I'm sorry if it sounds kinda bad,
+[01:44.88]it's just that
+[01:49.02]worried,
+[01:53.26]I'm so worried
+[01:57.15]that you'll let me down.
+[02:02.59]Because I(love you, love you),
+[02:13.07]love you,
+[02:18.03]love you.
+[02:20.38]Well I'm sorry if it sounds kinda bad,
+[02:26.99]it's just that
+[02:31.84]worried,
+[02:35.68]I'm so worried
+[02:39.18]that you'll let me down.
+[02:44.31]Because I love you,
+[02:50.91]love you,
+[02:54.40]Oooh, I love you,
+[02:59.95]love you,
+[03:04.81]love you.`,
+    lrcRaw2: `
+[00:00.00]因為我愛你 - 謝金史蒂文斯
+[00:00.71]如果我向妳跪下 如果我向妳哀求
+[00:05.61]如果我渡千山萬水，只為了與妳相依
+[00:10.08]妳還會
+[00:14.28]拒絕我嗎？
+[00:19.05]如果我登高峰，只為了抓緊妳
+[00:23.55]如果我告訴妳，我會愛妳一生一世
+[00:29.20]妳還會
+[00:33.35]拒絕我嗎？
+[00:38.06]啊！如果這些話語帶著憂鬱，真的抱歉
+[00:42.91]我
+[00:48.79]擔心
+[00:52.08]很擔心
+[00:56.34]妳會離我而去
+[01:01.03]啊！只因為我愛妳呀！
+[01:07.47]我愛妳呀！
+[01:12.15]愛妳！
+[01:15.12]不要拒絕我，好嗎？
+[01:20.74]如果我游渡長河，只為呼喚妳的名字
+[01:25.52]如果我說我愛妳不變
+[01:30.30]妳還會再愚弄我嗎？
+[01:39.52]啊！如果那些話語帶著憂鬱，真的抱歉
+[01:44.88]我
+[01:49.02]我擔心
+[01:53.26]擔心
+[01:57.15]妳會離我而去
+[02:02.59]啊！只因為我愛妳
+[02:13.07]愛妳，
+[02:18.03]愛妳呀！
+[02:20.38]啊！如果那些話語帶著憂鬱，真的抱歉
+[02:26.99]我
+[02:31.84]擔心
+[02:35.68]擔心
+[02:39.18]妳會離我而去
+[02:44.31]啊！只因為我愛妳
+[02:50.91]愛妳
+[02:54.40]嗚...，愛妳呀！
+[02:59.95]愛妳，
+[03:04.81]愛妳。`
   },
   {
     id: "song-34",
@@ -2577,48 +2655,51 @@ const playlists = {
     lrcRaw: `[ti: Scarborough Fair]
 [ar: Simon and Garfunkel]
 [al: Parsley, Sage, Rosemary and Thyme]
-[00:00.00]Scarborough Fair (1966) - Paul Simon and Garfunkel  (Bilingual Lrc)
-
-[00:10.12]你們正要去史卡博羅市集嗎?
+[00:00.00]Scarborough Fair (1966) - Paul Simon and Garfunkel
 [00:10.12]Are you going to Scarborough Fair
-[00:17.53]荷蘭芹、鼠尾草、迷迭香和百里香
 [00:17.53]Parsley, sage, rosemary and thyme
-[00:26.15]請記得代我問候住在那裡的一個人
 [00:26.15]Remember me to one who lives there
-[00:33.83]他曾是我的真情摯愛
 [00:33.83]She was once a true love of mine
-[00:43.46]跟他說為我縫件白亞麻襯衫
 [00:43.46]Tell her to make me a cambric shirt
-[00:50.96]荷蘭芹、鼠尾草、迷迭香和百里香
 [00:50.96]Parsley, sage, rosemary and thyme
-[00:59.77]不用縫線也沒有針工
 [00:59.77]Without no seams nor needle work
-[01:07.20]那麼他將會是我的真情摯愛
 [01:07.20]Then she'll be a true love of mine
-[01:17.04]跟他說為我找一畝地
 [01:17.04]Tell her to find me an acre of land
-[01:24.27]荷蘭芹、鼠尾草、迷迭香和百里香
 [01:24.27]Parsley, sage, rosemary and thyme
-[01:33.38]在海水與淺灘之間
 [01:33.38]Between salt water and the sea strands
-[01:41.04]那麼他將會是我的真情摯愛
 [01:41.04]Then she'll be a true love of mine
-[01:50.80]要他用皮製的鐮刀收割
 [01:50.80]Tell her to reap it with a sickle of leather
-[01:57.87]荷蘭芹、鼠尾草、迷迭香和百里香
 [01:57.87]Parsley, sage, rosemary and thyme
-[02:06.34]用石南草捆紮成束
 [02:06.34]And gather it all in a bunch of heather
-[02:14.62]那麼他將會是我的真情摯愛
 [02:14.62]Then she'll be a true love of mine
-[02:24.40]你們正要去史卡博羅市集嗎？
 [02:24.40]Are you going to Scarborough Fair
-[02:32.20]荷蘭芹、鼠尾草、迷迭香和百里香
 [02:32.20]Parsley, sage, rosemary and thyme
-[02:41.40]請記得代我問候住在那裡的一個人
 [02:41.40]Remember me to one who lives there
-[02:48.82]他曾是我的真情摯愛
-[02:48.82]She was once a true love of mine` 
+[02:48.82]She was once a true love of mine`,
+    lrcRaw2: `[ti: Scarborough Fair]
+[ar: Simon and Garfunkel]
+[al: Parsley, Sage, Rosemary and Thyme]
+[00:00.00]《斯卡伯勒市集》－保羅‧西蒙與加芬克爾
+[00:10.12]你們正要去史卡博羅市集嗎?
+[00:17.53]荷蘭芹、鼠尾草、迷迭香和百里香
+[00:26.15]請記得代我問候住在那裡的一個人
+[00:33.83]他曾是我的真情摯愛
+[00:43.46]跟他說為我縫件白亞麻襯衫
+[00:50.96]荷蘭芹、鼠尾草、迷迭香和百里香
+[00:59.77]不用縫線也沒有針工
+[01:07.20]那麼他將會是我的真情摯愛
+[01:17.04]跟他說為我找一畝地
+[01:24.27]荷蘭芹、鼠尾草、迷迭香和百里香
+[01:33.38]在海水與淺灘之間
+[01:41.04]那麼他將會是我的真情摯愛
+[01:50.80]要他用皮製的鐮刀收割
+[01:57.87]荷蘭芹、鼠尾草、迷迭香和百里香
+[02:06.34]用石南草捆紮成束
+[02:14.62]那麼他將會是我的真情摯愛
+[02:24.40]你們正要去史卡博羅市集嗎？
+[02:32.20]荷蘭芹、鼠尾草、迷迭香和百里香
+[02:41.40]請記得代我問候住在那裡的一個人
+[02:48.82]他曾是我的真情摯愛` 
   },
   {
     id: "song-36",
@@ -3246,54 +3327,94 @@ const playlists = {
     lrcRaw: `[ti:Dreams]
 [ar:The Cranberries]
 [al:Everybody Else Is Doing It, So Why Can´t We?]
+[00:00.00]Dreams - The Cranberries
+[00:33.53]Oh, my life is changing everyday,
+[00:41.47]In every possible way.
 
-[00:00.00]Dreams - The Cranberries  (Bilingual Lrc)
+[00:48.92]And oh, my dreams,
+[00:52.50]it's never quiet as it seems,
+[00:55.32]Never quiet as it seems.
 
-[00:33.53]Oh, my life is changing everyday, 生活每天都在變 
-[00:41.47]In every possible way. 變化莫測，各個方面
+[01:01.30]I know I've felt like this before,
+[01:06.63]but now I'm feeling it even more,
+[01:11.22]Because it came from you.
 
-[00:48.92]And oh, my dreams, 然而我的夢想
-[00:52.50]it's never quiet as it seems, 看來不似從前
-[00:55.32]Never quiet as it seems. 不似從前
-
-[01:01.30]I know I've felt like this before, 以往也曾有同感
-[01:06.63]but now I'm feeling it even more, 現在感覺更強烈
-[01:11.22]Because it came from you. 因為它來自你
-
-[01:18.04]And then I open up and see 我敞開心扉，睜大眼睛
-[01:20.42]the person falling here is me, 發現自己不知所措
-[01:25.60]A different way to be. 究竟何去何從 ......
+[01:18.04]And then I open up and see
+[01:20.42]the person falling here is me,
+[01:25.60]A different way to be.
 
 [01:32.85]Ah, la da ah...
 [01:38.64]La...
-[01:49.50]I want more imposible to ignore, 我想知道更多,不能裝作不知道
-[01:55.31]Imposible to ignore. 裝作不知道
+[01:49.50]I want more imposible to ignore,
+[01:55.31]Imposible to ignore.
 
-[02:03.92]And they'll come true, 夢想終究會實現
-[02:07.03]impossible not to do, 不會迷惘永遠
-[02:10.58]Impossible not to do. 迷惘永遠
+[02:03.92]And they'll come true,
+[02:07.03]impossible not to do,
+[02:10.58]Impossible not to do.
 
-[02:17.94]And now I tell you openly, 我要大聲對你說 
-[02:21.32]you have my heart so don't hurt me. 心裡只有你，請不要傷害我
-[02:25.82]You're what I couldn't find. 我已不知所措
+[02:17.94]And now I tell you openly,
+[02:21.32]you have my heart so don't hurt me.
+[02:25.82]You're what I couldn't find.
 
-[02:31.83]A totally amazing mind, 自己都覺得驚鄂
-[02:36.18]so understanding and so kind; 如此溫柔可人
-[02:40.81]You're everything to me. 你就是我的全部
+[02:31.83]A totally amazing mind,
+[02:36.18]so understanding and so kind;
+[02:40.81]You're everything to me.
 
-[02:48.31]Oh, my life, 生活每天都在變
+[02:48.31]Oh, my life,
 [02:52.02]Is changing every day,
-[02:56.09]In every possible way. 變化莫測，各個方面
+[02:56.09]In every possible way.
 
-[03:02.41]And oh, my dreams, 然而我的夢想
-[03:06.78]It's never quiet as it seems, 看來不似從前
-[03:10.54]'Cause you're a dream to me, 只因你，踏入我的夢裡
-[03:13.34]Dream to me. 踏入我的夢裡
+[03:02.41]And oh, my dreams,
+[03:06.78]It's never quiet as it seems,
+[03:10.54]'Cause you're a dream to me,
+[03:13.34]Dream to me.
 
 [03:31.79]Ah, da, da da da, da, la...
 [03:45.89]Ah, da, da da da, da, la...
 [04:00.68]Ah, da, da da da, da, la...
-[04:15.26]Ah, da, da da da, da, la...` 
+[04:15.26]Ah, da, da da da, da, la...`,
+    lrcRaw2: `[ti:Dreams]
+[ar:The Cranberries]
+[al:Everybody Else Is Doing It, So Why Can´t We?]
+[00:00.00]《Dreams》－小紅莓樂團
+
+[00:33.53]生活每天都在變 
+[00:41.47]變化莫測，各個方面
+
+[00:48.92]然而我的夢想
+[00:52.50]看來不似從前
+[00:55.32]不似從前
+
+[01:01.30]以往也曾有同感
+[01:06.63]現在感覺更強烈
+[01:11.22]因為它來自你
+
+[01:18.04]我敞開心扉，睜大眼睛
+[01:20.42]發現自己不知所措
+[01:25.60]究竟何去何從 ......
+
+[01:49.50]我想知道更多,不能裝作不知道
+[01:55.31]裝作不知道
+
+[02:03.92]夢想終究會實現
+[02:07.03]不會迷惘永遠
+[02:10.58]迷惘永遠
+
+[02:17.94]我要大聲對你說 
+[02:21.32]心裡只有你，請不要傷害我
+[02:25.82]我已不知所措
+
+[02:31.83]自己都覺得驚鄂
+[02:36.18]如此溫柔可人
+[02:40.81]你就是我的全部
+
+[02:48.31]生活每天都在變
+[02:56.09]變化莫測，各個方面
+
+[03:02.41]然而我的夢想
+[03:06.78]看來不似從前
+[03:10.54]只因你，踏入我的夢裡
+[03:13.34]踏入我的夢裡 `
   },
   {
     id: "song-46",
@@ -3551,39 +3672,73 @@ const playlists = {
 [ti:Que Sera, Sera (Whatever Will Be, Will Be)]
 [au:Raymond B. Evans / Jay Livingston]
 [length:03:00.81]
-[00:11.78]When I was just a little boy當我還是個小孩
-[00:17.24]I asked my father, "What will I be?我問父親:"我將來會變成什麼樣子呢?"
-[00:23.55]Will I be handsome, will I be rich?""我會變得漂亮嗎?" "我會變得富有嗎?"
-[00:28.43]Here's what he said to me她這麼回答我
+[00:11.78]When I was just a little boy
+[00:17.24]I asked my father, "What will I be?
+[00:23.55]Will I be handsome, will I be rich?
+[00:28.43]Here's what he said to me
 
-[00:32.66]"Que sera, sera順著命運的安排
-[00:36.68]Whatever will be, will be該來的總會到來
-[00:41.84]The future's not ours to see我們無法預知未來
-[00:46.43]Que sera, sera順著命運的安排
-[00:51.31]What will be, will be"該來的總會到來
+[00:32.66]"Que sera, sera
+[00:36.68]Whatever will be, will be
+[00:41.84]The future's not ours to see
+[00:46.43]Que sera, sera
+[00:51.31]What will be, will be
 
-[01:03.06]When I grew up and fell in love當我長大後墜入愛河
-[01:07.94]I asked my sweetheart, "What lies ahead?我問心上人，未來會如何
-[01:14.26]Will we have rainbows day after day?"我們將會度過美好歲月嗎?
-[01:19.14]Here's what my sweetheart said他這麼告訴我
+[01:03.06]When I grew up and fell in love
+[01:07.94]I asked my sweetheart, "What lies ahead?
+[01:14.26]Will we have rainbows day after day?
+[01:19.14]Here's what my sweetheart said
 
-[01:23.15]"Que sera, sera順著命運的安排
-[01:27.45]Whatever will be, will be該來的總會到來
-[01:32.33]The future's not ours to see我們無法預知未來
-[01:36.63]Que sera, sera順著命運的安排
-[01:41.80]What will be, will be"該來的總會到來
+[01:23.15]"Que sera, sera
+[01:27.45]Whatever will be, will be
+[01:32.33]The future's not ours to see
+[01:36.63]Que sera, sera
+[01:41.80]What will be, will be
 
-[01:53.57]Now I have children of my own現在我有自己的孩子
-[01:58.45]They ask their father, "What will I be?他們問我:"我長大後會成為怎樣的人"
-[02:04.47]Will I be pretty, will I be rich?""我會變得帥氣嗎?" "我會變得富有嗎?"
-[02:09.64]I tell them tenderly我溫柔地回應他們
+[01:53.57]Now I have children of my own
+[01:58.45]They ask their father, "What will I be?
+[02:04.47]Will I be pretty, will I be rich?
+[02:09.64]I tell them tenderly
 
-[02:13.65]"Que sera, sera順著命運的安排
-[02:17.95]Whatever will be, will be該來的總會到來
-[02:22.83]The future's not ours to see我們無法預知未來
-[02:27.14]Que sera, sera順著命運的安排
-[02:32.31]What will be, will be"該來的總會到來
-[02:37.19]Que sera, sera順著命運的安排` 
+[02:13.65]"Que sera, sera
+[02:17.95]Whatever will be, will be
+[02:22.83]The future's not ours to see
+[02:27.14]Que sera, sera
+[02:32.31]What will be, will be
+[02:37.19]Que sera, sera`,
+    lrcRaw2: `
+[00:11.78]當我還是個小孩
+[00:17.24]我將來會變成什麼樣子呢?
+[00:23.55]我會變得漂亮嗎?" "我會變得富有嗎?
+[00:28.43]她這麼回答我
+
+[00:32.66]順著命運的安排
+[00:36.68]該來的總會到來
+[00:41.84]我們無法預知未來
+[00:46.43]順著命運的安排
+[00:51.31]該來的總會到來
+
+[01:03.06]當我長大後墜入愛河
+[01:07.94]我問心上人，未來會如何
+[01:14.26]我們將會度過美好歲月嗎?
+[01:19.14]他這麼告訴我
+
+[01:23.15]順著命運的安排
+[01:27.45]該來的總會到來
+[01:32.33]我們無法預知未來
+[01:36.63]順著命運的安排
+[01:41.80]該來的總會到來
+
+[01:53.57]現在我有自己的孩子
+[01:58.45]他們問我:"我長大後會成為怎樣的人"
+[02:04.47]我會變得帥氣嗎?我會變得富有嗎?
+[02:09.64]我溫柔地回應他們
+
+[02:13.65]順著命運的安排
+[02:17.95]該來的總會到來
+[02:22.83]我們無法預知未來
+[02:27.14]順著命運的安排
+[02:32.31]該來的總會到來
+[02:37.19]順著命運的安排` 
   },
   {
     id: "song-51",
@@ -3783,104 +3938,110 @@ const playlists = {
     lrcRaw: `[ti: Careless whisper]
 [ar: Wham!]
 [al: The Age of Innocence]
-[00:00.00]Careless Whisper - Wham!(George Michael)  (Bilingual Lrc)
+[00:00.00]Careless Whisper - Wham!(George Michael)
 [00:13.81]Oh oh oh oh oh
-[00:25.91]我感到很迷惘（心情十分複雜）
 [00:25.91]I feel so unsure
-[00:32.33]當我牽著你的手步入舞池
 [00:32.33]As I take your hand and lead you to the dance floor
-[00:39.34]當音樂戛然而止,你的眼眸閃爍著異樣的目光
 [00:39.34]As the music dies, something in your eyes
-[00:44.90]深刻地感受到銀幕上充滿悲情的離別
 [00:44.90]Calls to mind a silver screen And all its sad good-byes
-[00:51.93]我再也不跳舞了
 [00:51.93]I'm never gonna dance again
-[00:54.41]罪惡感使雙腳跟丟節拍
 [00:54.41]Guilty feet have got no rhythm
-[00:57.96]雖然掩飾自己非常容易
 [00:57.96]Though it's easy to pretend
-[01:00.60]但我知道妳不是如此地愚蠢
 [01:00.60]I know you're not a fool
-[01:03.86]早知道應該向妳坦承
 [01:03.86]Should've known better than to cheat a friend
-[01:06.92]才不至於落這種下場
 [01:06.92]and waste the chance that I'd been given
-[01:10.68]因此我無法再與妳共舞
 [01:10.68]So I'll never gonna dance again
-[01:13.29]像從前一樣
 [01:13.29]The way I danced with you
 [01:18.88]Oh oh yeah
-[01:29.18]就算是時間也無法填補
 [01:29.18]Time can never mend
-[01:35.34]妳那無心耳語所帶來的空虛
 [01:35.34]the careless whispers of a good friend
-[01:42.16]對我的心來講
 [01:42.16]To the heart and mind,
-[01:45.16]無知反而是種救贖
 [01:45.16]ignorance is kind
-[01:47.85]光明的真相裡找不到半點慰藉
 [01:47.85]There's no comfort in the truth
-[01:50.99]只剰痛苦與我相隨
 [01:50.99]Pain is all you'll find
-[01:54.80]我將不再踏出我的步伐
 [01:54.80]I'm never gonna dance again
+[01:57.21]Guilty feet have got no rhythm 
+[02:01.05]Though it's easy to pretend
+[02:03.63]I know you're not a fool
+[02:06.66]I Should've known better than to cheat a friend 
+[02:09.75]And waste the chance that I've been given
+[02:13.40]So I'll never gonna dance again
+[02:16.09]The way I danced with you oh oh
+[02:24.50](Never without your love)
+[02:44.17]Tonight the music seems so loud
+[02:47.75]I wish that we could lose this crowd
+[02:51.02]Maybe it's better this way
+[02:54.18]We'd hurt each other with the things we'd want to say
+[02:57.29]We could have been so good together
+[03:00.40]We could have lived this dance forever
+[03:03.64]But no one's gonna dance with me
+[03:08.65]Please stay
+[03:10.77]And I'm never gonna dance again
+[03:13.22]Guilty feet have got no rhythm
+[03:16.80]Though it's easy to pretend
+[03:19.44]I know you're not a fool
+[03:22.55]Should've known better than to cheat a friend
+[03:25.68]And waste the chance that I've been given
+[03:29.29]So I'll never gonna dance again
+[03:32.08]The way I danced with you oh oh
+[03:37.52]Ah ah ah ah ah
+[03:48.70](Now that you're gone) Now that you're gone
+[04:00.99](Now that you're gone)What I did's so wrong
+[04:06.49]So wrong ..
+[04:09.26]That you had to leave me alone
+[04:17.88]Da da da da`,
+    lrcRaw2: `
+[00:00.00]無心快語－威猛樂團（喬治·麥可）
+[00:13.81]Oh oh oh oh oh
+[00:25.91]我感到很迷惘（心情十分複雜）
+[00:32.33]當我牽著你的手步入舞池
+[00:39.34]當音樂戛然而止,你的眼眸閃爍著異樣的目光
+[00:44.90]深刻地感受到銀幕上充滿悲情的離別
+[00:51.93]我再也不跳舞了
+[00:54.41]罪惡感使雙腳跟丟節拍
+[00:57.96]雖然掩飾自己非常容易
+[01:00.60]但我知道妳不是如此地愚蠢
+[01:03.86]早知道應該向妳坦承
+[01:06.92]才不至於落這種下場
+[01:10.68]因此我無法再與妳共舞
+[01:13.29]像從前一樣
+[01:29.18]就算是時間也無法填補
+[01:35.34]妳那無心耳語所帶來的空虛
+[01:42.16]對我的心來講
+[01:45.16]無知反而是種救贖
+[01:47.85]光明的真相裡找不到半點慰藉
+[01:50.99]只剰痛苦與我相隨
+[01:54.80]我將不再踏出我的步伐
 [01:57.21]被枷鎖捆住的雙腳失去了平衡
 [01:57.21]Guilty feet have got no rhythm 
 [02:01.05]即使偽裝自己並不難
-[02:01.05]Though it's easy to pretend
 [02:03.63]但仍逃不過妳銳利的雙眸
-[02:03.63]I know you're not a fool
 [02:06.66]要是早點向妳說實話
-[02:06.66]I Should've known better than to cheat a friend 
 [02:09.75]事情就不會演變成這樣了
-[02:09.75]And waste the chance that I've been given
 [02:13.40]所以我將再也 再也無法
-[02:13.40]So I'll never gonna dance again
 [02:16.09]和妳沉浸在共舞的歡愉中
-[02:16.09]The way I danced with you oh oh
 [02:24.50]（絕不能沒有妳的愛）
-[02:24.50](Never without your love)
 [02:44.17]今晚的音樂似乎特別強烈
-[02:44.17]Tonight the music seems so loud
 [02:47.75]希望能遠離吵雜的人群與妳獨處
-[02:47.75]I wish that we could lose this crowd
 [02:51.02]這樣也許比較適合
-[02:51.02]Maybe it's better this way
 [02:54.18]我們將用彼此的話語傷透對方的心
-[02:54.18]We'd hurt each other with the things we'd want to say
 [02:57.29]我們原本能相處的很美好
-[02:57.29]We could have been so good together
 [03:00.40]我們原本能讓那一刻成為永恆
-[03:00.40]We could have lived this dance forever
 [03:03.64]如今只剰我一人站在空蕩的舞池裡
-[03:03.64]But no one's gonna dance with me
 [03:08.65]請妳別離開我
-[03:08.65]Please stay
 [03:10.77]我不打算再跳舞了
-[03:10.77]And I'm never gonna dance again
 [03:13.22]墮落使我的踏出的步伐沒洔站穩
-[03:13.22]Guilty feet have got no rhythm
 [03:16.80]即使裝得若無其事的樣子很簡單
-[03:16.80]Though it's easy to pretend
 [03:19.44]但仍舊被妳識破了
-[03:19.44]I know you're not a fool
 [03:22.55]早知道當初不應欺騙妳
-[03:22.55]Should've known better than to cheat a friend
 [03:25.68]並且白白費了一個好機會
-[03:25.68]And waste the chance that I've been given
 [03:29.29]因此陪妳漫步在舞池的那個人
-[03:29.29]So I'll never gonna dance again
 [03:32.08]將再也不是我了
-[03:32.08]The way I danced with you oh oh
 [03:37.52]Ah ah ah ah ah
 [03:48.70]（如今妳離我而去）只剰寂寞肯讓我傾訴
-[03:48.70](Now that you're gone) Now that you're gone
 [04:00.99]（如今妳拋下了我）因為我犯了愚蠢的錯誤
-[04:00.99](Now that you're gone)What I did's so wrong
 [04:06.49]無法赦免的大錯…
-[04:06.49]So wrong ..
 [04:09.26]因此妳不得不選擇離開我
-[04:09.26]That you had to leave me alone
 [04:17.88]Da da da da` 
   }
   ]
