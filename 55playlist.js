@@ -1120,11 +1120,11 @@ Call me (Call me), I'll arrive
 [ti:One Way Ticket]
 [au:Jack Keller, Hank Hunter]
 [length:03:35.06]
-[00:0.00]One Way Ticket - Eruption 1979
-[00:0.00]Describes a breakup, heart break feeling
+[00:00.00]One Way Ticket - Eruption 1979
+[00:00.00]#Describes a breakup, heart break feeling#
 
 [00:04.76]Mmm, hmm, hmm, hmm
-[00:10.28]Oh, oh, oh, oho
+[00:10.17]Oh, oh, oh, oho!
 [00:15.42]Yeah, yeah, yeah, yeah
 [00:19.05]One way ticket,
 [00:21.52]one way ticket
@@ -1138,54 +1138,54 @@ Call me (Call me), I'll arrive
 [00:39.14]Gotta travel on
 [00:40.55]it never comin' back
 [00:42.36]Ooh ooh,
-[00:44.36]Got a one way ticket to the blues
+[00:44.36]Got a one way ticket to the Blues
 
 [00:50.41]Bye bye love,
 [00:52.04]my baby's leavin' me
 [00:54.23]Now lonely tear drops
 [00:56.04]are all that I can see
 [00:57.94]Woo Woo,
-[00:59.64]got a one way ticket to the blues
+[00:59.64]got a one way ticket to the Blues
 
 [01:05.96]Gonna take a trip
 [01:07.75]to lonesome town
 [01:09.74]Gonna stay at Heartbreak Hotel
 [01:13.52]A fool such as I(A fool such as I),
 [01:15.52]there never was.
-[01:17.52]I cried a tear so well
+[01:17.52]I cried a tear so Well
 
 [01:21.58]One way ticket,
 [01:23.58]one way ticket
 [01:25.58]One way ticket,
 [01:27.29]one way ticket
 [01:29.29]One way ticket,
-[01:31.29]one way ticket to the blues
+[01:31.29]one way ticket to the Blues
 
 [01:37.01]Choo, choo train
 [01:38.53]a-trackin' down the track
 [01:41.01]Gotta travel on
 [01:42.63]it never comin' back
 [01:44.34]Ooh ooh,
-[01:46.15]got a one way ticket to the blues
+[01:46.15]got a one way ticket to the Blues
 
 [01:52.16]Gotta go on,
 [01:56.45]Yeah,
 [01:59.88]Truckin' on, truckin' on
-[02:02.16]one way ticket to the blues
+[02:02.16]one way ticket to the Blues
 
 [02:07.59]Ah, gonna take a trip
 [02:09.88]to lonesome town
 [02:11.87]Gonna stay at Heartbreak Hotel
 [02:15.30]Ah, A fool such as I(a fool such as I)
 [02:17.58]There never was
-[02:19.59]I cried a tear so well, yeah, yeah
+[02:19.59]I cried a tear so well, Yeah, Yeah
 
 [02:23.59]One way ticket,
 [02:25.58]one way ticket
 [02:27.30]One way ticket,
 [02:29.28]one way ticket
 [02:31.28]One way ticket,
-[02:33.28]one way ticket to the blues
+[02:33.28]one way ticket to the Blues
 
 [02:38.96]Choo, choo train
 [02:40.96]a-trackin' down the track
@@ -1193,19 +1193,19 @@ Call me (Call me), I'll arrive
 [02:44.67]it never comin' back
 [02:45.94]Ooh-ooh, yeah, yeah...
 [02:53.81](Whoa-whoa, yeah, yeah, yeah, yeah)
-[03:00.81]got my ticket... until now
-[03:05.81]Ooh-ooh,My Love Ooh-ooh.
-[03:14.01]Choo, choo, choo, choo, train
-[03:15.05]Yeah, yeah
+[03:01.01]got my ticket... until now
+[03:07.01]Ooh-ooh,My Love Ooh-ooh
+[03:14.03]Choo, choo, choo, choo, train
+[03:15.35]Yeah, yeah
 [03:17.82]Whoa, whoa
-[03:20.02] One way ticket to the
+[03:19.32] One way ticket to the
 [03:22.03]Blues
-[03:23.92]Got my ticket...
-[03:25.81] until now`,
+[03:25.02]Got my ticket...until Now.`,
     lrcRaw2: `
 [00:0.00]單程車票 - 火山爆發合唱團
 [00:0.00]【描述分手，以及心碎的感覺】
-[00:04.77]嗯，嗯，嗯，嗯
+
+[00:04.76]嗯，嗯，嗯，嗯
 [00:10.17]嗚嗚，嗚嗚，嗚，
 [00:15.42]耶，耶，耶，耶
 [00:19.05] 單程車票
@@ -1213,61 +1213,61 @@ Call me (Call me), I'll arrive
 [00:23.23] 單程車票
 [00:25.22] 單程車票
 [00:27.22] 單程車票
-[00:29.22] 直達憂鬱的單程車票 嗚..嗚..嗚..
+[00:29.22] 直達憂鬱的單程車票 嗚..嗚..嗚..。
 
 [00:35.05] 火車（轟隆轟隆地）
 [00:36.56] 在鐵軌上奔馳著
 [00:39.14] 不得不上路
 [00:40.55] 再也不回來
 [00:42.36] 嗚嗚
-[00:44.36] 我買了一張直達傷心(憂鬱)世界的單程車票
+[00:44.36] 我買了一張直達傷心(憂鬱)世界的單程車票。
 
 [00:50.41] 再見了我的愛
 [00:52.04] 我的愛人離開我了
 [00:54.23] 此刻的我
 [00:56.04] 只能看見淚珠
 [00:57.94] 嗚嗚
-[00:59.64] 我買了一張直達傷心(憂鬱)世界的單程車票
+[00:59.64] 我買了一張直達傷心(憂鬱)世界的單程車票。
 
 [01:05.96] 啊，我將要去旅行
 [01:07.75] 到寂寞小鎮
 [01:09.74] 在傷心旅館過夜
 [01:13.52] 從來沒有人
 [01:15.52] 像我這般痴情
-[01:17.52] 我淚已流下
+[01:17.52] 我淚已流下。
 
 [01:21.58] 單程車票
 [01:23.58] 單程車票
 [01:25.58] 單程車票
 [01:27.29] 單程車票
 [01:29.29] 單程車票
-[01:31.29] 直達傷心(憂鬱)世界的單程車票
+[01:31.29] 直達傷心(憂鬱)世界的單程車票。
 
 [01:37.01] 火車（轟隆轟隆地）
 [01:38.53] 在鐵軌上奔馳著
 [01:41.01] 不得不上路
 [01:42.63] 再也不回來
 [01:44.34] 嗚嗚
-[01:46.15] 我買了一張直達傷心(憂鬱)世界的單程車票
+[01:46.15] 我買了一張直達傷心(憂鬱)世界的單程車票。
 
 [01:52.16] 得繼續前行，
 [01:56.45] 沒錯，
 [01:59.88] 一路向前，一路向前
-[02:02.16] 直達傷心(憂鬱)世界的單程車票
+[02:02.16] 直達傷心(憂鬱)世界的單程車票。
 
 [02:07.59] 啊，我將要去旅行
 [02:09.88] 到寂寞小鎮
 [02:11.87] 在傷心旅館過夜
 [02:15.30] 從來沒有人
 [02:17.58] 像我這般痴情
-[02:19.59] 我淚已流下，耶，耶
+[02:19.59] 我淚已流下，耶，耶。
 
 [02:23.59] 單程車票
 [02:25.58] 單程車票
 [02:27.30] 單程車票,
 [02:29.28] 單程車票
 [02:31.28] 單程車票
-[02:33.28] 直達憂鬱的單程車票
+[02:33.28] 直達憂鬱的單程車票。
 
 [02:38.96] 火車（轟隆轟隆地）
 [02:40.96 在鐵軌上奔馳著
@@ -1275,15 +1275,14 @@ Call me (Call me), I'll arrive
 [02:44.67] 再也不回來
 [02:45.94] 噢噢，耶，耶..
 [02:53.81] 鳴..鳴，耶，耶...
-[03:00.81] 買到了我車票...
-[03:05.81] 噢噢，再見了我的愛..噢噢
-[03:14.01] 火車（轟隆轟隆轟隆轟隆）
-[03:15.05] 耶，耶
+[03:01.01] 買到了我車票...
+[03:07.01] 噢噢，再見了我的愛..噢噢
+[03:14.03] 火車（轟隆轟隆轟隆轟隆）
+[03:15.35] 耶，耶
 [03:17.82] 噢噢
-[03:20.02] 單程車票到
+[03:19.32] 單程車票到
 [03:22.03] 憂鬱
-[03:23.92] 票到手了...
-[03:25.81] 直到現在`
+[03:22.03] 票到手了... 直到現在`
 },
   {
     id: "song-15",
