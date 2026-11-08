@@ -897,7 +897,104 @@ Call me (Call me), I'll arrive
 [03:49.27]Come on, be my baby, come on
 [03:50.79]I'm in love with your body
 [03:52.29]Every day discovering something brand new
-[03:55.53]I'm in love with the shape of you` 
+[03:55.53]I'm in love with the shape of you`,
+    lrcRaw2: `
+[00:00.00]你的輪廓 - 艾德希蘭
+[00:15.77]俱樂部不是找尋愛人的最好地方
+[00:18.24]所以酒吧才是我想去的地方
+[00:20.53]我和我的朋友們靠在吧檯喝著shots
+[00:23.03]我們慢慢地談酒卻喝得很快
+[00:26.04]妳朝我走了過來 開始了我與妳的談話
+[00:28.54]相信我 我會好好把握這次機會
+[00:30.54]把手交給我 等一下
+[00:32.04]點唱機開始播放起(范·莫里森)的歌
+[00:33.28]然後我們的步伐隨著樂曲起舞
+[00:34.79]而此刻我想這樣唱
+[00:36.54]女孩妳知道我想要妳的愛
+[00:38.03]而妳的愛是為例如我 的某人打造的
+[00:40.29]快來吧! 跟著我的腳步
+[00:43.27]我也許有些瘋狂 但沒關係
+[00:45.78]說吧!男孩 不要說太多的話語
+[00:48.29]只要妳摟著我的腰再更加貼近我的身體
+[00:51.52]快來吧! 跟著我的腳步
+[00:53.28]來!快來吧! 跟著我的腳步
+[00:57.04]我愛上了妳迷人的身影
+[00:59.52]我們一推一拉之間就像磁鐵一樣異極相吸
+[01:01.78]而我的心也在不停的淪陷
+[01:04.27]我愛上了妳完美的身軀
+[01:07.03]而昨晚妳還在我的房裡
+[01:09.53]而現在我的床單上似乎還留有妳的味道
+[01:11.28]每一天都能有不一樣的全新發現
+[01:14.53]我愛上了妳完美的身軀
+[01:16.28]喔!我 喔!我 喔!我 喔!我
+[01:19.55]我愛上了妳完美的身軀
+[01:21.80]喔!我 喔!我 喔!我 喔!我
+[01:24.53]我愛上了妳完美的身軀
+[01:26.29]喔!我 喔!我 喔!我 喔!我
+[01:29.54]我愛上了妳完美的身軀
+[01:31.53]每一天都能有不一樣的全新發現
+[01:34.53]我愛上了妳迷人的身影
+[01:36.74]一個禮拜而以而我們的故事就此開始
+[01:38.25]我們出了門約了第一次的約會
+[01:40.49]我跟妳都是節儉成性
+[01:42.24]所以跑去吃到飽餐廳
+[01:43.49]而塞買肚子後還要打包帶回去
+[01:46.03]我們說了好幾個小時有關以前遇到那些甜與澀
+[01:48.22]還有聊著妳的家庭狀況
+[01:50.97]搭上了離開的計程車 我們在後座忘情熱吻
+[01:53.48]讓司機播放廣播的音樂
+[01:55.03]而我要盡情唱著
+[01:55.90]女孩妳知道我想要妳的愛
+[01:58.29]而妳的愛是為例如我 的某人打造的
+[02:01.53]快來吧! 跟著我的腳步
+[02:03.28]我也許有些瘋狂 但沒關係
+[02:05.75]說吧!男孩 不要說太多的話語
+[02:08.25]只要妳摟著我的腰再更加貼近我的身體
+[02:11.54]快來吧! 跟著我的腳步
+[02:13.31]來!快來吧! 跟著我的腳步
+[02:17.03]我愛上了妳迷人的身影
+[02:19.54]我們一推一拉之間就像磁鐵一樣異極相吸
+[02:22.28]而我的心也在不停的淪陷
+[02:24.53]我愛上了妳完美的身軀
+[02:26.53]而昨晚妳還在我的房裡
+[02:29.04]而現在我的床單上似乎還留有妳的味道
+[02:31.04]每一天都能有不一樣的全新發現
+[02:34.55]我愛上了妳完美的身軀
+[02:36.28]喔!我 喔!我 喔!我 喔!我
+[02:39.28]我愛上了妳完美的身軀
+[02:41.79]喔!我 喔!我 喔!我 喔!我
+[02:44.52]我愛上了妳完美的身軀
+[02:46.03]喔!我 喔!我 喔!我 喔!我
+[02:49.29]我愛上了妳完美的身軀
+[02:51.99]每一天都能有不一樣的全新發現
+[02:54.78]我愛上了妳迷人的身影
+[02:56.53]快來吧!做我的寶貝!快來吧!
+[02:58.28]快來吧!做我的寶貝!快來吧!
+[03:01.03]快來吧!做我的寶貝!快來吧!
+[03:03.55]快來吧!做我的寶貝!快來吧!
+[03:06.03]快來吧!做我的寶貝!快來吧!
+[03:08.54]快來吧!做我的寶貝!快來吧!
+[03:11.03]快來吧!做我的寶貝!快來吧!
+[03:13.55]快來吧!做我的寶貝!快來吧!
+[03:18.29]我愛上了妳迷人的身影
+[03:20.53]我們一推一拉之間就像磁鐵一樣異極相吸
+[03:23.04]而我的心也在不停的淪陷
+[03:25.78]我愛上了妳完美的身軀
+[03:28.04]而昨晚妳還在我的房裡
+[03:30.28]而現在我的床單上似乎還留有妳的味道
+[03:32.54]每一天都能有不一樣的全新發現
+[03:35.78]我愛上了妳完美的身軀
+[03:38.03]快來吧!做我的寶貝!快來吧!
+[03:39.78]快來吧!做我的寶貝!快來吧!
+[03:41.03]我愛上了妳完美的身軀
+[03:42.28]快來吧!做我的寶貝!快來吧!
+[03:44.80]快來吧!做我的寶貝!快來吧!
+[03:45.78]我愛上了妳完美的身軀
+[03:47.54]快來吧!做我的寶貝!快來吧!
+[03:49.27]快來吧!做我的寶貝!快來吧!
+[03:50.79]我愛上了妳完美的身軀
+[03:52.29]每一天都能有不一樣的全新發現
+[03:55.53]我愛上了妳迷人的身影`
   },
   {
     id: "song-13",
@@ -1024,84 +1121,199 @@ Call me (Call me), I'll arrive
 [al:Leave a Light]
 [ti:One Way Ticket]
 [au:Jack Keller, Hank Hunter]
-[length:03:35.11]
 [00:0.00]One Way Ticket - Eruption 1979
-[00:03.25]Mmm, hmm, hmm, hmm
-[00:09.76]Oh, oh, oh, oho
-[00:15.22]Yeah, yeah, yeah, yeah
-[00:19.23]1. One way ticket,
+[00:0.00](Describes a breakup, heart break feeling)
+
+[00:04.76]Mmm, hmm, hmm, hmm
+[00:10.28]Oh, oh, oh, oho
+[00:15.42]Yeah, yeah, yeah, yeah
+[00:19.05]1. One way ticket,
 [00:21.52]one way ticket
-[00:23.25]2. One way ticket,
-[00:25.26]one way ticket
-[00:27.26]3. One way ticket,
-[00:28.99]one way ticket to the blues
-[00:34.73]Choo choo train
-[00:36.74]a-tracking down the track
-[00:38.75]Gotta travel on,
-[00:40.76]ain't never coming back
-[00:42.19]Ooh ooh,
-[00:44.20]got a one way ticket to the blues
-[00:50.51]Bye bye love,
-[00:52.23]my baby's leaving me
-[00:54.24]Now lonely teardrops a
-[00:55.96]re all that I can see
-[00:57.68]Ooh hoo,
-[00:59.65]got a one way ticket to the blues
-[01:05.95]Gonna take a trip
-[01:07.39]to lonesome town
-[01:09.68]Gonna stay at Heartbreak Hotel
-[01:13.40]A fool such as I,
-[01:15.41]There never was
-[01:17.42]I cry a tear so well
-[01:21.43]1. One way ticket,
-[01:23.15]one way ticket
-[01:25.16]2. One way ticket,
-[01:27.17]one way ticket
-[01:29.17]3. One way ticket,
-[01:31.18]one way ticket to the blues
-[01:36.64]Choo choo, train
-[01:38.64]a-tracking down the track
-[01:40.65]Gotta travel on,
-[01:42.66]ain't never coming back
-[01:44.09]Ooh ooh,
-[01:46.09]got a one way ticket to the blues
-[01:59.55]Got a one way ticket to the blues
-[02:04.34]Ah, gonna take a trip
-[02:06.92]to lonesome town
-[02:09.21]Gonna stay at Heartbreak Hotel
-[02:12.65]Oh, a fool such as I
-[02:14.66]There never was
-[02:16.66]I cried a tear so well, yeah, yeah
-[02:20.67]1. One way ticket,
-[02:22.68]one way ticket
-[02:24.68]2. One way ticket,
-[02:26.40]one way ticket
-[02:28.41]3. One way ticket,
-[02:30.42]one way ticket to the blues
-[02:36.15]Choo, choo, train
-[02:38.15]a-tracking down the track
-[02:40.16]Gotta travel on,
-[02:41.88]ain't never coming back
-[02:43.60]1.Ooh ooh,
-[02:51.34]got a one way ticket to the blues
-[02:52.78]2.Ooh ooh,
-[02:59.37]got a one way ticket to the blues
-[03:01.38]1.(One way, one way,
-[03:01.99]one way ticket)
-[03:04.25]2.(One way, one way,
-[03:05.98]one way ticket)
-[03:08.25]3.(One way, one way,
-[03:09.96]one way ticket)
-[03:12.25]4.(One way, one way,
-[03:13.68]one way ticket)
-[03:15.99]5.(One way, one way,
-[03:17.67]one way ticket)
-[03:19.75]6.(One way, one way,
-[03:21.38]one way ticket)
-[03:23.25]7.(One way, one way,
-[03:25.37]one way ticket)
-[03:27.25]8.(One way, one way,
-[03:29.09]one way ticket)` 
+[00:23.23]2. One way ticket,
+[00:25.22]one way ticket
+[00:27.22]3. One way ticket,
+[00:29.22]one way ticket to the blues. Ooh ooh Ooh
+
+[00:35.05]Choo, choo, train
+[00:36.56]a-trackin' down the track
+[00:39.14]Gotta travel on
+[00:40.55]it never comin' back
+[00:42.36]Ooh ooh,
+[00:44.36]Got a one way ticket to the blues
+
+[00:50.41]Bye bye love,
+[00:52.04]my baby's leavin' me
+[00:54.23]Now lonely tear drops
+[00:56.04]are all that I can see
+[00:57.94]Woo Woo,
+[00:59.64]got a one way ticket to the blues
+
+[01:05.96]Gonna take a trip
+[01:07.75]to lonesome town
+[01:09.74]Gonna stay at Heartbreak Hotel
+[01:13.52]A fool such as I(A fool such as I),
+[01:15.52]there never was.
+[01:17.52]I cried a tear so well
+
+[01:21.58]1. One way ticket,
+[01:23.58]one way ticket
+[01:25.58]2. One way ticket,
+[01:27.29]one way ticket
+[01:29.29]3. One way ticket,
+[01:31.29]one way ticket to the blues
+
+[01:37.01]Choo, choo train
+[01:38.53]a-trackin' down the track
+[01:41.01]Gotta travel on
+[01:42.63]it never comin' back
+[01:44.34]Ooh ooh,
+[01:46.15]got a one way ticket to the blues
+
+[01:52.16]Gotta go on,
+[01:56.45]Yeah,
+[01:59.88]Truckin' on, truckin' on
+[02:02.16]one way ticket to the blues
+
+[02:07.59]Ah, gonna take a trip
+[02:09.88]to lonesome town
+[02:11.87]Gonna stay at Heartbreak Hotel
+[02:15.30]Ah, A fool such as I(a fool such as I)
+[02:17.58]There never was
+[02:19.59]I cried a tear so well, yeah, yeah
+
+[02:23.59]1. One way ticket,
+[02:25.58]one way ticket
+[02:27.30]2. One way ticket,
+[02:29.28]one way ticket
+[02:31.28]3. One way ticket,
+[02:33.28]one way ticket to the blues
+
+[02:38.96]Choo, choo train
+[02:40.96]a-trackin' down the track
+[02:42.96]Gotta travel on
+[02:44.67]it never comin' back
+[02:45.94]Ooh-ooh, yeah, yeah...
+[02:53.81](Whoa-whoa, yeah, yeah, yeah, yeah)
+[03:00.81]got my ticket... until now
+[03:05.81]Ooh-ooh,My Love Ooh-ooh.
+[03:12.01]Choo, choo, choo, choo, train
+[03:14.08] (One way, One way)
+[03:14.86] (One way ticket)
+[03:15.05]Yeah, yeah
+[03:16.72]Whoa, whoa
+[03:18.13] (One way, One way)
+[03:18.69] One way ticket
+[03:20.58] (One way, One way)
+[03:21.24]Blues
+
+[03:23.28] (One way ticket)
+[03:23.92]Got my ticket...
+[03:25.28] (One way, One way)
+[03:25.81] until now
+
+[03:27.15] (One way ticket)
+[03:27.84] (One way, One way)
+[03:28.96] bye, bye, my love
+[03:31.41] (One way ticket)
+[03:31.94] bye, bye, my love.
+[03:32.83] (One way, One way, One way ticket)`,
+    lrcRaw2: `
+[00:0.00]單程車票 - 火山爆發合唱團
+[00:0.00]【描述分手，以及心碎的感覺】
+
+[00:04.77]嗯，嗯，嗯，嗯
+[00:10.17]嗚嗚，嗚嗚，嗚，
+[00:15.42]耶，耶，耶，耶
+[00:19.05] 單程車票
+[00:21.52] 單程車票
+[00:23.23] 單程車票
+[00:25.22] 單程車票
+[00:27.22] 單程車票
+[00:29.22] 直達憂鬱的單程車票 嗚..嗚..嗚..
+
+[00:35.05] 火車（轟隆轟隆地）
+[00:36.56] 在鐵軌上奔馳著
+[00:39.14] 不得不上路
+[00:40.55] 再也不回來
+[00:42.36] 嗚嗚
+[00:44.36] 我買了一張直達傷心(憂鬱)世界的單程車票
+
+[00:50.41] 再見了我的愛
+[00:52.04] 我的愛人離開我了
+[00:54.23] 此刻的我
+[00:56.04] 只能看見淚珠
+[00:57.94] 嗚嗚
+[00:59.64] 我買了一張直達傷心(憂鬱)世界的單程車票
+
+[01:05.96] 啊，我將要去旅行
+[01:07.75] 到寂寞小鎮
+[01:09.74] 在傷心旅館過夜
+[01:13.52] 從來沒有人
+[01:15.52] 像我這般痴情
+[01:17.52] 我淚已流下
+
+[01:21.58] 單程車票
+[01:23.58] 單程車票
+[01:25.58] 單程車票
+[01:27.29] 單程車票
+[01:29.29] 單程車票
+[01:31.29] 直達傷心(憂鬱)世界的單程車票
+
+[01:37.01] 火車（轟隆轟隆地）
+[01:38.53] 在鐵軌上奔馳著
+[01:41.01] 不得不上路
+[01:42.63] 再也不回來
+[01:44.34] 嗚嗚
+[01:46.15] 我買了一張直達傷心(憂鬱)世界的單程車票
+
+[01:52.16] 得繼續前行，
+[01:56.45] 沒錯，
+[01:59.88] 一路向前，一路向前
+[02:02.16] 直達傷心(憂鬱)世界的單程車票
+
+[02:07.59] 啊，我將要去旅行
+[02:09.88] 到寂寞小鎮
+[02:11.87] 在傷心旅館過夜
+[02:15.30] 從來沒有人
+[02:17.58] 像我這般痴情
+[02:19.59] 我淚已流下，耶，耶
+
+[02:23.59] 單程車票
+[02:25.58] 單程車票
+[02:27.30] 單程車票,
+[02:29.28] 單程車票
+[02:31.28] 單程車票
+[02:33.28] 直達憂鬱的單程車票
+
+[02:38.96] 火車（轟隆轟隆地）
+[02:40.96 在鐵軌上奔馳著
+[02:42.96] 不得不上路
+[02:44.67] 再也不回來
+[02:45.94] 噢噢，耶，耶..
+[02:53.81] 鳴..鳴，耶，耶...
+[03:00.81] 買到了我車票...
+[03:05.81] 噢噢，再見了我的愛..噢噢
+[03:12.01] 火車（轟隆轟隆轟隆轟隆）
+[03:14.08] (單程, 單程)
+[03:14.86] (單程車票)
+[03:15.05] 耶，耶
+[03:16.72] 噢噢
+[03:18.13] (單程, 單程)
+[03:18.69] 單程車票到
+[03:20.58] (單程, 單程)
+[03:21.24] 憂鬱
+
+[03:23.28] (單程車票)
+[03:23.92] 票到手了...
+[03:25.28] (單程, 單程)
+[03:25.81] 直到現在
+
+[03:27.15] (單程車票)
+[03:27.84] (單程, 單程)
+[03:28.96] 再見了我的愛...
+[03:31.41] (單程車票)
+[03:31.94] 再見了我的愛
+[03:32.83] (單程, 單程, 單程車票)`
   },
   {
     id: "song-15",
