@@ -3982,29 +3982,55 @@ Call me (Call me), I'll arrive
     album: "Unknown Album",
     cover: "https://zero-heaven.github.io/lyricmp3player/mp3/The Platters - Smoke Gets In Your Eyes.jpg",
     audioUrl: "https://zero-heaven.github.io/lyricmp3player/mp3/The Platters - Smoke Gets In Your Eyes.mp3",
-    lrcRaw: `[ti:Smoke Gets In Your Eyes]
+    lrcRaw: `
 [ar:The Platters]
-[Motherland]
-[re:正義必勝]
-[re:正義必勝]
+[ti:Smoke Gets In Your Eyes]
+[au:Otto Harbach; Jerome KernJ]
+[length:02:39.87]
 
-
-[00:00.00]Smoke Gets In Your Eyes - The Platters
-
-[00:54.50]They asked me how I knew my true love was true. Oh,
-[01:08.50]I of course replied
-[01:12.50]"something here inside cannot be denied."
-[01:27.50]They said "someday you'll find all who love are blind."
-[01:37.50]Oh,When your heart's on fire,
-[01:46.50]you must realize smoke gets in your eyes
-[02:02.50]So I chaffed them
-[02:06.50]and I gaily laughed to think they could doubt my love.
-[02:18.50]Yet today my love has flown away, I am without my love.
-[02:35.50]Now laughing friends deride tears I cannot hide. Oh,
-[02:49.50]So I smile and say
-[02:54.50]"when a lovely flame dies, smoke gets in your eyes!"
-[03:05.50]Smoke gets in your eyes
-[03:09.50]Smoke gets in your eyes` 
+[00:08.89]They asked me how I knew
+[00:15.49]My true love was true, Ah.. Ooh Ooh
+[00:23.78]I of course replied
+[00:28.33]＂Something here inside
+[00:32.63]Cannot be denied＂
+[00:42.93]They said someday you'll find
+[00:49.53]All who love are blind, Ah.. Ooh Ooh
+[00:57.83]When your heart's on fire
+[01:02.33]You must realise
+[01:06.85]Smoke gets in your eyes
+[01:16.90]So I chaffed and I gaily laughed
+[01:23.79]To think they would doubt my love
+[01:33.83]Yet today, my love has flown away
+[01:40.70]I am without my love(without my love)
+[01:50.95]Now laughing friends deride
+[01:56.93]Tears I cannot hide, Ah.. Ooh Ooh
+[02:05.48]So I smile and say
+[02:09.47]＂When a lovely flame dies,
+[02:14.31]Smoke gets in your eyes(in your eyes).＂
+[02:20.58](Smoke gets in your eyes)
+[02:24.87]Smoke gets in your eyes...`,
+    lrcRaw2: `
+[00:00.00]煙霧迷濛了你雙眼 - 五黑寶合唱團
+[00:08.89]曾有人問我：我怎麼知道
+[00:15.49]真愛為真？啊…噢 噢
+[00:23.78]我當然回答：
+[00:28.33]內心的感受是無法否認的
+[00:32.63]他們說：總有一天，
+[00:49.53]你會發現戀愛中的人都是盲目的。啊…噢 噢
+[00:57.83]當你的心著火了
+[01:02.33]你必須了解，
+[01:06.85]煙霧會迷濛了你雙眼
+[01:16.90]於是我挖苦他們，開心的笑著
+[01:23.79]他們怎能質疑我的愛
+[01:33.83]如今，我的愛已遠颺，
+[01:40.70]我失去了吾愛(失去了吾愛)
+[01:50.95]現在，朋友們嘲笑著
+[01:56.93]我掩藏不住的淚水。啊…噢 噢
+[02:05.48]於是我笑著說：
+[02:09.47]當愛的火焰熄滅，
+[02:14.31]煙霧會迷濛了你雙眼(你雙眼)
+[02:20.58](煙霧會迷濛了你雙眼)
+[02:24.87]煙霧會迷濛了你雙眼`
   },
   {
     id: "song-53",
