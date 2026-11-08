@@ -1119,21 +1119,18 @@ Call me (Call me), I'll arrive
 [al:Leave a Light]
 [ti:One Way Ticket]
 [au:Jack Keller, Hank Hunter]
+[length:03:35.06]
 [00:0.00]One Way Ticket - Eruption 1979
 [00:0.00]Describes a breakup, heart break feeling
-
-[length:03:35.06]
-[00:03.14]One Way Ticket - Eruption 1979
-[00:04.01](Describes a breakup, heart break feeling)
 
 [00:04.76]Mmm, hmm, hmm, hmm
 [00:10.28]Oh, oh, oh, oho
 [00:15.42]Yeah, yeah, yeah, yeah
-[00:19.05]1. One way ticket,
+[00:19.05]One way ticket,
 [00:21.52]one way ticket
-[00:23.23]2. One way ticket,
+[00:23.23]One way ticket,
 [00:25.22]one way ticket
-[00:27.22]3. One way ticket,
+[00:27.22]One way ticket,
 [00:29.22]one way ticket to the blues. Ooh ooh Ooh
 
 [00:35.05]Choo, choo, train
@@ -1157,11 +1154,11 @@ Call me (Call me), I'll arrive
 [01:15.52]there never was.
 [01:17.52]I cried a tear so well
 
-[01:21.58]1. One way ticket,
+[01:21.58]One way ticket,
 [01:23.58]one way ticket
-[01:25.58]2. One way ticket,
+[01:25.58]One way ticket,
 [01:27.29]one way ticket
-[01:29.29]3. One way ticket,
+[01:29.29]One way ticket,
 [01:31.29]one way ticket to the blues
 
 [01:37.01]Choo, choo train
@@ -1183,11 +1180,11 @@ Call me (Call me), I'll arrive
 [02:17.58]There never was
 [02:19.59]I cried a tear so well, yeah, yeah
 
-[02:23.59]1. One way ticket,
+[02:23.59]One way ticket,
 [02:25.58]one way ticket
-[02:27.30]2. One way ticket,
+[02:27.30]One way ticket,
 [02:29.28]one way ticket
-[02:31.28]3. One way ticket,
+[02:31.28]One way ticket,
 [02:33.28]one way ticket to the blues
 
 [02:38.96]Choo, choo train
@@ -1198,27 +1195,13 @@ Call me (Call me), I'll arrive
 [02:53.81](Whoa-whoa, yeah, yeah, yeah, yeah)
 [03:00.81]got my ticket... until now
 [03:05.81]Ooh-ooh,My Love Ooh-ooh.
-[03:12.01]Choo, choo, choo, choo, train
-[03:14.08] (One way, One way)
-[03:14.86] (One way ticket)
+[03:14.01]Choo, choo, choo, choo, train
 [03:15.05]Yeah, yeah
-[03:16.72]Whoa, whoa
-[03:18.13] (One way, One way)
-[03:18.69] One way ticket
-[03:20.58] (One way, One way)
-[03:21.24]Blues
-
-[03:23.28] (One way ticket)
+[03:17.82]Whoa, whoa
+[03:20.02] One way ticket to the
+[03:22.03]Blues
 [03:23.92]Got my ticket...
-[03:25.28] (One way, One way)
-[03:25.81] until now
-
-[03:27.15] (One way ticket)
-[03:27.84] (One way, One way)
-[03:28.96] bye, bye, my love
-[03:31.41] (One way ticket)
-[03:31.94] bye, bye, my love.
-[03:32.83] (One way, One way, One way ticket)`,
+[03:25.81] until now`,
     lrcRaw2: `
 [00:0.00]單程車票 - 火山爆發合唱團
 [00:0.00]【描述分手，以及心碎的感覺】
@@ -1294,27 +1277,13 @@ Call me (Call me), I'll arrive
 [02:53.81] 鳴..鳴，耶，耶...
 [03:00.81] 買到了我車票...
 [03:05.81] 噢噢，再見了我的愛..噢噢
-[03:12.01] 火車（轟隆轟隆轟隆轟隆）
-[03:14.08] (單程, 單程)
-[03:14.86] (單程車票)
+[03:14.01] 火車（轟隆轟隆轟隆轟隆）
 [03:15.05] 耶，耶
-[03:16.72] 噢噢
-[03:18.13] (單程, 單程)
-[03:18.69] 單程車票到
-[03:20.58] (單程, 單程)
-[03:21.24] 憂鬱
-
-[03:23.28] (單程車票)
+[03:17.82] 噢噢
+[03:20.02] 單程車票到
+[03:22.03] 憂鬱
 [03:23.92] 票到手了...
-[03:25.28] (單程, 單程)
-[03:25.81] 直到現在
-
-[03:27.15] (單程車票)
-[03:27.84] (單程, 單程)
-[03:28.96] 再見了我的愛...
-[03:31.41] (單程車票)
-[03:31.94] 再見了我的愛
-[03:32.83] (單程, 單程, 單程車票)`
+[03:25.81] 直到現在`
 },
   {
     id: "song-15",
