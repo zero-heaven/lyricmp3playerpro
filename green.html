@@ -1,15 +1,8 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="h-full bg-slate-950 text-slate-100">
 <head>
   <meta charset="UTF-8">
-    <!-- Directives for modern browsers -->
-    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
-    <meta http-equiv="Cache-Control" content="proxy-revalidate">
-    
-    <!-- Backward compatibility for older browsers / HTTP 1.0 -->
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HTML5 Visual Lyric MP3 Player Pro</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -25,7 +18,6 @@
     ::-webkit-scrollbar-thumb { background: rgba(51, 65, 85, 0.8); border-radius: 9999px; }
     ::-webkit-scrollbar-thumb:hover { background: rgba(71, 85, 105, 1); }
 
-    /* 強制顯示 Playlist 彈窗內部的獨立滾動條 */
     #playlist-items::-webkit-scrollbar {
       width: 6px !important;
       display: block !important;
@@ -63,8 +55,16 @@
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-    /* 📱 手機橫屏（Landscape）專屬：極致縮小 Playlist 歌名行距、gap 與內距，顯示最多歌曲 */
     @media (max-height: 500px) and (orientation: landscape) {
+      header { padding-top: 2px !important; padding-bottom: 2px !important; min-height: 38px !important; }
+      footer { padding-top: 2px !important; padding-bottom: 2px !important; }
+      main { padding: 4px !important; gap: 6px !important; }
+      
+      #lyric-container {
+        padding-top: 6px !important;
+        padding-bottom: 6px !important;
+      }
+
       #playlist-drawer .p-3, #playlist-drawer .p-2.5 { padding-top: 2px !important; padding-bottom: 2px !important; padding-left: 8px !important; padding-right: 8px !important; }
       #playlist-items { padding: 4px !important; gap: 2px !important; }
       #playlist-items > div { padding-top: 2px !important; padding-bottom: 2px !important; padding-left: 4px !important; padding-right: 4px !important; gap: 4px !important; }
@@ -109,7 +109,7 @@
       </button>
 
       <!-- 4th Button: Lyric Color -->
-      <button id="btn-lyric-color" title="Change Lyric Color"
+      <button id="btn-lyric-color" title="Change Lyric & Viz Base Color"
               class="inline-flex items-center justify-center px-2 py-1.5 sm:px-3 sm:py-1.5 text-xs bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-lg transition-all shrink-0">
         <i id="lyric-color-icon" class="fa-solid fa-palette text-xs sm:text-sm"></i>
       </button>
@@ -193,7 +193,6 @@
               <i class="fa-solid fa-arrows-rotate text-[9px] mr-1"></i>
               <span id="label-sync-mode">Sync</span>
             </button>
-            <!-- 🆕 雙歌詞切換按鈕 -->
             <button id="btn-toggle-dual-lyric" class="hidden px-2.5 py-1 text-[10px] font-bold tracking-wider uppercase rounded-full bg-slate-800 text-slate-400 border border-slate-700 hover:bg-slate-700 hover:text-slate-200 transition-all shrink-0">
               <i class="fa-solid fa-layer-group text-[9px] mr-1"></i>
               <span id="label-dual-lyric">Lyric 1</span>
@@ -211,8 +210,6 @@
     <!-- Playlist Popup Overlay Modal -->
     <div id="playlist-drawer" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6 transition-opacity duration-300 hidden">
       <div class="w-full max-w-md bg-slate-900 border border-slate-800 rounded-2xl shadow-2xl flex flex-col max-h-[82vh] overflow-hidden">
-        
-        <!-- 彈窗標題列 -->
         <div class="p-3 border-b border-slate-800 flex items-center justify-between shrink-0 bg-slate-950/60">
           <div class="flex items-center gap-2 text-slate-200 font-bold text-sm">
             <i class="fa-solid fa-list-ul text-emerald-400"></i><span>Playlist Management</span>
@@ -222,7 +219,6 @@
           </button>
         </div>
 
-        <!-- 分類 -->
         <div class="px-3 py-1.5 border-b border-slate-800/80 bg-slate-950/40 flex items-center gap-2 shrink-0">
           <span class="text-[11px] text-slate-400 font-semibold shrink-0">分類:</span>
           <select id="playlist-group-select" class="w-full px-2 py-1 text-xs font-medium rounded-lg bg-slate-800 text-slate-200 border border-slate-700">
@@ -230,14 +226,12 @@
           </select>
         </div>
 
-        <!-- 排序 -->
         <div class="px-3 py-1.5 border-b border-slate-800/80 bg-slate-950/40 flex items-center gap-2 shrink-0">
           <span class="text-[11px] text-slate-400 font-semibold shrink-0">排序:</span>
           <button id="btn-sort-title" class="flex-1 px-2 py-1 text-xs font-medium rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700"><i class="fa-solid fa-music text-[10px] mr-1 text-emerald-400"></i>歌名</button>
           <button id="btn-sort-artist" class="flex-1 px-2 py-1 text-xs font-medium rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700"><i class="fa-solid fa-user text-[10px] mr-1 text-emerald-400"></i>歌手</button>
         </div>
 
-        <!-- 搜尋 -->
         <div class="px-3 py-1.5 border-b border-slate-800/80 bg-slate-950/40 shrink-0">
           <div class="relative flex items-center">
             <i class="fa-solid fa-magnifying-glass absolute left-3 text-slate-500 text-xs pointer-events-none"></i>
@@ -246,7 +240,6 @@
           </div>
         </div>
 
-        <!-- 歌曲清單區塊：具有獨立捲動軸與彈性高度 -->
         <div id="playlist-items" class="flex-1 min-h-0 overflow-y-scroll p-3 space-y-1.5 overscroll-contain bg-slate-900/50"></div>
       </div>
     </div>
@@ -319,8 +312,8 @@
 
     let currentTrackIndex = 0;
     let parsedLyrics = [];
-    let parsedLyrics2 = []; // 🆕 第二歌詞陣列
-    let lyricDisplayMode = 'single'; // 🆕 歌詞模式: 'single' | 'dual' | 'second'
+    let parsedLyrics2 = [];
+    let lyricDisplayMode = localStorage.getItem('lyricDisplayMode') || 'single';
     let activeLyricIndex = -1;
     let isShuffle = false;
     let loopMode = 'all';
@@ -353,7 +346,7 @@
     let currentVizModeIndex = parseInt(localStorage.getItem('vizModeIndex') || '0', 10);
 
     const particles = Array.from({ length: 70 }, () => ({ x: 0, y: 0, vx: 0, vy: 0, radius: 0, alpha: 0, hue: 0 }));
-    const fireSparks = Array.from({ length: 60 }, () => ({ x: 0, y: 0, vx: 0, vy: 0, size: 0, life: 0, maxLife: 0, hue: 0 }));
+    const fireSparks = Array.from({ length: 75 }, () => ({ x: 0, y: 0, vx: 0, vy: 0, size: 0, life: 0, maxLife: 0, hue: 0, isAsh: false }));
     const matrixDrops = Array.from({ length: 36 }, () => ({ x: Math.random() * 300, y: (Math.random() - 0.5) * 50, speed: Math.random() * 3 + 2, char: '01' }));
     const shockwaves = [];
     let peakHeights = [];
@@ -395,7 +388,6 @@
     const btnToggleSync = document.getElementById('btn-toggle-sync');
     const labelSyncMode = document.getElementById('label-sync-mode');
 
-    // 🆕 雙歌詞按鈕 DOM 元素
     const btnToggleDualLyric = document.getElementById('btn-toggle-dual-lyric');
     const labelDualLyric = document.getElementById('label-dual-lyric');
 
@@ -524,7 +516,8 @@
       return { meta, lines: lyricLines };
     }
 
-function loadTrack(index) {
+// 🔄 載入歌曲時自動檢測 LRC2 並更新按鈕顯示文字與狀態
+    function loadTrack(index) {
       if (!playlist || index < 0 || index >= playlist.length) return;
       currentTrackIndex = index;
       const track = playlist[index];
@@ -540,10 +533,6 @@ function loadTrack(index) {
       const parsed = parseLRC(track.lrcRaw);
       parsedLyrics = parsed.lines;
 
-      // 1. Reset lyric mode back to default single mode
-      lyricDisplayMode = 'single';
-
-      // 2. Safely inspect if lrcRaw2 exists and contains valid timestamped lyrics
       const raw2 = (track.lrcRaw2 || '').toString().trim();
       const hasValidLrc2 = raw2 !== '' && raw2.includes('[');
 
@@ -551,20 +540,24 @@ function loadTrack(index) {
         const parsed2 = parseLRC(track.lrcRaw2);
         parsedLyrics2 = parsed2.lines;
         
-        // Show and enable button for tracks with dual lyrics
         if (btnToggleDualLyric) {
           btnToggleDualLyric.classList.remove('hidden');
           btnToggleDualLyric.disabled = false;
-          labelDualLyric.textContent = 'Lrc1';
-          btnToggleDualLyric.className = 'px-2.5 py-1 text-[10px] font-bold tracking-wider uppercase rounded-full bg-slate-800 text-slate-400 border border-slate-700 hover:bg-slate-700 hover:text-slate-200 transition-all shrink-0';
+          
+          // 如果這首歌支援 LRC2，且使用者之前在上一首有開啟雙語或單獨 Lrc2，則維持記憶模式；否則預設切換為 dual
+          if (lyricDisplayMode === 'single') {
+            lyricDisplayMode = 'dual'; 
+          }
+          updateDualLyricButtonUI();
         }
       } else {
         parsedLyrics2 = [];
-        
-        // Hide and disable button completely if no second lyrics exist
+        // 若下一首歌曲沒有 LRC2，自動忽略並強制回到單一 Lrc1 模式
+        lyricDisplayMode = 'single';
         if (btnToggleDualLyric) {
-          btnToggleDualLyric.classList.add('hidden');
-          btnToggleDualLyric.disabled = true;
+          btnToggleDualLyric.classList.remove('hidden'); // 保持顯示，但標明僅支援 Lrc1
+          btnToggleDualLyric.disabled = false;
+          updateDualLyricButtonUI();
         }
       }
 
@@ -577,6 +570,59 @@ function loadTrack(index) {
 
       renderLyrics();
       renderPlaylistUI();
+    }
+
+    // 🎨 動態更新按鈕文字與樣式，讓您清楚知道當前支援狀態與顯示模式
+    function updateDualLyricButtonUI() {
+      if (!btnToggleDualLyric) return;
+      
+      const raw2 = (playlist[currentTrackIndex]?.lrcRaw2 || '').toString().trim();
+      const hasValidLrc2 = raw2 !== '' && raw2.includes('[');
+
+      if (!hasValidLrc2) {
+        // 如果該歌曲不支援 LRC2，按鈕顯示 Lrc1 (LRC2 Not Available)，點擊也不會出錯
+        labelDualLyric.textContent = 'Lrc1 (No Lrc2)';
+        btnToggleDualLyric.className = 'px-2.5 py-1 text-[10px] font-bold tracking-wider uppercase rounded-full bg-slate-800/60 text-slate-500 border border-slate-800 cursor-not-allowed transition-all shrink-0';
+      } else {
+        // 支援 LRC2 時，依據當前顯示模式切換按鈕文字與顏色
+        if (lyricDisplayMode === 'dual') {
+          labelDualLyric.textContent = 'Dual (Lrc1+2)';
+          btnToggleDualLyric.className = 'px-2.5 py-1 text-[10px] font-bold tracking-wider uppercase rounded-full bg-emerald-500/25 text-emerald-400 border border-emerald-500/40 hover:bg-emerald-500/30 transition-all shrink-0';
+        } else if (lyricDisplayMode === 'second') {
+          labelDualLyric.textContent = 'Lrc2 Only';
+          btnToggleDualLyric.className = 'px-2.5 py-1 text-[10px] font-bold tracking-wider uppercase rounded-full bg-cyan-500/25 text-cyan-400 border border-cyan-500/40 hover:bg-cyan-500/30 transition-all shrink-0';
+        } else {
+          labelDualLyric.textContent = 'Lrc1 (Has Lrc2)';
+          btnToggleDualLyric.className = 'px-2.5 py-1 text-[10px] font-bold tracking-wider uppercase rounded-full bg-slate-800 text-slate-300 border border-slate-700 hover:bg-slate-700 transition-all shrink-0';
+        }
+      }
+    }
+
+    // 🎛️ 點擊循環切換歌詞模式（若無 Lrc2 則會跳出提示或維持 Lrc1）
+    if (btnToggleDualLyric) {
+      btnToggleDualLyric.onclick = () => {
+        const raw2 = (playlist[currentTrackIndex]?.lrcRaw2 || '').toString().trim();
+        const hasValidLrc2 = raw2 !== '' && raw2.includes('[');
+
+        if (!hasValidLrc2) {
+          // 如果該歌沒有 lrc2，點擊就維持 single 並提示
+          lyricDisplayMode = 'single';
+          console.warn("這首歌沒有提供 LRC2 歌詞檔案");
+        } else {
+          if (lyricDisplayMode === 'single') {
+            lyricDisplayMode = 'dual';
+          } else if (lyricDisplayMode === 'dual') {
+            lyricDisplayMode = 'second';
+          } else {
+            lyricDisplayMode = 'single';
+          }
+        }
+
+        localStorage.setItem('lyricDisplayMode', lyricDisplayMode);
+        updateDualLyricButtonUI();
+        renderLyrics();
+        if (!audio.paused && isLrcSynced) updateKaraokeLyrics(audio.currentTime);
+      };
     }
 
     function getLyricIcon(status) {
@@ -626,27 +672,6 @@ function loadTrack(index) {
       updateLyricDisplayState();
     }
 
-    // 🆕 點擊按鈕循環切換模式：單一第一歌詞 -> 雙歌詞同步展示 -> 單一第二歌詞
-    if (btnToggleDualLyric) {
-      btnToggleDualLyric.onclick = () => {
-        if (lyricDisplayMode === 'single') {
-          lyricDisplayMode = 'dual';
-          labelDualLyric.textContent = 'Dual';
-          btnToggleDualLyric.className = 'px-2.5 py-1 text-[10px] font-bold tracking-wider uppercase rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 hover:bg-emerald-500/30 transition-all shrink-0';
-        } else if (lyricDisplayMode === 'dual') {
-          lyricDisplayMode = 'second';
-          labelDualLyric.textContent = 'Lrc2';
-          btnToggleDualLyric.className = 'px-2.5 py-1 text-[10px] font-bold tracking-wider uppercase rounded-full bg-cyan-500/20 text-cyan-400 border border-cyan-500/40 hover:bg-cyan-500/30 transition-all shrink-0';
-        } else {
-          lyricDisplayMode = 'single';
-          labelDualLyric.textContent = 'Lrc1';
-          btnToggleDualLyric.className = 'px-2.5 py-1 text-[10px] font-bold tracking-wider uppercase rounded-full bg-slate-800 text-slate-400 border border-slate-700 hover:bg-slate-700 hover:text-slate-200 transition-all shrink-0';
-        }
-        renderLyrics();
-        if (!audio.paused && isLrcSynced) updateKaraokeLyrics(audio.currentTime);
-      };
-    }
-
     function renderLyrics() {
       lyricContainer.innerHTML = '';
       if (parsedLyrics.length === 0) {
@@ -661,7 +686,6 @@ function loadTrack(index) {
         
         let lineHtml = item.text;
 
-        // 🆕 根據模式組合第一/第二歌詞
         if (lyricDisplayMode === 'dual' && parsedLyrics2.length > 0) {
           const match2 = parsedLyrics2.find(l => Math.abs(l.time - item.time) < 0.6) || { text: '' };
           if (match2.text) {
@@ -764,15 +788,18 @@ function loadTrack(index) {
 
     function getAccentHSL() {
       const accent = getComputedStyle(document.documentElement).getPropertyValue('--lyric-accent').trim();
-      if (accent.startsWith('#')) {
-        let hex = accent.replace('#', '');
-        if (hex.length === 3) hex = hex.split('').map(c => c + c).join('');
-        const num = parseInt(hex, 16);
-        const r = (num >> 16) & 255, g = (num >> 8) & 255, b = num & 255;
+      let hex = accent.replace('#', '');
+      if (hex.length === 3) hex = hex.split('').map(c => c + c).join('');
+      
+      if (hex.length === 6) {
+        const r = parseInt(hex.substring(0, 2), 16) / 255;
+        const g = parseInt(hex.substring(2, 4), 16) / 255;
+        const b = parseInt(hex.substring(4, 6), 16) / 255;
+        
         const max = Math.max(r, g, b), min = Math.min(r, g, b);
-        let h, s, l = (max + min) / 2;
-        if (max === min) { h = s = 0; } 
-        else {
+        let h = 0, s = 0, l = (max + min) / 2;
+
+        if (max !== min) {
           const d = max - min;
           s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
           switch (max) {
@@ -782,9 +809,9 @@ function loadTrack(index) {
           }
           h /= 6;
         }
-        return { h: Math.round(h * 360), s: 95, l: 38 };
+        return { h: Math.round(h * 360), s: Math.round(s * 100), l: Math.round(l * 100) };
       }
-      return { h: 142, s: 95, l: 38 };
+      return { h: 142, s: 70, l: 45 };
     }
 
     if (btnLyricColor) {
@@ -863,7 +890,6 @@ function loadTrack(index) {
       };
     }
 
-    // 🆕 同步跟隨與色彩特效（同時支援第一與第二歌詞）
     function updateKaraokeLyrics(currentTime) {
       if (!parsedLyrics || parsedLyrics.length === 0 || !isLrcSynced) return;
       let index = -1;
@@ -1060,6 +1086,17 @@ function loadTrack(index) {
     btnClosePlaylist.onclick = () => playlistDrawer.classList.add('hidden');
     playlistDrawer.onclick = (e) => { if (e.target === playlistDrawer) playlistDrawer.classList.add('hidden'); };
 
+    // 🎨 桃紅色對應橙色、精確避開綠藍色的和諧目標色映射函數
+    function getHarmoniousTargetHue(baseH) {
+      if (baseH >= 300 && baseH <= 350) return 35;       // 桃紅系 -> 活力橙色 (Orange)
+      if (baseH >= 80 && baseH <= 170) return 200;       // 綠色 -> 天藍
+      if (baseH > 350 || baseH < 20) return 45;           // 紅色系 -> 琥珀金
+      if (baseH >= 20 && baseH < 80) return 310;           // 珊瑚紅 / 橘 -> 桃紫
+      if (baseH >= 260 && baseH < 300) return 175;        // 電光紫 -> 湖水綠
+      if (baseH >= 170 && baseH < 260) return 130;        // 亮天藍 -> 嫩綠
+      return (baseH + 120) % 360;
+    }
+
     function startVisualizerAnimation() {
       if (vizAnimFrameId) cancelAnimationFrame(vizAnimFrameId);
 
@@ -1076,6 +1113,7 @@ function loadTrack(index) {
         const currentMode = vizModes[currentVizModeIndex].id;
 
         const accentHSL = getAccentHSL();
+        const targetHarmoniousH = getHarmoniousTargetHue(accentHSL.h);
 
         if (isPlaying && analyser && frequencyDataArray) {
           analyser.getByteFrequencyData(frequencyDataArray);
@@ -1129,7 +1167,7 @@ function loadTrack(index) {
           }
         }
 
-        // 🔴 Mini Visualizer
+        // 🔴 Mini Visualizer (Cyber Ladder 修正版)
         if (enableVisualizer && miniCanvasCtx && miniCanvas) {
           const mdpr = window.devicePixelRatio || 1;
           const mrect = miniCanvas.getBoundingClientRect();
@@ -1153,8 +1191,7 @@ function loadTrack(index) {
             const activeSegments = Math.round(freqVal * (miniSegments - 2)); 
             const rawH = freqVal * (miniSegments - 2);
 
-         //dash(peak) distance with ladder
-            const targetPeak = rawH + 1;
+            const targetPeak = rawH + 0.9;
 
             if (targetPeak > miniPeakHeights[i]) {
               miniPeakHeights[i] = targetPeak;
@@ -1170,26 +1207,37 @@ function loadTrack(index) {
 
               if (s < activeSegments) {
                 const ratio = s / (miniSegments - 1);
-                let currentHue, currentSat, currentLight;
-                if (ratio < 0.20) {
-                  const subR = ratio / 0.20;
-                  currentHue = accentHSL.h;
-                  currentSat = 95;
-                  currentLight = 28 + subR * 12;
-                } else if (ratio < 0.80) {
-                  const subR = (ratio - 0.20) / 0.60;
-                  currentHue = accentHSL.h + subR * 30;
-                  currentSat = 90 - subR * 35;
-                  currentLight = 40 + subR * 40;
+                let curH, curS, curL;
+
+                if (ratio <= 0.25) {
+                  curH = accentHSL.h;
+                  curS = Math.min(100, accentHSL.s + 10);
+                  curL = Math.max(25, accentHSL.l - 10);
+                } else if (ratio <= 0.75) {
+                  const subR = (ratio - 0.25) / 0.50;
+                  let startH = accentHSL.h;
+                  let endH = targetHarmoniousH;
+                  let diff = endH - startH;
+                  if (diff > 180) diff -= 360;
+                  if (diff < -180) diff += 360;
+                  curH = (startH + diff * subR + 360) % 360;
+                  curS = 95;
+                  curL = 50 + subR * 15;
                 } else {
-                  const subR = (ratio - 0.80) / 0.20;
-                  currentHue = accentHSL.h + 30 + subR * 30;
-                  currentSat = 55 + subR * 35;
-                  currentLight = 80 + subR * 12;
+                  curH = targetHarmoniousH;
+                  curS = 100;
+                  curL = 60;
                 }
-                miniCanvasCtx.fillStyle = `hsl(${currentHue}, ${currentSat}%, ${currentLight}%)`;
+
+                curH = Math.round(curH);
+                curS = Math.round(curS);
+                curL = Math.round(curL);
+
+                miniCanvasCtx.fillStyle = `hsl(${curH}, ${curS}%, ${curL}%)`;
+                miniCanvasCtx.shadowBlur = 0;
               } else {
                 miniCanvasCtx.fillStyle = 'rgba(30, 41, 59, 0.4)';
+                miniCanvasCtx.shadowBlur = 0;
               }
               miniCanvasCtx.fillRect(bx, by, miniBarWidth, segH);
             }
@@ -1198,10 +1246,10 @@ function loadTrack(index) {
             if (pVal > 0.15) {
               const segH = (mrect.height - (miniSegments * 1)) / miniSegments;
               const pY = mrect.height - pVal * (segH + 1);
-              miniCanvasCtx.fillStyle = '#38bdf8';
-              miniCanvasCtx.shadowColor = '#38bdf8';
-              miniCanvasCtx.shadowBlur = 8;
-              miniCanvasCtx.fillRect(bx, Math.max(pY - 2, 1), miniBarWidth, 2.5);
+              miniCanvasCtx.fillStyle = '#ffffff';
+              miniCanvasCtx.shadowColor = '#ffffff';
+              miniCanvasCtx.shadowBlur = 6;
+              miniCanvasCtx.fillRect(bx, Math.max(pY - 2, 1), miniBarWidth, 2); 
               miniCanvasCtx.shadowBlur = 0;
             }
           }
@@ -1235,12 +1283,13 @@ function loadTrack(index) {
 
               for (let i = 0; i < numBars; i++) {
                 const x = i * (barWidth + barGap);
-                const freqVal = barFrequencies[i];
+                const freqVal = barFrequencies[i] || 0.1;
                 const activeSegments = Math.round(freqVal * totalSegments);
                 const rawHeightVal = freqVal * totalSegments;
 
-                if (rawHeightVal > peakHeights[i]) {
-                  peakHeights[i] = rawHeightVal;
+                const targetPeakVal = rawHeightVal + 0.9;
+                if (targetPeakVal > peakHeights[i]) {
+                  peakHeights[i] = targetPeakVal;
                 } else {
                   peakHeights[i] = Math.max(0, peakHeights[i] - 0.08);
                 }
@@ -1251,35 +1300,41 @@ function loadTrack(index) {
 
                   if (s < activeSegments) {
                     const ratio = s / (totalSegments - 1);
-                    let currentHue, currentSat, currentLight;
-                    if (ratio < 0.20) {
-                      const subR = ratio / 0.20;
-                      currentHue = accentHSL.h;
-                      currentSat = 95;
-                      currentLight = 28 + subR * 12;
-                    } else if (ratio < 0.80) {
-                      const subR = (ratio - 0.20) / 0.60;
-                      currentHue = accentHSL.h + subR * 30;
-                      currentSat = 90 - subR * 35;
-                      currentLight = 40 + subR * 40;
+                    let curH, curS, curL;
+
+                    if (ratio <= 0.25) {
+                      curH = accentHSL.h;
+                      curS = Math.min(100, accentHSL.s + 10);
+                      curL = Math.max(25, accentHSL.l - 10);
+                    } else if (ratio <= 0.75) {
+                      const subR = (ratio - 0.25) / 0.50;
+                      let startH = accentHSL.h;
+                      let endH = targetHarmoniousH;
+                      let diff = endH - startH;
+                      if (diff > 180) diff -= 360;
+                      if (diff < -180) diff += 360;
+                      curH = (startH + diff * subR + 360) % 360;
+                      curS = 95;
+                      curL = 50 + subR * 15;
                     } else {
-                      const subR = (ratio - 0.80) / 0.20;
-                      currentHue = accentHSL.h + 30 + subR * 30;
-                      currentSat = 55 + subR * 35;
-                      currentLight = 80 + subR * 12;
+                      curH = targetHarmoniousH;
+                      curS = 100;
+                      curL = 60;
                     }
-                    
-                    canvasCtx.fillStyle = `hsl(${currentHue}, ${currentSat}%, ${currentLight}%)`;
-                    canvasCtx.shadowColor = `hsl(${currentHue}, 90%, 50%)`;
-                    canvasCtx.shadowBlur = 6;
+
+                    curH = Math.round(curH);
+                    curS = Math.round(curS);
+                    curL = Math.round(curL);
+
+                    canvasCtx.fillStyle = `hsl(${curH}, ${curS}%, ${curL}%)`;
+                    canvasCtx.shadowColor = `hsl(${curH}, 90%, 50%)`;
+                    canvasCtx.shadowBlur = 4;
                   } else {
                     canvasCtx.fillStyle = 'rgba(30, 41, 59, 0.4)';
                     canvasCtx.shadowBlur = 0;
                   }
 
-                  canvasCtx.beginPath();
-                  canvasCtx.roundRect(x, y, barWidth, segHeight, [1]);
-                  canvasCtx.fill();
+                  canvasCtx.fillRect(x, y, barWidth, segHeight);
                 }
 
                 const peakVal = peakHeights[i];
@@ -1287,10 +1342,10 @@ function loadTrack(index) {
                   const segH = (height - (totalSegments * 1.5)) / totalSegments;
                   const peakY = height - peakVal * (segH + 1.5);
                   
-                  canvasCtx.fillStyle = '#38bdf8';
-                  canvasCtx.shadowColor = '#38bdf8';
-                  canvasCtx.shadowBlur = 10;
-                  canvasCtx.fillRect(x, peakY - 3, barWidth, 3);
+                  canvasCtx.fillStyle = '#ffffff';
+                  canvasCtx.shadowColor = '#ffffff';
+                  canvasCtx.shadowBlur = 8;
+                  canvasCtx.fillRect(x, peakY - 2.5, barWidth, 2.5);
                 }
               }
             } 
@@ -1313,33 +1368,37 @@ function loadTrack(index) {
                 canvasCtx.fillStyle = grad;
                 canvasCtx.shadowColor = '#f97316';
                 canvasCtx.shadowBlur = 14;
-                canvasCtx.beginPath();
-                canvasCtx.roundRect(x, flameY, barWidth, flameH, [4, 4, 0, 0]);
-                canvasCtx.fill();
+                canvasCtx.fillRect(x, flameY, barWidth, flameH);
               }
 
-              // 🔴 補上往上飄散的火花與燃燒粒子效果
               fireSparks.forEach(spk => {
                 if (spk.life <= 0 && isPlaying) {
                   spk.x = Math.random() * width;
-                  spk.y = height - 10;
-                  spk.vx = (Math.random() - 0.5) * 1.5;
-                  spk.vy = -(Math.random() * 2 + 1) * (bassEnergy + 0.8);
-                  spk.size = Math.random() * 3 + 1;
-                  spk.maxLife = Math.random() * 60 + 30;
+                  spk.y = height - 6;
+                  spk.vx = (Math.random() - 0.5) * 1.8;
+                  spk.vy = -(Math.random() * 2.5 + 1.2) * (bassEnergy * 1.5 + 0.8);
+                  spk.isAsh = Math.random() < 0.35;
+                  spk.size = spk.isAsh ? (Math.random() * 2 + 1) : (Math.random() * 3 + 1);
+                  spk.maxLife = Math.random() * 55 + 30;
                   spk.life = spk.maxLife;
-                  spk.hue = Math.random() * 40 + 15;
+                  spk.hue = spk.isAsh ? 0 : (Math.random() * 45 + 15);
                 }
 
                 if (spk.life > 0) {
-                  spk.x += spk.vx + Math.sin(spk.life * 0.1) * 0.8;
+                  spk.x += spk.vx + Math.sin(spk.life * 0.12) * 1.2;
                   spk.y += spk.vy;
                   spk.life--;
                   const alpha = spk.life / spk.maxLife;
 
-                  canvasCtx.fillStyle = `hsla(${spk.hue}, 100%, 65%, ${alpha})`;
-                  canvasCtx.shadowColor = `hsla(${spk.hue}, 100%, 50%, ${alpha})`;
-                  canvasCtx.shadowBlur = 8;
+                  if (spk.isAsh) {
+                    canvasCtx.fillStyle = `rgba(140, 140, 140, ${alpha * 0.7})`;
+                    canvasCtx.shadowBlur = 0;
+                  } else {
+                    canvasCtx.fillStyle = `hsla(${spk.hue}, 100%, 65%, ${alpha})`;
+                    canvasCtx.shadowColor = `hsla(${spk.hue}, 100%, 50%, ${alpha})`;
+                    canvasCtx.shadowBlur = 8;
+                  }
+
                   canvasCtx.beginPath();
                   canvasCtx.arc(spk.x, spk.y, spk.size, 0, Math.PI * 2);
                   canvasCtx.fill();
@@ -1396,14 +1455,10 @@ function loadTrack(index) {
                 canvasCtx.fillStyle = `hsl(${mirrorHue}, 90%, 55%)`;
                 canvasCtx.shadowColor = `hsl(${mirrorHue}, 90%, 50%)`;
                 canvasCtx.shadowBlur = 10;
-                canvasCtx.beginPath();
-                canvasCtx.roundRect(lx, ly, barWidth, barH, [2, 2, 0, 0]);
-                canvasCtx.fill();
+                canvasCtx.fillRect(lx, ly, barWidth, barH);
 
                 const rx = centerX + i * (barWidth + barGap) + barGap;
-                canvasCtx.beginPath();
-                canvasCtx.roundRect(rx, ly, barWidth, barH, [2, 2, 0, 0]);
-                canvasCtx.fill();
+                canvasCtx.fillRect(rx, ly, barWidth, barH);
               }
             } 
             else if (currentMode === 'vortex') {

@@ -1,4 +1,4 @@
-﻿const playlists = {
+const playlists = {
   PlayList1: [
   {
     id: "song-1",
@@ -2178,7 +2178,8 @@ Call me (Call me), I'll arrive
 
 [01:01.18]山峰要屹立多久 
 [01:07.53]才是滄海桑田 
-[01:14.06]人們要等待多久 [01:19.92]才能得到自由 
+[01:14.06]人們要等待多久
+[01:19.92]才能得到自由 
 [01:26.10]一個人要幾度回首 
 [01:32.14]才能視而不見 
 [01:38.63]那答案，我的朋友，在風中飄零 
@@ -4011,7 +4012,8 @@ Call me (Call me), I'll arrive
     album: "Just Once in My Life",
     cover: "https://zero-heaven.github.io/lyricmp3player/mp3/The Righteous Brothers - Unchained Melody.jpg",
     audioUrl: "https://zero-heaven.github.io/lyricmp3player/mp3/The Righteous Brothers - Unchained Melody.mp3",
-    lrcRaw: `[ti:Unchained Melody]
+    lrcRaw: `
+[ti:Unchained Melody]
 [ar:The Righteous Brothers]
 [al:Just Once in My Life]
 [au:Lyricist:Alex North;Composer:Hy Zaret]
@@ -4042,7 +4044,8 @@ Call me (Call me), I'll arrive
 [02:36.521]and time can do so much
 [02:43.358]Are you still mine
 [02:54.020]I need your love
-[03:01.979]God <God>, speed your love, God speed your love to me`,
+[03:01.979]God <God>, speed your love,
+[03:08.011]God speed your love to me.`,
     lrcRaw2: `[00:00.00]電影《人鬼情未了》Ghost
 [00:00.100]噢！吾愛，親愛的
 [00:11.110]我渴望你的觸摸
@@ -4071,7 +4074,7 @@ Call me (Call me), I'll arrive
 [02:43.358]你仍屬於我嗎？
 [02:54.020]我需要你的愛
 [03:01.979]【上天】上天為我護佑著你的愛
-`
+[03:08.011]護佑著你的愛`
   },
   {
     id: "song-54",
@@ -4140,6 +4143,104 @@ Call me (Call me), I'll arrive
   },
   {
     id: "song-55",
+    title: "Raindrops Keep Falling on my Head",
+    artist: "B.J. Thomas",
+    album: "Butch Cassidy and the Sundance Kid",
+    cover: "https://zero-heaven.github.io/lyricmp3player/mp3/B.J. Thomas - Raindrops Keep Falling on my Head 1969.jpg",
+    audioUrl: "https://zero-heaven.github.io/lyricmp3player/mp3/B.J. Thomas - Raindrops Keep Falling on my Head 1969.mp3",
+    lrcRaw: `
+[00:00.00]Movie theme by : Butch Cassidy and the Sundance Kid 1969
+[00:00.00]B.J. Thomas - Raindrops Keep Falling on my Head (1969)
+
+[00:04.89]Raindrops are fallin' on my head
+[00:08.84]and just like the guy whose feet
+[00:11.66]are too big for his bed
+[00:14.85]nothing seems to fit
+[00:17.10]those raindrops
+[00:19.39]are fallin' on my head
+[00:21.11]they keep fallin'.
+[00:23.37]So I just did me some
+[00:26.73]talking to the sun
+[00:29.56]and I said I didn't like the way
+[00:32.72]he got things done
+[00:35.53]he's sleeping on the job
+[00:37.77]those raindrops
+[00:40.06]are fallin' on my head
+[00:41.78]they keep fallin'
+[00:44.07]But there's one thing I know
+[00:50.04]the blues they send to meet me
+[00:53.77]won't defeat me it won't be long
+[00:59.11]till happiness
+[01:01.40]steps up to greet me
+
+[01:08.82]Raindrops keep fallin' on my head
+[01:13.13]but that doesn't mean my eyes
+[01:15.42]will soon be turnin' red
+[01:18.82]cryin's not for me 'cause,
+[01:22.23]I'm never gonna stop the rain
+[01:25.10]by complainin',
+[01:27.11]because I'm free
+[01:31.67]nothin's worryin' me
+[01:42.19]it won't be long
+[01:46.21]till happiness
+[01:48.21]steps up to greet me
+
+[01:55.28]Raindrops keep fallin' on my head
+[01:59.58]but that doesn't mean my eyes
+[02:02.17]will soon be turnin' red
+[02:05.29]cryin's not for me 'cause,
+[02:08.45]I'm never gonna stop the rain
+[02:11.55]by complainin',
+[02:13.55]because I'm free
+[02:18.14]nothin's worryin' me`,
+    lrcRaw2: `
+[00:00.00]電影主題曲：《虎豹小霸王》（1969年）
+[00:00.00]B.J. 湯瑪斯 - 《雨點不斷落在我頭上》1969
+
+[00:04.89]雨點不斷打在我頭上
+[00:08.84]就像一個人的腳太長
+[00:11.66]擠不下他原本的床
+[00:14.85]怎麼樣都不對勁
+[00:17.10]這些雨滴們
+[00:19.39]不斷打在我頭上
+[00:21.11]不斷打著
+[00:23.37]所以啊
+[00:26.73]我決定跟太陽公公訴苦
+[00:29.56]我說，我不喜歡這樣
+[00:32.72]不喜歡他做的這些事情
+[00:35.53]他怠忽職守
+[00:37.77]這些雨滴們
+[00:40.06]不斷打在我頭上
+[00:41.78]持續掉落
+[00:44.07]但有一件事我可以確定
+[00:50.04]這些他們帶給我的憂鬱和悲傷
+[00:53.77]根本無法打敗我，它們不會長久
+[00:59.11]直到快樂豔陽
+[01:01.40]上前迎接我
+
+[01:08.82]雨點不斷打在我頭上
+[01:13.13]但那並不代表 -
+[01:15.42]- 我的眼睛會因為它們而染紅
+[01:18.82]我才不會哭呢，因為
+[01:22.23]我永遠不會因為這些雨點
+[01:25.10]怨天怨地
+[01:27.11]因為我是個自由之身
+[01:31.67]沒什麼好擔心的
+[01:42.19]它們不會長久
+[01:46.21]因為愉悅喜樂
+[01:48.21]很快會取代它們，上前來迎接我
+
+[01:55.28]雨點們不斷打在我頭上
+[01:59.58]但這不代表
+[02:02.17]我的雙眼會因它們而染紅
+[02:05.29]哭泣不是我的風格，因為
+[02:08.45]我永遠也不會因為這些雨點
+[02:11.55]怨天怨地
+[02:13.55]因為我是個自由之身啊！
+[02:18.14]沒什麼好擔心的`
+  },
+  {
+    id: "song-56",
     title: "Careless whisper",
     artist: "Wham!",
     album: "The Age of Innocence",

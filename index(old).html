@@ -1,0 +1,1572 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="h-full bg-slate-950 text-slate-100">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML5 Visual Lyric MP3 Player Pro</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --lyric-accent: #22c55e;
+    }
+    
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: rgba(15, 23, 42, 0.6); }
+    ::-webkit-scrollbar-thumb { background: rgba(51, 65, 85, 0.8); border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(71, 85, 105, 1); }
+
+    /* 強制顯示 Playlist 彈窗內部的獨立滾動條 */
+    #playlist-items::-webkit-scrollbar {
+      width: 6px !important;
+      display: block !important;
+    }
+    #playlist-items::-webkit-scrollbar-thumb {
+      background: rgba(16, 185, 129, 0.8) !important;
+      border-radius: 9999px !important;
+    }
+
+    input[type=range] { -webkit-appearance: none; background: transparent; }
+    input[type=range]:focus { outline: none; }
+    input[type=range]::-webkit-slider-runnable-track { height: 6px; cursor: pointer; border-radius: 9999px; background: rgba(255, 255, 255, 0.2); }
+    input[type=range]::-webkit-slider-thumb { height: 16px; width: 16px; border-radius: 50%; background: #10b981; cursor: pointer; -webkit-appearance: none; margin-top: -5px; box-shadow: 0 0 10px rgba(16, 185, 129, 0.5); }
+
+    .lyric-gradient-active {
+      background: linear-gradient(to right, var(--lyric-accent) var(--progress, 0%), #ffffff var(--progress, 0%));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      transition: background-size 0.05s linear;
+    }
+    .lyric-plain-active {
+      color: var(--lyric-accent) !important;
+      -webkit-text-fill-color: var(--lyric-accent) !important;
+      background: none !important;
+      font-weight: 700;
+      text-shadow: 0 0 12px rgba(34, 197, 94, 0.8);
+    }
+    .lyric-none-active {
+      color: #ffffff !important;
+      -webkit-text-fill-color: #ffffff !important;
+      background: none !important;
+      font-weight: 700;
+    }
+
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+    /* 📱 手機橫屏（Landscape）專屬：極致縮小 Playlist 歌名行距、gap 與內距，顯示最多歌曲 */
+    @media (max-height: 500px) and (orientation: landscape) {
+      #playlist-drawer .p-3, #playlist-drawer .p-2.5 { padding-top: 2px !important; padding-bottom: 2px !important; padding-left: 8px !important; padding-right: 8px !important; }
+      #playlist-items { padding: 4px !important; gap: 2px !important; }
+      #playlist-items > div { padding-top: 2px !important; padding-bottom: 2px !important; padding-left: 4px !important; padding-right: 4px !important; gap: 4px !important; }
+      #playlist-items img { width: 20px !important; height: 20px !important; border-radius: 3px !important; }
+      #playlist-items p.text-xs { font-size: 10px !important; line-height: 1.05 !important; }
+      #playlist-items p.text-\[10px\] { font-size: 8px !important; line-height: 1.0 !important; }
+    }
+  </style>
+</head>
+<body class="h-full flex flex-col justify-between overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-zinc-950 select-none font-sans">
+
+  <!-- Header -->
+  <header class="relative z-20 flex items-center justify-between px-2 sm:px-4 py-1.5 bg-slate-900/90 backdrop-blur-md border-b border-slate-800/85 shrink-0 gap-1.5 sm:gap-2 w-full box-border overflow-hidden">
+    
+    <!-- Mobile Mini Visualizer -->
+    <div class="flex items-center flex-1 max-w-[150px] sm:max-w-[200px] md:hidden h-auto min-h-[44px] py-1 rounded bg-slate-950/60 border border-slate-800/80 overflow-hidden shrink-0">
+      <canvas id="mini-visualizer-canvas" class="w-full h-full block min-h-[40px]"></canvas>
+    </div>
+
+    <!-- Center Control Buttons -->
+    <div class="flex items-center gap-1 sm:gap-2 overflow-x-auto no-scrollbar flex-shrink-0 px-1 py-0.5 whitespace-nowrap justify-end">
+      
+      <!-- 1st Button: Color Mode -->
+      <button id="btn-color-mode" title="Switch Karaoke Effect" 
+              class="inline-flex items-center gap-1.5 px-2 py-1.5 sm:px-3 sm:py-1.5 text-xs font-semibold rounded-lg bg-slate-800 hover:bg-slate-700 text-emerald-400 border border-slate-700 transition-all shrink-0">
+        <i class="fa-solid fa-palette text-xs"></i>
+        <span id="label-color-mode" class="hidden md:inline">Gradient</span>
+      </button>
+
+      <!-- 2nd Button: Cover Fit -->
+      <button id="btn-cover-fit" title="Toggle Cover Image Fit Mode" 
+              class="inline-flex items-center gap-1.5 px-2 py-1.5 sm:px-3 sm:py-1.5 text-xs font-semibold rounded-lg bg-slate-800 hover:bg-slate-700 text-emerald-400 border border-slate-700 transition-all shrink-0">
+        <i class="fa-solid fa-compress text-xs" id="icon-cover-fit"></i>
+        <span id="label-cover-fit" class="hidden md:inline">Fit: Contain</span>
+      </button>
+
+      <!-- 3rd Button: Viz Toggle Mode -->
+      <button id="btn-viz-toggle" title="Toggle Audio Visualizer" 
+              class="inline-flex items-center gap-1.5 px-2 py-1.5 sm:px-3 sm:py-1.5 text-xs font-semibold rounded-lg bg-slate-800 hover:bg-slate-700 text-emerald-400 border border-slate-700 transition-all shrink-0">
+        <i class="fa-solid fa-chart-simple text-xs"></i>
+        <span id="label-viz-mode" class="hidden md:inline">Viz: Cyber Ladder</span>
+      </button>
+
+      <!-- 4th Button: Lyric Color -->
+      <button id="btn-lyric-color" title="Change Lyric Color"
+              class="inline-flex items-center justify-center px-2 py-1.5 sm:px-3 sm:py-1.5 text-xs bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-lg transition-all shrink-0">
+        <i id="lyric-color-icon" class="fa-solid fa-palette text-xs sm:text-sm"></i>
+      </button>
+
+      <!-- 5th Button: Playlist -->
+      <button id="btn-toggle-playlist" title="Toggle Playlist Popup" 
+              class="inline-flex items-center gap-1.5 px-2.5 py-1.5 sm:px-3 sm:py-1.5 text-xs font-semibold rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white shadow-lg shadow-emerald-600/20 transition-all shrink-0">
+        <i class="fa-solid fa-list-ul text-xs"></i>
+        <span class="hidden md:inline">Playlist</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="relative flex-1 flex flex-col md:flex-row items-center justify-center overflow-hidden p-2 sm:p-4 md:p-6 gap-4 max-w-7xl w-full mx-auto min-h-0">
+    
+    <div class="relative w-full max-w-[min(90vh,520px)] aspect-square md:max-w-none md:w-full md:h-full flex flex-col md:flex-row gap-4 items-center justify-center my-auto">
+      
+      <!-- 1. COVER ART SECTION -->
+      <section id="cover-section" class="absolute inset-0 md:relative md:inset-auto w-full md:w-1/2 flex flex-col justify-between rounded-2xl border border-slate-800/80 bg-slate-900/40 backdrop-blur-xl shadow-2xl p-3 sm:p-4 shrink-0 min-h-0 z-0 h-full">
+        
+        <div class="w-full flex items-center justify-between mb-1.5 shrink-0">
+          <span class="text-xs font-semibold text-slate-400"><i class="fa-solid fa-compact-disc text-emerald-400 mr-1"></i> Album Art</span>
+          <button id="btn-toggle-desktop-controls" class="px-2.5 py-1 text-xs rounded-lg bg-slate-800 hover:bg-slate-700 text-emerald-400 border border-slate-700 transition-all flex items-center gap-1.5">
+            <i class="fa-solid fa-sliders text-xs"></i> Art Controls
+          </button>
+        </div>
+
+        <!-- Album Cover Image Frame -->
+        <div class="relative w-full flex-1 rounded-xl overflow-hidden shadow-2xl border border-white/10 group flex items-center justify-center bg-black/40 my-auto min-h-0">
+          <img id="art-cover" src="" alt="Album Cover" crossorigin="anonymous" class="w-full h-full object-contain transition-all duration-300">
+          <canvas id="smoke-canvas" class="absolute inset-0 w-full h-full pointer-events-none opacity-0 transition-opacity duration-700"></canvas>
+          <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-all pointer-events-none"></div>
+        </div>
+        
+        <!-- Art Controls Sub-panel -->
+        <div id="desktop-art-controls" class="hidden w-full mt-2 p-2.5 rounded-xl bg-slate-950/95 border border-slate-800/80 backdrop-blur-md space-y-1.5 shrink-0 shadow-2xl z-30">
+          <div class="flex items-center justify-between text-xs text-slate-300">
+            <span class="flex items-center gap-1.5">
+              <i class="fa-solid fa-wand-magic-sparkles text-emerald-400"></i> Cover Blur 
+              <span id="smoke-badge" class="text-[10px] text-emerald-400 hidden">(Sky Cloud Active)</span>
+            </span>
+            <span id="blur-val" class="font-mono text-emerald-400">0px</span>
+          </div>
+          <input id="slider-blur" type="range" min="0" max="40" value="0" step="1" class="w-full">
+
+          <div class="flex items-center justify-between text-xs text-slate-300">
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-eye text-emerald-400"></i> Transparency</span>
+            <span id="opacity-val" class="font-mono text-emerald-400">100%</span>
+          </div>
+          <input id="slider-opacity" type="range" min="10" max="100" value="100" step="1" class="w-full">
+
+          <div class="flex items-center justify-between text-xs text-slate-300 pt-1 border-t border-slate-800">
+            <span>Cloud Speed</span><span id="speed-val" class="font-mono text-emerald-400">1.0x</span>
+          </div>
+          <input id="slider-cloud-speed" type="range" min="0.5" max="3.0" value="1.0" step="0.1" class="w-full">
+
+          <div class="flex items-center justify-between text-xs text-slate-300">
+            <span>Cloud Amount</span><span id="amount-val" class="font-mono text-emerald-400">6</span>
+          </div>
+          <input id="slider-cloud-amount" type="range" min="3" max="15" value="6" step="1" class="w-full">
+        </div>
+
+        <!-- Visualizer Canvas (Desktop) -->
+        <div class="hidden md:block w-full h-24 mt-2 shrink-0">
+          <canvas id="visualizer-canvas" class="w-full h-full rounded-xl bg-slate-950/80 border border-slate-800 shadow-inner"></canvas>
+        </div>
+      </section>
+
+      <!-- 2. LYRIC SECTION -->
+      <section id="lyric-section-box" class="absolute inset-0 md:relative md:inset-auto w-full md:w-1/2 flex flex-col rounded-2xl overflow-hidden border border-slate-800/80 bg-transparent md:bg-slate-900/90 shadow-2xl shrink-0 min-h-0 z-10 h-full">
+        
+        <!-- Track Metadata Bar -->
+        <div class="relative z-10 px-3 sm:px-4 py-2 border-b border-slate-800/60 bg-slate-950/80 backdrop-blur-md flex items-center justify-between shrink-0">
+          <div class="truncate">
+            <h2 id="lyric-title" class="font-bold text-sm sm:text-base text-slate-100 truncate">Song Title</h2>
+            <p id="lyric-meta" class="text-xs text-slate-400 truncate">Artist • Album</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <button id="btn-toggle-sync" class="px-2.5 py-1 text-[10px] font-bold tracking-wider uppercase rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 hover:bg-emerald-500/30 transition-all shrink-0">
+              <i class="fa-solid fa-arrows-rotate text-[9px] mr-1"></i>
+              <span id="label-sync-mode">Sync</span>
+            </button>
+            <!-- 🆕 雙歌詞切換按鈕 -->
+            <button id="btn-toggle-dual-lyric" class="hidden px-2.5 py-1 text-[10px] font-bold tracking-wider uppercase rounded-full bg-slate-800 text-slate-400 border border-slate-700 hover:bg-slate-700 hover:text-slate-200 transition-all shrink-0">
+              <i class="fa-solid fa-layer-group text-[9px] mr-1"></i>
+              <span id="label-dual-lyric">Lyric 1</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Lyrics Container -->
+        <div id="lyric-container" class="relative z-10 flex-1 overflow-y-auto px-4 sm:px-8 py-8 space-y-4 sm:space-y-6 text-center scroll-smooth min-h-0 bg-transparent">
+          <p class="text-slate-400 italic text-base drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">Select or play a track to load LRC lyrics...</p>
+        </div>
+      </section>
+    </div>
+
+    <!-- Playlist Popup Overlay Modal -->
+    <div id="playlist-drawer" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6 transition-opacity duration-300 hidden">
+      <div class="w-full max-w-md bg-slate-900 border border-slate-800 rounded-2xl shadow-2xl flex flex-col max-h-[82vh] overflow-hidden">
+        
+        <!-- 彈窗標題列 -->
+        <div class="p-3 border-b border-slate-800 flex items-center justify-between shrink-0 bg-slate-950/60">
+          <div class="flex items-center gap-2 text-slate-200 font-bold text-sm">
+            <i class="fa-solid fa-list-ul text-emerald-400"></i><span>Playlist Management</span>
+          </div>
+          <button id="btn-close-playlist" class="p-1.5 rounded-lg hover:bg-slate-800 text-slate-400 hover:text-white">
+            <i class="fa-solid fa-xmark text-lg"></i>
+          </button>
+        </div>
+
+        <!-- 分類 -->
+        <div class="px-3 py-1.5 border-b border-slate-800/80 bg-slate-950/40 flex items-center gap-2 shrink-0">
+          <span class="text-[11px] text-slate-400 font-semibold shrink-0">分類:</span>
+          <select id="playlist-group-select" class="w-full px-2 py-1 text-xs font-medium rounded-lg bg-slate-800 text-slate-200 border border-slate-700">
+            <option value="all">📁 全部歌曲 (All Songs)</option>
+          </select>
+        </div>
+
+        <!-- 排序 -->
+        <div class="px-3 py-1.5 border-b border-slate-800/80 bg-slate-950/40 flex items-center gap-2 shrink-0">
+          <span class="text-[11px] text-slate-400 font-semibold shrink-0">排序:</span>
+          <button id="btn-sort-title" class="flex-1 px-2 py-1 text-xs font-medium rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700"><i class="fa-solid fa-music text-[10px] mr-1 text-emerald-400"></i>歌名</button>
+          <button id="btn-sort-artist" class="flex-1 px-2 py-1 text-xs font-medium rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700"><i class="fa-solid fa-user text-[10px] mr-1 text-emerald-400"></i>歌手</button>
+        </div>
+
+        <!-- 搜尋 -->
+        <div class="px-3 py-1.5 border-b border-slate-800/80 bg-slate-950/40 shrink-0">
+          <div class="relative flex items-center">
+            <i class="fa-solid fa-magnifying-glass absolute left-3 text-slate-500 text-xs pointer-events-none"></i>
+            <input id="playlist-search-input" type="text" placeholder="Search title or artist..." class="w-full pl-8 pr-7 py-1 bg-slate-800/90 border border-slate-700/80 rounded-lg text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-emerald-500">
+            <button id="btn-clear-search" class="hidden absolute right-2.5 text-slate-400 hover:text-slate-200 text-xs"><i class="fa-solid fa-circle-xmark"></i></button>
+          </div>
+        </div>
+
+        <!-- 歌曲清單區塊：具有獨立捲動軸與彈性高度 -->
+        <div id="playlist-items" class="flex-1 min-h-0 overflow-y-scroll p-3 space-y-1.5 overscroll-contain bg-slate-900/50"></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer Playback Controls -->
+  <footer class="relative z-20 px-3 sm:px-6 py-2 sm:py-3 bg-slate-900/90 backdrop-blur-md border-t border-slate-800/80 shrink-0">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2 sm:gap-4">
+      <div class="w-full flex items-center gap-2 sm:gap-3 order-1 md:order-2">
+        <span id="time-current" class="text-[11px] sm:text-xs font-mono text-slate-400 w-9 sm:w-10 text-right">00:00</span>
+        <input id="slider-progress" type="range" min="0" max="100" value="0" class="flex-1">
+        <span id="time-total" class="text-[11px] sm:text-xs font-mono text-slate-400 w-9 sm:w-10">00:00</span>
+        <div class="flex items-center gap-2 order-3 w-full md:w-auto justify-center">
+          <button id="btn-mute" class="text-slate-400 hover:text-white"><i id="icon-mute" class="fa-solid fa-volume-high text-sm sm:text-base"></i></button>
+          <input id="slider-volume" type="range" min="0" max="1" step="0.01" value="0.8" class="w-16 sm:w-24">
+        </div>
+      </div>
+      <div class="flex items-center gap-2 sm:gap-4 order-2 md:order-1">
+        <button id="btn-shuffle" title="Shuffle Playback" class="p-1.5 sm:p-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 transition-all"><i class="fa-solid fa-shuffle text-sm sm:text-base"></i></button>
+        <button id="btn-prev" class="p-1.5 sm:p-2 rounded-xl text-slate-300 hover:text-white hover:bg-slate-800"><i class="fa-solid fa-backward-step text-base sm:text-lg"></i></button>
+        <button id="btn-play-pause" class="py-2.5 px-6 sm:py-3.5 sm:px-8 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold shadow-lg"><i id="icon-play-pause" class="fa-solid fa-play text-xl sm:text-2xl"></i></button>
+        <button id="btn-next" class="p-1.5 sm:p-2 rounded-xl text-slate-300 hover:text-white hover:bg-slate-800"><i class="fa-solid fa-forward-step text-base sm:text-lg"></i></button>
+        <button id="btn-loop-mode" class="p-1.5 sm:p-2 rounded-xl text-emerald-400 hover:bg-slate-800 relative"><i class="fa-solid fa-repeat text-sm sm:text-base"></i></button>
+        <span id="lyric-btn" onclick="toggleLyric()" style="cursor: pointer; font-size: 18px;"></span>
+      </div>
+    </div>
+  </footer>
+
+  <audio id="audio-player" class="hidden" crossorigin="anonymous" preload="auto"></audio>
+  <script src="55Grp-playlist.js"></script>
+  <script>
+    let playlist = [];
+    if (typeof playlists !== 'undefined') {
+      if (Array.isArray(playlists)) {
+        playlist = playlists.map(track => ({
+          ...track,
+          group: track.group || 'all',
+          audioUrl: track.audioUrl || track.src || '',
+          cover: track.cover || 'https://placehold.co/400x400/1e293b/10b981?text=No+Cover',
+          lrcRaw: track.lrcRaw || '',
+          lrcRaw2: track.lrcRaw2 || ''
+        }));
+      } else if (typeof playlists === 'object' && playlists !== null) {
+        playlist = [];
+        Object.keys(playlists).forEach(groupName => {
+          if (Array.isArray(playlists[groupName])) {
+            playlists[groupName].forEach(track => {
+              playlist.push({
+                ...track,
+                group: track.group || groupName,
+                audioUrl: track.audioUrl || track.src || '',
+                cover: track.cover || 'https://placehold.co/400x400/1e293b/10b981?text=No+Cover',
+                lrcRaw: track.lrcRaw || '',
+                lrcRaw2: track.lrcRaw2 || ''
+              });
+            });
+          }
+        });
+      }
+    } else if (typeof window.playlist !== 'undefined' && Array.isArray(window.playlist)) {
+      playlist = window.playlist.map(track => ({
+        ...track,
+        group: track.group || 'all',
+        audioUrl: track.audioUrl || track.src || '',
+        cover: track.cover || 'https://placehold.co/400x400/1e293b/10b981?text=No+Cover',
+        lrcRaw: track.lrcRaw || '',
+        lrcRaw2: track.lrcRaw2 || ''
+      }));
+    }
+
+    let currentTrackIndex = 0;
+    let parsedLyrics = [];
+    let parsedLyrics2 = []; // 🆕 第二歌詞陣列
+    let lyricDisplayMode = 'single'; // 🆕 歌詞模式: 'single' | 'dual' | 'second'
+    let activeLyricIndex = -1;
+    let isShuffle = false;
+    let loopMode = 'all';
+    let karaokeColorMode = 'gradient';
+    let coverFitMode = 'contain';
+    
+    let enableVisualizer = localStorage.getItem('enableVisualizer') !== 'false';
+
+    let isLrcSynced = true;
+    let vizAnimFrameId = null;
+    let searchFilterQuery = '';
+    let selectedGroupFilter = 'all';
+    let currentBlurValue = 0;
+    let currentCloudSpeed = 1.0;
+    let currentCloudAmount = 6;
+    let isLyricVisible = false;
+    
+    const vizModes = [
+      { id: 'ladder', name: 'Cyber Ladder 🎚️' },
+      { id: 'fire', name: 'Flame Fire 🔥' },
+      { id: 'matrix', name: 'Matrix Cyber Code 🟢' },
+      { id: 'laser', name: 'Neon Laser Grid ⚡' },
+      { id: 'mirror', name: 'Mirror Spectrum' },
+      { id: 'vortex', name: 'Audio Vortex' },
+      { id: 'pulse', name: 'Bass Shockwave' },
+      { id: 'wave', name: 'Neon Wave' },
+      { id: 'radial', name: 'Radial Ring' },
+      { id: 'starburst', name: 'Starburst' }
+    ];
+    let currentVizModeIndex = parseInt(localStorage.getItem('vizModeIndex') || '0', 10);
+
+    const particles = Array.from({ length: 70 }, () => ({ x: 0, y: 0, vx: 0, vy: 0, radius: 0, alpha: 0, hue: 0 }));
+    const fireSparks = Array.from({ length: 60 }, () => ({ x: 0, y: 0, vx: 0, vy: 0, size: 0, life: 0, maxLife: 0, hue: 0 }));
+    const matrixDrops = Array.from({ length: 36 }, () => ({ x: Math.random() * 300, y: (Math.random() - 0.5) * 50, speed: Math.random() * 3 + 2, char: '01' }));
+    const shockwaves = [];
+    let peakHeights = [];
+    let miniPeakHeights = [];
+
+    let coverImageObj = new Image();
+    coverImageObj.crossOrigin = "anonymous";
+    let coverCanvasSource = document.createElement('canvas');
+    let coverCtxSource = coverCanvasSource.getContext('2d');
+
+    const audio = document.getElementById('audio-player');
+    const artCover = document.getElementById('art-cover');
+    const lyricSectionBox = document.getElementById('lyric-section-box');
+    
+    const btnCoverFit = document.getElementById('btn-cover-fit');
+    const labelCoverFit = document.getElementById('label-cover-fit');
+    const iconCoverFit = document.getElementById('icon-cover-fit');
+
+    const sliderBlur = document.getElementById('slider-blur');
+    const sliderOpacity = document.getElementById('slider-opacity');
+    const blurVal = document.getElementById('blur-val');
+    const opacityVal = document.getElementById('opacity-val');
+    const smokeBadge = document.getElementById('smoke-badge');
+
+    const sliderCloudSpeed = document.getElementById('slider-cloud-speed');
+    const speedVal = document.getElementById('speed-val');
+    const sliderCloudAmount = document.getElementById('slider-cloud-amount');
+    const amountVal = document.getElementById('amount-val');
+
+    const btnToggleDesktopControls = document.getElementById('btn-toggle-desktop-controls');
+    const desktopArtControls = document.getElementById('desktop-art-controls');
+
+    const lyricContainer = document.getElementById('lyric-container');
+    const lyricTitle = document.getElementById('lyric-title');
+    const lyricMeta = document.getElementById('lyric-meta');
+
+    const lyricColorIcon = document.getElementById('lyric-color-icon');
+    const btnLyricColor = document.getElementById('btn-lyric-color'); 
+    const btnToggleSync = document.getElementById('btn-toggle-sync');
+    const labelSyncMode = document.getElementById('label-sync-mode');
+
+    // 🆕 雙歌詞按鈕 DOM 元素
+    const btnToggleDualLyric = document.getElementById('btn-toggle-dual-lyric');
+    const labelDualLyric = document.getElementById('label-dual-lyric');
+
+    const btnPlayPause = document.getElementById('btn-play-pause');
+    const iconPlayPause = document.getElementById('icon-play-pause');
+    const btnPrev = document.getElementById('btn-prev');
+    const btnNext = document.getElementById('btn-next');
+    const btnShuffle = document.getElementById('btn-shuffle');
+    const btnLoopMode = document.getElementById('btn-loop-mode');
+    const btnColorMode = document.getElementById('btn-color-mode');
+    const labelColorMode = document.getElementById('label-color-mode');
+    
+    const btnVizToggle = document.getElementById('btn-viz-toggle');
+    const labelVizMode = document.getElementById('label-viz-mode');
+
+    const sliderProgress = document.getElementById('slider-progress');
+    const sliderVolume = document.getElementById('slider-volume');
+    const btnMute = document.getElementById('btn-mute');
+    const iconMute = document.getElementById('icon-mute');
+    const timeCurrent = document.getElementById('time-current');
+    const timeTotal = document.getElementById('time-total');
+
+    const playlistDrawer = document.getElementById('playlist-drawer');
+    const btnTogglePlaylist = document.getElementById('btn-toggle-playlist');
+    const btnClosePlaylist = document.getElementById('btn-close-playlist');
+    const playlistItems = document.getElementById('playlist-items');
+
+    const btnSortTitle = document.getElementById('btn-sort-title');
+    const btnSortArtist = document.getElementById('btn-sort-artist');
+    const playlistSearchInput = document.getElementById('playlist-search-input');
+    const btnClearSearch = document.getElementById('btn-clear-search');
+    const playlistGroupSelect = document.getElementById('playlist-group-select');
+
+    const canvas = document.getElementById('visualizer-canvas');
+    const canvasCtx = canvas ? canvas.getContext('2d') : null;
+
+    const miniCanvas = document.getElementById('mini-visualizer-canvas');
+    const miniCanvasCtx = miniCanvas ? miniCanvas.getContext('2d') : null;
+
+    const smokeCanvas = document.getElementById('smoke-canvas');
+    const smokeCtx = smokeCanvas ? smokeCanvas.getContext('2d') : null;
+
+    let audioCtx = null;
+    let analyser = null;
+    let audioSourceNode = null;
+    let frequencyDataArray = null;
+    let isAudioCtxInitialized = false;
+
+    function initAudioContext() {
+      if (isAudioCtxInitialized) return;
+      try {
+        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+        if (!AudioContextClass) return;
+        audioCtx = new AudioContextClass();
+        analyser = audioCtx.createAnalyser();
+        analyser.fftSize = 256;
+        frequencyDataArray = new Uint8Array(analyser.frequencyBinCount);
+
+        audioSourceNode = audioCtx.createMediaElementSource(audio);
+        audioSourceNode.connect(analyser);
+        analyser.connect(audioCtx.destination);
+        isAudioCtxInitialized = true;
+      } catch (e) {
+        console.warn("Web Audio API fallback:", e);
+      }
+    }
+
+    const cloudBlobs = Array.from({ length: 15 }, () => ({
+      x: Math.random() * 320,
+      y: Math.random() * 320,
+      vx: (Math.random() - 0.5) * 1.2,
+      vy: (Math.random() - 0.5) * 1.2,
+      radius: Math.random() * 110 + 85,
+      sampleX: Math.random(),
+      sampleY: Math.random(),
+      phase: Math.random() * Math.PI * 2
+    }));
+
+    function loadCoverImageForSampling(url) {
+      coverImageObj.src = url;
+      coverImageObj.onload = () => {
+        coverCanvasSource.width = coverImageObj.naturalWidth || 100;
+        coverCanvasSource.height = coverImageObj.naturalHeight || 100;
+        coverCtxSource.drawImage(coverImageObj, 0, 0, coverCanvasSource.width, coverCanvasSource.height);
+      };
+    }
+
+    function sampleVividCoverColor(nx, ny) {
+      try {
+        const px = Math.floor(nx * coverCanvasSource.width);
+        const py = Math.floor(ny * coverCanvasSource.height);
+        const pixel = coverCtxSource.getImageData(px, py, 1, 1).data;
+        let r = Math.min(255, pixel[0] * 1.4);
+        let g = Math.min(255, pixel[1] * 1.4);
+        let b = Math.min(255, pixel[2] * 1.4);
+        return `rgb(${Math.floor(r)}, ${Math.floor(g)}, ${Math.floor(b)})`;
+      } catch (e) {
+        return 'rgb(16, 185, 129)';
+      }
+    }
+
+    function parseLRC(lrcString) {
+      if (!lrcString) return { meta: {}, lines: [] };
+      const lines = lrcString.split('\n');
+      const lyricLines = [];
+      const meta = {};
+      const timeRegex = /\[(\d{2}):(\d{2})\.(\d{2,3})\]/;
+      const metaRegex = /\[(ti|ar|al):(.*)\]/i;
+
+      lines.forEach(line => {
+        const lineTrim = line.trim();
+        const metaMatch = lineTrim.match(metaRegex);
+        if (metaMatch) { meta[metaMatch[1].toLowerCase()] = metaMatch[2].trim(); return; }
+        const timeMatch = lineTrim.match(timeRegex);
+        if (timeMatch) {
+          const minutes = parseInt(timeMatch[1], 10);
+          const seconds = parseInt(timeMatch[2], 10);
+          const msStr = timeMatch[3];
+          const milliseconds = msStr.length === 2 ? parseInt(msStr, 10) * 10 : parseInt(msStr, 10);
+          const timeInSeconds = minutes * 60 + seconds + milliseconds / 1000;
+          const text = lineTrim.replace(timeRegex, '').trim();
+          lyricLines.push({ time: timeInSeconds, text: text || '♪' });
+        }
+      });
+      lyricLines.sort((a, b) => a.time - b.time);
+      return { meta, lines: lyricLines };
+    }
+
+function loadTrack(index) {
+      if (!playlist || index < 0 || index >= playlist.length) return;
+      currentTrackIndex = index;
+      const track = playlist[index];
+
+      audio.src = track.audioUrl;
+      audio.volume = sliderVolume.value;
+
+      const fallbackUrl = 'https://placehold.co/400x400/1e293b/10b981?text=No+Cover';
+      artCover.src = track.cover;
+      loadCoverImageForSampling(track.cover);
+      artCover.onerror = () => { artCover.src = fallbackUrl; };
+
+      const parsed = parseLRC(track.lrcRaw);
+      parsedLyrics = parsed.lines;
+
+      // 1. Reset lyric mode back to default single mode
+      lyricDisplayMode = 'single';
+
+      // 2. Safely inspect if lrcRaw2 exists and contains valid timestamped lyrics
+      const raw2 = (track.lrcRaw2 || '').toString().trim();
+      const hasValidLrc2 = raw2 !== '' && raw2.includes('[');
+
+      if (hasValidLrc2) {
+        const parsed2 = parseLRC(track.lrcRaw2);
+        parsedLyrics2 = parsed2.lines;
+        
+        // Show and enable button for tracks with dual lyrics
+        if (btnToggleDualLyric) {
+          btnToggleDualLyric.classList.remove('hidden');
+          btnToggleDualLyric.disabled = false;
+          labelDualLyric.textContent = 'Lrc1';
+          btnToggleDualLyric.className = 'px-2.5 py-1 text-[10px] font-bold tracking-wider uppercase rounded-full bg-slate-800 text-slate-400 border border-slate-700 hover:bg-slate-700 hover:text-slate-200 transition-all shrink-0';
+        }
+      } else {
+        parsedLyrics2 = [];
+        
+        // Hide and disable button completely if no second lyrics exist
+        if (btnToggleDualLyric) {
+          btnToggleDualLyric.classList.add('hidden');
+          btnToggleDualLyric.disabled = true;
+        }
+      }
+
+      const songTitle = parsed.meta.ti || track.title || "Unknown Title";
+      const songArtist = parsed.meta.ar || track.artist || "Unknown Artist";
+      const songAlbum = parsed.meta.al || track.album || "Unknown Album";
+
+      if (lyricTitle) lyricTitle.textContent = songTitle;
+      if (lyricMeta) lyricMeta.textContent = `${songArtist} • ${songAlbum}`;
+
+      renderLyrics();
+      renderPlaylistUI();
+    }
+
+    function getLyricIcon(status) {
+      if (status === 'on') {
+        return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                  <path d="M8 9h8"></path>
+                  <path d="M8 13h5"></path>
+                </svg>`;
+      } else {
+        return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 .45-1.27"></path>
+                  <line x1="2" y1="2" x2="22" y2="22"></line>
+                </svg>`;
+      }
+    }
+
+    const lyricBtn = document.getElementById('lyric-btn');
+    if (lyricBtn) lyricBtn.innerHTML = getLyricIcon('off');
+
+    function updateLyricDisplayState() {
+      const isDesktop = window.innerWidth >= 768;
+      if (isDesktop) {
+        if (lyricSectionBox) {
+          lyricSectionBox.style.display = 'flex';
+          lyricSectionBox.classList.remove('absolute', 'inset-0');
+        }
+        lyricBtn.innerHTML = getLyricIcon('on');
+      } else {
+        if (lyricSectionBox) {
+          lyricSectionBox.classList.add('absolute', 'inset-0');
+          if (isLyricVisible) {
+            lyricSectionBox.style.display = 'flex';
+            lyricBtn.innerHTML = getLyricIcon('on');
+            lyricBtn.title = "Lyric: On (Click to hide)";
+          } else {
+            lyricSectionBox.style.display = 'none';
+            lyricBtn.innerHTML = getLyricIcon('off');
+            lyricBtn.title = "Lyric: Off (Click to show)";
+          }
+        }
+      }
+    }
+
+    function toggleLyric() {
+      isLyricVisible = !isLyricVisible;
+      updateLyricDisplayState();
+    }
+
+    // 🆕 點擊按鈕循環切換模式：單一第一歌詞 -> 雙歌詞同步展示 -> 單一第二歌詞
+    if (btnToggleDualLyric) {
+      btnToggleDualLyric.onclick = () => {
+        if (lyricDisplayMode === 'single') {
+          lyricDisplayMode = 'dual';
+          labelDualLyric.textContent = 'Dual';
+          btnToggleDualLyric.className = 'px-2.5 py-1 text-[10px] font-bold tracking-wider uppercase rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 hover:bg-emerald-500/30 transition-all shrink-0';
+        } else if (lyricDisplayMode === 'dual') {
+          lyricDisplayMode = 'second';
+          labelDualLyric.textContent = 'Lrc2';
+          btnToggleDualLyric.className = 'px-2.5 py-1 text-[10px] font-bold tracking-wider uppercase rounded-full bg-cyan-500/20 text-cyan-400 border border-cyan-500/40 hover:bg-cyan-500/30 transition-all shrink-0';
+        } else {
+          lyricDisplayMode = 'single';
+          labelDualLyric.textContent = 'Lrc1';
+          btnToggleDualLyric.className = 'px-2.5 py-1 text-[10px] font-bold tracking-wider uppercase rounded-full bg-slate-800 text-slate-400 border border-slate-700 hover:bg-slate-700 hover:text-slate-200 transition-all shrink-0';
+        }
+        renderLyrics();
+        if (!audio.paused && isLrcSynced) updateKaraokeLyrics(audio.currentTime);
+      };
+    }
+
+    function renderLyrics() {
+      lyricContainer.innerHTML = '';
+      if (parsedLyrics.length === 0) {
+        lyricContainer.innerHTML = `<p class="text-slate-400 italic text-base drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">No lyrics found for this track.</p>`;
+        return;
+      }
+
+      parsedLyrics.forEach((item, i) => {
+        const p = document.createElement('p');
+        p.id = `lyric-line-${i}`;
+        p.className = 'text-base sm:text-lg md:text-xl font-medium text-slate-200 drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] transition-all duration-200 cursor-pointer hover:text-white py-1';
+        
+        let lineHtml = item.text;
+
+        // 🆕 根據模式組合第一/第二歌詞
+        if (lyricDisplayMode === 'dual' && parsedLyrics2.length > 0) {
+          const match2 = parsedLyrics2.find(l => Math.abs(l.time - item.time) < 0.6) || { text: '' };
+          if (match2.text) {
+            lineHtml += `<span id="lyric-sub-${i}" class="block text-sm sm:text-base md:text-lg font-normal text-slate-400 mt-0.5">${match2.text}</span>`;
+          }
+        } else if (lyricDisplayMode === 'second' && parsedLyrics2.length > 0) {
+          const match2 = parsedLyrics2.find(l => Math.abs(l.time - item.time) < 0.6) || { text: item.text };
+          lineHtml = match2.text;
+        }
+
+        p.innerHTML = lineHtml;
+        p.onclick = () => { audio.currentTime = item.time; playAudio(); };
+        lyricContainer.appendChild(p);
+      });
+    }
+
+    function updateGroupDropdown() {
+      if (!playlist || !playlistGroupSelect) return;
+      const groups = new Set();
+      playlist.forEach(t => { if (t.group && t.group !== 'all') groups.add(t.group); });
+      const currentVal = playlistGroupSelect.value;
+      playlistGroupSelect.innerHTML = `<option value="all">📁 全部歌曲 (All Songs)</option>`;
+      groups.forEach(g => {
+        const opt = document.createElement('option');
+        opt.value = g;
+        opt.textContent = g.toUpperCase();
+        playlistGroupSelect.appendChild(opt);
+      });
+      playlistGroupSelect.value = [...groups, 'all'].includes(currentVal) ? currentVal : 'all';
+    }
+
+    if (playlistGroupSelect) {
+      playlistGroupSelect.onchange = (e) => { selectedGroupFilter = e.target.value; renderPlaylistUI(); };
+    }
+
+    function renderPlaylistUI() {
+      playlistItems.innerHTML = '';
+      if (!playlist) return;
+      const query = searchFilterQuery.trim().toLowerCase();
+      let matchedCount = 0;
+
+      playlist.forEach((track, originalIndex) => {
+        if (selectedGroupFilter !== 'all' && track.group !== selectedGroupFilter) return;
+        if (query && !track.title.toLowerCase().includes(query) && !track.artist.toLowerCase().includes(query)) return;
+
+        matchedCount++;
+        const item = document.createElement('div');
+        const isActive = originalIndex === currentTrackIndex;
+        item.className = `flex items-center gap-3 p-2 rounded-xl cursor-pointer transition-all ${
+          isActive ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30' : 'hover:bg-slate-800/60 text-slate-300'
+        }`;
+        item.innerHTML = `
+          <div class="w-8 h-8 rounded-lg overflow-hidden shrink-0 bg-slate-800">
+            <img src="${track.cover}" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/100x100/1e293b/10b981?text=MP3'">
+          </div>
+          <div class="truncate flex-1">
+            <p class="text-xs font-semibold truncate ${isActive ? 'text-emerald-400' : 'text-slate-200'}">${track.title}</p>
+            <p class="text-[10px] text-slate-400 truncate">${track.artist} ${track.group && track.group !== 'all' ? `<span class="ml-1 px-1.5 py-0.2 bg-slate-800 rounded text-[9px] text-emerald-400 border border-slate-700">${track.group}</span>` : ''}</p>
+          </div>
+          ${isActive ? '<i class="fa-solid fa-volume-high text-emerald-400 text-xs shrink-0"></i>' : ''}
+        `;
+        item.onclick = () => { loadTrack(originalIndex); playAudio(); playlistDrawer.classList.add('hidden'); };
+        playlistItems.appendChild(item);
+      });
+
+      if (matchedCount === 0) playlistItems.innerHTML = `<div class="p-4 text-center text-xs text-slate-500 italic">No matching songs found</div>`;
+    }
+
+    if (playlistSearchInput) {
+      playlistSearchInput.oninput = (e) => {
+        searchFilterQuery = e.target.value;
+        btnClearSearch.classList.toggle('hidden', !searchFilterQuery);
+        renderPlaylistUI();
+      };
+    }
+
+    if (btnClearSearch) {
+      btnClearSearch.onclick = () => { searchFilterQuery = ''; playlistSearchInput.value = ''; btnClearSearch.classList.add('hidden'); renderPlaylistUI(); };
+    }
+
+    function sortPlaylist(key) {
+      if (!playlist || playlist.length <= 1) return;
+      const currentTrack = playlist[currentTrackIndex];
+      playlist.sort((a, b) => (a[key] || '').toString().localeCompare((b[key] || '').toString(), undefined, { numeric: true, sensitivity: 'base' }));
+      if (currentTrack) currentTrackIndex = playlist.findIndex(t => t === currentTrack);
+      renderPlaylistUI();
+    }
+
+    if (btnSortTitle) btnSortTitle.onclick = () => sortPlaylist('title');
+    if (btnSortArtist) btnSortArtist.onclick = () => sortPlaylist('artist');
+
+    function playAudio() {
+      initAudioContext();
+      if (audioCtx && audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+      audio.play().then(() => iconPlayPause.className = "fa-solid fa-pause text-xl").catch(err => console.warn(err));
+    }
+    function pauseAudio() { audio.pause(); iconPlayPause.className = "fa-solid fa-play text-xl"; }
+
+    function getAccentHSL() {
+      const accent = getComputedStyle(document.documentElement).getPropertyValue('--lyric-accent').trim();
+      if (accent.startsWith('#')) {
+        let hex = accent.replace('#', '');
+        if (hex.length === 3) hex = hex.split('').map(c => c + c).join('');
+        const num = parseInt(hex, 16);
+        const r = (num >> 16) & 255, g = (num >> 8) & 255, b = num & 255;
+        const max = Math.max(r, g, b), min = Math.min(r, g, b);
+        let h, s, l = (max + min) / 2;
+        if (max === min) { h = s = 0; } 
+        else {
+          const d = max - min;
+          s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+          switch (max) {
+            case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+            case g: h = (b - r) / d + 2; break;
+            case b: h = (r - g) / d + 4; break;
+          }
+          h /= 6;
+        }
+        return { h: Math.round(h * 360), s: 95, l: 38 };
+      }
+      return { h: 142, s: 95, l: 38 };
+    }
+
+    if (btnLyricColor) {
+      const lyricColors = [
+        { color: "#22c55e" }, 
+        { color: "#FF007F" }, 
+        { color: "#FF6F61" }, 
+        { color: "#9D00FF" }, 
+        { color: "#3399FF" }, 
+        { color: "#00FF66" }
+      ];
+      let currentColorIndex = parseInt(localStorage.getItem('lyricColorIndex') || '0');
+      function applyLyricColor() {
+        const selected = lyricColors[currentColorIndex];
+        document.documentElement.style.setProperty('--lyric-accent', selected.color);
+        lyricColorIcon.style.color = selected.color;
+        if (!audio.paused) updateKaraokeLyrics(audio.currentTime);
+      }
+      applyLyricColor();
+      btnLyricColor.onclick = () => {
+        currentColorIndex = (currentColorIndex + 1) % lyricColors.length;
+        localStorage.setItem('lyricColorIndex', currentColorIndex);
+        applyLyricColor();
+      };
+    }
+
+    btnPlayPause.onclick = () => { if (audio.paused) playAudio(); else pauseAudio(); };
+    btnNext.onclick = () => {
+      currentTrackIndex = isShuffle ? Math.floor(Math.random() * playlist.length) : (currentTrackIndex + 1) % playlist.length;
+      loadTrack(currentTrackIndex); playAudio();
+    };
+    btnPrev.onclick = () => {
+      currentTrackIndex = (currentTrackIndex - 1 + playlist.length) % playlist.length;
+      loadTrack(currentTrackIndex); playAudio();
+    };
+
+    audio.ontimeupdate = () => {
+      if (isNaN(audio.duration)) return;
+      sliderProgress.value = (audio.currentTime / audio.duration) * 100;
+      timeCurrent.textContent = formatTime(audio.currentTime);
+      timeTotal.textContent = formatTime(audio.duration);
+      if (isLrcSynced) updateKaraokeLyrics(audio.currentTime);
+    };
+
+    audio.onended = () => {
+      if (loopMode === 'one') { audio.currentTime = 0; playAudio(); }
+      else if (loopMode === 'all' || isShuffle) { btnNext.click(); }
+      else { pauseAudio(); }
+    };
+
+    sliderProgress.oninput = () => { if (!isNaN(audio.duration)) audio.currentTime = (sliderProgress.value / 100) * audio.duration; };
+
+    btnToggleSync.onclick = () => {
+      isLrcSynced = !isLrcSynced;
+      if (isLrcSynced) {
+        btnToggleSync.className = 'px-2.5 py-1 text-[10px] font-bold tracking-wider uppercase rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 hover:bg-emerald-500/30 transition-all shrink-0';
+        labelSyncMode.textContent = 'Sync';
+        if (!audio.paused) updateKaraokeLyrics(audio.currentTime);
+      } else {
+        btnToggleSync.className = 'px-2.5 py-1 text-[10px] font-bold tracking-wider uppercase rounded-full bg-slate-800 text-slate-400 border border-slate-700 hover:bg-slate-700 hover:text-slate-200 transition-all shrink-0';
+        labelSyncMode.textContent = 'Unsync';
+        if (activeLyricIndex !== -1) {
+          const activeEl = document.getElementById(`lyric-line-${activeLyricIndex}`);
+          if (activeEl) {
+            activeEl.className = 'text-base sm:text-lg md:text-xl font-medium text-slate-200 drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] transition-all duration-200 cursor-pointer hover:text-white py-1';
+            activeEl.style.removeProperty('--progress');
+          }
+          activeLyricIndex = -1;
+        }
+      }
+    };
+
+    if (btnToggleDesktopControls && desktopArtControls) {
+      btnToggleDesktopControls.onclick = () => {
+        desktopArtControls.classList.toggle('hidden');
+      };
+    }
+
+    // 🆕 同步跟隨與色彩特效（同時支援第一與第二歌詞）
+    function updateKaraokeLyrics(currentTime) {
+      if (!parsedLyrics || parsedLyrics.length === 0 || !isLrcSynced) return;
+      let index = -1;
+      for (let i = 0; i < parsedLyrics.length; i++) {
+        if (currentTime >= parsedLyrics[i].time) index = i; else break;
+      }
+      if (index !== activeLyricIndex) {
+        if (activeLyricIndex !== -1) {
+          const prevEl = document.getElementById(`lyric-line-${activeLyricIndex}`);
+          if (prevEl) {
+            prevEl.className = 'text-base sm:text-lg md:text-xl font-medium text-slate-200 drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] transition-all duration-200 cursor-pointer hover:text-white py-1';
+            prevEl.style.removeProperty('--progress');
+          }
+        }
+        activeLyricIndex = index;
+        if (activeLyricIndex !== -1) {
+          const activeEl = document.getElementById(`lyric-line-${activeLyricIndex}`);
+          if (activeEl) activeEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }
+      if (activeLyricIndex !== -1) {
+        const activeEl = document.getElementById(`lyric-line-${activeLyricIndex}`);
+        if (activeEl) {
+          const subEl = document.getElementById(`lyric-sub-${activeLyricIndex}`);
+          
+          if (karaokeColorMode === 'gradient') {
+            const currentLineTime = parsedLyrics[activeLyricIndex].time;
+            const nextLineTime = (activeLyricIndex + 1 < parsedLyrics.length) ? parsedLyrics[activeLyricIndex + 1].time : audio.duration;
+            const percent = Math.min(Math.max(((currentTime - currentLineTime) / (nextLineTime - currentLineTime)) * 100, 0), 100);
+            
+            activeEl.style.removeProperty('--progress');
+            activeEl.className = 'text-lg sm:text-xl md:text-2xl font-bold lyric-gradient-active drop-shadow-[0_2px_10px_rgba(0,0,0,1)] transition-all cursor-pointer py-1';
+            activeEl.style.setProperty('--progress', `${percent}%`);
+
+            if (subEl) {
+              subEl.className = 'block text-sm sm:text-base md:text-lg font-semibold lyric-gradient-active mt-0.5';
+              subEl.style.setProperty('--progress', `${percent}%`);
+            }
+          } else if (karaokeColorMode === 'plain') {
+            activeEl.style.removeProperty('--progress');
+            activeEl.className = 'text-lg sm:text-xl md:text-2xl font-bold lyric-plain-active drop-shadow-[0_2px_10px_rgba(0,0,0,1)] transition-all cursor-pointer py-1';
+            if (subEl) subEl.className = 'block text-sm sm:text-base md:text-lg font-semibold lyric-plain-active mt-0.5';
+          } else {
+            activeEl.style.removeProperty('--progress');
+            activeEl.className = 'text-lg sm:text-xl md:text-2xl font-bold lyric-none-active drop-shadow-[0_2px_10px_rgba(0,0,0,1)] transition-all cursor-pointer py-1';
+            if (subEl) subEl.className = 'block text-sm sm:text-base md:text-lg font-semibold lyric-none-active mt-0.5';
+          }
+        }
+      }
+    }
+
+    function handleBlurChange(val) {
+      currentBlurValue = parseInt(val, 10);
+      blurVal.textContent = `${currentBlurValue}px`;
+      sliderBlur.value = currentBlurValue;
+      artCover.style.filter = `blur(${currentBlurValue}px)`;
+
+      if (currentBlurValue >= 10) {
+        if (smokeCanvas) smokeCanvas.style.opacity = '1';
+        if (smokeBadge) smokeBadge.classList.remove('hidden');
+      } else {
+        if (smokeCanvas) smokeCanvas.style.opacity = '0';
+        if (smokeBadge) smokeBadge.classList.add('hidden');
+      }
+    }
+
+    sliderBlur.oninput = (e) => handleBlurChange(e.target.value);
+
+    sliderOpacity.oninput = (e) => {
+      const val = e.target.value;
+      opacityVal.textContent = `${val}%`;
+      artCover.style.opacity = val / 100;
+    };
+
+    function handleSpeedChange(val) {
+      currentCloudSpeed = parseFloat(val);
+      speedVal.textContent = `${currentCloudSpeed.toFixed(1)}x`;
+      sliderCloudSpeed.value = currentCloudSpeed;
+    }
+    sliderCloudSpeed.oninput = (e) => handleSpeedChange(e.target.value);
+
+    function handleAmountChange(val) {
+      currentCloudAmount = parseInt(val, 10);
+      amountVal.textContent = `${currentCloudAmount}`;
+      sliderCloudAmount.value = currentCloudAmount;
+    }
+    sliderCloudAmount.oninput = (e) => handleAmountChange(e.target.value);
+
+    btnLoopMode.onclick = () => {
+      if (loopMode === 'all') {
+        loopMode = 'one';
+        btnLoopMode.className = 'p-1.5 sm:p-2 rounded-xl text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 relative';
+        btnLoopMode.title = 'Loop Mode: Repeat One';
+        btnLoopMode.innerHTML = `<i class="fa-solid fa-repeat text-sm sm:text-base"></i><span class="text-[9px] font-bold absolute -top-1.5 -right-1.5 bg-emerald-500 text-white rounded-full w-4 h-4 flex items-center justify-center shadow-md">1</span>`;
+      } else if (loopMode === 'one') {
+        loopMode = 'none';
+        btnLoopMode.className = 'p-1.5 sm:p-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 relative';
+        btnLoopMode.title = 'Loop Mode: No Repeat';
+        btnLoopMode.innerHTML = `<i class="fa-solid fa-repeat text-sm sm:text-base"></i>`;
+      } else {
+        loopMode = 'all';
+        btnLoopMode.className = 'p-1.5 sm:p-2 rounded-xl text-emerald-400 hover:bg-slate-800 relative';
+        btnLoopMode.title = 'Loop Mode: Repeat All';
+        btnLoopMode.innerHTML = `<i class="fa-solid fa-repeat text-sm sm:text-base"></i>`;
+      }
+    };
+
+    btnShuffle.onclick = () => {
+      isShuffle = !isShuffle;
+      btnShuffle.className = isShuffle ? 'p-1.5 sm:p-2 rounded-xl text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 transition-all' : 'p-1.5 sm:p-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 transition-all';
+    };
+
+    if (btnCoverFit) {
+      btnCoverFit.onclick = () => {
+        coverFitMode = coverFitMode === 'contain' ? 'cover' : 'contain';
+        if (artCover) artCover.style.objectFit = coverFitMode;
+        if (labelCoverFit) labelCoverFit.textContent = coverFitMode === 'contain' ? 'Fit: Contain' : 'Fit: Cover';
+        if (iconCoverFit) iconCoverFit.className = coverFitMode === 'contain' ? 'fa-solid fa-compress text-xs' : 'fa-solid fa-expand text-xs';
+      };
+    }
+
+    if (btnColorMode) {
+      btnColorMode.onclick = () => {
+        if (karaokeColorMode === 'gradient') { karaokeColorMode = 'plain'; if (labelColorMode) labelColorMode.textContent = 'Plain'; }
+        else if (karaokeColorMode === 'plain') { karaokeColorMode = 'none'; if (labelColorMode) labelColorMode.textContent = 'None'; }
+        else { karaokeColorMode = 'gradient'; if (labelColorMode) labelColorMode.textContent = 'Gradient'; }
+        if (!audio.paused && isLrcSynced) updateKaraokeLyrics(audio.currentTime);
+      };
+    }
+
+    function isMobilePortrait() {
+      return window.innerWidth < 768 && window.innerHeight > window.innerWidth;
+    }
+
+    function initVizUIState() {
+      if (isMobilePortrait()) {
+        if (labelVizMode) labelVizMode.textContent = enableVisualizer ? 'Viz: On' : 'Viz: Off';
+      } else {
+        if (currentVizModeIndex < 0 || currentVizModeIndex >= vizModes.length) currentVizModeIndex = 0;
+        if (labelVizMode) labelVizMode.textContent = 'Viz: ' + vizModes[currentVizModeIndex].name;
+      }
+
+      if (btnVizToggle) {
+        btnVizToggle.className = enableVisualizer
+          ? 'inline-flex items-center gap-1.5 px-2 py-1.5 sm:px-3 sm:py-1.5 text-xs font-semibold rounded-lg bg-slate-800 hover:bg-slate-700 text-emerald-400 border border-slate-700 transition-all shrink-0'
+          : 'inline-flex items-center gap-1.5 px-2 py-1.5 sm:px-3 sm:py-1.5 text-xs font-semibold rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-400 border border-slate-700 transition-all shrink-0';
+      }
+    }
+
+    if (btnVizToggle) {
+      btnVizToggle.onclick = () => {
+        if (isMobilePortrait()) {
+          enableVisualizer = !enableVisualizer;
+        } else {
+          enableVisualizer = true;
+          currentVizModeIndex = (currentVizModeIndex + 1) % vizModes.length;
+          localStorage.setItem('vizModeIndex', currentVizModeIndex);
+        }
+
+        localStorage.setItem('enableVisualizer', enableVisualizer);
+        initVizUIState();
+
+        if (!enableVisualizer) {
+          if (canvasCtx && canvas) canvasCtx.clearRect(0, 0, canvas.width, canvas.height);
+          if (miniCanvasCtx && miniCanvas) miniCanvasCtx.clearRect(0, 0, miniCanvas.width, miniCanvas.height);
+        }
+      };
+    }
+
+    window.addEventListener('resize', () => {
+      initVizUIState();
+      updateLyricDisplayState();
+    });
+
+    sliderVolume.oninput = (e) => {
+      audio.volume = e.target.value;
+      iconMute.className = audio.volume == 0 ? "fa-solid fa-volume-xmark text-sm sm:text-base" : "fa-solid fa-volume-high text-sm sm:text-base";
+    };
+
+    btnMute.onclick = () => {
+      if (audio.volume > 0) {
+        audio.dataset.prevVol = audio.volume;
+        audio.volume = 0;
+        sliderVolume.value = 0;
+        iconMute.className = "fa-solid fa-volume-xmark text-sm sm:text-base";
+      } else {
+        audio.volume = audio.dataset.prevVol || 0.8;
+        sliderVolume.value = audio.volume;
+        iconMute.className = "fa-solid fa-volume-high text-sm sm:text-base";
+      }
+    };
+
+    btnTogglePlaylist.onclick = () => playlistDrawer.classList.remove('hidden');
+    btnClosePlaylist.onclick = () => playlistDrawer.classList.add('hidden');
+    playlistDrawer.onclick = (e) => { if (e.target === playlistDrawer) playlistDrawer.classList.add('hidden'); };
+
+    function startVisualizerAnimation() {
+      if (vizAnimFrameId) cancelAnimationFrame(vizAnimFrameId);
+
+      const numBars = 48;
+      const barFrequencies = Array.from({ length: numBars }, () => 0.1);
+      if (peakHeights.length !== numBars) peakHeights = Array.from({ length: numBars }, () => 0);
+      if (miniPeakHeights.length !== 22) miniPeakHeights = Array.from({ length: 22 }, () => 0);
+      let bassEnergy = 0;
+
+      function draw() {
+        vizAnimFrameId = requestAnimationFrame(draw);
+
+        const isPlaying = !audio.paused && !audio.ended && audio.currentTime > 0;
+        const currentMode = vizModes[currentVizModeIndex].id;
+
+        const accentHSL = getAccentHSL();
+
+        if (isPlaying && analyser && frequencyDataArray) {
+          analyser.getByteFrequencyData(frequencyDataArray);
+          let bassSum = 0;
+          for (let i = 0; i < numBars; i++) {
+            const freqIndex = Math.floor((i / numBars) * (frequencyDataArray.length / 2));
+            const rawVal = frequencyDataArray[freqIndex] / 255;
+            if (i < 8) bassSum += rawVal;
+            const target = Math.max(rawVal * (audio.volume || 0.8), 0.08);
+            barFrequencies[i] += (target - barFrequencies[i]) * 0.45;
+          }
+          bassEnergy = bassSum / 8;
+        } else {
+          for (let i = 0; i < numBars; i++) {
+            if (isPlaying) {
+              const target = (Math.sin((Date.now() / 90) + (i * 0.35)) * 0.45 + 0.55) * (audio.volume || 0.8);
+              barFrequencies[i] += (target - barFrequencies[i]) * 0.3;
+            } else {
+              barFrequencies[i] *= 0.82;
+            }
+          }
+          bassEnergy = 0.1;
+        }
+
+        if (currentBlurValue >= 10 && smokeCtx && smokeCanvas) {
+          const w = smokeCanvas.width = smokeCanvas.clientWidth || 300;
+          const h = smokeCanvas.height = smokeCanvas.clientHeight || 300;
+
+          smokeCtx.clearRect(0, 0, w, h);
+          smokeCtx.globalCompositeOperation = 'screen';
+
+          const blurIntensity = Math.min((currentBlurValue - 5) / 35, 1.0);
+
+          for (let idx = 0; idx < currentCloudAmount && idx < cloudBlobs.length; idx++) {
+            const cloud = cloudBlobs[idx];
+            cloud.phase += 0.015 * currentCloudSpeed; 
+            const curX = cloud.x + Math.sin(cloud.phase + idx) * 45;
+            const curY = cloud.y + Math.cos(cloud.phase * 0.8 + idx) * 40;
+
+            const sampledColor = sampleVividCoverColor(cloud.sampleX, cloud.sampleY);
+            const grad = smokeCtx.createRadialGradient(curX, curY, 0, curX, curY, cloud.radius);
+            
+            grad.addColorStop(0, sampledColor.replace('rgb', 'rgba').replace(')', `, ${0.6 * blurIntensity})`));
+            grad.addColorStop(0.6, sampledColor.replace('rgb', 'rgba').replace(')', `, ${0.25 * blurIntensity})`));
+            grad.addColorStop(1, 'rgba(0,0,0,0)');
+
+            smokeCtx.fillStyle = grad;
+            smokeCtx.beginPath();
+            smokeCtx.arc(curX, curY, cloud.radius, 0, Math.PI * 2);
+            smokeCtx.fill();
+          }
+        }
+
+        // 🔴 Mini Visualizer
+        if (enableVisualizer && miniCanvasCtx && miniCanvas) {
+          const mdpr = window.devicePixelRatio || 1;
+          const mrect = miniCanvas.getBoundingClientRect();
+          if (miniCanvas.width !== mrect.width * mdpr || miniCanvas.height !== mrect.height * mdpr) {
+            miniCanvas.width = mrect.width * mdpr;
+            miniCanvas.height = mrect.height * mdpr;
+          }
+          miniCanvasCtx.save();
+          miniCanvasCtx.scale(mdpr, mdpr);
+          miniCanvasCtx.clearRect(0, 0, mrect.width, mrect.height);
+
+          const miniBars = 22;
+          const miniSegments = 12; 
+          const miniGap = 1.5;
+          const miniBarWidth = Math.max((mrect.width - (miniBars * miniGap)) / miniBars, 2);
+
+          for (let i = 0; i < miniBars; i++) {
+            const freqIdx = Math.floor((i / miniBars) * numBars);
+            const freqVal = barFrequencies[freqIdx];
+            
+            const activeSegments = Math.round(freqVal * (miniSegments - 2)); 
+            const rawH = freqVal * (miniSegments - 2);
+
+         //dash(peak) distance with ladder
+            const targetPeak = rawH + 1;
+
+            if (targetPeak > miniPeakHeights[i]) {
+              miniPeakHeights[i] = targetPeak;
+            } else {
+              miniPeakHeights[i] = Math.max(0, miniPeakHeights[i] - 0.055);
+            }
+
+            const bx = i * (miniBarWidth + miniGap);
+
+            for (let s = 0; s < miniSegments; s++) {
+              const segH = (mrect.height - (miniSegments * 1)) / miniSegments;
+              const by = mrect.height - (s + 1) * (segH + 1);
+
+              if (s < activeSegments) {
+                const ratio = s / (miniSegments - 1);
+                let currentHue, currentSat, currentLight;
+                if (ratio < 0.20) {
+                  const subR = ratio / 0.20;
+                  currentHue = accentHSL.h;
+                  currentSat = 95;
+                  currentLight = 28 + subR * 12;
+                } else if (ratio < 0.80) {
+                  const subR = (ratio - 0.20) / 0.60;
+                  currentHue = accentHSL.h + subR * 30;
+                  currentSat = 90 - subR * 35;
+                  currentLight = 40 + subR * 40;
+                } else {
+                  const subR = (ratio - 0.80) / 0.20;
+                  currentHue = accentHSL.h + 30 + subR * 30;
+                  currentSat = 55 + subR * 35;
+                  currentLight = 80 + subR * 12;
+                }
+                miniCanvasCtx.fillStyle = `hsl(${currentHue}, ${currentSat}%, ${currentLight}%)`;
+              } else {
+                miniCanvasCtx.fillStyle = 'rgba(30, 41, 59, 0.4)';
+              }
+              miniCanvasCtx.fillRect(bx, by, miniBarWidth, segH);
+            }
+
+            const pVal = miniPeakHeights[i];
+            if (pVal > 0.15) {
+              const segH = (mrect.height - (miniSegments * 1)) / miniSegments;
+              const pY = mrect.height - pVal * (segH + 1);
+              miniCanvasCtx.fillStyle = '#38bdf8';
+              miniCanvasCtx.shadowColor = '#38bdf8';
+              miniCanvasCtx.shadowBlur = 8;
+              miniCanvasCtx.fillRect(bx, Math.max(pY - 2, 1), miniBarWidth, 2.5);
+              miniCanvasCtx.shadowBlur = 0;
+            }
+          }
+          miniCanvasCtx.restore();
+        } else if (!enableVisualizer && miniCanvasCtx && miniCanvas) {
+          miniCanvasCtx.clearRect(0, 0, miniCanvas.width, miniCanvas.height);
+        }
+
+        // 💻 Desktop Visualizer
+        if (enableVisualizer) {
+          if (canvasCtx && canvas) {
+            const dpr = window.devicePixelRatio || 1;
+            const rect = canvas.getBoundingClientRect();
+
+            if (canvas.width !== rect.width * dpr || canvas.height !== rect.height * dpr) {
+              canvas.width = rect.width * dpr;
+              canvas.height = rect.height * dpr;
+            }
+
+            canvasCtx.save();
+            canvasCtx.scale(dpr, dpr);
+            canvasCtx.clearRect(0, 0, rect.width, rect.height);
+
+            const width = rect.width;
+            const height = rect.height;
+
+            if (currentMode === 'ladder') {
+              const barGap = 2.5;
+              const barWidth = Math.max((width - (numBars * barGap)) / numBars, 2);
+              const totalSegments = 16;
+
+              for (let i = 0; i < numBars; i++) {
+                const x = i * (barWidth + barGap);
+                const freqVal = barFrequencies[i];
+                const activeSegments = Math.round(freqVal * totalSegments);
+                const rawHeightVal = freqVal * totalSegments;
+
+                if (rawHeightVal > peakHeights[i]) {
+                  peakHeights[i] = rawHeightVal;
+                } else {
+                  peakHeights[i] = Math.max(0, peakHeights[i] - 0.08);
+                }
+
+                for (let s = 0; s < totalSegments; s++) {
+                  const segHeight = (height - (totalSegments * 1.5)) / totalSegments;
+                  const y = height - (s + 1) * (segHeight + 1.5);
+
+                  if (s < activeSegments) {
+                    const ratio = s / (totalSegments - 1);
+                    let currentHue, currentSat, currentLight;
+                    if (ratio < 0.20) {
+                      const subR = ratio / 0.20;
+                      currentHue = accentHSL.h;
+                      currentSat = 95;
+                      currentLight = 28 + subR * 12;
+                    } else if (ratio < 0.80) {
+                      const subR = (ratio - 0.20) / 0.60;
+                      currentHue = accentHSL.h + subR * 30;
+                      currentSat = 90 - subR * 35;
+                      currentLight = 40 + subR * 40;
+                    } else {
+                      const subR = (ratio - 0.80) / 0.20;
+                      currentHue = accentHSL.h + 30 + subR * 30;
+                      currentSat = 55 + subR * 35;
+                      currentLight = 80 + subR * 12;
+                    }
+                    
+                    canvasCtx.fillStyle = `hsl(${currentHue}, ${currentSat}%, ${currentLight}%)`;
+                    canvasCtx.shadowColor = `hsl(${currentHue}, 90%, 50%)`;
+                    canvasCtx.shadowBlur = 6;
+                  } else {
+                    canvasCtx.fillStyle = 'rgba(30, 41, 59, 0.4)';
+                    canvasCtx.shadowBlur = 0;
+                  }
+
+                  canvasCtx.beginPath();
+                  canvasCtx.roundRect(x, y, barWidth, segHeight, [1]);
+                  canvasCtx.fill();
+                }
+
+                const peakVal = peakHeights[i];
+                if (peakVal > 0.2) {
+                  const segH = (height - (totalSegments * 1.5)) / totalSegments;
+                  const peakY = height - peakVal * (segH + 1.5);
+                  
+                  canvasCtx.fillStyle = '#38bdf8';
+                  canvasCtx.shadowColor = '#38bdf8';
+                  canvasCtx.shadowBlur = 10;
+                  canvasCtx.fillRect(x, peakY - 3, barWidth, 3);
+                }
+              }
+            } 
+            else if (currentMode === 'fire') {
+              const barGap = 2;
+              const barWidth = Math.max((width - (numBars * barGap)) / numBars, 2);
+
+              for (let i = 0; i < numBars; i++) {
+                const x = i * (barWidth + barGap);
+                const freqVal = barFrequencies[i];
+                const flameH = freqVal * height * 0.95;
+                const flameY = height - flameH;
+
+                const grad = canvasCtx.createLinearGradient(x, height, x, flameY);
+                grad.addColorStop(0, '#7f1d1d');
+                grad.addColorStop(0.3, '#ea580c');
+                grad.addColorStop(0.7, '#facc15');
+                grad.addColorStop(1, '#ffffff');
+
+                canvasCtx.fillStyle = grad;
+                canvasCtx.shadowColor = '#f97316';
+                canvasCtx.shadowBlur = 14;
+                canvasCtx.beginPath();
+                canvasCtx.roundRect(x, flameY, barWidth, flameH, [4, 4, 0, 0]);
+                canvasCtx.fill();
+              }
+
+              // 🔴 補上往上飄散的火花與燃燒粒子效果
+              fireSparks.forEach(spk => {
+                if (spk.life <= 0 && isPlaying) {
+                  spk.x = Math.random() * width;
+                  spk.y = height - 10;
+                  spk.vx = (Math.random() - 0.5) * 1.5;
+                  spk.vy = -(Math.random() * 2 + 1) * (bassEnergy + 0.8);
+                  spk.size = Math.random() * 3 + 1;
+                  spk.maxLife = Math.random() * 60 + 30;
+                  spk.life = spk.maxLife;
+                  spk.hue = Math.random() * 40 + 15;
+                }
+
+                if (spk.life > 0) {
+                  spk.x += spk.vx + Math.sin(spk.life * 0.1) * 0.8;
+                  spk.y += spk.vy;
+                  spk.life--;
+                  const alpha = spk.life / spk.maxLife;
+
+                  canvasCtx.fillStyle = `hsla(${spk.hue}, 100%, 65%, ${alpha})`;
+                  canvasCtx.shadowColor = `hsla(${spk.hue}, 100%, 50%, ${alpha})`;
+                  canvasCtx.shadowBlur = 8;
+                  canvasCtx.beginPath();
+                  canvasCtx.arc(spk.x, spk.y, spk.size, 0, Math.PI * 2);
+                  canvasCtx.fill();
+                }
+              });
+            }
+            else if (currentMode === 'matrix') {
+              canvasCtx.font = '11px monospace';
+              matrixDrops.forEach((drop, idx) => {
+                drop.x += drop.speed * (bassEnergy * 2 + 0.5);
+                if (drop.x > width) drop.x = 0;
+                drop.y = (idx / matrixDrops.length) * height;
+
+                const char = Math.random() > 0.5 ? '1' : '0';
+                canvasCtx.fillStyle = `hsl(${accentHSL.h}, 90%, 55%)`;
+                canvasCtx.shadowColor = `hsl(${accentHSL.h}, 90%, 65%)`;
+                canvasCtx.shadowBlur = 8;
+                canvasCtx.fillText(char, drop.x, drop.y);
+              });
+            } 
+            else if (currentMode === 'laser') {
+              const centerY = height / 2;
+              for (let i = 0; i < numBars; i++) {
+                const x = (i / numBars) * width;
+                const h = barFrequencies[i] * (height * 0.45);
+                const laserHue = (i * 8 + Date.now() * 0.05) % 360;
+
+                canvasCtx.strokeStyle = `hsl(${laserHue}, 100%, 60%)`;
+                canvasCtx.lineWidth = 2.5;
+                canvasCtx.shadowColor = `hsl(${laserHue}, 100%, 50%)`;
+                canvasCtx.shadowBlur = 14;
+
+                canvasCtx.beginPath();
+                canvasCtx.moveTo(x, centerY - h);
+                canvasCtx.lineTo(x, centerY + h);
+                canvasCtx.stroke();
+              }
+            } 
+            else if (currentMode === 'mirror') {
+              const halfBars = numBars / 2;
+              const barGap = 3;
+              const totalWidthPerSide = (width / 2) - 10;
+              const barWidth = Math.max((totalWidthPerSide - (halfBars * barGap)) / halfBars, 2);
+              const centerX = width / 2;
+
+              for (let i = 0; i < halfBars; i++) {
+                const freqVal = barFrequencies[i];
+                const barH = freqVal * (height * 0.85);
+                const mirrorHue = (i * 12) % 360;
+
+                const lx = centerX - (i + 1) * (barWidth + barGap);
+                const ly = height - barH;
+
+                canvasCtx.fillStyle = `hsl(${mirrorHue}, 90%, 55%)`;
+                canvasCtx.shadowColor = `hsl(${mirrorHue}, 90%, 50%)`;
+                canvasCtx.shadowBlur = 10;
+                canvasCtx.beginPath();
+                canvasCtx.roundRect(lx, ly, barWidth, barH, [2, 2, 0, 0]);
+                canvasCtx.fill();
+
+                const rx = centerX + i * (barWidth + barGap) + barGap;
+                canvasCtx.beginPath();
+                canvasCtx.roundRect(rx, ly, barWidth, barH, [2, 2, 0, 0]);
+                canvasCtx.fill();
+              }
+            } 
+            else if (currentMode === 'vortex') {
+              const centerX = width / 2;
+              const centerY = height / 2;
+              const time = Date.now() * 0.002 * (bassEnergy + 0.5);
+
+              particles.forEach((p, idx) => {
+                const angle = time + (idx / particles.length) * Math.PI * 2;
+                const dist = 10 + barFrequencies[idx % numBars] * (width * 0.45);
+                const px = centerX + Math.cos(angle) * dist;
+                const py = centerY + Math.sin(angle) * dist;
+                const pSize = (barFrequencies[idx % numBars] * 4) + 1.5;
+                const vHue = (idx * 10 + Date.now() * 0.05) % 360;
+
+                canvasCtx.fillStyle = `hsl(${vHue}, 90%, 60%)`;
+                canvasCtx.shadowColor = `hsl(${vHue}, 90%, 50%)`;
+                canvasCtx.shadowBlur = 8;
+
+                canvasCtx.beginPath();
+                canvasCtx.arc(px, py, pSize, 0, Math.PI * 2);
+                canvasCtx.fill();
+              });
+            } 
+            else if (currentMode === 'pulse') {
+              const centerX = width / 2;
+              const centerY = height / 2;
+
+              if (bassEnergy > 0.65 && Math.random() < 0.25) {
+                const randomHue = Math.floor(Math.random() * 360);
+                shockwaves.push({ r: 10, maxR: 180, alpha: 1.0, hue: randomHue });
+              }
+
+              for (let s = shockwaves.length - 1; s >= 0; s--) {
+                const sw = shockwaves[s];
+                sw.r += 2.5;
+                sw.alpha *= 0.96;
+
+                canvasCtx.strokeStyle = `hsla(${sw.hue}, 90%, 60%, ${sw.alpha})`;
+                canvasCtx.lineWidth = 3;
+                canvasCtx.shadowColor = `hsla(${sw.hue}, 90%, 50%, ${sw.alpha})`;
+                canvasCtx.shadowBlur = 15;
+                canvasCtx.beginPath();
+                canvasCtx.arc(centerX, centerY, sw.r, 0, Math.PI * 2);
+                canvasCtx.stroke();
+
+                if (sw.alpha <= 0.05 || sw.r >= sw.maxR) {
+                  shockwaves.splice(s, 1);
+                }
+              }
+
+              const coreRadius = 12 + (bassEnergy * 28);
+              const coreHue = (Date.now() * 0.05) % 360;
+              const coreGrad = canvasCtx.createRadialGradient(centerX, centerY, 0, centerX, centerY, coreRadius);
+              coreGrad.addColorStop(0, `hsl(${coreHue}, 90%, 70%)`);
+              coreGrad.addColorStop(0.7, `hsl(${coreHue}, 90%, 50%)`);
+              coreGrad.addColorStop(1, 'rgba(16, 185, 129, 0)');
+
+              canvasCtx.fillStyle = coreGrad;
+              canvasCtx.shadowColor = `hsl(${coreHue}, 90%, 50%)`;
+              canvasCtx.shadowBlur = 25;
+              canvasCtx.beginPath();
+              canvasCtx.arc(centerX, centerY, coreRadius, 0, Math.PI * 2);
+              canvasCtx.fill();
+            } 
+            else if (currentMode === 'wave') {
+              canvasCtx.beginPath();
+              canvasCtx.lineWidth = 3;
+              canvasCtx.strokeStyle = `hsl(${accentHSL.h}, 90%, 55%)`;
+              canvasCtx.shadowColor = `hsl(${accentHSL.h}, 90%, 60%)`;
+              canvasCtx.shadowBlur = 15;
+
+              const sliceWidth = width / numBars;
+              let x = 0;
+
+              for (let i = 0; i < numBars; i++) {
+                const v = barFrequencies[i];
+                const y = (height / 2) + Math.sin((i / 2) + (Date.now() / 150)) * (v * height * 0.7);
+
+                if (i === 0) canvasCtx.moveTo(x, y);
+                else canvasCtx.lineTo(x, y);
+
+                x += sliceWidth;
+              }
+
+              canvasCtx.lineTo(width, height / 2);
+              canvasCtx.stroke();
+            } 
+            else if (currentMode === 'radial') {
+              const centerX = width / 2;
+              const centerY = height / 2;
+              const radius = Math.min(width, height) * 0.32;
+              const angleStep = (Math.PI * 2) / numBars;
+
+              for (let i = 0; i < numBars; i++) {
+                const angle = i * angleStep;
+                const barLen = barFrequencies[i] * (height * 0.5);
+                const rHue = (i * 15 + Date.now() * 0.05) % 360;
+
+                const x1 = centerX + Math.cos(angle) * radius;
+                const y1 = centerY + Math.sin(angle) * radius;
+                const x2 = centerX + Math.cos(angle) * (radius + barLen);
+                const y2 = centerY + Math.sin(angle) * (radius + barLen);
+
+                canvasCtx.strokeStyle = `hsl(${rHue}, 85%, 60%)`;
+                canvasCtx.lineWidth = 3;
+                canvasCtx.shadowColor = `hsl(${rHue}, 85%, 50%)`;
+                canvasCtx.shadowBlur = 10;
+
+                canvasCtx.beginPath();
+                canvasCtx.moveTo(x1, y1);
+                canvasCtx.lineTo(x2, y2);
+                canvasCtx.stroke();
+              }
+            } 
+            else if (currentMode === 'starburst') {
+              const centerX = width / 2;
+              const centerY = height / 2;
+              const avgEnergy = bassEnergy;
+
+              particles.forEach((p, idx) => {
+                if (p.alpha <= 0.05 && isPlaying) {
+                  p.x = centerX;
+                  p.y = centerY;
+                  const angle = Math.random() * Math.PI * 2;
+                  const speed = (Math.random() * 3 + 1) * (avgEnergy * 4 + 0.5);
+                  p.vx = Math.cos(angle) * speed;
+                  p.vy = Math.sin(angle) * speed;
+                  p.radius = Math.random() * 3.5 + 1.5;
+                  p.alpha = 1;
+                  p.hue = (idx * 15) % 360;
+                }
+
+                p.x += p.vx;
+                p.y += p.vy;
+                p.alpha *= 0.95;
+
+                if (p.alpha > 0.05) {
+                  canvasCtx.fillStyle = `hsla(${p.hue}, 90%, 60%, ${p.alpha})`;
+                  canvasCtx.shadowColor = `hsla(${p.hue}, 90%, 50%, ${p.alpha})`;
+                  canvasCtx.shadowBlur = 8;
+                  canvasCtx.beginPath();
+                  canvasCtx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                  canvasCtx.fill();
+                }
+              });
+            }
+
+            canvasCtx.restore();
+          }
+        }
+      }
+
+      draw();
+    }
+
+    function formatTime(seconds) {
+      if (isNaN(seconds)) return "00:00";
+      const min = Math.floor(seconds / 60);
+      const sec = Math.floor(seconds % 60);
+      return `${min < 10 ? '0' : ''}${min}:${sec < 10 ? '0' : ''}${sec}`;
+    }
+
+    window.onload = () => {
+      initVizUIState();
+      updateGroupDropdown();
+      loadTrack(0);
+      updateLyricDisplayState();
+      startVisualizerAnimation();
+    };
+  </script>
+</body>
+</html>
