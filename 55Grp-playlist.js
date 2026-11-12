@@ -1981,7 +1981,36 @@ Call me (Call me), I'll arrive
 [02:48.55](Now we are here) in Xanadu
 [02:52.58]Now that I'm here, now that you're near, in Xanadu
 [03:01.52]Now that I'm here, now that you're near, in Xanadu
-[03:13.51]Xanadu` 
+[03:13.51]Xanadu`,
+    lrcRaw2: `
+[00:01.00]（仙納杜）是 1980 年經典歌舞電影《仙納杜的狂熱》
+[00:11.04]一個無人敢涉足的地方
+[00:16.79]一段我們所領悟的愛
+[00:20.04]人們稱之為「仙樂都」
+[00:26.29]睜開雙眼看看吧，我們所創造的一切已成現實
+[00:35.05]我們身處“仙樂都”
+[00:42.12]千萬燈火在舞動，你，宛如一顆流星
+[00:49.62]這是一個永恆的世界，你與我在此長相廝守
+[00:58.64]仙樂都，仙樂都
+[01:05.33]（此刻我們身處）仙樂都
+[01:13.85]仙樂都，仙樂都
+[01:20.33]（此刻我們身處）仙樂都
+[01:25.30]仙樂都，霓虹燈光為你閃耀，仙樂都
+[01:37.38]那份迴盪著往昔歲月的愛
+[01:43.12]你曾經渴望讓世人知道
+[01:46.13]它們存在於“仙樂都”
+[01:52.62]歷經百萬年而實現的夢想
+[01:58.13]在無數淚水中仍存續的夢想
+[02:01.37]它來到了“仙樂都”
+[02:08.62]千萬燈火在舞動，你，宛如一顆流星
+[02:16.12]這是一個永恆的世界，你與我在此長相廝守
+[02:26.87]仙樂都，仙樂都
+[02:33.36]（此刻我們身處）仙樂都
+[02:42.08]仙樂都，世外桃源
+[02:48.55](此刻我們身處)世外桃源
+[02:52.58]既然我已在此，既然你在身旁，就在這仙樂都
+[03:01.52]既然我已在此，既然你在身旁，就在這仙樂都
+[03:13.51]仙樂都`
   },
   {
     id: "song-24",
@@ -4354,76 +4383,6 @@ Call me (Call me), I'll arrive
 [04:06.49]無法赦免的大錯…
 [04:09.26]因此妳不得不選擇離開我
 [04:17.88]Da da da da` 
-  },
-    id: "song-57",
-    title: "Xanadu",
-    artist: "Olivia Newton John",
-    album: "Xanadu",
-    cover: "https://zero-heaven.github.io/lyricmp3player/mp3/Olivia Newton John - Xanadu 1980.jpg",
-    audioUrl: "https://zero-heaven.github.io/lyricmp3player/mp3/Olivia Newton John - Xanadu 1980.mp3",
-    lrcRaw: `
-[ar:Olivia Newton-John and Electric Light Orchestra]
-[al:Xanadu]
-[ti:Xanadu]
-[au: Jeff Lynne]
-[length:03:35.59]
-[00:01.00] "Xanadu" refers to the 1980 classic musical film *Xanadu*.
-[00:11.04]A place where nobody dared to go
-[00:16.79]The love that we came to know
-[00:20.04]They call it Xanadu
-[00:26.29]And now, open your eyes and see what we have made is real
-[00:35.05]We are in Xanadu
-[00:42.12]A million lights are dancing and you are, a shooting star
-[00:49.62]An everlasting world and you're here with me, eternally
-[00:58.64]Xanadu, Xanadu
-[01:05.33](Now we are here) in Xanadu
-[01:13.85]Xanadu, Xanadu
-[01:20.33](Now we are here) in Xanadu
-[01:25.30]Xanadu, your neon lights will shine for you, Xanadu
-[01:37.38]The love that echoes of long ago
-[01:43.12]You needed the world to know
-[01:46.13]They are in Xanadu
-[01:52.62]The dream that came through a million years
-[01:58.13]That lived through all the tears
-[02:01.37]It came to Xanadu
-[02:08.62]A million light are dancing and you are, a shooting star
-[02:16.12]An everlasting world and you're here with me, eternally
-[02:26.87]Xanadu, Xanadu
-[02:33.36](Now we are here) in Xanadu
-[02:42.08]Xanadu, Xanadu
-[02:48.55](Now we are here) in Xanadu
-[02:52.58]Now that I'm here, now that you're near, in Xanadu
-[03:01.52]Now that I'm here, now that you're near, in Xanadu
-[03:13.51]Xanadu`,
-    lrcRaw2: `
-[00:01.00]（仙納杜）是 1980 年經典歌舞電影《仙納杜的狂熱》
-[00:11.04]一個無人敢涉足的地方
-[00:16.79]一段我們所領悟的愛
-[00:20.04]人們稱之為「仙樂都」
-[00:26.29]睜開雙眼看看吧，我們所創造的一切已成現實
-[00:35.05]我們身處“仙樂都”
-[00:42.12]千萬燈火在舞動，你，宛如一顆流星
-[00:49.62]這是一個永恆的世界，你與我在此長相廝守
-[00:58.64]仙樂都，仙樂都
-[01:05.33]（此刻我們身處）仙樂都
-[01:13.85]仙樂都，仙樂都
-[01:20.33]（此刻我們身處）仙樂都
-[01:25.30]仙樂都，霓虹燈光為你閃耀，仙樂都
-[01:37.38]那份迴盪著往昔歲月的愛
-[01:43.12]你曾經渴望讓世人知道
-[01:46.13]它們存在於“仙樂都”
-[01:52.62]歷經百萬年而實現的夢想
-[01:58.13]在無數淚水中仍存續的夢想
-[02:01.37]它來到了“仙樂都”
-[02:08.62]千萬燈火在舞動，你，宛如一顆流星
-[02:16.12]這是一個永恆的世界，你與我在此長相廝守
-[02:26.87]仙樂都，仙樂都
-[02:33.36]（此刻我們身處）仙樂都
-[02:42.08]仙樂都，世外桃源
-[02:48.55](此刻我們身處)世外桃源
-[02:52.58]既然我已在此，既然你在身旁，就在這仙樂都
-[03:01.52]既然我已在此，既然你在身旁，就在這仙樂都
-[03:13.51]仙樂都`
   }
   ]
 };
