@@ -226,7 +226,7 @@ const playlists = [
 [ar:Bee Gees]
 [al:Mythology]
 [au:Maurice Gibb, Barry Gibb, Robin Gibb]
-[00:00.00]Bee Gees - Massachusetts 
+[00:00.00]Bee Gees - Massachusetts
 [00:09.11]Feel I'm goin' back to Massachusetts
 [00:18.31]Something's telling me I must go home
 [00:26.17]And the lights all went out in Massachusetts
@@ -1957,10 +1957,6 @@ Call me (Call me), I'll arrive
 [ti:Xanadu]
 [au: Jeff Lynne]
 [length:03:35.59]
-[Motherland]
-[re:���q����]
-[re:www.megalobiz.com/lrc/maker]
-[ve:v1.2.3]
 [00:11.04]A place where nobody dared to go
 [00:16.79]The love that we came to know
 [00:20.04]They call it Xanadu
@@ -1987,7 +1983,36 @@ Call me (Call me), I'll arrive
 [02:48.55](Now we are here) in Xanadu
 [02:52.58]Now that I'm here, now that you're near, in Xanadu
 [03:01.52]Now that I'm here, now that you're near, in Xanadu
-[03:13.51]Xanadu` 
+[03:13.51]Xanadu`,
+    lrcRaw2: `
+[00:01.00]（仙納杜）是 1980 年經典歌舞電影《仙納杜的狂熱》
+[00:11.04]一個無人敢涉足的地方
+[00:16.79]一段我們所領悟的愛
+[00:20.04]人們稱之為「仙樂都」
+[00:26.29]睜開雙眼看看吧，我們所創造的一切已成現實
+[00:35.05]我們身處“仙樂都”
+[00:42.12]千萬燈火在舞動，你，宛如一顆流星
+[00:49.62]這是一個永恆的世界，你與我在此長相廝守
+[00:58.64]仙樂都，仙樂都
+[01:05.33]（此刻我們身處）仙樂都
+[01:13.85]仙樂都，仙樂都
+[01:20.33]（此刻我們身處）仙樂都
+[01:25.30]仙樂都，霓虹燈光為你閃耀，仙樂都
+[01:37.38]那份迴盪著往昔歲月的愛
+[01:43.12]你曾經渴望讓世人知道
+[01:46.13]它們存在於“仙樂都”
+[01:52.62]歷經百萬年而實現的夢想
+[01:58.13]在無數淚水中仍存續的夢想
+[02:01.37]它來到了“仙樂都”
+[02:08.62]千萬燈火在舞動，你，宛如一顆流星
+[02:16.12]這是一個永恆的世界，你與我在此長相廝守
+[02:26.87]仙樂都，仙樂都
+[02:33.36]（此刻我們身處）仙樂都
+[02:42.08]仙樂都，世外桃源
+[02:48.55](此刻我們身處)世外桃源
+[02:52.58]既然我已在此，既然你在身旁，就在這仙樂都
+[03:01.52]既然我已在此，既然你在身旁，就在這仙樂都
+[03:13.51]仙樂都`
   },
   {
     id: "song-24",
@@ -2677,9 +2702,11 @@ Call me (Call me), I'll arrive
 [ar:Scott Mckenzie]
 [al:Kokomo]
 [au:Journeyman]
-[
+[Motherland]
+[re:正義必勝]
+[re:正義必勝]
 
-[00:00.00]Sanfrancisco - Scott Mckenzie
+[00:00.00][00:01.71]Sanfrancisco - Scott Mckenzie
 
 [00:08.01]if you're going to san francisco
 [00:16.20]be sure to wear some flowers in your hair
@@ -3720,7 +3747,8 @@ Call me (Call me), I'll arrive
 [04:08.44]'Relax' said the night man,
 [04:10.84]'We are programmed to receive.
 [04:14.95]You can check out any time you like,
-[04:17.85]But you can never leave!'`,
+[04:17.85]But you can never leave!'
+[04:20.15]`,
     lrcRaw2: `[00:00.20](加州旅館 1976)
 [00:52.59]行駛在昏黑的荒漠公路上,涼風吹過我的頭髮
 [00:58.84]溫馨的大麻香，瀰漫在空氣中
@@ -3781,10 +3809,6 @@ Call me (Call me), I'll arrive
 [ar:The Everly Brothers]
 [au:Boudleaux Bryant]
 [length:02:20.14]
-[Motherland]
-[re:正義必勝]
-[re:正義必勝]
-
 [00:00.00]All I Have To Do Is Dream - The Everly Brothers
 
 [00:02.53]Dream, dream, dream, dream
