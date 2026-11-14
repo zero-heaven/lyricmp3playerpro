@@ -184,7 +184,7 @@
         <!-- Album Cover Image Frame -->
         <div class="relative w-full flex-1 rounded-xl overflow-hidden shadow-2xl border border-white/10 group flex items-center justify-center bg-black/40 my-auto min-h-0">
           <img id="art-cover" src="" alt="Album Cover" crossorigin="anonymous" class="w-full h-full object-contain transition-all duration-300">
-          <canvas id="smoke-canvas" class="absolute inset-0 w-full h-full pointer-events-none opacity-0 transition-opacity duration-700"></canvas>
+          <canvas id="smoke-canvas" class="absolute inset-0 w-full h-full pointer-events-none"></canvas>
           <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-all pointer-events-none"></div>
         </div>
 
@@ -391,13 +391,146 @@
     const btnTogglePhoto = document.getElementById('btn-toggle-photo');
     const iconTogglePhoto = document.getElementById('icon-toggle-photo');
     const labelTogglePhoto = document.getElementById('label-toggle-photo');
-
     const btnToggleFrosted = document.getElementById('btn-toggle-frosted');
+
     const btnToggleSmoke = document.getElementById('btn-toggle-smoke');
     const btnToggleDrops = document.getElementById('btn-toggle-drops');
     const btnToggleRain = document.getElementById('btn-toggle-rain');
     const btnToggleLava = document.getElementById('btn-toggle-lava');
     const btnToggleBlizzard = document.getElementById('btn-toggle-blizzard');
+
+    // Canvas Element References
+    const smokeCanvas = document.getElementById('smoke-canvas');
+    const smokeCtx = smokeCanvas ? smokeCanvas.getContext('2d') : null;
+    const canvasContainer = smokeCanvas ? smokeCanvas.parentElement : null;
+
+    let glassDrops = [];
+    function initGlassDrops() {
+      const currentWidth = smokeCanvas ? smokeCanvas.width : 300;
+      const currentHeight = smokeCanvas ? smokeCanvas.height : 300;
+      
+      glassDrops = Array.from({ length: 45 }, () => ({
+        x: Math.random() * currentWidth,
+        y: Math.random() * currentHeight,
+        radius: Math.random() * 2 + 1.5,
+        maxRadius: Math.random() * 3 + 4,
+        vy: 0,
+        isSliding: false,
+        slideDistance: 0,
+        trail: [],
+        alpha: Math.random() * 0.4 + 0.4
+      }));
+    }
+
+    function resizeEffectCanvas() {
+      if (!smokeCanvas || !canvasContainer) return;
+      const rect = canvasContainer.getBoundingClientRect();
+      
+      if (smokeCanvas.width !== rect.width || smokeCanvas.height !== rect.height) {
+        smokeCanvas.width = rect.width;
+        smokeCanvas.height = rect.height;
+        initGlassDrops();
+      }
+    }
+
+    if (canvasContainer) {
+      resizeEffectCanvas();
+      const resizeObserver = new ResizeObserver(() => {
+        resizeEffectCanvas();
+      });
+      resizeObserver.observe(canvasContainer);
+    }
+
+    const artState = {
+      isPhotoVisible: true,
+      isFrostedActive: false,
+      canvasEffects: {
+        smoke: false,
+        drops: false,
+        rain: false,
+        lava: false,
+        blizzard: false
+      }
+    };
+
+    const ACTIVE_CLASSES = ['bg-emerald-500/25', 'text-emerald-400', 'border-emerald-500/40'];
+    const INACTIVE_CLASSES = ['bg-slate-800', 'hover:bg-slate-700', 'text-slate-300', 'border-slate-700'];
+
+    function setButtonActiveStyle(btn, isActive) {
+      if (!btn) return;
+      if (isActive) {
+        btn.classList.remove(...INACTIVE_CLASSES);
+        btn.classList.add(...ACTIVE_CLASSES);
+      } else {
+        btn.classList.remove(...ACTIVE_CLASSES);
+        btn.classList.add(...INACTIVE_CLASSES);
+      }
+    }
+
+    function updateSmokeCanvasVisibility() {
+      if (!smokeCanvas) return;
+      const hasAnyActiveEffect = Object.values(artState.canvasEffects).some(Boolean);
+      smokeCanvas.style.opacity = hasAnyActiveEffect ? '1' : '0';
+    }
+
+    if (btnToggleDesktopControls && desktopArtControls) {
+      btnToggleDesktopControls.onclick = (e) => {
+        e.stopPropagation();
+        desktopArtControls.classList.toggle('hidden');
+      };
+      document.addEventListener('click', (e) => {
+        if (!desktopArtControls.contains(e.target) && !btnToggleDesktopControls.contains(e.target)) {
+          desktopArtControls.classList.add('hidden');
+        }
+      });
+    }
+
+    if (btnTogglePhoto) {
+      btnTogglePhoto.onclick = () => {
+        artState.isPhotoVisible = !artState.isPhotoVisible;
+        const visible = artState.isPhotoVisible;
+
+        artCover.style.display = visible ? 'block' : 'none';
+        iconTogglePhoto.className = visible ? 'fa-solid fa-eye text-xs mr-1.5' : 'fa-solid fa-eye-slash text-xs mr-1.5';
+        labelTogglePhoto.textContent = visible ? 'Hide Photo' : 'Show Photo';
+
+        btnTogglePhoto.classList.toggle('text-emerald-400', visible);
+        btnTogglePhoto.classList.toggle('text-slate-400', !visible);
+      };
+    }
+
+    if (btnToggleFrosted) {
+      btnToggleFrosted.onclick = () => {
+        artState.isFrostedActive = !artState.isFrostedActive;
+        artCover.style.filter = artState.isFrostedActive ? 'blur(16px) saturate(1.8)' : 'none';
+        setButtonActiveStyle(btnToggleFrosted, artState.isFrostedActive);
+      };
+    }
+
+    const effectButtonMap = {
+      smoke: document.getElementById('btn-toggle-smoke'),
+      drops: document.getElementById('btn-toggle-drops'),
+      rain: document.getElementById('btn-toggle-rain'),
+      lava: document.getElementById('btn-toggle-lava'),
+      blizzard: document.getElementById('btn-toggle-blizzard')
+    };
+
+    Object.entries(effectButtonMap).forEach(([effectKey, btn]) => {
+      if (!btn) return;
+      btn.onclick = () => {
+        const nextState = !artState.canvasEffects[effectKey];
+        artState.canvasEffects[effectKey] = nextState;
+
+        if (effectKey === 'smoke') isSmokeActive = nextState;
+        if (effectKey === 'drops') isDropsActive = nextState;
+        if (effectKey === 'rain') isRainActive = nextState;
+        if (effectKey === 'lava') isLavaActive = nextState;
+        if (effectKey === 'blizzard') isBlizzardActive = nextState;
+
+        updateSmokeCanvasVisibility();
+        setButtonActiveStyle(btn, nextState);
+      };
+    });
 
     const lyricContainer = document.getElementById('lyric-container');
     const lyricTitle = document.getElementById('lyric-title');
@@ -447,9 +580,6 @@
     const miniCanvas = document.getElementById('mini-visualizer-canvas');
     const miniCanvasCtx = miniCanvas ? miniCanvas.getContext('2d') : null;
 
-    const smokeCanvas = document.getElementById('smoke-canvas');
-    const smokeCtx = smokeCanvas ? smokeCanvas.getContext('2d') : null;
-
     let audioCtx = null;
     let analyser = null;
     let audioSourceNode = null;
@@ -487,19 +617,6 @@
       sampleY: Math.random()
     }));
 
-// 💧 擬真玻璃窗水珠：具備吸附、積水增重、臨界滑落與流痕狀態
-    const glassDrops = Array.from({ length: 35 }, () => ({
-      x: Math.random() * 300,
-      y: Math.random() * 300,
-      radius: Math.random() * 2 + 1.5, // 初始小水珠
-      maxRadius: Math.random() * 3 + 4, // 爆發滑落的臨界體積
-      vy: 0,                           // 當前流動速度
-      isSliding: false,                // 是否突破表面張力正在滑落
-      slideDistance: 0,                // 滑落距離計數
-      trail: [],                       // 留下的細微水痕
-      alpha: Math.random() * 0.4 + 0.4
-    }));
-
     const rainDrops = Array.from({ length: 40 }, () => ({
       x: Math.random() * 300, y: Math.random() * 300, len: Math.random() * 12 + 6, vy: Math.random() * 3 + 2, alpha: Math.random() * 0.6 + 0.2
     }));
@@ -533,106 +650,6 @@
       } catch (e) {
         return 'rgb(16, 185, 129)';
       }
-    }
-
-    // Toggle Art Controls Dropdown
-    if (btnToggleDesktopControls && desktopArtControls) {
-      btnToggleDesktopControls.onclick = (e) => {
-        e.stopPropagation();
-        desktopArtControls.classList.toggle('hidden');
-      };
-      document.addEventListener('click', (e) => {
-        if (!desktopArtControls.contains(e.target) && e.target !== btnToggleDesktopControls) {
-          desktopArtControls.classList.add('hidden');
-        }
-      });
-    }
-
-    // 1. Hide/Show Art Photo
-    if (btnTogglePhoto) {
-      btnTogglePhoto.onclick = () => {
-        isPhotoVisible = !isPhotoVisible;
-        if (isPhotoVisible) {
-          artCover.style.display = 'block';
-          iconTogglePhoto.className = 'fa-solid fa-eye text-xs mr-1.5';
-          labelTogglePhoto.textContent = 'Hide Photo';
-          btnTogglePhoto.className = 'w-full px-2.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-800 hover:bg-slate-700 text-emerald-400 border border-slate-700 transition-all flex items-center justify-between';
-        } else {
-          artCover.style.display = 'none';
-          iconTogglePhoto.className = 'fa-solid fa-eye-slash text-xs mr-1.5';
-          labelTogglePhoto.textContent = 'Show Photo';
-          btnTogglePhoto.className = 'w-full px-2.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-400 border border-slate-700 transition-all flex items-center justify-between';
-        }
-      };
-    }
-
-    // 2. Frosted Glass
-    if (btnToggleFrosted) {
-      btnToggleFrosted.onclick = () => {
-        isFrostedActive = !isFrostedActive;
-        if (isFrostedActive) {
-          artCover.style.filter = 'blur(16px) saturate(1.8)';
-          btnToggleFrosted.className = 'w-full px-2.5 py-1.5 text-xs font-semibold rounded-lg bg-emerald-500/25 text-emerald-400 border border-emerald-500/40 transition-all flex items-center justify-between';
-        } else {
-          artCover.style.filter = 'none';
-          btnToggleFrosted.className = 'w-full px-2.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition-all flex items-center justify-between';
-        }
-      };
-    }
-
-    // 3. Colorful Smoke
-    if (btnToggleSmoke) {
-      btnToggleSmoke.onclick = () => {
-        isSmokeActive = !isSmokeActive;
-        smokeCanvas.style.opacity = (isSmokeActive || isDropsActive || isRainActive || isLavaActive || isBlizzardActive) ? '1' : '0';
-        btnToggleSmoke.className = isSmokeActive 
-          ? 'w-full px-2.5 py-1.5 text-xs font-semibold rounded-lg bg-emerald-500/25 text-emerald-400 border border-emerald-500/40 transition-all flex items-center justify-between'
-          : 'w-full px-2.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition-all flex items-center justify-between';
-      };
-    }
-
-    // 4. Glass Drops
-    if (btnToggleDrops) {
-      btnToggleDrops.onclick = () => {
-        isDropsActive = !isDropsActive;
-        smokeCanvas.style.opacity = (isSmokeActive || isDropsActive || isRainActive || isLavaActive || isBlizzardActive) ? '1' : '0';
-        btnToggleDrops.className = isDropsActive 
-          ? 'w-full px-2.5 py-1.5 text-xs font-semibold rounded-lg bg-emerald-500/25 text-emerald-400 border border-emerald-500/40 transition-all flex items-center justify-between'
-          : 'w-full px-2.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition-all flex items-center justify-between';
-      };
-    }
-
-    // 5. Rain Drops
-    if (btnToggleRain) {
-      btnToggleRain.onclick = () => {
-        isRainActive = !isRainActive;
-        smokeCanvas.style.opacity = (isSmokeActive || isDropsActive || isRainActive || isLavaActive || isBlizzardActive) ? '1' : '0';
-        btnToggleRain.className = isRainActive 
-          ? 'w-full px-2.5 py-1.5 text-xs font-semibold rounded-lg bg-emerald-500/25 text-emerald-400 border border-emerald-500/40 transition-all flex items-center justify-between'
-          : 'w-full px-2.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition-all flex items-center justify-between';
-      };
-    }
-
-    // 6. Lava Flow
-    if (btnToggleLava) {
-      btnToggleLava.onclick = () => {
-        isLavaActive = !isLavaActive;
-        smokeCanvas.style.opacity = (isSmokeActive || isDropsActive || isRainActive || isLavaActive || isBlizzardActive) ? '1' : '0';
-        btnToggleLava.className = isLavaActive 
-          ? 'w-full px-2.5 py-1.5 text-xs font-semibold rounded-lg bg-emerald-500/25 text-emerald-400 border border-emerald-500/40 transition-all flex items-center justify-between'
-          : 'w-full px-2.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition-all flex items-center justify-between';
-      };
-    }
-
-    // 7. Blizzard
-    if (btnToggleBlizzard) {
-      btnToggleBlizzard.onclick = () => {
-        isBlizzardActive = !isBlizzardActive;
-        smokeCanvas.style.opacity = (isSmokeActive || isDropsActive || isRainActive || isLavaActive || isBlizzardActive) ? '1' : '0';
-        btnToggleBlizzard.className = isBlizzardActive 
-          ? 'w-full px-2.5 py-1.5 text-xs font-semibold rounded-lg bg-emerald-500/25 text-emerald-400 border border-emerald-500/40 transition-all flex items-center justify-between'
-          : 'w-full px-2.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition-all flex items-center justify-between';
-      };
     }
 
     function parseLRC(lrcString) {
@@ -1229,7 +1246,6 @@
           bassEnergy = 0.1;
         }
 
-        // Overlay Effects Rendering (Smoke, Drops, Rain, Lava, Blizzard)
         if ((isSmokeActive || isDropsActive || isRainActive || isLavaActive || isBlizzardActive) && smokeCtx && smokeCanvas) {
           const w = smokeCanvas.width = smokeCanvas.clientWidth || 300;
           const h = smokeCanvas.height = smokeCanvas.clientHeight || 300;
@@ -1263,42 +1279,34 @@
             });
           }
 
-// 💧 擬真玻璃窗凝結、增大、臨界滑落水滴效果
           if (isDropsActive) {
             smokeCtx.globalCompositeOperation = 'source-over';
             
             glassDrops.forEach(drop => {
-              // 1. 動態物理模擬：水珠在窗戶表面積累與滑落
               if (!drop.isSliding) {
-                // 靜態停留：緩慢吸附水汽增大（隨音樂低音節奏微幅加速凝結）
                 drop.radius += 0.003 + (bassEnergy * 0.005);
                 
-                // 達到臨界重量，突破表面張力開始滑落
                 if (drop.radius >= drop.maxRadius || Math.random() < 0.001) {
                   drop.isSliding = true;
-                  drop.vy = Math.random() * 1.5 + 1.0; // 靜摩擦力突破後的下滑速度
-                  drop.slideDistance = Math.random() * 40 + 20; // 隨機滑落一段距離後停下
+                  drop.vy = Math.random() * 1.5 + 1.0;
+                  drop.slideDistance = Math.random() * 40 + 20;
                 }
               } else {
-                // 動態滑落：向下流動並留下軌跡
                 drop.y += drop.vy + (bassEnergy * 1.2);
                 drop.slideDistance -= drop.vy;
                 
-                // 留下細小的尾跡水痕
                 if (Math.random() < 0.6) {
                   drop.trail.push({ x: drop.x + (Math.random() - 0.5) * 0.5, y: drop.y, r: drop.radius * 0.25, alpha: 0.3 });
                   if (drop.trail.length > 12) drop.trail.shift();
                 }
 
-                // 滑落後釋放質量（變小）並重新黏附在窗戶上
                 if (drop.slideDistance <= 0) {
                   drop.isSliding = false;
-                  drop.radius *= 0.55; // 滑落後剩餘水份
+                  drop.radius *= 0.55;
                   drop.vy = 0;
                 }
               }
 
-              // 超出窗戶底部時，於頂部重新生成新水珠
               if (drop.y > h + 10) {
                 drop.y = Math.random() * -20;
                 drop.x = Math.random() * w;
@@ -1307,7 +1315,6 @@
                 drop.trail = [];
               }
 
-              // 2. 繪製水珠留下的微弱水痕軌跡
               drop.trail.forEach(t => {
                 smokeCtx.beginPath();
                 smokeCtx.fillStyle = `rgba(255, 255, 255, ${t.alpha})`;
@@ -1315,31 +1322,24 @@
                 smokeCtx.fill();
               });
 
-              // 3. 繪製立體玻璃水珠本體（含反光、背光陰影與頂級高光）
               smokeCtx.save();
-              
-              // 背側柔和陰影（營造折射立體感）
               smokeCtx.shadowColor = 'rgba(0, 0, 0, 0.4)';
               smokeCtx.shadowBlur = drop.radius * 0.8;
               smokeCtx.shadowOffsetX = 0.5;
               smokeCtx.shadowOffsetY = 1;
 
-              // 水珠半透明基底
               smokeCtx.beginPath();
               smokeCtx.fillStyle = `rgba(220, 235, 255, ${drop.alpha * 0.35})`;
               smokeCtx.arc(drop.x, drop.y, drop.radius, 0, Math.PI * 2);
               smokeCtx.fill();
 
-              // 取消畫布陰影，專心繪製玻璃折射弧光
               smokeCtx.shadowColor = 'transparent';
 
-              // 頂部月牙型玻璃高光 (Glass Reflection Arc)
               smokeCtx.beginPath();
               smokeCtx.fillStyle = 'rgba(255, 255, 255, 0.85)';
               smokeCtx.arc(drop.x - drop.radius * 0.3, drop.y - drop.radius * 0.35, drop.radius * 0.32, 0, Math.PI * 2);
               smokeCtx.fill();
 
-              // 底部環境折射次高光
               smokeCtx.beginPath();
               smokeCtx.fillStyle = 'rgba(255, 255, 255, 0.35)';
               smokeCtx.arc(drop.x + drop.radius * 0.2, drop.y + drop.radius * 0.3, drop.radius * 0.25, 0, Math.PI * 2);
@@ -1397,7 +1397,6 @@
           }
         }
 
-        // 🔴 Mini Visualizer
         if (enableVisualizer && miniCanvasCtx && miniCanvas) {
           const mdpr = window.devicePixelRatio || 1;
           const mrect = miniCanvas.getBoundingClientRect();
@@ -1487,7 +1486,6 @@
           miniCanvasCtx.clearRect(0, 0, miniCanvas.width, miniCanvas.height);
         }
 
-        // 💻 Desktop Visualizer
         if (enableVisualizer) {
           if (canvasCtx && canvas) {
             const dpr = window.devicePixelRatio || 1;
